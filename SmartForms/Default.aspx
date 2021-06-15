@@ -3,9 +3,20 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
     <div class="jumbotron">
-        <h1>ASP.NET</h1>
-        <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-        <p><a href="http://www.asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+        <table style="width: 100%;">
+            <tr>
+                <td style="width: 150px; vertical-align: top">
+                    <asp:Image ID="Image1" runat="server" ImageUrl="~/Images/Transparent PNG CBC Logo 150px.png" />
+                </td>
+                <td style="vertical-align: top">
+                    <h1>pbs Smart Forms</h1>
+                </td>
+                <td style="vertical-align: top">
+
+                </td>
+            </tr>
+        </table>
+
     </div>
 
     <div class="row">
@@ -20,7 +31,7 @@
             </p>
         </div>
         <div class="col-md-4">
-            <h2>Get more libraries</h2>
+            <h2>General Forms and Contracts</h2>
             <p>
                 NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.
             </p>
@@ -29,12 +40,11 @@
             </p>
         </div>
         <div class="col-md-4">
-            <h2>Web Hosting</h2>
+            <h2>Fintrac</h2>
             <p>
-                You can easily find a web hosting company that offers the right mix of features and price for your applications.
-            </p>
+                New rules and processes around Fintrac make it more than a Smart Form but a full DMS (Document Managment System) that brokerages and agents are required to maintain.. </p>
             <p>
-                <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301950">Learn more &raquo;</a>
+                <asp:LinkButton ID="lbFintracDashboard" runat="server" PostBackUrl="~/Web/FintracDashboard.aspx">Fintrac Dashboard</asp:LinkButton>
             </p>
         </div>
     </div>
