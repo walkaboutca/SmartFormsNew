@@ -14,11 +14,20 @@ Option Explicit On
 Partial Public Class FintracDashboard
 
     '''<summary>
-    '''rcbForm control.
+    '''rbFintracForms control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents rcbForm As Global.Telerik.Web.UI.RadComboBox
+    Protected WithEvents rbFintracForms As Global.Telerik.Web.UI.RadButton
+
+    '''<summary>
+    '''rbFintracProperty control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents rbFintracProperty As Global.Telerik.Web.UI.RadButton
 End Class

@@ -11,7 +11,16 @@ Option Strict On
 Option Explicit On
 
 
-Partial Public Class FintracForms
+Partial Public Class PropertyFintrac
+
+    '''<summary>
+    '''panelNewCard control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents panelNewCard As Global.System.Web.UI.WebControls.Panel
 
     '''<summary>
     '''rcbForm control.
@@ -21,6 +30,33 @@ Partial Public Class FintracForms
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents rcbForm As Global.Telerik.Web.UI.RadComboBox
+
+    '''<summary>
+    '''rtbMLS control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents rtbMLS As Global.Telerik.Web.UI.RadTextBox
+
+    '''<summary>
+    '''lbSearchDDF control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lbSearchDDF As Global.System.Web.UI.WebControls.LinkButton
+
+    '''<summary>
+    '''rtbPropertyAddress control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents rtbPropertyAddress As Global.Telerik.Web.UI.RadTextBox
 
     '''<summary>
     '''rtbFileTitle control.
@@ -41,40 +77,31 @@ Partial Public Class FintracForms
     Protected WithEvents rtbAgentName As Global.Telerik.Web.UI.RadTextBox
 
     '''<summary>
-    '''rbLoadPdf control.
+    '''lbNewRecord control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents rbLoadPdf As Global.Telerik.Web.UI.RadButton
+    Protected WithEvents lbNewRecord As Global.System.Web.UI.WebControls.LinkButton
 
     '''<summary>
-    '''rcbSelected control.
+    '''rgFieldList control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents rcbSelected As Global.Telerik.Web.UI.RadCheckBox
+    Protected WithEvents rgFieldList As Global.Telerik.Web.UI.RadGrid
 
     '''<summary>
-    '''rgvDefinitions control.
+    '''sqlFieldDataList control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents rgvDefinitions As Global.Telerik.Web.UI.RadGrid
-
-    '''<summary>
-    '''odsDefinitions control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents odsDefinitions As Global.System.Web.UI.WebControls.ObjectDataSource
+    Protected WithEvents sqlFieldDataList As Global.System.Web.UI.WebControls.SqlDataSource
 
     '''<summary>
     '''RadPdfViewer1 control.
@@ -84,13 +111,4 @@ Partial Public Class FintracForms
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents RadPdfViewer1 As Global.Telerik.Web.UI.RadPdfViewer
-
-    '''<summary>
-    '''hfSelected control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents hfSelected As Global.System.Web.UI.WebControls.HiddenField
 End Class
