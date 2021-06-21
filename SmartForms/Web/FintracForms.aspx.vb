@@ -64,6 +64,19 @@ Public Class FintracForms
         Dim form As PdfAcroForm = PdfAcroForm.GetAcroForm(pdfDoc, True)
         Dim fields As IDictionary(Of String, PdfFormField) = form.GetFormFields()
 
+        Dim pdfFields As IDictionary(Of String, PdfFormField) = fields
+        Dim pdfToggleButtonFields As IDictionary(Of String, PdfFormField) = GetPdfToggleButtonFields(pdfFields)
+        Dim fieldValue As Object = Nothing
+
+        For Each field As KeyValuePair(Of String, PdfFormField) In pdfToggleButtonFields
+            fieldValue = (TryCast(field.Value.GetValue(), PdfName)).GetValue()
+        Next
+
+
+
+
+
+
         Dim sourceformname As String = rtbFileTitle.Text
 
         Dim ds As New CanadaDataTableAdapters.QueriesTA
@@ -71,14 +84,24 @@ Public Class FintracForms
 
         For Each iKey As String In fields.Keys
 
+
+
+
             Dim field = form.GetField(iKey)
 
             If field.[GetType]() = GetType(PdfButtonFormField) Then
                 'field.SetCheckType(PdfFormField.TYPE_CHECK)
                 'field.SetValue("Yes", True)
             End If
+            If iKey.ToString = "chkOpt_CRA" Then
 
-            dt.Rows.Add(Nothing, sourceformname, Nothing, Nothing, Nothing, iKey.ToString, Nothing, field.GetValueAsString, scr, 1)
+                Dim i As Integer = 0
+
+
+            End If
+
+            dt.Rows.Add(Nothing, sourceformname, Nothing, Nothing, Nothing, iKey.ToString, field.[GetType]().Name, field.GetValueAsString, scr, 1)
+
         Next
 
         Dim consString As String = ConfigurationManager.ConnectionStrings("canadaData").ConnectionString
@@ -108,6 +131,30 @@ Public Class FintracForms
 
 
     End Sub
+
+    'Public Function GetPdfFields() As IDictionary(Of String, PdfFormField)
+    '    Try
+    '        Dim pdfAcroForm As PdfAcroForm = pdfAcroForm.GetAcroForm(PdfDoc, False)
+    '        Return pdfAcroForm.GetFormFields()
+    '    Catch ex As Exception
+    '        Return Nothing
+    '    End Try
+    'End Function
+
+    Public Function GetPdfToggleButtonFields(ByVal pdfFields As IDictionary(Of String, PdfFormField)) As IDictionary(Of String, PdfFormField)
+        Dim pdfToggleButtonsFields As Dictionary(Of String, PdfFormField) = New Dictionary(Of String, PdfFormField)()
+        Try
+            For Each field As KeyValuePair(Of String, PdfFormField) In pdfFields
+                If (TypeOf field.Value Is PdfButtonFormField) AndAlso ((TryCast(field.Value, PdfButtonFormField)).IsToggleOff()) Then pdfToggleButtonsFields.Add(field.Key, field.Value)
+            Next
+            Return pdfToggleButtonsFields
+        Catch
+            Return Nothing
+        End Try
+    End Function
+
+
+
     Public Sub fillForm(scr As String)
 
         Dim CurrentUserId As Guid = Guid.Parse(Me.Page.User.Identity.GetUserId())
@@ -193,33 +240,44 @@ Public Class FintracForms
                 Dim testdata = row.Item("FormFieldTestData").ToString
                 Dim field = form.GetField(row.Item("FormField").ToString)
 
-                If row.Item("FormField").ToString = "chkOpt_CRA.1" Then
-
-                    Dim i As Integer = 0
-
+                If row.Item("FormField").ToString = "chkOpt_CRA" Then
+                    Dim typ As Object = field.GetType
+                    'field.GetAppearanceStates("checkbox")
+                    field.SetValue(testdata)
 
                 End If
+                'If row.Item("FormField").ToString = "chkOpt_CRA.1" Then
+                '    'field.GetAppearanceStates("checkbox")
+                '    field.SetValue("0")
+                'End If
+                'If row.Item("FormField").ToString = "chkOpt_CRA.2" Then
+                '    'field.GetAppearanceStates("checkbox")
+                '    field.SetValue("0")
+                'End If
 
-                If field.[GetType]() = GetType(PdfTextFormField) Then
-                    field.SetValue(testdata, True)
-                ElseIf field.[GetType]() = GetType(PdfButtonFormField) Then
-                    field.SetCheckType(PdfFormField.TYPE_CHECK)
-                    If testdata = "X" Then
-                        field.SetValue("Yes", True)
-                    Else
-                        field.SetValue("Off", True)
-                    End If
-                ElseIf field.[GetType]() = GetType(PdfFormField) Then
-                    field.SetCheckType(PdfFormField.TYPE_SQUARE)
-                    If testdata = "X" Then
-                        field.SetValue("Yes", True)
-                    Else
-                        field.SetValue("Off", True)
-                    End If
-                Else
-                        field.SetValue(testdata)
-                    End If
-                End If
+
+
+                'If field.[GetType]() = GetType(PdfTextFormField) And field.GetAppearanceStates.Count > 1 Then
+                '    field.SetValue(testdata, True)
+                'ElseIf field.[GetType]() = GetType(PdfButtonFormField) And field.GetAppearanceStates.Count > 1 Then
+                '    'field.SetCheckType(PdfFormField.TYPE_CROSS)
+                '    If testdata = "X" Then
+                '        field.SetValue(field.GetAppearanceStates(0))
+                '    Else
+                '        field.SetValue(field.GetAppearanceStates(1))
+                '    End If
+                'ElseIf field.[GetType]() = GetType(PdfFormField) And field.GetAppearanceStates.Count > 1 Then
+                '    'field.SetCheckType(PdfFormField.TYPE_CROSS)
+                '    If testdata = "X" Then
+                '        field.SetValue(field.GetAppearanceStates(0))
+                '    Else
+                '        field.SetValue(field.GetAppearanceStates(1))
+                '    End If
+                'Else
+                '    field.SetValue(testdata)
+                '    End If
+            End If
+
 
         Next
 
@@ -270,6 +328,8 @@ Public Class FintracForms
 
 
     End Sub
+
+
 
 
 End Class
