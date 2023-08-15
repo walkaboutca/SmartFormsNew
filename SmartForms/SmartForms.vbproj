@@ -46,8 +46,8 @@
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="BouncyCastle.Crypto, Version=1.8.9.0, Culture=neutral, PublicKeyToken=0e99375e54769942, processorArchitecture=MSIL">
-      <HintPath>..\packages\Portable.BouncyCastle.1.8.9\lib\net40\BouncyCastle.Crypto.dll</HintPath>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.9.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
+      <HintPath>..\packages\BouncyCastle.1.8.9\lib\BouncyCastle.Crypto.dll</HintPath>
     </Reference>
     <Reference Include="Common.Logging, Version=3.4.1.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
       <HintPath>..\packages\Common.Logging.3.4.1\lib\net40\Common.Logging.dll</HintPath>
@@ -81,6 +81,9 @@
     </Reference>
     <Reference Include="itext.svg, Version=7.1.15.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
       <HintPath>..\packages\itext7.7.1.15\lib\net45\itext.svg.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp, Version=5.5.13.3, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\iTextSharp.5.5.13.3\lib\itextsharp.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
@@ -326,6 +329,7 @@
     <Content Include="App_Data\RadCaptcha\X.wav" />
     <Content Include="App_Data\RadCaptcha\Y.wav" />
     <Content Include="App_Data\RadCaptcha\Z.wav" />
+    <Content Include="ClientSizeDetector.ascx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -355,6 +359,8 @@
     <Content Include="Forms\Politically Exposed Person_Head of International Organization Checklist_Record.pdf" />
     <Content Include="Forms\Receipt Of Funds Record.pdf" />
     <Content Include="Forms\Risk Assessment Form.pdf" />
+    <Content Include="Images\SmartForms_Bar_Trans.png" />
+    <Content Include="Web\FintracWizard.aspx" />
     <Content Include="Web\PropertyFintrac.aspx" />
     <Content Include="Classes\AzureData.xsc">
       <DependentUpon>AzureData.xsd</DependentUpon>
@@ -378,6 +384,13 @@
     <Content Include="Classes\CanadaData.xss">
       <DependentUpon>CanadaData.xsd</DependentUpon>
     </Content>
+    <Content Include="Forms\FINTRAC\FINTRAC - Beneficial Ownership Record - %28CREA%29.pdf" />
+    <Content Include="Forms\FINTRAC\FINTRAC - Corporation Entity Identification Information Record - %28CREA%29.pdf" />
+    <Content Include="Forms\FINTRAC\FINTRAC - Identification Mandatary Agent Agreement - %28CREA%29.pdf" />
+    <Content Include="Forms\FINTRAC\FINTRAC - Individual Identification Information Record - %28CREA%29 %281%29.pdf" />
+    <Content Include="Forms\FINTRAC\FINTRAC - Politically Exposed Person_Head of International Organization Checklist_Record - %28CREA%29.pdf" />
+    <Content Include="Forms\FINTRAC\FINTRAC - Receipt Of Funds Record - %28CREA%29.pdf" />
+    <Content Include="Forms\FINTRAC\FINTRAC - Risk Assessment Form - %28CREA%29.pdf" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Images\SmartForms_Bar.png" />
     <Content Include="Images\Transparent PNG CBC Logo 150px.png" />
@@ -547,6 +560,13 @@
     <Compile Include="Classes\CanadaData.vb">
       <DependentUpon>CanadaData.xsd</DependentUpon>
     </Compile>
+    <Compile Include="ClientSizeDetector.ascx.designer.vb">
+      <DependentUpon>ClientSizeDetector.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="ClientSizeDetector.ascx.vb">
+      <DependentUpon>ClientSizeDetector.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="Contact.aspx.designer.vb">
       <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
@@ -627,6 +647,13 @@
       <DependentUpon>FintracForms.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
+    <Compile Include="Web\FintracWizard.aspx.designer.vb">
+      <DependentUpon>FintracWizard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web\FintracWizard.aspx.vb">
+      <DependentUpon>FintracWizard.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
     <Compile Include="Web\forms.Master.designer.vb">
       <DependentUpon>forms.Master</DependentUpon>
     </Compile>
@@ -674,9 +701,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Forms\FINTRAC\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
@@ -712,7 +737,7 @@
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
-      <UserProperties UseAjaxifiedTemplates="True" UseJQuerySupport="True" />
+      <UserProperties UseJQuerySupport="True" UseAjaxifiedTemplates="True" />
     </VisualStudio>
   </ProjectExtensions>
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

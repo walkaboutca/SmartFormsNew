@@ -6,10 +6,10 @@
         <table style="width: 100%;">
             <tr>
                 <td style="width: 150px; vertical-align: top">
-                    <asp:Image ID="Image1" runat="server" ImageUrl="~/Images/Transparent PNG CBC Logo 150px.png" />
+                    <asp:Image ID="Image1" runat="server" ImageUrl="~/Images/SmartForms_Bar_Trans.png" />
                 </td>
                 <td style="vertical-align: top">
-                    <h1>pbs Smart Forms</h1>
+                   <%-- <h1>pbs Smart Forms</h1>--%>
                 </td>
                 <td style="vertical-align: top">
 
@@ -18,7 +18,7 @@
         </table>
 
     </div>
-
+   
     <div class="row">
         <div class="col-md-4">
             <h2>Getting Started</h2>

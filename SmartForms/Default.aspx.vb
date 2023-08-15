@@ -6,7 +6,8 @@ Public Class _Default
 
         If User.Identity.IsAuthenticated Then
 
-            Response.Redirect("Web/FintracForms.aspx")
+            Response.Redirect("~/Web/FintracWizard.aspx", True)
+
 
         End If
 

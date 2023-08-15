@@ -14,22 +14,13 @@ Option Explicit On
 Partial Public Class forms
 
     '''<summary>
-    '''head control.
+    '''ClientSizeDetector control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents head As Global.System.Web.UI.WebControls.ContentPlaceHolder
-
-    '''<summary>
-    '''RadScriptManagerContent control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents RadScriptManagerContent As Global.Telerik.Web.UI.RadScriptManager
+    Protected WithEvents ClientSizeDetector As Global.SmartForms.ClientSizeDetector
 
     '''<summary>
     '''MainContent control.

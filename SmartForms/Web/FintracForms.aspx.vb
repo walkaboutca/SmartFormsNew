@@ -19,8 +19,6 @@ Public Class FintracForms
     Private pdfTargetForm As PdfAcroForm
     Private pdfTargetfields As IDictionary(Of String, PdfFormField)
 
-
-
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         If Not User.Identity.IsAuthenticated Then
             Response.Redirect("~/default.aspx", True)
@@ -32,7 +30,6 @@ Public Class FintracForms
         Else
             hfSelected.Value = 1
         End If
-
 
     End Sub
     Protected Sub rbLoadPdf_Click(sender As Object, e As EventArgs) Handles rbLoadPdf.Click
@@ -72,20 +69,12 @@ Public Class FintracForms
             fieldValue = (TryCast(field.Value.GetValue(), PdfName)).GetValue()
         Next
 
-
-
-
-
-
         Dim sourceformname As String = rtbFileTitle.Text
 
         Dim ds As New CanadaDataTableAdapters.QueriesTA
         ds.delFormDefinitions(sourceformname)
 
         For Each iKey As String In fields.Keys
-
-
-
 
             Dim field = form.GetField(iKey)
 
