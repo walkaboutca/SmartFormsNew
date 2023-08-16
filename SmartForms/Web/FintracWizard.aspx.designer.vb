@@ -21,4 +21,58 @@ Partial Public Class FintracWizard
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents rwFintrac As Global.Telerik.Web.UI.RadWizard
+
+    '''<summary>
+    '''stepTitle control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents stepTitle As Global.Telerik.Web.UI.RadWizardStep
+
+    '''<summary>
+    '''Image1 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents Image1 As Global.System.Web.UI.WebControls.Image
+
+    '''<summary>
+    '''rgvOwners control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents rgvOwners As Global.Telerik.Web.UI.RadGrid
+
+    '''<summary>
+    '''rblFormType control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents rblFormType As Global.Telerik.Web.UI.RadRadioButtonList
+
+    '''<summary>
+    '''stepWebForm control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents stepWebForm As Global.Telerik.Web.UI.RadWizardStep
+
+    '''<summary>
+    '''RadWizardStep3 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents RadWizardStep3 As Global.Telerik.Web.UI.RadWizardStep
 End Class

@@ -11,8 +11,10 @@
 <head runat="server">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><%: Page.Title %> - pbs Smart Forms</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
+    <title><%: Page.Title %> - pbs Smart Forms</title>
+   
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
     </asp:PlaceHolder>
