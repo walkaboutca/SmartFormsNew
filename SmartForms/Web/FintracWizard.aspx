@@ -10,6 +10,7 @@
                     <asp:Image ID="Image1" runat="server" ImageUrl="~/Images/2023-08-16_6-29-12.png" Width="90%" />
                 </div>
                 <div class="w3-half w3-container w3-padding-small">
+                    <telerik:RadLabel ID="rlErrorMsg" runat="server" ForeColor="#CC0000" RenderMode="Lightweight" Visible="False"></telerik:RadLabel>
                     <p style="font-weight: bold">TITLE</p>
                     <p>All titles look a little different. The 'Registered Owners' section describes the Legal Owner(s) Names and must be precisely recorded to start!</p>
                     <telerik:RadGrid RenderMode="Lightweight" ID="rgvOwners" runat="server" 
@@ -49,24 +50,28 @@
                     </telerik:RadGrid>
                     <P></P>
                     <div class="w3-card">
-                        <telerik:RadRadioButtonList ID="rblFormType" runat="server">
-                            <Items>
-                                <telerik:ButtonListItem Text="Sole Owner" Value="SoleOwner" />
-                                <telerik:ButtonListItem Text="Joint Tenants" Value="JointTenants" />
-                                <telerik:ButtonListItem Text="Tenants in Common" Value="TenantsCommon" />
-                                <telerik:ButtonListItem Text="Corporate Owner(s)" Value="CorporateOwner" />
-                                <telerik:ButtonListItem Text="Foreign Owner(s)" Value="ForeignOwner" />
-                            </Items>
+                        <telerik:RadRadioButtonList ID="rblFormType" runat="server" AutoPostBack="False" DataSourceID="sqlFormTypes" Layout="OrderedList" Columns="1">
+
+                            <DataBindings DataTextField="DisplayName" DataValueField="HashCode" />
+
                         </telerik:RadRadioButtonList>
+                        
                     </div>
                 </div>
             </telerik:RadWizardStep>
             <telerik:RadWizardStep ID="stepWebForm" runat="server" Title="Web Form">
                 <div class="w3-twothird w3-container w3-padding-small">
-                   
+                   <%-- <telerik:RadGrid ID="rgvSmartData" runat="server"></telerik:RadGrid>--%>
+
+
                 </div>
                 <div class="w3-third w3-container w3-padding-small">
                     If you have a WebForm(c) Fillable PDF Fintrac DROP it here and we will try and load the details!
+                         <telerik:RadAsyncUpload ID="async_Fintrac" runat="server" Font-Size="X-Small" HideFileInput="True" RenderMode="Lightweight" UploadedFilesRendering="BelowFileInput"
+                             Localization-Select="Drop FINTRAC Here">
+                         </telerik:RadAsyncUpload>
+
+                    <asp:Button ID="Button1" runat="server" Text="Button" />
 
                 </div>
             </telerik:RadWizardStep>
@@ -74,5 +79,11 @@
             </telerik:RadWizardStep>
         </WizardSteps>
     </telerik:RadWizard>
+   
+    <telerik:RadWindow ID="windowViewer" runat="server" 
+        NavigateUrl="~/Web/pdfFintracViewer.aspx" DestroyOnClose="True" KeepInScreenBounds="True" Modal="True" RenderMode="Lightweight"></telerik:RadWindow>
+
+
+    <asp:SqlDataSource ID="sqlFormTypes" runat="server" ConnectionString="<%$ ConnectionStrings:smartData %>" SelectCommand="SELECT DISTINCT [HashCode], [DisplayName] FROM [dbo].[forms_Catalog] ORDER BY [DisplayName]"></asp:SqlDataSource>
 
 </asp:Content>

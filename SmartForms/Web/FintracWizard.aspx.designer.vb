@@ -41,6 +41,15 @@ Partial Public Class FintracWizard
     Protected WithEvents Image1 As Global.System.Web.UI.WebControls.Image
 
     '''<summary>
+    '''rlErrorMsg control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents rlErrorMsg As Global.Telerik.Web.UI.RadLabel
+
+    '''<summary>
     '''rgvOwners control.
     '''</summary>
     '''<remarks>
@@ -68,6 +77,24 @@ Partial Public Class FintracWizard
     Protected WithEvents stepWebForm As Global.Telerik.Web.UI.RadWizardStep
 
     '''<summary>
+    '''async_Fintrac control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents async_Fintrac As Global.Telerik.Web.UI.RadAsyncUpload
+
+    '''<summary>
+    '''Button1 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents Button1 As Global.System.Web.UI.WebControls.Button
+
+    '''<summary>
     '''RadWizardStep3 control.
     '''</summary>
     '''<remarks>
@@ -75,4 +102,22 @@ Partial Public Class FintracWizard
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents RadWizardStep3 As Global.Telerik.Web.UI.RadWizardStep
+
+    '''<summary>
+    '''windowViewer control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents windowViewer As Global.Telerik.Web.UI.RadWindow
+
+    '''<summary>
+    '''sqlFormTypes control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents sqlFormTypes As Global.System.Web.UI.WebControls.SqlDataSource
 End Class

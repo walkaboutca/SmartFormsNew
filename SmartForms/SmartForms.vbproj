@@ -82,9 +82,6 @@
     <Reference Include="itext.svg, Version=7.1.15.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
       <HintPath>..\packages\itext7.7.1.15\lib\net45\itext.svg.dll</HintPath>
     </Reference>
-    <Reference Include="itextsharp, Version=5.5.13.3, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
-      <HintPath>..\packages\iTextSharp.5.5.13.3\lib\itextsharp.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -124,64 +121,56 @@
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="Telerik.Web.Design, Version=2021.2.511.45, Culture=neutral, PublicKeyToken=121fae78165ba3d4, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\lib\RCAJAX\2021.2.511.45\Telerik.Web.Design.dll</HintPath>
+    <Reference Include="Telerik.Web.Design">
+      <HintPath>..\lib\RCAJAX\2022.3.1109.45\Telerik.Web.Design.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Telerik.Web.Spreadsheet, Version=2021.2.511.40, Culture=neutral, PublicKeyToken=121fae78165ba3d4, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\lib\RCAJAX\2021.2.511.45\AdditionalLibraries\Bin45\Telerik.Web.Spreadsheet.dll</HintPath>
+    <Reference Include="Telerik.Web.Spreadsheet">
+      <HintPath>..\lib\RCAJAX\2022.3.1109.45\AdditionalLibraries\Bin45\Telerik.Web.Spreadsheet.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Telerik.Web.UI, Version=2021.2.511.45, Culture=neutral, PublicKeyToken=121fae78165ba3d4, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\lib\RCAJAX\2021.2.511.45\Telerik.Web.UI.dll</HintPath>
+    <Reference Include="Telerik.Web.UI">
+      <HintPath>..\lib\RCAJAX\2022.3.1109.45\Telerik.Web.UI.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Telerik.Web.UI.Skins, Version=2021.2.511.45, Culture=neutral, PublicKeyToken=121fae78165ba3d4, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\lib\RCAJAX\2021.2.511.45\Telerik.Web.UI.Skins.dll</HintPath>
+    <Reference Include="Telerik.Web.UI.Skins">
+      <HintPath>..\lib\RCAJAX\2022.3.1109.45\Telerik.Web.UI.Skins.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Telerik.Windows.Documents.CMapUtils, Version=2021.2.507.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\lib\RCAJAX\2021.2.511.45\AdditionalLibraries\Bin45\Telerik.Windows.Documents.CMapUtils.dll</HintPath>
+    <Reference Include="Telerik.Windows.Documents.CMapUtils, Version=2022.3.1108.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <HintPath>..\lib\RCAJAX\2022.3.1109.45\AdditionalLibraries\Bin45\Telerik.Windows.Documents.CMapUtils.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Telerik.Windows.Documents.Core, Version=2021.2.507.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\lib\RCAJAX\2021.2.511.45\AdditionalLibraries\Bin45\Telerik.Windows.Documents.Core.dll</HintPath>
+    <Reference Include="Telerik.Windows.Documents.Core, Version=2022.3.1108.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <HintPath>..\lib\RCAJAX\2022.3.1109.45\AdditionalLibraries\Bin45\Telerik.Windows.Documents.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Telerik.Windows.Documents.Fixed, Version=2021.2.507.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\lib\RCAJAX\2021.2.511.45\AdditionalLibraries\Bin45\Telerik.Windows.Documents.Fixed.dll</HintPath>
+    <Reference Include="Telerik.Windows.Documents.DrawingML, Version=2022.3.1108.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <HintPath>..\lib\RCAJAX\2022.3.1109.45\AdditionalLibraries\Bin45\Telerik.Windows.Documents.DrawingML.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Telerik.Windows.Documents.Flow, Version=2021.2.507.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\lib\RCAJAX\2021.2.511.45\AdditionalLibraries\Bin45\Telerik.Windows.Documents.Flow.dll</HintPath>
+    <Reference Include="Telerik.Windows.Documents.Fixed, Version=2022.3.1108.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <HintPath>..\lib\RCAJAX\2022.3.1109.45\AdditionalLibraries\Bin45\Telerik.Windows.Documents.Fixed.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Telerik.Windows.Documents.Flow.FormatProviders.Pdf, Version=2021.2.507.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\lib\RCAJAX\2021.2.511.45\AdditionalLibraries\Bin45\Telerik.Windows.Documents.Flow.FormatProviders.Pdf.dll</HintPath>
+    <Reference Include="Telerik.Windows.Documents.Flow, Version=2022.3.1108.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <HintPath>..\lib\RCAJAX\2022.3.1109.45\AdditionalLibraries\Bin45\Telerik.Windows.Documents.Flow.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Telerik.Windows.Documents.Spreadsheet, Version=2021.2.507.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\lib\RCAJAX\2021.2.511.45\AdditionalLibraries\Bin45\Telerik.Windows.Documents.Spreadsheet.dll</HintPath>
+    <Reference Include="Telerik.Windows.Documents.Flow.FormatProviders.Pdf, Version=2022.3.1108.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <HintPath>..\lib\RCAJAX\2022.3.1109.45\AdditionalLibraries\Bin45\Telerik.Windows.Documents.Flow.FormatProviders.Pdf.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Telerik.Windows.Documents.Spreadsheet.FormatProviders.OpenXml, Version=2021.2.507.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\lib\RCAJAX\2021.2.511.45\AdditionalLibraries\Bin45\Telerik.Windows.Documents.Spreadsheet.FormatProviders.OpenXml.dll</HintPath>
+    <Reference Include="Telerik.Windows.Documents.Spreadsheet, Version=2022.3.1108.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <HintPath>..\lib\RCAJAX\2022.3.1109.45\AdditionalLibraries\Bin45\Telerik.Windows.Documents.Spreadsheet.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Telerik.Windows.Zip, Version=2021.2.507.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\lib\RCAJAX\2021.2.511.45\AdditionalLibraries\Bin45\Telerik.Windows.Zip.dll</HintPath>
+    <Reference Include="Telerik.Windows.Documents.Spreadsheet.FormatProviders.OpenXml, Version=2022.3.1108.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <HintPath>..\lib\RCAJAX\2022.3.1109.45\AdditionalLibraries\Bin45\Telerik.Windows.Documents.Spreadsheet.FormatProviders.OpenXml.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Windows.Zip, Version=2022.3.1108.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <HintPath>..\lib\RCAJAX\2022.3.1109.45\AdditionalLibraries\Bin45\Telerik.Windows.Zip.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="WebGrease">
@@ -360,39 +349,46 @@
     <Content Include="Forms\Receipt Of Funds Record.pdf" />
     <Content Include="Forms\Risk Assessment Form.pdf" />
     <Content Include="Images\2023-08-16_6-29-12.png" />
+    <Content Include="Images\2023-08-19_14-01-52.png" />
+    <Content Include="Images\2023-08-19_14-02-30.png" />
+    <Content Include="Images\giphy.gif" />
+    <Content Include="Images\Green.png" />
     <Content Include="Images\IMG_0765.PNG" />
+    <Content Include="Images\Open.png" />
+    <Content Include="Images\pdf_Green_Icon.png" />
+    <Content Include="Images\QuestionMark.png" />
+    <Content Include="Images\Red.png" />
     <Content Include="Images\SmartForms_Bar_Trans.png" />
+    <Content Include="Images\SmartForms_Logo.png" />
+    <Content Include="Search.html" />
+    <Content Include="Web\Controls\uc_885326974.ascx" />
+    <Content Include="Web\Controls\uc_FormBuilder.ascx" />
     <Content Include="Web\FintracWizard.aspx" />
-    <Content Include="Web\PropertyFintrac.aspx" />
-    <Content Include="Classes\AzureData.xsc">
-      <DependentUpon>AzureData.xsd</DependentUpon>
+    <Content Include="Forms\FINTRAC\542536589.pdf" />
+    <Content Include="Forms\FINTRAC\853698754.pdf" />
+    <Content Include="Forms\FINTRAC\632598741.pdf" />
+    <Content Include="Forms\FINTRAC\885326974.pdf" />
+    <Content Include="Forms\FINTRAC\237896548.pdf" />
+    <Content Include="Forms\FINTRAC\556973215.pdf" />
+    <Content Include="Forms\FINTRAC\236589754.pdf" />
+    <Content Include="Classes\smartData.xsc">
+      <DependentUpon>smartData.xsd</DependentUpon>
     </Content>
-    <None Include="Classes\AzureData.xsd">
+    <Content Include="Web\pdfFintracViewer.aspx" />
+    <Content Include="Web\SearchEngine.aspx" />
+    <None Include="Classes\smartData.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>AzureData.Designer.vb</LastGenOutput>
+      <LastGenOutput>smartData.Designer.vb</LastGenOutput>
     </None>
-    <Content Include="Classes\AzureData.xss">
-      <DependentUpon>AzureData.xsd</DependentUpon>
+    <Content Include="Classes\smartData.xss">
+      <DependentUpon>smartData.xsd</DependentUpon>
     </Content>
-    <Content Include="Classes\CanadaData.xsc">
-      <DependentUpon>CanadaData.xsd</DependentUpon>
-    </Content>
-    <None Include="Classes\CanadaData.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>CanadaData.Designer.vb</LastGenOutput>
-    </None>
-    <Content Include="Classes\CanadaData.xss">
-      <DependentUpon>CanadaData.xsd</DependentUpon>
-    </Content>
-    <Content Include="Forms\FINTRAC\FINTRAC - Beneficial Ownership Record - %28CREA%29.pdf" />
-    <Content Include="Forms\FINTRAC\FINTRAC - Corporation Entity Identification Information Record - %28CREA%29.pdf" />
-    <Content Include="Forms\FINTRAC\FINTRAC - Identification Mandatary Agent Agreement - %28CREA%29.pdf" />
-    <Content Include="Forms\FINTRAC\FINTRAC - Individual Identification Information Record - %28CREA%29 %281%29.pdf" />
-    <Content Include="Forms\FINTRAC\FINTRAC - Politically Exposed Person_Head of International Organization Checklist_Record - %28CREA%29.pdf" />
-    <Content Include="Forms\FINTRAC\FINTRAC - Receipt Of Funds Record - %28CREA%29.pdf" />
-    <Content Include="Forms\FINTRAC\FINTRAC - Risk Assessment Form - %28CREA%29.pdf" />
+    <Content Include="Forms\MLSLink - Attached Data Input Form.pdf" />
+    <Content Include="Forms\MLSLink - Detached Data Input Form.pdf" />
+    <Content Include="Images\04-07-28-574_512.webp" />
+    <Content Include="Images\14-40-53-72_512.webp" />
+    <Content Include="Images\17-17-42-929_512.webp" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Images\SmartForms_Bar.png" />
     <Content Include="Images\Transparent PNG CBC Logo 150px.png" />
@@ -429,7 +425,6 @@
     <Content Include="Bundle.config" />
     <Content Include="Web\FillableForms.aspx" />
     <Content Include="Web\FintracDashboard.aspx" />
-    <Content Include="Web\FintracForms.aspx" />
     <Content Include="Web\forms.Master" />
   </ItemGroup>
   <ItemGroup>
@@ -546,21 +541,13 @@
     </Compile>
     <Compile Include="About.aspx.vb">
       <DependentUpon>About.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="App_Start\Startup.Auth.vb" />
-    <Compile Include="Classes\AzureData.Designer.vb">
+    <Compile Include="Classes\smartData.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>AzureData.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="Classes\CanadaData.Designer.vb">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CanadaData.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="Classes\CanadaData.vb">
-      <DependentUpon>CanadaData.xsd</DependentUpon>
+      <DependentUpon>smartData.xsd</DependentUpon>
     </Compile>
     <Compile Include="ClientSizeDetector.ascx.designer.vb">
       <DependentUpon>ClientSizeDetector.ascx</DependentUpon>
@@ -574,7 +561,7 @@
     </Compile>
     <Compile Include="Contact.aspx.vb">
       <DependentUpon>Contact.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Default.aspx.vb">
       <DependentUpon>Default.aspx</DependentUpon>
@@ -628,33 +615,40 @@
     <Compile Include="Site.Mobile.Master.designer.vb">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
     </Compile>
+    <Compile Include="Web\Controls\uc_885326974.ascx.designer.vb">
+      <DependentUpon>uc_885326974.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Web\Controls\uc_885326974.ascx.vb">
+      <DependentUpon>uc_885326974.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\Controls\uc_FormBuilder.ascx.designer.vb">
+      <DependentUpon>uc_FormBuilder.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Web\Controls\uc_FormBuilder.ascx.vb">
+      <DependentUpon>uc_FormBuilder.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="Web\FillableForms.aspx.designer.vb">
       <DependentUpon>FillableForms.aspx</DependentUpon>
     </Compile>
     <Compile Include="Web\FillableForms.aspx.vb">
       <DependentUpon>FillableForms.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Web\FintracDashboard.aspx.designer.vb">
       <DependentUpon>FintracDashboard.aspx</DependentUpon>
     </Compile>
     <Compile Include="Web\FintracDashboard.aspx.vb">
       <DependentUpon>FintracDashboard.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
-    </Compile>
-    <Compile Include="Web\FintracForms.aspx.designer.vb">
-      <DependentUpon>FintracForms.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Web\FintracForms.aspx.vb">
-      <DependentUpon>FintracForms.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Web\FintracWizard.aspx.designer.vb">
       <DependentUpon>FintracWizard.aspx</DependentUpon>
     </Compile>
     <Compile Include="Web\FintracWizard.aspx.vb">
       <DependentUpon>FintracWizard.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Web\forms.Master.designer.vb">
       <DependentUpon>forms.Master</DependentUpon>
@@ -663,11 +657,18 @@
       <DependentUpon>forms.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Web\PropertyFintrac.aspx.designer.vb">
-      <DependentUpon>PropertyFintrac.aspx</DependentUpon>
+    <Compile Include="Web\pdfFintracViewer.aspx.designer.vb">
+      <DependentUpon>pdfFintracViewer.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Web\PropertyFintrac.aspx.vb">
-      <DependentUpon>PropertyFintrac.aspx</DependentUpon>
+    <Compile Include="Web\pdfFintracViewer.aspx.vb">
+      <DependentUpon>pdfFintracViewer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\SearchEngine.aspx.designer.vb">
+      <DependentUpon>SearchEngine.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web\SearchEngine.aspx.vb">
+      <DependentUpon>SearchEngine.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
   </ItemGroup>
@@ -703,7 +704,9 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Forms\Output\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
@@ -739,7 +742,7 @@
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
-      <UserProperties UseAjaxifiedTemplates="True" UseJQuerySupport="True" />
+      <UserProperties UseJQuerySupport="True" UseAjaxifiedTemplates="True" />
     </VisualStudio>
   </ProjectExtensions>
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

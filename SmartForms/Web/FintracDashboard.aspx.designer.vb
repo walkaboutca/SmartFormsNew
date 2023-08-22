@@ -12,4 +12,148 @@ Option Explicit On
 
 
 Partial Public Class FintracDashboard
+
+    '''<summary>
+    '''ajaxNotice control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents ajaxNotice As Global.Telerik.Web.UI.RadAjaxLoadingPanel
+
+    '''<summary>
+    '''RadTabStrip1 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents RadTabStrip1 As Global.Telerik.Web.UI.RadTabStrip
+
+    '''<summary>
+    '''mpForms control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents mpForms As Global.Telerik.Web.UI.RadMultiPage
+
+    '''<summary>
+    '''WebForms control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents WebForms As Global.Telerik.Web.UI.RadPageView
+
+    '''<summary>
+    '''apanel_Left control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents apanel_Left As Global.Telerik.Web.UI.RadAjaxPanel
+
+    '''<summary>
+    '''Image1 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents Image1 As Global.System.Web.UI.WebControls.Image
+
+    '''<summary>
+    '''HyperLink1 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents HyperLink1 As Global.System.Web.UI.WebControls.HyperLink
+
+    '''<summary>
+    '''apanel_Right control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents apanel_Right As Global.Telerik.Web.UI.RadAjaxPanel
+
+    '''<summary>
+    '''rgvWebKit control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents rgvWebKit As Global.Telerik.Web.UI.RadGrid
+
+    '''<summary>
+    '''rgvForms control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents rgvForms As Global.Telerik.Web.UI.RadGrid
+
+    '''<summary>
+    '''window_mgr control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents window_mgr As Global.Telerik.Web.UI.RadWindowManager
+
+    '''<summary>
+    '''window_form control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents window_form As Global.Telerik.Web.UI.RadWindow
+
+    '''<summary>
+    '''Fintrac control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents Fintrac As Global.Telerik.Web.UI.RadPageView
+
+    '''<summary>
+    '''odsWebKit control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents odsWebKit As Global.System.Web.UI.WebControls.ObjectDataSource
+
+    '''<summary>
+    '''odsWebForms control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents odsWebForms As Global.System.Web.UI.WebControls.ObjectDataSource
+
+    '''<summary>
+    '''sqlFormTypes control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents sqlFormTypes As Global.System.Web.UI.WebControls.SqlDataSource
 End Class
