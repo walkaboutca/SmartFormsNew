@@ -37,7 +37,6 @@
         </Tabs>
     </telerik:RadTabStrip>
 
-
     <telerik:RadMultiPage ID="mpForms" runat="server" MultiPageID="mpForms" SelectedIndex="0">
         <telerik:RadPageView ID="WebForms" runat="server">
 
@@ -123,7 +122,7 @@
                                     <Selecting AllowRowSelect="True" />
                                     <Scrolling AllowScroll="True" UseStaticHeaders="True" />
                                 </ClientSettings>
-                                <MasterTableView DataKeyNames="Id,HashCode,Title" CommandItemDisplay="Bottom" DataSourceID="odsWebForms">
+                                <MasterTableView DataKeyNames="Id,HashCode,Title,RiskValue,FormType" CommandItemDisplay="Bottom" DataSourceID="odsWebForms">
                                     <RowIndicatorColumn ShowNoSortIcon="False">
                                     </RowIndicatorColumn>
                                     <ExpandCollapseColumn ShowNoSortIcon="False">
@@ -243,6 +242,8 @@
                             </telerik:RadGrid>
 
 
+  
+
                             <telerik:RadWindowManager ID="window_mgr" runat="server"
                                 KeepInScreenBounds="True"
                                 RenderMode="Lightweight"
@@ -296,7 +297,11 @@
         </UpdateParameters>
     </asp:ObjectDataSource>
 
-    <asp:ObjectDataSource ID="odsWebForms" runat="server" DeleteMethod="Delete" InsertMethod="Insert" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="SmartForms.smartDataTableAdapters.data_FormListTA" UpdateMethod="Update">
+
+       <asp:ObjectDataSource ID="odsWebForms" runat="server" DeleteMethod="Delete" 
+           InsertMethod="Insert" OldValuesParameterFormatString="original_{0}" 
+           SelectMethod="GetData" TypeName="SmartForms.smartDataTableAdapters.data_FormListTA" 
+           UpdateMethod="Update">
         <DeleteParameters>
             <asp:Parameter Name="Original_Id" Type="Int32" />
         </DeleteParameters>
@@ -305,9 +310,10 @@
             <asp:Parameter Name="HashCode" Type="String" />
             <asp:Parameter Name="Title" Type="String" />
             <asp:Parameter Name="Description" Type="String" />
-            <asp:Parameter Name="FormType" Type="Int32" />
+            <asp:Parameter Name="FormType" Type="String" />
             <asp:Parameter Name="UserName" Type="String" />
             <asp:Parameter DbType="Guid" Name="CompOfficerId" />
+            <asp:Parameter Name="RiskValue" Type="String" />
             <asp:Parameter Name="PropertyAddress" Type="String" />
             <asp:Parameter Name="CompFileReference" Type="String" />
             <asp:Parameter Name="CreatedBy" Type="String" />
@@ -325,9 +331,10 @@
             <asp:Parameter Name="HashCode" Type="String" />
             <asp:Parameter Name="Title" Type="String" />
             <asp:Parameter Name="Description" Type="String" />
-            <asp:Parameter Name="FormType" Type="Int32" />
+            <asp:Parameter Name="FormType" Type="String" />
             <asp:Parameter Name="UserName" Type="String" />
             <asp:Parameter DbType="Guid" Name="CompOfficerId" />
+            <asp:Parameter Name="RiskValue" Type="String" />
             <asp:Parameter Name="PropertyAddress" Type="String" />
             <asp:Parameter Name="CompFileReference" Type="String" />
             <asp:Parameter Name="CreatedBy" Type="String" />
@@ -337,8 +344,10 @@
             <asp:Parameter DbType="Guid" Name="CompanyId" />
             <asp:Parameter DbType="Guid" Name="JurisdictionId" />
             <asp:Parameter Name="Original_Id" Type="Int32" />
+            <asp:Parameter Name="Id" Type="Int32" />
         </UpdateParameters>
     </asp:ObjectDataSource>
+
 
     <asp:SqlDataSource ID="sqlFormTypes" runat="server" ConnectionString="<%$ ConnectionStrings:smartData %>" 
         SelectCommand="SELECT 0 As [Id], '[Select a Form Type]' As  [DisplayName], '' As [HashCode] UNION SELECT [Id],[DisplayName],[HashCode]  FROM [dbo].[forms_Catalog] ORDER BY [DisplayName]">

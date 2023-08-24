@@ -158,6 +158,33 @@ Partial Public Class uc_885326974
     Protected WithEvents rdpVerifiedDate As Global.Telerik.Web.UI.RadDatePicker
 
     '''<summary>
+    '''txttodaysDated1_mmmm control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txttodaysDated1_mmmm As Global.Telerik.Web.UI.RadTextBox
+
+    '''<summary>
+    '''txttodaysDated1_d control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txttodaysDated1_d As Global.Telerik.Web.UI.RadTextBox
+
+    '''<summary>
+    '''txttodaysDated1_yyyy control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txttodaysDated1_yyyy As Global.Telerik.Web.UI.RadTextBox
+
+    '''<summary>
     '''txtindividualName control.
     '''</summary>
     '''<remarks>
@@ -203,85 +230,211 @@ Partial Public Class uc_885326974
     Protected WithEvents txtnatureOfBusinessOccupation As Global.Telerik.Web.UI.RadTextBox
 
     '''<summary>
-    '''RadTextBox1 control.
+    '''txtidDocument control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents RadTextBox1 As Global.Telerik.Web.UI.RadTextBox
+    Protected WithEvents txtidDocument As Global.Telerik.Web.UI.RadTextBox
 
     '''<summary>
-    '''RadDateInput1 control.
+    '''txtdocIdentifierNumber control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents RadDateInput1 As Global.Telerik.Web.UI.RadDateInput
+    Protected WithEvents txtdocIdentifierNumber As Global.Telerik.Web.UI.RadTextBox
 
     '''<summary>
-    '''RadTextBox2 control.
+    '''txtissuingJurisdiction control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents RadTextBox2 As Global.Telerik.Web.UI.RadTextBox
+    Protected WithEvents txtissuingJurisdiction As Global.Telerik.Web.UI.RadTextBox
 
     '''<summary>
-    '''RadTextBox3 control.
+    '''txtissuingCountry control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents RadTextBox3 As Global.Telerik.Web.UI.RadTextBox
+    Protected WithEvents txtissuingCountry As Global.Telerik.Web.UI.RadTextBox
 
     '''<summary>
-    '''RadTextBox5 control.
+    '''txtDocExpDate control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents RadTextBox5 As Global.Telerik.Web.UI.RadTextBox
+    Protected WithEvents txtDocExpDate As Global.Telerik.Web.UI.RadDateInput
 
     '''<summary>
-    '''RadTextBox4 control.
+    '''txtcreditBureau1 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents RadTextBox4 As Global.Telerik.Web.UI.RadTextBox
+    Protected WithEvents txtcreditBureau1 As Global.Telerik.Web.UI.RadTextBox
 
     '''<summary>
-    '''RadTextBox6 control.
+    '''txtcreditBureau2 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents RadTextBox6 As Global.Telerik.Web.UI.RadTextBox
+    Protected WithEvents txtcreditBureau2 As Global.Telerik.Web.UI.RadTextBox
 
     '''<summary>
-    '''RadTextBox7 control.
+    '''txtcreditBureauRefNum control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents RadTextBox7 As Global.Telerik.Web.UI.RadTextBox
+    Protected WithEvents txtcreditBureauRefNum As Global.Telerik.Web.UI.RadTextBox
 
     '''<summary>
-    '''RadTextBox8 control.
+    '''chkOpt_dualID2 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents RadTextBox8 As Global.Telerik.Web.UI.RadTextBox
+    Protected WithEvents chkOpt_dualID2 As Global.Telerik.Web.UI.RadCheckBox
+
+    '''<summary>
+    '''txtsourceName1 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtsourceName1 As Global.Telerik.Web.UI.RadTextBox
+
+    '''<summary>
+    '''txtBillNumber1 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtBillNumber1 As Global.Telerik.Web.UI.RadTextBox
+
+    '''<summary>
+    '''chkOpt_dualID3 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents chkOpt_dualID3 As Global.Telerik.Web.UI.RadCheckBox
+
+    '''<summary>
+    '''txtsourceName2 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtsourceName2 As Global.Telerik.Web.UI.RadTextBox
+
+    '''<summary>
+    '''txtBillNumber2 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtBillNumber2 As Global.Telerik.Web.UI.RadTextBox
+
+    '''<summary>
+    '''checkboxhold3 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents checkboxhold3 As Global.Telerik.Web.UI.RadCheckBox
+
+    '''<summary>
+    '''txtsourceName3 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtsourceName3 As Global.Telerik.Web.UI.RadTextBox
+
+    '''<summary>
+    '''txtacctType control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtacctType As Global.Telerik.Web.UI.RadTextBox
+
+    '''<summary>
+    '''txtBillNumber3 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtBillNumber3 As Global.Telerik.Web.UI.RadTextBox
+
+    '''<summary>
+    '''chkOpt_ascertainIdentity control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents chkOpt_ascertainIdentity As Global.Telerik.Web.UI.RadCheckBox
+
+    '''<summary>
+    '''chkOpt_reasonsMeasuresUnsccessful control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents chkOpt_reasonsMeasuresUnsccessful As Global.Telerik.Web.UI.RadCheckBox
+
+    '''<summary>
+    '''txtascertainIdentityExplain1 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtascertainIdentityExplain1 As Global.Telerik.Web.UI.RadTextBox
+
+    '''<summary>
+    '''txtascertainIdentityExplain2 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtascertainIdentityExplain2 As Global.Telerik.Web.UI.RadTextBox
+
+    '''<summary>
+    '''rdpascertainIdentityDate control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents rdpascertainIdentityDate As Global.Telerik.Web.UI.RadDatePicker
 
     '''<summary>
     '''RadCheckBox1 control.
@@ -293,24 +446,6 @@ Partial Public Class uc_885326974
     Protected WithEvents RadCheckBox1 As Global.Telerik.Web.UI.RadCheckBox
 
     '''<summary>
-    '''RadTextBox9 control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents RadTextBox9 As Global.Telerik.Web.UI.RadTextBox
-
-    '''<summary>
-    '''RadTextBox10 control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents RadTextBox10 As Global.Telerik.Web.UI.RadTextBox
-
-    '''<summary>
     '''RadCheckBox2 control.
     '''</summary>
     '''<remarks>
@@ -320,112 +455,31 @@ Partial Public Class uc_885326974
     Protected WithEvents RadCheckBox2 As Global.Telerik.Web.UI.RadCheckBox
 
     '''<summary>
-    '''RadTextBox11 control.
+    '''RadTextBox1 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents RadTextBox11 As Global.Telerik.Web.UI.RadTextBox
+    Protected WithEvents RadTextBox1 As Global.Telerik.Web.UI.RadTextBox
 
     '''<summary>
-    '''RadTextBox12 control.
+    '''RadTextBox2 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents RadTextBox12 As Global.Telerik.Web.UI.RadTextBox
+    Protected WithEvents RadTextBox2 As Global.Telerik.Web.UI.RadTextBox
 
     '''<summary>
-    '''RadCheckBox3 control.
+    '''chkOpt_transConductedBehalfClient control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents RadCheckBox3 As Global.Telerik.Web.UI.RadCheckBox
-
-    '''<summary>
-    '''RadTextBox13 control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents RadTextBox13 As Global.Telerik.Web.UI.RadTextBox
-
-    '''<summary>
-    '''RadTextBox14 control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents RadTextBox14 As Global.Telerik.Web.UI.RadTextBox
-
-    '''<summary>
-    '''RadTextBox15 control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents RadTextBox15 As Global.Telerik.Web.UI.RadTextBox
-
-    '''<summary>
-    '''RadCheckBox4 control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents RadCheckBox4 As Global.Telerik.Web.UI.RadCheckBox
-
-    '''<summary>
-    '''RadCheckBox6 control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents RadCheckBox6 As Global.Telerik.Web.UI.RadCheckBox
-
-    '''<summary>
-    '''RadTextBox22 control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents RadTextBox22 As Global.Telerik.Web.UI.RadTextBox
-
-    '''<summary>
-    '''RadTextBox25 control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents RadTextBox25 As Global.Telerik.Web.UI.RadTextBox
-
-    '''<summary>
-    '''RadDatePicker1 control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents RadDatePicker1 As Global.Telerik.Web.UI.RadDatePicker
-
-    '''<summary>
-    '''RadCheckBox5 control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents RadCheckBox5 As Global.Telerik.Web.UI.RadCheckBox
+    Protected WithEvents chkOpt_transConductedBehalfClient As Global.Telerik.Web.UI.RadCheckBox
 
     '''<summary>
     '''RadCheckBox9 control.
@@ -437,76 +491,94 @@ Partial Public Class uc_885326974
     Protected WithEvents RadCheckBox9 As Global.Telerik.Web.UI.RadCheckBox
 
     '''<summary>
-    '''RadTextBox18 control.
+    '''txtreasonsMeasuresUnsuccessful1 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents RadTextBox18 As Global.Telerik.Web.UI.RadTextBox
+    Protected WithEvents txtreasonsMeasuresUnsuccessful1 As Global.Telerik.Web.UI.RadTextBox
 
     '''<summary>
-    '''RadTextBox16 control.
+    '''txtreasonsMeasuresUnsuccessful2 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents RadTextBox16 As Global.Telerik.Web.UI.RadTextBox
+    Protected WithEvents txtreasonsMeasuresUnsuccessful2 As Global.Telerik.Web.UI.RadTextBox
 
     '''<summary>
-    '''RadTextBox17 control.
+    '''txtthirdPartyName control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents RadTextBox17 As Global.Telerik.Web.UI.RadTextBox
+    Protected WithEvents txtthirdPartyName As Global.Telerik.Web.UI.RadTextBox
 
     '''<summary>
-    '''RadTextBox19 control.
+    '''txtthirdPartyAddress1 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents RadTextBox19 As Global.Telerik.Web.UI.RadTextBox
+    Protected WithEvents txtthirdPartyAddress1 As Global.Telerik.Web.UI.RadTextBox
 
     '''<summary>
-    '''RadTextBox20 control.
+    '''txtthirdPartyAddress2 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents RadTextBox20 As Global.Telerik.Web.UI.RadTextBox
+    Protected WithEvents txtthirdPartyAddress2 As Global.Telerik.Web.UI.RadTextBox
 
     '''<summary>
-    '''RadTextBox21 control.
+    '''txtthirdPartyDOB control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents RadTextBox21 As Global.Telerik.Web.UI.RadTextBox
+    Protected WithEvents txtthirdPartyDOB As Global.Telerik.Web.UI.RadDateInput
 
     '''<summary>
-    '''RadTextBox23 control.
+    '''txtthirdPartyBusinessOccupation1 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents RadTextBox23 As Global.Telerik.Web.UI.RadTextBox
+    Protected WithEvents txtthirdPartyBusinessOccupation1 As Global.Telerik.Web.UI.RadTextBox
 
     '''<summary>
-    '''RadTextBox24 control.
+    '''txtthirdPartyBusinessOccupation2 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents RadTextBox24 As Global.Telerik.Web.UI.RadTextBox
+    Protected WithEvents txtthirdPartyBusinessOccupation2 As Global.Telerik.Web.UI.RadTextBox
+
+    '''<summary>
+    '''txtthirdPartyIncorporationNumber1 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtthirdPartyIncorporationNumber1 As Global.Telerik.Web.UI.RadTextBox
+
+    '''<summary>
+    '''txtthirdPartyIncorporationNumber2 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtthirdPartyIncorporationNumber2 As Global.Telerik.Web.UI.RadTextBox
 
     '''<summary>
     '''RadCheckBox7 control.
@@ -554,13 +626,13 @@ Partial Public Class uc_885326974
     Protected WithEvents RadCheckBox8 As Global.Telerik.Web.UI.RadCheckBox
 
     '''<summary>
-    '''RadTextBox26 control.
+    '''txtlowRiskExplain control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents RadTextBox26 As Global.Telerik.Web.UI.RadTextBox
+    Protected WithEvents txtlowRiskExplain As Global.Telerik.Web.UI.RadTextBox
 
     '''<summary>
     '''RadCheckBox17 control.
@@ -572,13 +644,13 @@ Partial Public Class uc_885326974
     Protected WithEvents RadCheckBox17 As Global.Telerik.Web.UI.RadCheckBox
 
     '''<summary>
-    '''RadTextBox27 control.
+    '''txtmedRiskExplain control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents RadTextBox27 As Global.Telerik.Web.UI.RadTextBox
+    Protected WithEvents txtmedRiskExplain As Global.Telerik.Web.UI.RadTextBox
 
     '''<summary>
     '''RadCheckBox16 control.
@@ -599,13 +671,13 @@ Partial Public Class uc_885326974
     Protected WithEvents RadCheckBox18 As Global.Telerik.Web.UI.RadCheckBox
 
     '''<summary>
-    '''RadTextBox28 control.
+    '''txthighRiskExplain control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents RadTextBox28 As Global.Telerik.Web.UI.RadTextBox
+    Protected WithEvents txthighRiskExplain As Global.Telerik.Web.UI.RadTextBox
 
     '''<summary>
     '''RadCheckBox13 control.
@@ -653,40 +725,31 @@ Partial Public Class uc_885326974
     Protected WithEvents RadCheckBox20 As Global.Telerik.Web.UI.RadCheckBox
 
     '''<summary>
-    '''RadTextBox29 control.
+    '''txtD1explain19 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents RadTextBox29 As Global.Telerik.Web.UI.RadTextBox
+    Protected WithEvents txtD1explain19 As Global.Telerik.Web.UI.RadTextBox
 
     '''<summary>
-    '''RadTextBox30 control.
+    '''txtthirdPartyReasonsMeasuresTaken control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents RadTextBox30 As Global.Telerik.Web.UI.RadTextBox
+    Protected WithEvents txtthirdPartyReasonsMeasuresTaken As Global.Telerik.Web.UI.RadTextBox
 
     '''<summary>
-    '''RadTextBox31 control.
+    '''txtthirdPartyReasonsMeasuresTaken2 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents RadTextBox31 As Global.Telerik.Web.UI.RadTextBox
-
-    '''<summary>
-    '''RadTextBox32 control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents RadTextBox32 As Global.Telerik.Web.UI.RadTextBox
+    Protected WithEvents txtthirdPartyReasonsMeasuresTaken2 As Global.Telerik.Web.UI.RadTextBox
 
     '''<summary>
     '''window_alert control.

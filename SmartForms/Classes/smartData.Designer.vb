@@ -2421,6 +2421,8 @@ Partial Public Class smartData
         
         Private columnRiskValue As Global.System.Data.DataColumn
         
+        Private columnFormType1 As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Sub New()
@@ -2593,6 +2595,14 @@ Partial Public Class smartData
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property FormType1Column() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnFormType1
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -2645,9 +2655,10 @@ Partial Public Class smartData
                     ByVal LastModOn As Date,  _
                     ByVal CompanyId As System.Guid,  _
                     ByVal JurisdictionId As System.Guid,  _
-                    ByVal RiskValue As String) As data_FormListRow
+                    ByVal RiskValue As String,  _
+                    ByVal FormType1 As String) As data_FormListRow
             Dim rowdata_FormListRow As data_FormListRow = CType(Me.NewRow,data_FormListRow)
-            Dim columnValuesArray() As Object = New Object() {Nothing, WebKitId, HashCode, Title, Description, FormType, UserName, CompOfficerId, PropertyAddress, CompFileReference, CreatedBy, CreatedOn, LastModBy, LastModOn, CompanyId, JurisdictionId, RiskValue}
+            Dim columnValuesArray() As Object = New Object() {Nothing, WebKitId, HashCode, Title, Description, FormType, UserName, CompOfficerId, PropertyAddress, CompFileReference, CreatedBy, CreatedOn, LastModBy, LastModOn, CompanyId, JurisdictionId, RiskValue, FormType1}
             rowdata_FormListRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowdata_FormListRow)
             Return rowdata_FormListRow
@@ -2693,6 +2704,7 @@ Partial Public Class smartData
             Me.columnCompanyId = MyBase.Columns("CompanyId")
             Me.columnJurisdictionId = MyBase.Columns("JurisdictionId")
             Me.columnRiskValue = MyBase.Columns("RiskValue")
+            Me.columnFormType1 = MyBase.Columns("FormType1")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -2732,6 +2744,8 @@ Partial Public Class smartData
             MyBase.Columns.Add(Me.columnJurisdictionId)
             Me.columnRiskValue = New Global.System.Data.DataColumn("RiskValue", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnRiskValue)
+            Me.columnFormType1 = New Global.System.Data.DataColumn("FormType1", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnFormType1)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnId}, true))
             Me.columnId.AutoIncrement = true
             Me.columnId.AutoIncrementSeed = -1
@@ -2748,6 +2762,8 @@ Partial Public Class smartData
             Me.columnCreatedBy.MaxLength = 50
             Me.columnLastModBy.MaxLength = 50
             Me.columnRiskValue.MaxLength = 10
+            Me.columnFormType1.Caption = "FormType"
+            Me.columnFormType1.MaxLength = 20
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -4468,6 +4484,21 @@ Partial Public Class smartData
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property FormType1() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tabledata_FormList.FormType1Column),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'FormType1' in table 'data_FormList' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tabledata_FormList.FormType1Column) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Function IsWebKitIdNull() As Boolean
             Return Me.IsNull(Me.tabledata_FormList.WebKitIdColumn)
         End Function
@@ -4656,6 +4687,18 @@ Partial Public Class smartData
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Sub SetRiskValueNull()
             Me(Me.tabledata_FormList.RiskValueColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function IsFormType1Null() As Boolean
+            Return Me.IsNull(Me.tabledata_FormList.FormType1Column)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub SetFormType1Null()
+            Me(Me.tabledata_FormList.FormType1Column) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -7131,7 +7174,6 @@ Namespace smartDataTableAdapters
             tableMapping.ColumnMappings.Add("HashCode", "HashCode")
             tableMapping.ColumnMappings.Add("Title", "Title")
             tableMapping.ColumnMappings.Add("Description", "Description")
-            tableMapping.ColumnMappings.Add("FormType", "FormType")
             tableMapping.ColumnMappings.Add("UserName", "UserName")
             tableMapping.ColumnMappings.Add("CompOfficerId", "CompOfficerId")
             tableMapping.ColumnMappings.Add("PropertyAddress", "PropertyAddress")
@@ -7143,6 +7185,7 @@ Namespace smartDataTableAdapters
             tableMapping.ColumnMappings.Add("CompanyId", "CompanyId")
             tableMapping.ColumnMappings.Add("JurisdictionId", "JurisdictionId")
             tableMapping.ColumnMappings.Add("RiskValue", "RiskValue")
+            tableMapping.ColumnMappings.Add("FormType", "FormType1")
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.DeleteCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.DeleteCommand.Connection = Me.Connection
@@ -7166,7 +7209,7 @@ Namespace smartDataTableAdapters
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@HashCode", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "HashCode", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Title", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Title", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Description", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Description", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@FormType", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FormType", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@FormType", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FormType", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@UserName", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "UserName", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CompOfficerId", Global.System.Data.SqlDbType.UniqueIdentifier, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CompOfficerId", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RiskValue", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "RiskValue", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -7195,7 +7238,7 @@ Namespace smartDataTableAdapters
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@HashCode", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "HashCode", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Title", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Title", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Description", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Description", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@FormType", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FormType", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@FormType", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FormType", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@UserName", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "UserName", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CompOfficerId", Global.System.Data.SqlDbType.UniqueIdentifier, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CompOfficerId", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RiskValue", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "RiskValue", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -7323,7 +7366,7 @@ Namespace smartDataTableAdapters
                     ByVal HashCode As String,  _
                     ByVal Title As String,  _
                     ByVal Description As String,  _
-                    ByVal FormType As Global.System.Nullable(Of Integer),  _
+                    ByVal FormType As String,  _
                     ByVal UserName As String,  _
                     ByVal CompOfficerId As Global.System.Nullable(Of Global.System.Guid),  _
                     ByVal RiskValue As String,  _
@@ -7355,10 +7398,10 @@ Namespace smartDataTableAdapters
             Else
                 Me.Adapter.InsertCommand.Parameters(3).Value = CType(Description,String)
             End If
-            If (FormType.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(4).Value = CType(FormType.Value,Integer)
-            Else
+            If (FormType Is Nothing) Then
                 Me.Adapter.InsertCommand.Parameters(4).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(4).Value = CType(FormType,String)
             End If
             If (UserName Is Nothing) Then
                 Me.Adapter.InsertCommand.Parameters(5).Value = Global.System.DBNull.Value
@@ -7439,7 +7482,7 @@ Namespace smartDataTableAdapters
                     ByVal HashCode As String,  _
                     ByVal Title As String,  _
                     ByVal Description As String,  _
-                    ByVal FormType As Global.System.Nullable(Of Integer),  _
+                    ByVal FormType As String,  _
                     ByVal UserName As String,  _
                     ByVal CompOfficerId As Global.System.Nullable(Of Global.System.Guid),  _
                     ByVal RiskValue As String,  _
@@ -7473,10 +7516,10 @@ Namespace smartDataTableAdapters
             Else
                 Me.Adapter.UpdateCommand.Parameters(3).Value = CType(Description,String)
             End If
-            If (FormType.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(4).Value = CType(FormType.Value,Integer)
-            Else
+            If (FormType Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(4).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(4).Value = CType(FormType,String)
             End If
             If (UserName Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(5).Value = Global.System.DBNull.Value
@@ -7559,7 +7602,7 @@ Namespace smartDataTableAdapters
                     ByVal HashCode As String,  _
                     ByVal Title As String,  _
                     ByVal Description As String,  _
-                    ByVal FormType As Global.System.Nullable(Of Integer),  _
+                    ByVal FormType As String,  _
                     ByVal UserName As String,  _
                     ByVal CompOfficerId As Global.System.Nullable(Of Global.System.Guid),  _
                     ByVal RiskValue As String,  _

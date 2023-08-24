@@ -119,7 +119,9 @@
                 </td>
                 <td style="width: 35%">
                     <telerik:RadDatePicker ID="rdpVerifiedDate" runat="server"></telerik:RadDatePicker>
-                    <%--txttodaysDated1_mmmm   txttodaysDated1_d   txttodaysDated1_yyyy--%>
+                    <telerik:RadTextBox ID="txttodaysDated1_mmmm" runat="server" Visible="false"></telerik:RadTextBox>
+                    <telerik:RadTextBox ID="txttodaysDated1_d" runat="server" Visible="false"></telerik:RadTextBox>
+                    <telerik:RadTextBox ID="txttodaysDated1_yyyy" runat="server" Visible="false"></telerik:RadTextBox>
                 </td>
                 <td style="width: 35%"></td>
             </tr>
@@ -140,10 +142,14 @@
                 <td style="width: 35%">
                     <telerik:RadTextBox ID="txtindividualName" runat="server" EmptyMessage="Individual Name" Width="100%"></telerik:RadTextBox>
                 </td>
-                <td style="width: 35%">Date of Birth: &nbsp;&nbsp;
-                            <telerik:RadDateInput ID="txtindividualDOB" runat="server" EmptyMessage="DOB"></telerik:RadDateInput>
+                <td style="width: 35%">
+                    <div class="w3-half w3-container">
+                        Date of Birth:
+                    </div>
+                    <div class="w3-half w3-container">
+                       <telerik:RadDateInput ID="txtindividualDOB" runat="server" EmptyMessage="yyyy-mm-dd" DisplayDateFormat="yyyy-MM-dd" Culture="en-CA" MinDate="1900-01-01" Width="160px"></telerik:RadDateInput>
+                    </div>
                 </td>
-
             </tr>
             <tr>
                 <td style="width: 30%">Address:
@@ -180,18 +186,16 @@
                 <td style="width: 30%">Type of Identification Document:
                 </td>
                 <td style="width: 35%">
-                    <telerik:RadTextBox ID="RadTextBox1" runat="server" EmptyMessage="Individual Name" Width="100%"></telerik:RadTextBox>
+                    <telerik:RadTextBox ID="txtidDocument" runat="server" EmptyMessage="Document Type" Width="100%"></telerik:RadTextBox>
                 </td>
-                <td style="width: 35%">Date of Birth: &nbsp;&nbsp;
-                            <telerik:RadDateInput ID="RadDateInput1" runat="server" EmptyMessage="DOB"></telerik:RadDateInput>
-                </td>
+                <td style="width: 35%">&nbsp;</td>
 
             </tr>
             <tr>
                 <td style="width: 30%">Document Identifier Number:
                 </td>
                 <td style="width: 35%">
-                    <telerik:RadTextBox ID="RadTextBox2" runat="server" EmptyMessage="Address" Width="100%"></telerik:RadTextBox>
+                    <telerik:RadTextBox ID="txtdocIdentifierNumber" runat="server" EmptyMessage="Ident. Number" Width="100%"></telerik:RadTextBox>
                 </td>
                 <td style="width: 35%"></td>
             </tr>
@@ -199,17 +203,25 @@
                 <td style="width: 30%">Issuing Jurisdiction:
                 </td>
                 <td style="width: 35%">
-                    <telerik:RadTextBox ID="RadTextBox3" runat="server" EmptyMessage="Add. Address" Width="100%"></telerik:RadTextBox>
+                    <telerik:RadTextBox ID="txtissuingJurisdiction" runat="server" EmptyMessage="Issuing Jurisdiction" Width="100%"></telerik:RadTextBox>
                 </td>
-                <td style="width: 35%">Country: &nbsp;&nbsp;
-                            <telerik:RadTextBox ID="RadTextBox5" runat="server" EmptyMessage="Address"></telerik:RadTextBox>
+                <td style="width: 35%">
+                    <div class="w3-half w3-container">
+                        Country:
+                    </div>
+                    <div class="w3-half w3-container">
+                        <telerik:RadTextBox ID="txtissuingCountry" runat="server" EmptyMessage="Country" Width="100%"></telerik:RadTextBox>
+                    </div>
                 </td>
             </tr>
             <tr>
                 <td style="width: 30%">Document Expiry Date:
                 </td>
                 <td style="width: 35%">
-                    <telerik:RadTextBox ID="RadTextBox4" runat="server" EmptyMessage="Address" Width="100%"></telerik:RadTextBox>
+                    <div class="w3-half w3-container">
+                        <telerik:RadDateInput ID="txtDocExpDate" runat="server" EmptyMessage="yyyy-mm-dd" DisplayDateFormat="yyyy-MM-dd" Culture="en-CA" MinDate="1900-01-01" Width="160px"></telerik:RadDateInput>
+                    </div>
+
                 </td>
                 <td style="width: 35%; font-size: x-small;">(must be valid and not expired)</td>
             </tr>
@@ -226,7 +238,7 @@
                 <td style="width: 30%">Name of Canadian Credit Bureau Holding the Credit File::
                 </td>
                 <td style="width: 35%">
-                    <telerik:RadTextBox ID="RadTextBox6" runat="server" EmptyMessage="Individual Name" Width="100%"></telerik:RadTextBox>
+                    <telerik:RadTextBox ID="txtcreditBureau1" runat="server" EmptyMessage="Individual Name" Width="100%"></telerik:RadTextBox>
                 </td>
                 <td style="width: 35%"></td>
 
@@ -234,7 +246,7 @@
             <tr>
                 <td style="width: 30%"></td>
                 <td style="width: 35%">
-                    <telerik:RadTextBox ID="RadTextBox7" runat="server" EmptyMessage="Address" Width="100%"></telerik:RadTextBox>
+                    <telerik:RadTextBox ID="txtcreditBureau2" runat="server" EmptyMessage="Address" Width="100%"></telerik:RadTextBox>
                 </td>
                 <td style="width: 35%"></td>
             </tr>
@@ -242,7 +254,7 @@
                 <td style="width: 30%">Reference Number of Credit File:
                 </td>
                 <td style="width: 35%">
-                    <telerik:RadTextBox ID="RadTextBox8" runat="server" EmptyMessage="Add. Address" Width="100%"></telerik:RadTextBox>
+                    <telerik:RadTextBox ID="txtcreditBureauRefNum" runat="server" EmptyMessage="Add. Address" Width="100%"></telerik:RadTextBox>
                 </td>
                 <td style="width: 35%"></td>
             </tr>
@@ -257,7 +269,7 @@
         <table style="width: 100%; font-size: small; text-align: left;">
             <tr>
                 <td style="width: 40px">
-                    <telerik:RadCheckBox ID="RadCheckBox1" runat="server" AutoPostBack="False"></telerik:RadCheckBox>
+                    <telerik:RadCheckBox ID="chkOpt_dualID2" runat="server" AutoPostBack="False"></telerik:RadCheckBox>
                 </td>
                 <td>Confirm the individual’s name and date of birth by referring to a document or source containing the individual’s name and date of birth*
                 </td>
@@ -269,7 +281,7 @@
                 <td style="width: 30%">&nbsp;&nbsp;&nbsp; - Name of Source:
                 </td>
                 <td style="width: 35%">
-                    <telerik:RadTextBox ID="RadTextBox9" runat="server" EmptyMessage="Individual Name" Width="100%"></telerik:RadTextBox>
+                    <telerik:RadTextBox ID="txtsourceName1" runat="server" EmptyMessage="Source Name" Width="100%"></telerik:RadTextBox>
                 </td>
                 <td style="width: 35%"></td>
 
@@ -278,7 +290,7 @@
                 <td style="width: 30%">&nbsp;&nbsp;&nbsp; - Account Number**:
                 </td>
                 <td style="width: 35%">
-                    <telerik:RadTextBox ID="RadTextBox10" runat="server" EmptyMessage="Address" Width="100%"></telerik:RadTextBox>
+                    <telerik:RadTextBox ID="txtBillNumber1" runat="server" EmptyMessage="Acct Num" Width="100%"></telerik:RadTextBox>
                 </td>
                 <td style="width: 35%"></td>
             </tr>
@@ -287,7 +299,7 @@
         <table style="width: 100%; font-size: small; text-align: left;">
             <tr>
                 <td style="width: 40px">
-                    <telerik:RadCheckBox ID="RadCheckBox2" runat="server" AutoPostBack="False"></telerik:RadCheckBox>
+                    <telerik:RadCheckBox ID="chkOpt_dualID3" runat="server" AutoPostBack="False"></telerik:RadCheckBox>
                 </td>
                 <td>Confirm the individual’s name and address by referring to a document or source containing the individual’s name and address*
                 </td>
@@ -299,7 +311,7 @@
                 <td style="width: 30%">&nbsp;&nbsp;&nbsp; - Name of Source:
                 </td>
                 <td style="width: 35%">
-                    <telerik:RadTextBox ID="RadTextBox11" runat="server" EmptyMessage="Individual Name" Width="100%"></telerik:RadTextBox>
+                    <telerik:RadTextBox ID="txtsourceName2" runat="server" EmptyMessage="Source Name" Width="100%"></telerik:RadTextBox>
                 </td>
                 <td style="width: 35%"></td>
 
@@ -308,7 +320,7 @@
                 <td style="width: 30%">&nbsp;&nbsp;&nbsp; - Account Number**:
                 </td>
                 <td style="width: 35%">
-                    <telerik:RadTextBox ID="RadTextBox12" runat="server" EmptyMessage="Address" Width="100%"></telerik:RadTextBox>
+                    <telerik:RadTextBox ID="txtBillNumber2" runat="server" EmptyMessage="Accy Num" Width="100%"></telerik:RadTextBox>
                 </td>
                 <td style="width: 35%"></td>
             </tr>
@@ -317,7 +329,7 @@
         <table style="width: 100%; font-size: small; text-align: left;">
             <tr>
                 <td style="width: 40px">
-                    <telerik:RadCheckBox ID="RadCheckBox3" runat="server" AutoPostBack="False"></telerik:RadCheckBox>
+                    <telerik:RadCheckBox ID="checkboxhold3" runat="server" AutoPostBack="False"></telerik:RadCheckBox>
                 </td>
                 <td>Confirm the individuals’ name and confirm a financial account*
                 </td>
@@ -329,7 +341,7 @@
                 <td style="width: 30%">&nbsp;&nbsp;&nbsp; - Name of Source:
                 </td>
                 <td style="width: 35%">
-                    <telerik:RadTextBox ID="RadTextBox13" runat="server" EmptyMessage="Individual Name" Width="100%"></telerik:RadTextBox>
+                    <telerik:RadTextBox ID="txtsourceName3" runat="server" EmptyMessage="Source Name" Width="100%"></telerik:RadTextBox>
                 </td>
                 <td style="width: 35%"></td>
 
@@ -338,7 +350,7 @@
                 <td style="width: 30%">&nbsp;&nbsp;&nbsp; - Financial Account Type:
                 </td>
                 <td style="width: 35%">
-                    <telerik:RadTextBox ID="RadTextBox14" runat="server" EmptyMessage="Address" Width="100%"></telerik:RadTextBox>
+                    <telerik:RadTextBox ID="txtacctType" runat="server" EmptyMessage="Acct Type" Width="100%"></telerik:RadTextBox>
                 </td>
                 <td style="width: 35%"></td>
             </tr>
@@ -346,7 +358,7 @@
                 <td style="width: 30%">&nbsp;&nbsp;&nbsp; - Account Number**:
                 </td>
                 <td style="width: 35%">
-                    <telerik:RadTextBox ID="RadTextBox15" runat="server" EmptyMessage="Address" Width="100%"></telerik:RadTextBox>
+                    <telerik:RadTextBox ID="txtBillNumber3" runat="server" EmptyMessage="Acct Num" Width="100%"></telerik:RadTextBox>
                 </td>
                 <td style="width: 35%"></td>
             </tr>
@@ -367,7 +379,7 @@
             </tr>
             <tr>
                 <td style="width: 40px">
-                    <telerik:RadCheckBox ID="RadCheckBox4" runat="server" AutoPostBack="False"></telerik:RadCheckBox>
+                    <telerik:RadCheckBox ID="chkOpt_ascertainIdentity" runat="server" AutoPostBack="False"></telerik:RadCheckBox>
                 </td>
                 <td>Asked unrepresented individual for information to ascertain their identity
                 </td>
@@ -376,18 +388,18 @@
         <table style="font-size: small;" class="auto-style1">
             <tr>
                 <td style="width: 30%">
-                    <telerik:RadCheckBox ID="RadCheckBox6" runat="server" AutoPostBack="False"></telerik:RadCheckBox>
+                    <telerik:RadCheckBox ID="chkOpt_reasonsMeasuresUnsccessful" runat="server" AutoPostBack="False"></telerik:RadCheckBox>
                     &nbsp;&nbsp;&nbsp;Other, Explain:
                 </td>
                 <td style="width: 35%">
-                    <telerik:RadTextBox ID="RadTextBox22" runat="server" EmptyMessage="Individual Name" Width="100%"></telerik:RadTextBox>
+                    <telerik:RadTextBox ID="txtascertainIdentityExplain1" runat="server" EmptyMessage="Explain" Width="100%"></telerik:RadTextBox>
                 </td>
                 <td style="width: 35%"></td>
             </tr>
             <tr>
                 <td style="width: 30%"></td>
                 <td style="width: 35%">
-                    <telerik:RadTextBox ID="RadTextBox25" runat="server" EmptyMessage="Individual Name" Width="100%"></telerik:RadTextBox>
+                    <telerik:RadTextBox ID="txtascertainIdentityExplain2" runat="server" EmptyMessage="Add Explain" Width="100%"></telerik:RadTextBox>
                 </td>
                 <td style="width: 35%"></td>
             </tr>
@@ -395,11 +407,47 @@
                 <td style="width: 30%">Date on which above measures taken:
                 </td>
                 <td style="width: 35%">
-                    <telerik:RadDatePicker ID="RadDatePicker1" runat="server"></telerik:RadDatePicker>
+                    <telerik:RadDatePicker ID="rdpascertainIdentityDate" runat="server"></telerik:RadDatePicker>
                 </td>
                 <td style="width: 35%"></td>
             </tr>
         </table>
+
+        <table style="width: 100%; font-size: small; text-align: left;">
+            <tr>
+                <td style="width: 40px"></td>
+                <td>
+                    <strong>2. Reasons why measures were unsuccesful</strong> (check one):
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 40px">
+                    <telerik:RadCheckBox ID="RadCheckBox1" runat="server" AutoPostBack="False"></telerik:RadCheckBox>
+                </td>
+                <td>Unrepresented individual did not provide information
+                </td>
+            </tr>
+        </table>
+        <table style="font-size: small;" class="auto-style1">
+            <tr>
+                <td style="width: 30%">
+                    <telerik:RadCheckBox ID="RadCheckBox2" runat="server" AutoPostBack="False"></telerik:RadCheckBox>
+                    &nbsp;&nbsp;&nbsp;Other, Explain:
+                </td>
+                <td style="width: 35%">
+                    <telerik:RadTextBox ID="RadTextBox1" runat="server" EmptyMessage="Explain" Width="100%"></telerik:RadTextBox>
+                </td>
+                <td style="width: 35%"></td>
+            </tr>
+            <tr>
+                <td style="width: 30%"></td>
+                <td style="width: 35%">
+                    <telerik:RadTextBox ID="RadTextBox2" runat="server" EmptyMessage="Add Explain" Width="100%"></telerik:RadTextBox>
+                </td>
+                <td style="width: 35%"></td>
+            </tr>
+         </table>
+
         <p style="font-weight: bold">B. Verification of Third Parties</p>
 
         <p>
@@ -418,7 +466,7 @@
             <tr>
                 <td style="width: 40px"></td>
                 <td>
-                    <telerik:RadCheckBox ID="RadCheckBox5" runat="server" AutoPostBack="False"></telerik:RadCheckBox>
+                    <telerik:RadCheckBox ID="chkOpt_transConductedBehalfClient" runat="server" AutoPostBack="False"></telerik:RadCheckBox>
                     &nbsp;&nbsp; Yes<br />
                     <telerik:RadCheckBox ID="RadCheckBox9" runat="server" AutoPostBack="False"></telerik:RadCheckBox>
                     &nbsp;&nbsp; No
@@ -433,7 +481,8 @@
             <tr>
                 <td style="width: 40px"></td>
                 <td>
-                    <telerik:RadTextBox ID="RadTextBox18" runat="server" Width="100%" TextMode="MultiLine"></telerik:RadTextBox>
+                    <telerik:RadTextBox ID="txtreasonsMeasuresUnsuccessful1" runat="server" Width="100%"></telerik:RadTextBox><br />
+                    <telerik:RadTextBox ID="txtreasonsMeasuresUnsuccessful2" runat="server" Width="100%"></telerik:RadTextBox>
                 </td>
             </tr>
         </table>
@@ -444,7 +493,7 @@
                 <td class="td-style" style="width: 30%">Name of other entity::
                 </td>
                 <td class="td-style" style="width: 35%">
-                    <telerik:RadTextBox ID="RadTextBox16" runat="server" EmptyMessage="Individual Name" Width="100%"></telerik:RadTextBox>
+                    <telerik:RadTextBox ID="txtthirdPartyName" runat="server" EmptyMessage="Individual Name" Width="100%"></telerik:RadTextBox>
                 </td>
                 <td class="td-style" style="width: 35%"></td>
 
@@ -453,7 +502,7 @@
                 <td class="td-style" style="width: 30%">Address:
                 </td>
                 <td class="td-style" style="width: 35%">
-                    <telerik:RadTextBox ID="RadTextBox17" runat="server" EmptyMessage="Address" Width="100%"></telerik:RadTextBox>
+                    <telerik:RadTextBox ID="txtthirdPartyAddress1" runat="server" EmptyMessage="Address" Width="100%"></telerik:RadTextBox>
                 </td>
                 <td class="td-style" style="width: 35%"></td>
             </tr>
@@ -461,7 +510,7 @@
                 <td class="td-style" style="width: 30%">Telephone number:
                 </td>
                 <td class="td-style" style="width: 35%">
-                    <telerik:RadTextBox ID="RadTextBox19" runat="server" EmptyMessage="Add. Address" Width="100%"></telerik:RadTextBox>
+                    <telerik:RadTextBox ID="txtthirdPartyAddress2" runat="server" EmptyMessage="Add. Address" Width="100%"></telerik:RadTextBox>
                 </td>
                 <td class="td-style" style="width: 35%"></td>
             </tr>
@@ -469,15 +518,24 @@
                 <td class="td-style" style="width: 30%">Date of Birth (if applicable):
                 </td>
                 <td class="td-style" style="width: 35%">
-                    <telerik:RadTextBox ID="RadTextBox20" runat="server" EmptyMessage="Add. Address" Width="100%"></telerik:RadTextBox>
+                    <telerik:RadDateInput ID="txtthirdPartyDOB" runat="server" EmptyMessage="yyyy-mm-dd" DisplayDateFormat="yyyy-MM-dd" Culture="en-CA" MinDate="1900-01-01" Width="160px"></telerik:RadDateInput>
                 </td>
                 <td class="td-style" style="width: 35%"></td>
             </tr>
             <tr>
+                <td class="td-style" style="width: 30%">Nature of Principal Business or Occupation: 
+                </td>
+                <td class="td-style" style="width: 35%">
+                    <telerik:RadTextBox ID="txtthirdPartyBusinessOccupation1" runat="server" EmptyMessage="Add. Address" Width="100%"></telerik:RadTextBox><br />
+                    <telerik:RadTextBox ID="txtthirdPartyBusinessOccupation2" runat="server" EmptyMessage="Add. Address" Width="100%"></telerik:RadTextBox>
+                </td>
+                <td class="td-style" style="width: 35%"></td>
+            </tr>
+             <tr>
                 <td class="td-style" style="width: 30%">Registration or incorporation number, and jurisdiction and country that issued that number (if applicable): 
                 </td>
                 <td class="td-style" style="width: 35%">
-                    <telerik:RadTextBox ID="RadTextBox21" runat="server" EmptyMessage="Add. Address" Width="100%" TextMode="MultiLine"></telerik:RadTextBox>
+                    <telerik:RadTextBox ID="txtthirdPartyIncorporationNumber1" runat="server" Width="100%" TextMode="MultiLine"></telerik:RadTextBox>
                 </td>
                 <td class="td-style" style="width: 35%"></td>
             </tr>
@@ -485,8 +543,7 @@
                 <td class="td-style" style="width: 30%">Relationship between third party and client:.
                 </td>
                 <td class="td-style" style="width: 35%">
-                    <telerik:RadTextBox ID="RadTextBox23" runat="server" EmptyMessage="Add. Address" Width="100%"></telerik:RadTextBox><br />
-                    <telerik:RadTextBox ID="RadTextBox24" runat="server" EmptyMessage="Add. Address" Width="100%"></telerik:RadTextBox>
+                    <telerik:RadTextBox ID="txtthirdPartyIncorporationNumber2" runat="server" Width="100%"></telerik:RadTextBox>
                 </td>
                 <td class="td-style" style="width: 35%"></td>
             </tr>
@@ -517,7 +574,7 @@
             <tr>
                 <td style="width: 40px"></td>
                 <td>
-                    <telerik:RadTextBox ID="RadTextBox26" runat="server" Width="100%" TextMode="MultiLine"></telerik:RadTextBox>
+                    <telerik:RadTextBox ID="txtlowRiskExplain" runat="server" Width="100%" TextMode="MultiLine"></telerik:RadTextBox>
                 </td>
             </tr>
         </table>
@@ -533,7 +590,7 @@
             <tr>
                 <td style="width: 40px"></td>
                 <td>
-                    <telerik:RadTextBox ID="RadTextBox27" runat="server" Width="100%" TextMode="MultiLine"></telerik:RadTextBox>
+                    <telerik:RadTextBox ID="txtmedRiskExplain" runat="server" Width="100%" TextMode="MultiLine"></telerik:RadTextBox>
                 </td>
             </tr>
         </table>
@@ -551,7 +608,7 @@
             <tr>
                 <td style="width: 40px"></td>
                 <td>
-                    <telerik:RadTextBox ID="RadTextBox28" runat="server" Width="100%" TextMode="MultiLine"></telerik:RadTextBox>
+                    <telerik:RadTextBox ID="txthighRiskExplain" runat="server" Width="100%" TextMode="MultiLine"></telerik:RadTextBox>
                 </td>
             </tr>
         </table>
@@ -588,7 +645,7 @@
                     &nbsp;&nbsp; Other, please specify;
                 </td>
                 <td>
-                    <telerik:RadTextBox ID="RadTextBox29" runat="server" Width="100%" TextMode="MultiLine"></telerik:RadTextBox>
+                    <telerik:RadTextBox ID="txtD1explain19" runat="server" Width="100%" TextMode="MultiLine"></telerik:RadTextBox>
                 </td>
             </tr>
         </table>
@@ -600,7 +657,7 @@
             </tr>
             <tr>
                 <td style="width: 100%">
-                    <telerik:RadTextBox ID="RadTextBox30" runat="server" Width="100%" TextMode="MultiLine"></telerik:RadTextBox>
+                    <telerik:RadTextBox runat="server" Width="100%" TextMode="MultiLine"></telerik:RadTextBox>
                 </td>
             </tr>
         </table>
@@ -616,7 +673,7 @@
         <table style="width: 100%; font-size: small; text-align: left;">
             <tr>
                 <td style="width: 100%">
-                    <telerik:RadTextBox ID="RadTextBox31" runat="server" Width="100%" TextMode="MultiLine"></telerik:RadTextBox>
+                    <telerik:RadTextBox ID="txtthirdPartyReasonsMeasuresTaken" runat="server" Width="100%" TextMode="MultiLine"></telerik:RadTextBox>
                 </td>
             </tr>
         </table>
@@ -627,7 +684,7 @@
         <table style="width: 100%; font-size: small; text-align: left;">
             <tr>
                 <td style="width: 100%">
-                    <telerik:RadTextBox ID="RadTextBox32" runat="server" Width="100%" TextMode="MultiLine"></telerik:RadTextBox>
+                    <telerik:RadTextBox ID="txtthirdPartyReasonsMeasuresTaken2" runat="server" Width="100%" TextMode="MultiLine"></telerik:RadTextBox>
                 </td>
             </tr>
         </table>

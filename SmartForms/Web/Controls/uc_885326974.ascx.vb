@@ -46,10 +46,19 @@ Public Class uc_885326974
         For Each row As DataRow In dt.Rows
             If row.Item("KeyType") = "PdfTextFormField" And Not row.Item("KeyValue") = "" Then
 
-                CType(Me.FindControl(row.Item("KeyName")), RadTextBox).Text = row.Item("KeyValue")
+                Dim ctrl As Control = Me.FindControl(row.Item("KeyName"))
+                If ctrl.GetType.UnderlyingSystemType.Name = "RadTextBox" Then
+                    CType(Me.FindControl(row.Item("KeyName")), RadTextBox).Text = row.Item("KeyValue")
+                End If
+                If ctrl.GetType.UnderlyingSystemType.Name = "RadDateInput" Then
+                    CType(Me.FindControl(row.Item("KeyName")), RadDateInput).DbSelectedDate = row.Item("KeyValue")
+                End If
+
+
 
             End If
         Next
+
     End Sub
     Protected Sub SaveForm(sender)
         Dim ds As New smartDataTableAdapters.data_FormFieldsTA
@@ -58,30 +67,50 @@ Public Class uc_885326974
             If TypeName(c) = "RadTextBox" Then
                 Dim label As String = CType(c, RadTextBox).ID
                 If CType(c, RadTextBox).Text <> "" Then
-
                     Dim textval As String = CType(c, RadTextBox).Text
                     ds.UpdateDataField(textval, Now, Context.User.Identity.Name, hfFormId.Value, label)
-
                 End If
             End If
+            If TypeName(c) = "RadDateInput" Then
+                Dim label As String = CType(c, RadDateInput).ID
+                If CType(c, RadDateInput).Text <> "" Then
+                    Dim textval As String = CType(c, RadDateInput).Text.Substring(0, 10)
+                    ds.UpdateDataField(textval, Now, Context.User.Identity.Name, hfFormId.Value, label)
+                End If
+            End If
+            'If TypeName(c) = "RadCheckBox" Then
+            '    Dim label As String = CType(c, RadCheckBox).ID
+            '    If CType(c, RadCheckBox).Checked <> "" Then
+            '        Dim textval As String = CType(c, RadCheckBox).Checked
+            '        ds.UpdateDataField(textval, Now, Context.User.Identity.Name, hfFormId.Value, label)
+            '    End If
+            'End If
+
+
         Next
 
+        'Date PICKERS
 
+        If Not IsNothing(Me.FindControl("rdpVerifiedDate")) Then
+            Dim dp As RadDatePicker = CType(Me.FindControl("rdpVerifiedDate"), RadDatePicker)
+            If Not IsNothing(dp.DbSelectedDate) Then
+                ds.UpdateDataField(Month(dp.DbSelectedDate).ToString, Now, Context.User.Identity.Name, hfFormId.Value, "txttodaysDated1_mmmm")
+                ds.UpdateDataField(Day(dp.DbSelectedDate).ToString, Now, Context.User.Identity.Name, hfFormId.Value, "txttodaysDated1_d")
+                ds.UpdateDataField(Year(dp.DbSelectedDate).ToString, Now, Context.User.Identity.Name, hfFormId.Value, "txttodaysDated1_yyyy")
+            End If
 
-        'For Each c In sender.parent.Controls
-        '    If TypeName(c) = "RadDatePicker" Then
-        '        Dim dp As RadDatePicker = CType(c, RadDatePicker)
-        '        If Not IsNothing(dp.DbSelectedDate) Then
-        '            If dp.UniqueID = "rdpVerifiedDate" Then
-        '                ds.Insert(0, "txttodaysDated1_mmmm", TypeName(c) & "_mth", Month(dp.DbSelectedDate).ToString, Now, Context.User.Identity.Name, Nothing, Nothing)
-        '                ds.Insert(0, "txttodaysDated1_d", TypeName(c) & "_day", Day(dp.DbSelectedDate).ToString, Now, Context.User.Identity.Name, Nothing, Nothing)
-        '                ds.Insert(0, "txttodaysDated1_yyyy", TypeName(c) & "_year", Year(dp.DbSelectedDate).ToString, Now, Context.User.Identity.Name, Nothing, Nothing)
-        '            End If
-        '        End If
+        End If
 
+        If Not IsNothing(Me.FindControl("rdpascertainIdentityDate")) Then
+            Dim dp As RadDatePicker = CType(Me.FindControl("rdpascertainIdentityDate"), RadDatePicker)
+            If Not IsNothing(dp.DbSelectedDate) Then
+                ds.UpdateDataField(Month(dp.DbSelectedDate).ToString, Now, Context.User.Identity.Name, hfFormId.Value, "txtascertainIdentityDated1_mmmm")
+                ds.UpdateDataField(Day(dp.DbSelectedDate).ToString, Now, Context.User.Identity.Name, hfFormId.Value, "txtascertainIdentityDated1_d")
+                ds.UpdateDataField(Year(dp.DbSelectedDate).ToString, Now, Context.User.Identity.Name, hfFormId.Value, "txtascertainIdentityDated1_yyyy")
+            End If
 
-        '    End If
-        'Next
+        End If
+
 
 
     End Sub

@@ -139,23 +139,21 @@ Public Class FintracDashboard
             Dim dataItem As GridDataItem = TryCast(e.Item, GridDataItem)
 
             Dim ib As ImageButton = CType(dataItem.FindControl("ibDocuments"), ImageButton)
-            Dim mb As ImageButton = CType(dataItem.FindControl("manDocuments"), ImageButton)
+            Dim pdf As ImageButton = CType(dataItem.FindControl("pdfDocuments"), ImageButton)
             ib.Height = 15
 
+            If dataItem.GetDataKeyValue("RiskValue").ToString = "" Then
+                If dataItem.GetDataKeyValue("FormType").ToString = "FINTRAC" Then
+                    ib.ImageUrl = "~/Images/QuestionMark.png"
+                Else
+                    ib.Visible = False
+                    pdf.Visible = False
+                End If
 
+            Else
+                ib.ImageUrl = "~/Images/" & dataItem.GetDataKeyValue("RiskValue").ToString & ".png"
+            End If
 
-            ib.ImageUrl = "~/Images/QuestionMark.png"
-
-            'Select Case "i"
-            '    Case 1
-            '        ib.ImageUrl = "~/Images/pdf_Yellow.png"
-            '    Case 2
-            '        ib.ImageUrl = "~/Images/pdf_Blue.png"
-            '    Case 9
-            '        ib.ImageUrl = "~/Images/pdf_Green.png"
-            '    Case Else
-            '        ib.ImageUrl = "~/Images/pdf_Red.png"
-            'End Select
 
         End If
     End Sub
@@ -221,4 +219,7 @@ Public Class FintracDashboard
     End Sub
 
 
+    Private Sub rgvWebKit_SelectedIndexChanged(sender As Object, e As EventArgs) Handles rgvWebKit.SelectedIndexChanged
+
+    End Sub
 End Class
