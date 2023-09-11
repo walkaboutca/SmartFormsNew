@@ -63,11 +63,31 @@
             </Scripts>
         </telerik:RadScriptManager>
         <telerik:RadAjaxLoadingPanel ID="loading_Main" runat="server" Skin="Default"></telerik:RadAjaxLoadingPanel>
+        <asp:Panel ID="panelTop" runat="server">
+            <div class="w3-row">
+                <div class="w3-container w3-third w3-padding-small">
+                    <p>Select the Fintrac Form to complete.</p>
+                </div>
+                <div class="w3-container w3-twothird w3-padding-small">
+                    <telerik:RadComboBox ID="rcbWhichForm" runat="server" DataSourceID="sqlForms" DataTextField="DisplayName" EmptyMessage="Choose the proper form." DataValueField="HashCode" MarkFirstMatch="True" Width="100%" AutoPostBack="True"></telerik:RadComboBox>
+                </div>
+            </div>
+        </asp:Panel>
+
         <telerik:RadAjaxPanel ID="ajax_Main" runat="server" LoadingPanelID="loading_Main">
-            <uc1:uc_885326974 runat="server" id="uc_885326974" />
+            
+            <uc1:uc_885326974 runat="server" id="uc_885326974" Visible="True" />
+
+   
         </telerik:RadAjaxPanel>
+         <asp:HiddenField ID="hfFormId" runat="server" />
+         <asp:HiddenField ID="hfWebKitId" runat="server" />
+
 
 
     </form>
+    <asp:SqlDataSource ID="sqlForms" runat="server" ConnectionString="<%$ ConnectionStrings:smartData %>"
+        SelectCommand="SELECT [HashCode], [DisplayName] FROM [cad_smart].[dbo].[forms_Catalog] WHERE [Vertical] = 'FINTRAC'"></asp:SqlDataSource>
+
 </body>
 </html>

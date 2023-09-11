@@ -11,176 +11,158 @@ Option Strict On
 Option Explicit On
 
 
-Partial Public Class FintracDashboard
+Partial Public Class web_Document
 
     '''<summary>
-    '''RadCodeBlock1 control.
+    '''form1 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents RadCodeBlock1 As Global.Telerik.Web.UI.RadCodeBlock
+    Protected WithEvents form1 As Global.System.Web.UI.HtmlControls.HtmlForm
 
     '''<summary>
-    '''ajaxNotice control.
+    '''RadScriptManager1 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents ajaxNotice As Global.Telerik.Web.UI.RadAjaxLoadingPanel
+    Protected WithEvents RadScriptManager1 As Global.Telerik.Web.UI.RadScriptManager
 
     '''<summary>
-    '''RadTabStrip1 control.
+    '''hfSeller1 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents RadTabStrip1 As Global.Telerik.Web.UI.RadTabStrip
+    Protected WithEvents hfSeller1 As Global.System.Web.UI.WebControls.HiddenField
 
     '''<summary>
-    '''mpForms control.
+    '''hfSeller2 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents mpForms As Global.Telerik.Web.UI.RadMultiPage
+    Protected WithEvents hfSeller2 As Global.System.Web.UI.WebControls.HiddenField
 
     '''<summary>
-    '''WebForms control.
+    '''hfSeller3 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents WebForms As Global.Telerik.Web.UI.RadPageView
+    Protected WithEvents hfSeller3 As Global.System.Web.UI.WebControls.HiddenField
 
     '''<summary>
-    '''apanel_Left control.
+    '''asyncNewDocument control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents apanel_Left As Global.Telerik.Web.UI.RadAjaxPanel
+    Protected WithEvents asyncNewDocument As Global.Telerik.Web.UI.RadAsyncUpload
 
     '''<summary>
-    '''Image1 control.
+    '''RadButton1 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents Image1 As Global.System.Web.UI.WebControls.Image
+    Protected WithEvents RadButton1 As Global.Telerik.Web.UI.RadButton
 
     '''<summary>
-    '''HyperLink1 control.
+    '''rtbContractDate control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents HyperLink1 As Global.System.Web.UI.WebControls.HyperLink
+    Protected WithEvents rtbContractDate As Global.Telerik.Web.UI.RadTextBox
 
     '''<summary>
-    '''apanel_Right control.
+    '''rtbMLSNo control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents apanel_Right As Global.Telerik.Web.UI.RadAjaxPanel
+    Protected WithEvents rtbMLSNo As Global.Telerik.Web.UI.RadTextBox
 
     '''<summary>
-    '''rgvWebKit control.
+    '''rtbFileName control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents rgvWebKit As Global.Telerik.Web.UI.RadGrid
+    Protected WithEvents rtbFileName As Global.Telerik.Web.UI.RadTextBox
 
     '''<summary>
-    '''rlWarning control.
+    '''rtbAddress control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents rlWarning As Global.Telerik.Web.UI.RadLabel
+    Protected WithEvents rtbAddress As Global.Telerik.Web.UI.RadTextBox
 
     '''<summary>
-    '''rgvForms control.
+    '''rtbAddAddress control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents rgvForms As Global.Telerik.Web.UI.RadGrid
+    Protected WithEvents rtbAddAddress As Global.Telerik.Web.UI.RadTextBox
 
     '''<summary>
-    '''window_mgr control.
+    '''rtbCity control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents window_mgr As Global.Telerik.Web.UI.RadWindowManager
+    Protected WithEvents rtbCity As Global.Telerik.Web.UI.RadTextBox
 
     '''<summary>
-    '''window_form control.
+    '''rtbProvince control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents window_form As Global.Telerik.Web.UI.RadWindow
+    Protected WithEvents rtbProvince As Global.Telerik.Web.UI.RadTextBox
 
     '''<summary>
-    '''Fintrac control.
+    '''rtbPCode control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents Fintrac As Global.Telerik.Web.UI.RadPageView
+    Protected WithEvents rtbPCode As Global.Telerik.Web.UI.RadTextBox
 
     '''<summary>
-    '''hfWebKitId control.
+    '''rbSave control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents hfWebKitId As Global.System.Web.UI.WebControls.HiddenField
+    Protected WithEvents rbSave As Global.Telerik.Web.UI.RadButton
 
     '''<summary>
-    '''odsWebKit control.
+    '''rbClose control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents odsWebKit As Global.System.Web.UI.WebControls.ObjectDataSource
-
-    '''<summary>
-    '''odsFormsList control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents odsFormsList As Global.System.Web.UI.WebControls.ObjectDataSource
-
-    '''<summary>
-    '''sqlFormTypes control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents sqlFormTypes As Global.System.Web.UI.WebControls.SqlDataSource
+    Protected WithEvents rbClose As Global.Telerik.Web.UI.RadButton
 End Class

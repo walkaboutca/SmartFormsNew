@@ -1,6 +1,27 @@
 ﻿<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/Web/forms.Master" CodeBehind="FintracDashboard.aspx.vb" Inherits="SmartForms.FintracDashboard" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+
+    <script>         
+        function getRadWindow() {
+            var oWindow = null;
+            if (window.radWindow)
+                oWindow = window.radWindow;
+            else if (window.frameElement.radWindow)
+                oWindow = window.frameElement.radWindow;
+            return oWindow;
+        }
+        function closeWin() {
+            GetRadWindow().close();
+        }
+        // Reload parent page
+        function refreshParentPage() {
+            getRadWindow().BrowserWindow.location.reload();
+            getRadWindow().close();
+        }
+    </script>
+
+
     <style>
         html, body, h1, h2, h3, h4, h5, h6 {
             font-family: "Roboto", sans-serif
@@ -12,7 +33,6 @@
 
         html .RadSearchBox .rsbInput {
             height: 30px;
-
         }
 
         .table-style {
@@ -25,6 +45,17 @@
             vertical-align: top;
         }
     </style>
+    <telerik:RadCodeBlock ID="RadCodeBlock1" runat="server">
+        <script type="text/javascript">
+            function RowDblClick(sender, eventArgs) {
+                sender.get_masterTableView().editItem(eventArgs.get_itemIndexHierarchical());
+            }
+
+            function onPopUpShowing(sender, args) {
+                args.get_popUp().className += " popUpEditForm";
+            }
+        </script>
+    </telerik:RadCodeBlock>
 
     <telerik:RadAjaxLoadingPanel ID="ajaxNotice" runat="server" Skin="Default"></telerik:RadAjaxLoadingPanel>
 
@@ -56,13 +87,17 @@
                             <p>You have been invited to this site to review the content of this effort but PLEASE be aware that the contents, the processes, even the idea, is confidential.</p>
                             <p>Don't share this with anyone unless you discuss it with the Dev Team first.</p>
                             <p>
-                                The two panels you see here are similar to, and made to replicate, the list of Web Kits and Forms you see in Transaction Desk when you use CREA Web Forms&copy;.</p>
+                                The two panels you see here are similar to, and made to replicate, the list of Web Kits and Forms you see in Transaction Desk when you use CREA Web Forms&copy;.
+                            </p>
                             <p>
-                                We are in conversation now with CREA to have access to this same list DIRECTLY from Web Forms&copy;. So the data withing any of the forms you have from Web Forms&copy; will be available automatically.</p>
+                                We are in conversation now with CREA to have access to this same list DIRECTLY from Web Forms&copy;. So the data withing any of the forms you have from Web Forms&copy; will be available automatically.
+                            </p>
                             <p>
-                                By &#39;dragging&#39; a &#39;fillable&#39; PDF from Web Forms&copy; onto the approriate item here you have, in effect, re-created what we hope to do automatically.</p>
+                                By &#39;dragging&#39; a &#39;fillable&#39; PDF from Web Forms&copy; onto the approriate item here you have, in effect, re-created what we hope to do automatically.
+                            </p>
                             <p>
-                                &nbsp;</p>
+                                &nbsp;
+                            </p>
                             <p>
                                 <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Web/SearchEngine.aspx" Target="_blank">HyperLink</asp:HyperLink>
                             </p>
@@ -74,16 +109,19 @@
                     <div class="w3-card w3-container">
                         <telerik:RadAjaxPanel ID="apanel_Right" runat="server" LoadingPanelID="ajaxNotice">
                             <p><strong>Web Forms Kit</strong></p>
-                            <telerik:RadGrid ID="rgvWebKit" runat="server" AllowAutomaticDeletes="True" AllowAutomaticInserts="True" AllowAutomaticUpdates="True" AutoGenerateColumns="False" DataSourceID="odsWebKit">
-                                <GroupingSettings CollapseAllTooltip="Collapse all groups" />
-                                <ClientSettings EnablePostBackOnRowClick="true">
-                                    <Selecting AllowRowSelect="True" />
-                                    <Scrolling AllowScroll="True" UseStaticHeaders="True" />
-                                </ClientSettings>
-                                <MasterTableView CommandItemDisplay="Top" DataKeyNames="Id,FileName" DataSourceID="odsWebKit">
-                                    <RowIndicatorColumn ShowNoSortIcon="False">
+                            <telerik:RadGrid RenderMode="Lightweight" ID="rgvWebKit" runat="server"
+                                AllowSorting="True"
+                                AutoGenerateColumns="False"
+                                ShowStatusBar="True"
+                                DataSourceID="odsWebKit" 
+                                AutoGenerateDeleteColumn="True">
+                                <MasterTableView Width="100%"
+                                    CommandItemDisplay="Top"
+                                    DataKeyNames="Id"
+                                    DataSourceID="odsWebKit">
+                                    <RowIndicatorColumn ShowNoSortIcon="False" Visible="False">
                                     </RowIndicatorColumn>
-                                    <ExpandCollapseColumn ShowNoSortIcon="False">
+                                    <ExpandCollapseColumn ShowNoSortIcon="False" Created="True">
                                     </ExpandCollapseColumn>
                                     <Columns>
                                         <telerik:GridBoundColumn DataField="Id" DataType="System.Int32" FilterControlAltText="Filter Id column" HeaderText="Id" ReadOnly="True" ShowNoSortIcon="False" SortExpression="Id" UniqueName="Id" Visible="False">
@@ -102,6 +140,7 @@
                                         </telerik:GridBoundColumn>
                                         <telerik:GridEditCommandColumn ShowNoSortIcon="False">
                                             <HeaderStyle Width="50px" />
+                                            <ItemStyle Width="50px" />
                                         </telerik:GridEditCommandColumn>
                                     </Columns>
                                     <EditFormSettings>
@@ -109,51 +148,69 @@
                                         </EditColumn>
                                     </EditFormSettings>
                                 </MasterTableView>
+                                <GroupingSettings CollapseAllTooltip="Collapse all groups" />
+                                <ClientSettings 
+                                    EnablePostBackOnRowClick="true">
+                                    <Selecting AllowRowSelect="True" />
+                                </ClientSettings>
+                                <FilterMenu RenderMode="Lightweight">
+                                </FilterMenu>
+                                <HeaderContextMenu RenderMode="Lightweight">
+                                </HeaderContextMenu>
                             </telerik:RadGrid>
+
                             <hr />
                             <p><strong>Web Kit Documents</strong></p>
-                            <telerik:RadGrid ID="rgvForms" runat="server" 
-                                AutoGenerateColumns="False" 
-                                CellSpacing="-1" 
-                                GridLines="Both" 
-                                DataSourceID="odsWebForms" AutoGenerateDeleteColumn="True">
+                            <telerik:RadLabel ID="rlWarning" runat="server" ForeColor="#CC0000" RenderMode="Lightweight" Visible="False"></telerik:RadLabel>
+                            <telerik:RadGrid ID="rgvForms" runat="server"
+                                AutoGenerateColumns="False"
+                                CellSpacing="-1"
+                                GridLines="Both"
+                                DataSourceID="odsFormsList"
+                                AutoGenerateDeleteColumn="True" Height="209px">
                                 <GroupingSettings CollapseAllTooltip="Collapse all groups" />
                                 <ClientSettings>
                                     <Selecting AllowRowSelect="True" />
                                     <Scrolling AllowScroll="True" UseStaticHeaders="True" />
+                                    
                                 </ClientSettings>
-                                <MasterTableView DataKeyNames="Id,HashCode,Title,RiskValue,FormType" CommandItemDisplay="Bottom" DataSourceID="odsWebForms">
+                                <MasterTableView
+                                    DataKeyNames="Id,RiskValue,FormType,HashCode"
+                                    CommandItemDisplay="Bottom"
+                                    DataSourceID="odsFormsList">
                                     <RowIndicatorColumn ShowNoSortIcon="False">
                                     </RowIndicatorColumn>
                                     <ExpandCollapseColumn ShowNoSortIcon="False">
                                     </ExpandCollapseColumn>
-                                    <Columns>
-                                        <telerik:GridTemplateColumn FilterControlAltText="Filter tmpSelect column" ShowNoSortIcon="False" UniqueName="pdfSelect" HeaderText="View">
+                                     <Columns>
+                                        <telerik:GridTemplateColumn FilterControlAltText="Filter tmpSelect column" ShowNoSortIcon="False" UniqueName="tmpSelect">
                                             <ItemTemplate>
-                                                <asp:ImageButton ID="pdfDocuments" runat="server" ImageAlign="Middle" OnClick="pdfDocuments_Click" ImageUrl="~/Images/pdf_Green_Icon.png" Height="20" Width="20" />
+                                                <asp:ImageButton ID="pdfDocuments" runat="server" ImageAlign="Middle" OnClick="pdfDocuments_Click" />
                                             </ItemTemplate>
-                                            <HeaderStyle Width="50px" HorizontalAlign="Center" />
-                                            <ItemStyle Width="50px" HorizontalAlign="Center" />
+                                            <HeaderStyle Width="40px" HorizontalAlign="Center" />
+                                            <ItemStyle Width="40px" HorizontalAlign="Center" />
                                         </telerik:GridTemplateColumn>
                                         <telerik:GridBoundColumn DataField="Id" DataType="System.Int32" FilterControlAltText="Filter Id column" HeaderText="Id" ReadOnly="True" ShowNoSortIcon="False" SortExpression="Id" UniqueName="Id" Visible="False">
                                         </telerik:GridBoundColumn>
-                                        <telerik:GridBoundColumn DataField="WebKitId" FilterControlAltText="Filter WebKitId column" HeaderText="WebKitId" ShowNoSortIcon="False" SortExpression="WebKitId" UniqueName="WebKitId" DataType="System.Int32" Visible="False">
+                                        <telerik:GridBoundColumn DataField="WebKitId" DataType="System.Int32" FilterControlAltText="Filter WebKitId column" HeaderText="WebKitId" ShowNoSortIcon="False" SortExpression="WebKitId" UniqueName="WebKitId" Visible="False">
                                         </telerik:GridBoundColumn>
                                         <telerik:GridBoundColumn DataField="HashCode" FilterControlAltText="Filter HashCode column" HeaderText="HashCode" ShowNoSortIcon="False" SortExpression="HashCode" UniqueName="HashCode" Visible="False">
                                         </telerik:GridBoundColumn>
                                         <telerik:GridBoundColumn DataField="Title" FilterControlAltText="Filter Title column" HeaderText="Title" ShowNoSortIcon="False" SortExpression="Title" UniqueName="Title">
-                                            <HeaderStyle Width="72%" />
-                                            <ItemStyle Width="72%" />
                                         </telerik:GridBoundColumn>
                                         <telerik:GridBoundColumn DataField="Description" FilterControlAltText="Filter Description column" HeaderText="Description" ShowNoSortIcon="False" SortExpression="Description" UniqueName="Description" Visible="False">
                                         </telerik:GridBoundColumn>
-                                        <telerik:GridBoundColumn DataField="FormType" FilterControlAltText="Filter FormType column" HeaderText="FormType" ShowNoSortIcon="False" SortExpression="FormType" UniqueName="FormType" DataType="System.Int32" Visible="False">
+                                        <telerik:GridBoundColumn DataField="FormType" FilterControlAltText="Filter FormType column" HeaderText="FormType" ShowNoSortIcon="False" SortExpression="FormType" UniqueName="FormType">
+                                            <HeaderStyle Width="120px" />
+                                            <ItemStyle Width="120px" />
                                         </telerik:GridBoundColumn>
                                         <telerik:GridBoundColumn DataField="UserName" FilterControlAltText="Filter UserName column" HeaderText="UserName" ShowNoSortIcon="False" SortExpression="UserName" UniqueName="UserName" Visible="False">
                                         </telerik:GridBoundColumn>
                                         <telerik:GridBoundColumn DataField="CompOfficerId" DataType="System.Guid" FilterControlAltText="Filter CompOfficerId column" HeaderText="CompOfficerId" ShowNoSortIcon="False" SortExpression="CompOfficerId" UniqueName="CompOfficerId" Visible="False">
                                         </telerik:GridBoundColumn>
                                         <telerik:GridBoundColumn DataField="PropertyAddress" FilterControlAltText="Filter PropertyAddress column" HeaderText="PropertyAddress" ShowNoSortIcon="False" SortExpression="PropertyAddress" UniqueName="PropertyAddress" Visible="False">
+                                        </telerik:GridBoundColumn>
+                                        <telerik:GridBoundColumn DataField="RiskValue" FilterControlAltText="Filter RiskValue column" HeaderText="RiskValue" ShowNoSortIcon="False" SortExpression="RiskValue" UniqueName="RiskValue" Visible="False">
                                         </telerik:GridBoundColumn>
                                         <telerik:GridBoundColumn DataField="CompFileReference" FilterControlAltText="Filter CompFileReference column" HeaderText="CompFileReference" ShowNoSortIcon="False" SortExpression="CompFileReference" UniqueName="CompFileReference" Visible="False">
                                         </telerik:GridBoundColumn>
@@ -169,80 +226,22 @@
                                         </telerik:GridBoundColumn>
                                         <telerik:GridBoundColumn DataField="JurisdictionId" DataType="System.Guid" FilterControlAltText="Filter JurisdictionId column" HeaderText="JurisdictionId" ShowNoSortIcon="False" SortExpression="JurisdictionId" UniqueName="JurisdictionId" Visible="False">
                                         </telerik:GridBoundColumn>
-                                        <telerik:GridTemplateColumn FilterControlAltText="Filter tmpSelect column" ShowNoSortIcon="False" UniqueName="tmpSelect" HeaderText="Risk">
+                                        <telerik:GridTemplateColumn FilterControlAltText="Filter tmpSelect column" ShowNoSortIcon="False" UniqueName="tmpSelect" HeaderText="Edit">
                                             <ItemTemplate>
                                                 <asp:ImageButton ID="ibDocuments" runat="server" ImageAlign="Middle" OnClick="ibDocuments_Click" />
                                             </ItemTemplate>
-                                            <HeaderStyle Width="50px" HorizontalAlign="Center" />
-                                            <ItemStyle Width="50px" HorizontalAlign="Center" />
+                                            <HeaderStyle Width="40px" HorizontalAlign="Center" />
+                                            <ItemStyle Width="40px" HorizontalAlign="Center" />
                                         </telerik:GridTemplateColumn>
 
-
                                     </Columns>
-                                    <EditFormSettings EditFormType="Template">
+                                    <EditFormSettings>
                                         <EditColumn ShowNoSortIcon="False">
                                         </EditColumn>
-                                        <FormTemplate>
-                                           <div class="w3-row">
-                                                <div class="w3-third w3-container">
-                                                  Form:
-                                                </div>
-                                                <div class="w3-twothird w3-container">
-                                                    <telerik:RadComboBox ID="rcbFormType" runat="server" 
-                                                        Width="100%" 
-                                                        DataSourceId="sqlFormTypes" 
-                                                        DataTextField="DisplayName" 
-                                                        DataValueField="HashCode" 
-                                                        ItemType="Id" 
-                                                        Font-Size="Small">
-
-                                                    </telerik:RadComboBox>
-                                                </div>                                         
-                                            </div>
-                                            <%-- <div class="w3-row">
-                                                <div class="w3-third w3-container">
-                                                  Address:
-                                                </div>
-                                                <div class="w3-twothird w3-container">
-                                                  <telerik:RadTextBox ID="rtbPropertyAddress" runat="server" RenderMode="Lightweight" Width="100%" Text='<%# Bind("PropertyAddress") %>'></telerik:RadTextBox>
-                                                </div>
-                                            
-                                            </div>
-                                            --%>
-                                             <div class="w3-row">
-                                                <div class="w3-third w3-container">
-                                                  Upload PDF:
-                                                </div>
-                                                 <div class="w3-twothird w3-container">
-                                                     <telerik:RadAsyncUpload ID="asyncForm" runat="server"
-                                                          OnFileUploaded="asyncForm_FileUploaded" 
-                                                         UploadedFilesRendering="BelowFileInput" HideFileInput="True" Localization-Select="Select or Drop PDF Here">
-                                                     </telerik:RadAsyncUpload>
-                                                 </div>
-
-                                             </div>
-                                            <div class="w3-row">
-                                                <div class="w3-half w3-container">
-                                                    <asp:Button ID="btnUpdate" Text='<%# IIf((TypeOf (Container) Is GridEditFormInsertItem), "Insert", "Update") %>'
-                                                        runat="server" CommandName='<%# IIf((TypeOf(Container) is GridEditFormInsertItem), "PerformInsert", "Update")%>'></asp:Button>&nbsp;
-                                                    <asp:Button ID="btnCancel" Text="Cancel" runat="server" CausesValidation="False"
-                                                CommandName="Cancel"></asp:Button>
-                                                </div>
-                                                <div class="w3-half w3-container">
-                                                  
-                                                </div>
-                                              
-                                            </div>
-
-                                         
-
-                                        </FormTemplate>
                                     </EditFormSettings>
                                 </MasterTableView>
                             </telerik:RadGrid>
 
-
-  
 
                             <telerik:RadWindowManager ID="window_mgr" runat="server"
                                 KeepInScreenBounds="True"
@@ -263,7 +262,7 @@
                     </div>
                 </div>
 
-     
+
             </div>
 
 
@@ -271,7 +270,7 @@
         <telerik:RadPageView ID="Fintrac" runat="server">
         </telerik:RadPageView>
     </telerik:RadMultiPage>
-
+    <asp:HiddenField ID="hfWebKitId" runat="server" />
 
 
     <asp:ObjectDataSource ID="odsWebKit" runat="server" DeleteMethod="Delete" InsertMethod="Insert" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="SmartForms.smartDataTableAdapters.file_WebKitTA" UpdateMethod="Update">
@@ -297,11 +296,13 @@
         </UpdateParameters>
     </asp:ObjectDataSource>
 
-
-       <asp:ObjectDataSource ID="odsWebForms" runat="server" DeleteMethod="Delete" 
-           InsertMethod="Insert" OldValuesParameterFormatString="original_{0}" 
-           SelectMethod="GetData" TypeName="SmartForms.smartDataTableAdapters.data_FormListTA" 
-           UpdateMethod="Update">
+    <asp:ObjectDataSource ID="odsFormsList" runat="server" 
+        DeleteMethod="Delete" 
+        InsertMethod="Insert" 
+        OldValuesParameterFormatString="original_{0}" 
+        SelectMethod="GetSingleKit" 
+        TypeName="SmartForms.smartDataTableAdapters.data_FormListTA" 
+        UpdateMethod="Update">
         <DeleteParameters>
             <asp:Parameter Name="Original_Id" Type="Int32" />
         </DeleteParameters>
@@ -313,8 +314,8 @@
             <asp:Parameter Name="FormType" Type="String" />
             <asp:Parameter Name="UserName" Type="String" />
             <asp:Parameter DbType="Guid" Name="CompOfficerId" />
-            <asp:Parameter Name="RiskValue" Type="String" />
             <asp:Parameter Name="PropertyAddress" Type="String" />
+            <asp:Parameter Name="RiskValue" Type="String" />
             <asp:Parameter Name="CompFileReference" Type="String" />
             <asp:Parameter Name="CreatedBy" Type="String" />
             <asp:Parameter Name="CreatedOn" Type="DateTime" />
@@ -324,7 +325,7 @@
             <asp:Parameter DbType="Guid" Name="JurisdictionId" />
         </InsertParameters>
         <SelectParameters>
-            <asp:ControlParameter ControlID="rgvWebKit" Name="webkitid" PropertyName="SelectedValue" Type="Int32" />
+            <asp:ControlParameter ControlID="hfWebKitId" Name="webkitid" PropertyName="Value" Type="Int32" />
         </SelectParameters>
         <UpdateParameters>
             <asp:Parameter Name="WebKitId" Type="Int32" />
@@ -334,8 +335,8 @@
             <asp:Parameter Name="FormType" Type="String" />
             <asp:Parameter Name="UserName" Type="String" />
             <asp:Parameter DbType="Guid" Name="CompOfficerId" />
-            <asp:Parameter Name="RiskValue" Type="String" />
             <asp:Parameter Name="PropertyAddress" Type="String" />
+            <asp:Parameter Name="RiskValue" Type="String" />
             <asp:Parameter Name="CompFileReference" Type="String" />
             <asp:Parameter Name="CreatedBy" Type="String" />
             <asp:Parameter Name="CreatedOn" Type="DateTime" />
@@ -344,13 +345,10 @@
             <asp:Parameter DbType="Guid" Name="CompanyId" />
             <asp:Parameter DbType="Guid" Name="JurisdictionId" />
             <asp:Parameter Name="Original_Id" Type="Int32" />
-            <asp:Parameter Name="Id" Type="Int32" />
         </UpdateParameters>
     </asp:ObjectDataSource>
 
-
-    <asp:SqlDataSource ID="sqlFormTypes" runat="server" ConnectionString="<%$ ConnectionStrings:smartData %>" 
-        SelectCommand="SELECT 0 As [Id], '[Select a Form Type]' As  [DisplayName], '' As [HashCode] UNION SELECT [Id],[DisplayName],[HashCode]  FROM [dbo].[forms_Catalog] ORDER BY [DisplayName]">
-    </asp:SqlDataSource>
+    <asp:SqlDataSource ID="sqlFormTypes" runat="server" ConnectionString="<%$ ConnectionStrings:smartData %>"
+        SelectCommand="SELECT 0 As [Id], '' As [Vertical], '[Select a Form Type]' As  [DisplayName], '' As [HashCode] UNION SELECT [Id],[Vertical], [DisplayName], [HashCode]  FROM [dbo].[forms_Catalog] ORDER BY [DisplayName]"></asp:SqlDataSource>
 
 </asp:Content>

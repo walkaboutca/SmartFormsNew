@@ -11,41 +11,59 @@ Option Strict On
 Option Explicit On
 
 
-Partial Public Class FillableForms
+Partial Public Class uc_236589754
 
     '''<summary>
-    '''RadAsyncUpload1 control.
+    '''hfFormHash control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents RadAsyncUpload1 As Global.Telerik.Web.UI.RadAsyncUpload
+    Protected WithEvents hfFormHash As Global.System.Web.UI.WebControls.HiddenField
 
     '''<summary>
-    '''rbSave control.
+    '''hfFormId control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents rbSave As Global.Telerik.Web.UI.RadButton
+    Protected WithEvents hfFormId As Global.System.Web.UI.WebControls.HiddenField
 
     '''<summary>
-    '''rlSourceForm control.
+    '''butSubmit control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents rlSourceForm As Global.Telerik.Web.UI.RadLabel
+    Protected WithEvents butSubmit As Global.System.Web.UI.WebControls.Button
 
     '''<summary>
-    '''pdfViewer control.
+    '''butSendOffice control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents pdfViewer As Global.Telerik.Web.UI.RadPdfViewer
+    Protected WithEvents butSendOffice As Global.System.Web.UI.WebControls.Button
+
+    '''<summary>
+    '''butDisplayForm control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents butDisplayForm As Global.System.Web.UI.WebControls.Button
+
+    '''<summary>
+    '''butSave control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents butSave As Global.System.Web.UI.WebControls.Button
 End Class

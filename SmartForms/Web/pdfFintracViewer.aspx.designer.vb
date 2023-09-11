@@ -41,6 +41,24 @@ Partial Public Class pdfFintracViewer
     Protected WithEvents loading_Main As Global.Telerik.Web.UI.RadAjaxLoadingPanel
 
     '''<summary>
+    '''panelTop control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents panelTop As Global.System.Web.UI.WebControls.Panel
+
+    '''<summary>
+    '''rcbWhichForm control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents rcbWhichForm As Global.Telerik.Web.UI.RadComboBox
+
+    '''<summary>
     '''ajax_Main control.
     '''</summary>
     '''<remarks>
@@ -57,4 +75,31 @@ Partial Public Class pdfFintracViewer
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents uc_885326974 As Global.SmartForms.uc_885326974
+
+    '''<summary>
+    '''hfFormId control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents hfFormId As Global.System.Web.UI.WebControls.HiddenField
+
+    '''<summary>
+    '''hfWebKitId control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents hfWebKitId As Global.System.Web.UI.WebControls.HiddenField
+
+    '''<summary>
+    '''sqlForms control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents sqlForms As Global.System.Web.UI.WebControls.SqlDataSource
 End Class

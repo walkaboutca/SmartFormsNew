@@ -31,9 +31,25 @@
 <head runat="server">
     <title>AI Engine Alert</title>
 </head>
-   
 
-
+<script>         
+    function getRadWindow() {
+        var oWindow = null;
+        if (window.radWindow)
+            oWindow = window.radWindow;
+        else if (window.frameElement.radWindow)
+            oWindow = window.frameElement.radWindow;
+        return oWindow;
+    }
+    function closeWin() {
+        GetRadWindow().close();
+    }
+    // Reload parent page
+    function refreshParentPage() {
+        getRadWindow().BrowserWindow.location.reload();
+        getRadWindow().close();
+    }
+</script>
 
 <body>
     <form id="form1" runat="server">

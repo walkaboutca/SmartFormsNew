@@ -15,6 +15,9 @@ Public Class FintracDashboard
     Inherits System.Web.UI.Page
     Dim wheight As Integer
     Dim wwidth As Integer
+
+    Dim pdftools As New PDFManager
+
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         If Not IsNothing(Request.QueryString("clientHeight")) Then
             wheight = ((Request.QueryString("clientHeight") * 0.7))
@@ -22,11 +25,23 @@ Public Class FintracDashboard
         End If
         If Not Page.IsPostBack Then
             RadTabStrip1.SelectedIndex = 0
+        Else
+            If rgvWebKit.SelectedValue = -1 Then
 
+            End If
         End If
 
     End Sub
+    Private Sub FintracDashboard_PreRender(sender As Object, e As EventArgs) Handles Me.PreRender
 
+        If hfWebKitId.Value = "" Then
+            hfWebKitId.Value = rgvWebKit.SelectedValue
+            rgvForms.Rebind()
+
+        End If
+
+
+    End Sub
     Private Sub apanel_Left_PreRender(sender As Object, e As EventArgs) Handles apanel_Left.PreRender
         apanel_Left.Height = wheight
 
@@ -41,11 +56,13 @@ Public Class FintracDashboard
     Private Sub rgvWebKit_PreRender(sender As Object, e As EventArgs) Handles rgvWebKit.PreRender
         rgvWebKit.MasterTableView.Font.Size = FontUnit.Small
         rgvWebKit.Height = (wheight * 0.4)
+
     End Sub
 
     Private Sub rgvForms_PreRender(sender As Object, e As EventArgs) Handles rgvForms.PreRender
         rgvForms.MasterTableView.Font.Size = FontUnit.Small
         rgvForms.Height = (wheight * 0.4)
+
     End Sub
 
     Protected Sub asyncForm_FileUploaded(ByVal sender As Object, ByVal e As FileUploadedEventArgs)
@@ -96,7 +113,12 @@ Public Class FintracDashboard
             End Try
         Next
     End Sub
+    Private Sub rgvWebKit_SelectedIndexChanged(sender As Object, e As EventArgs) Handles rgvWebKit.SelectedIndexChanged
 
+        hfWebKitId.Value = rgvWebKit.SelectedValue
+        rgvForms.DataBind()
+
+    End Sub
     Private Sub rgvForms_ItemCommand(sender As Object, e As GridCommandEventArgs) Handles rgvForms.ItemCommand
 
         If (e.CommandName = RadGrid.DeleteCommandName) Then
@@ -113,16 +135,19 @@ Public Class FintracDashboard
             Dim Item As GridEditableItem = CType(e.Item, GridEditableItem)
 
             Dim webkitid As Integer = rgvWebKit.SelectedValue
-            Dim Title As String = CType(Item.FindControl("rcbFormType"), RadComboBox).SelectedItem.Text.Substring(4)
+
+            'Dim ctrl As RadComboBox = CType(Item.FindControl("rcbFormType"), RadComboBox)
+
+            Dim Title As String = CType(Item.FindControl("rtbTitle"), RadTextBox).Text
             Dim HashCode As String = CType(Item.FindControl("rcbFormType"), RadComboBox).SelectedValue
+            Dim FormType As String = CType(Item.FindControl("rcbFormType"), RadComboBox).Attributes("FormType")
             Dim UserName As String = Context.User.Identity.Name
-            'Dim PropertyAddress As String = CType(Item.FindControl("rtbPropertyAddress"), RadTextBox).Text
             Dim CreatedBy As String = Context.User.Identity.Name
             Dim CreatedOn As DateTime = Now
 
             Dim ds As New smartDataTableAdapters.data_FormListTA
             Try
-                ds.Insert(webkitid, HashCode, Title, Nothing, Nothing, UserName, Nothing, Nothing, Nothing, Nothing, CreatedBy, CreatedOn, Nothing, Nothing, Nothing, Nothing)
+                ds.Insert(webkitid, HashCode, Title, Nothing, FormType, UserName, Nothing, Nothing, Nothing, Nothing, CreatedBy, CreatedOn, Nothing, Nothing, Nothing, Nothing)
                 rgvForms.MasterTableView.IsItemInserted = False
                 rgvForms.Rebind()
             Catch ex As Exception
@@ -138,13 +163,24 @@ Public Class FintracDashboard
         If TypeOf e.Item Is GridDataItem Then
             Dim dataItem As GridDataItem = TryCast(e.Item, GridDataItem)
 
+            e.Item.Attributes("FormType") = dataItem("FormType").Text
+            Dim locals As New smartDataTableAdapters.LocalTA
+            Dim isdata As Integer = IIf(IsNothing(locals.ret_DataFieldsIsStarted(dataItem.GetDataKeyValue("Id"))), 0, 1)
+
             Dim ib As ImageButton = CType(dataItem.FindControl("ibDocuments"), ImageButton)
             Dim pdf As ImageButton = CType(dataItem.FindControl("pdfDocuments"), ImageButton)
             ib.Height = 15
+            pdf.Height = 15
 
             If dataItem.GetDataKeyValue("RiskValue").ToString = "" Then
-                If dataItem.GetDataKeyValue("FormType").ToString = "FINTRAC" Then
+                If dataItem.GetDataKeyValue("FormType").ToString <> "" Then
                     ib.ImageUrl = "~/Images/QuestionMark.png"
+                    If isdata > 0 Then
+                        pdf.ImageUrl = "~/Images/pdf_Green_Icon.png"
+                    Else
+                        pdf.ImageUrl = "~/Images/pdf_Red.png"
+                    End If
+
                 Else
                     ib.Visible = False
                     pdf.Visible = False
@@ -152,6 +188,7 @@ Public Class FintracDashboard
 
             Else
                 ib.ImageUrl = "~/Images/" & dataItem.GetDataKeyValue("RiskValue").ToString & ".png"
+                pdf.ImageUrl = "~/Images/pdf_Green_Icon.png"
             End If
 
 
@@ -160,8 +197,10 @@ Public Class FintracDashboard
     Protected Sub ibDocuments_Click(sender As Object, e As ImageClickEventArgs)
 
         Dim item As GridDataItem = CType(sender.parent.Item, GridDataItem)
-        Dim formid As Integer = item.GetDataKeyValue("HashCode")
+        Dim formid As Integer = IIf(item.GetDataKeyValue("HashCode").ToString = "", -1, item.GetDataKeyValue("HashCode"))
         Dim origid As Integer = item.GetDataKeyValue("Id")
+        Dim webkitid As Integer = item.GetDataKeyValue("WebKitId")
+
 
         window_form.Title = "FINTRAC - Form"
         window_form.AutoSize = False
@@ -170,7 +209,7 @@ Public Class FintracDashboard
         window_form.Width = ((Request.QueryString("clientWidth") * 0.6))
         window_form.VisibleStatusbar = False
 
-        Dim urlargs As String = "?hashcode=" & formid & "&formid=" & origid
+        Dim urlargs As String = "?hashcode=" & formid & "&formid=" & origid & "&webkitid=" & webkitid
         window_form.NavigateUrl = "~/Web/pdfFintracViewer.aspx" & urlargs
 
         Dim script As String = "function f(){$find(""" + window_form.ClientID + """).show(); Sys.Application.remove_load(f);}Sys.Application.add_load(f);"
@@ -179,47 +218,84 @@ Public Class FintracDashboard
     End Sub
     Protected Sub pdfDocuments_Click(sender As Object, e As ImageClickEventArgs)
 
-        Dim TypeOutput As String = Nothing
-
-        Dim kit As GridDataItem = CType(rgvWebKit.SelectedItems(0), GridDataItem)
         Dim item As GridDataItem = CType(sender.parent.Item, GridDataItem)
-        Dim orighash As Integer = item.GetDataKeyValue("HashCode")
-        Dim origid As Integer = item.GetDataKeyValue("Id")
+        Dim hashcode As Integer = IIf(item.GetDataKeyValue("HashCode").ToString = "", -1, item.GetDataKeyValue("HashCode"))
+        Dim fileid As Integer = item.GetDataKeyValue("Id")
+        Dim webkitid As Integer = rgvWebKit.SelectedValue
 
-        Dim targetname As String = kit.GetDataKeyValue("FileName") & " - " & item.GetDataKeyValue("Title") & " " & Now.ToShortDateString & " " & Now.ToShortTimeString
-        targetname = Regex.Replace(targetname, "[^\w ]", "-")
+        Dim pdfstream As String = pdftools.Fill_FintracData(hashcode, fileid)
+        If pdfstream.ToString = "57" Then
+            rlWarning.Visible = True
+            rlWarning.Text = "You have a copy of this PDF open somewhere. </br> Close it and try again."
+        Else
+            rlWarning.Visible = False
+        End If
 
-        Dim FilePath = Server.MapPath("~/forms/FINTRAC/" & orighash & ".pdf")
-        Dim OutputFilepath As String = System.Environment.ExpandEnvironmentVariables("%userprofile%/downloads/" & targetname & ".pdf")
 
-        Dim rd As PdfReader = New PdfReader(Server.MapPath("~/forms/FINTRAC/" & orighash & ".pdf"))
-        rd.SetUnethicalReading(True)
 
-            Dim writer = New PdfWriter(OutputFilepath)
-            Dim template As PdfDocument = New PdfDocument(rd, writer)
+        'window_form.Title = "FINTRAC - Form"
+        'window_form.AutoSize = False
+        'window_form.Behaviors = WindowBehaviors.Move Or WindowBehaviors.Resize Or WindowBehaviors.Close
+        'window_form.Height = ((Request.QueryString("clientHeight") * 0.98))
+        'window_form.Width = ((Request.QueryString("clientWidth") * 0.6))
+        'window_form.VisibleStatusbar = False
 
-            Dim Form As PdfAcroForm = PdfAcroForm.GetAcroForm(template, False)
-            Dim ds As New smartDataTableAdapters.data_FormFieldsTA
-            Dim dt As DataTable = ds.GetPdfKeyValues(origid)
+        'Dim urlargs As String = "?hashcode=" & formid & "&formid=" & origid & "&webkitid=" & webkitid
+        'window_form.NavigateUrl = "~/Web/pdfFintracViewer.aspx" & urlargs
 
-            For Each row As DataRow In dt.Rows
-                Form.GetField(row.Item("KeyName")).SetValue(row.Item("KeyValue"))
-            Next
-            Dim document = New Document(template)
-            document.Close()
-            rd.Close()
-            writer.Close()
-            template.Close()
-
-            Dim Process As New Process
-            Process.StartInfo.FileName = OutputFilepath
-            Process.Start()
-
+        'Dim script As String = "function f(){$find(""" + window_form.ClientID + """).show(); Sys.Application.remove_load(f);}Sys.Application.add_load(f);"
+        'ScriptManager.RegisterStartupScript(Page, Page.GetType(), "key", script, True)
 
     End Sub
 
 
-    Private Sub rgvWebKit_SelectedIndexChanged(sender As Object, e As EventArgs) Handles rgvWebKit.SelectedIndexChanged
+    Private Sub rgvWebKit_ItemCommand(sender As Object, e As GridCommandEventArgs) Handles rgvWebKit.ItemCommand
+        If (e.CommandName = RadGrid.DeleteCommandName) Then
+            Dim ds As New smartDataTableAdapters.file_WebKitTA
+            Dim deliten As GridDataItem = CType(e.Item, GridDataItem)
+            ds.Delete(deliten.GetDataKeyValue("Id"))
+            rgvWebKit.DataBind()
+            e.Canceled = True
+
+        End If
+
+        If (e.CommandName = RadGrid.InitInsertCommandName) Then
+            e.Canceled = True
+            window_form.Title = "WEB KIT - Add / Edit"
+            window_form.AutoSize = False
+            window_form.Behaviors = WindowBehaviors.Move Or WindowBehaviors.Resize Or WindowBehaviors.Close
+            window_form.Height = ((Request.QueryString("clientHeight") * 0.8))
+            window_form.Width = ((Request.QueryString("clientWidth") * 0.4))
+            window_form.VisibleStatusbar = False
+
+            Dim urlargs As String = Nothing
+            window_form.NavigateUrl = "~/Web/Controls/web_NewWebKit.aspx" & urlargs
+
+            Dim script As String = "function f(){$find(""" + window_form.ClientID + """).show(); Sys.Application.remove_load(f);}Sys.Application.add_load(f);"
+            ScriptManager.RegisterStartupScript(Page, Page.GetType(), "key", script, True)
+
+        End If
+
+        If (e.CommandName = RadGrid.PerformInsertCommandName) Then
+            e.Canceled = True
+            Dim Item As GridEditableItem = CType(e.Item, GridEditableItem)
+
+
+
+        End If
+    End Sub
+
+    Private Sub rgvForms_ColumnCreated(sender As Object, e As GridColumnCreatedEventArgs) Handles rgvForms.ColumnCreated
+        If e.Column.UniqueName = "AutoGeneratedDeleteColumn" Then
+            e.Column.ItemStyle.Width = 50
+            e.Column.HeaderStyle.Width = 50
+        End If
+        If e.Column.UniqueName = "AutoGeneratedEditColumn" Then
+            e.Column.ItemStyle.Width = 50
+            e.Column.HeaderStyle.Width = 50
+        End If
 
     End Sub
+
+
 End Class

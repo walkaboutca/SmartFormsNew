@@ -11,12 +11,12 @@ Imports iText.Layout.Element
 Public Class uc_885326974
     Inherits System.Web.UI.UserControl
 
+    Dim pdftools As New PDFManager
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         If Not Page.IsPostBack Then
             hfFormHash.Value = Request.QueryString("hashcode")
             hfFormId.Value = Request.QueryString("FormId")
             FillForm()
-
         Else
 
         End If
@@ -45,78 +45,103 @@ Public Class uc_885326974
         Dim dt As DataTable = ds.GetPdfKeyValues(hfFormId.Value)
         For Each row As DataRow In dt.Rows
             If row.Item("KeyType") = "PdfTextFormField" And Not row.Item("KeyValue") = "" Then
-
                 Dim ctrl As Control = Me.FindControl(row.Item("KeyName"))
-                If ctrl.GetType.UnderlyingSystemType.Name = "RadTextBox" Then
-                    CType(Me.FindControl(row.Item("KeyName")), RadTextBox).Text = row.Item("KeyValue")
+                If Not IsNothing(ctrl) Then
+                    If ctrl.GetType.UnderlyingSystemType.Name = "RadTextBox" Then
+                        CType(Me.FindControl(row.Item("KeyName")), RadTextBox).Text = row.Item("KeyValue")
+                    End If
+                    If ctrl.GetType.UnderlyingSystemType.Name = "RadDateInput" Then
+                        CType(Me.FindControl(row.Item("KeyName")), RadDateInput).DbSelectedDate = row.Item("KeyValue")
+                    End If
                 End If
-                If ctrl.GetType.UnderlyingSystemType.Name = "RadDateInput" Then
-                    CType(Me.FindControl(row.Item("KeyName")), RadDateInput).DbSelectedDate = row.Item("KeyValue")
-                End If
-
-
-
             End If
         Next
 
     End Sub
     Protected Sub SaveForm(sender)
-        Dim ds As New smartDataTableAdapters.data_FormFieldsTA
+
+        Dim savedt As New DataTable
+        savedt.Columns.Add()
+        savedt.Columns.Add("KeyName", GetType(String))
+        savedt.Columns.Add("KeyType", GetType(String))
+        savedt.Columns.Add("KeyValue", GetType(String))
+        savedt.Columns.Add("UserName", GetType(String))
+
+        Dim formid As Integer = CType(hfFormId.Value, Integer)
+        Dim hashcode As String = hfFormHash.Value
+        Dim username As String = Context.User.Identity.Name
 
         For Each c In sender.parent.Controls
-            If TypeName(c) = "RadTextBox" Then
-                Dim label As String = CType(c, RadTextBox).ID
-                If CType(c, RadTextBox).Text <> "" Then
-                    Dim textval As String = CType(c, RadTextBox).Text
-                    ds.UpdateDataField(textval, Now, Context.User.Identity.Name, hfFormId.Value, label)
-                End If
-            End If
-            If TypeName(c) = "RadDateInput" Then
-                Dim label As String = CType(c, RadDateInput).ID
-                If CType(c, RadDateInput).Text <> "" Then
-                    Dim textval As String = CType(c, RadDateInput).Text.Substring(0, 10)
-                    ds.UpdateDataField(textval, Now, Context.User.Identity.Name, hfFormId.Value, label)
-                End If
-            End If
-            'If TypeName(c) = "RadCheckBox" Then
-            '    Dim label As String = CType(c, RadCheckBox).ID
-            '    If CType(c, RadCheckBox).Checked <> "" Then
-            '        Dim textval As String = CType(c, RadCheckBox).Checked
-            '        ds.UpdateDataField(textval, Now, Context.User.Identity.Name, hfFormId.Value, label)
-            '    End If
-            'End If
 
+            If TypeName(c) = "RadTextBox" Then
+                savedt.Rows.Add(formid, c.id.ToString, TypeName(c).ToString, c.text, username)
+            End If
+
+            If TypeName(c) = "RadDatePicker" Then savedt.Rows.Add(formid, c.id, TypeName(c), IIf(IsNothing(c.dbSelectedDate), Nothing, c.dbSelectedDate), username)
+            If TypeName(c) = "RadDateInput" Then savedt.Rows.Add(formid, c.id, TypeName(c), IIf(IsNothing(c.dbSelectedDate), Nothing, c.dbSelectedDate), username)
+            If TypeName(c) = "RadCheckBox" Then savedt.Rows.Add(formid, c.id, TypeName(c), IIf(IsNothing(c.Checked), Nothing, c.Checked), username)
 
         Next
 
+        pdftools.Save_FintracData(hashcode, formid, savedt)
+
+
+        'Dim ds As New smartDataTableAdapters.data_FormFieldsTA
+
+        'For Each c In sender.parent.Controls
+        '    If TypeName(c) = "RadTextBox" Then
+        '        Dim label As String = CType(c, RadTextBox).ID
+        '        If CType(c, RadTextBox).Text <> "" Then
+        '            Dim textval As String = CType(c, RadTextBox).Text
+        '            ds.UpdateDataField(textval, Now, Context.User.Identity.Name, hfFormId.Value, label)
+        '        End If
+        '    End If
+        '    If TypeName(c) = "RadDateInput" Then
+        '        Dim label As String = CType(c, RadDateInput).ID
+        '        If CType(c, RadDateInput).Text <> "" Then
+        '            Dim textval As String = CType(c, RadDateInput).Text.Substring(0, 10)
+        '            ds.UpdateDataField(textval, Now, Context.User.Identity.Name, hfFormId.Value, label)
+        '        End If
+        '    End If
+        '    'If TypeName(c) = "RadCheckBox" Then
+        '    '    Dim label As String = CType(c, RadCheckBox).ID
+        '    '    If CType(c, RadCheckBox).Checked <> "" Then
+        '    '        Dim textval As String = CType(c, RadCheckBox).Checked
+        '    '        ds.UpdateDataField(textval, Now, Context.User.Identity.Name, hfFormId.Value, label)
+        '    '    End If
+        '    'End If
+
+
+        'Next
+
         'Date PICKERS
 
-        If Not IsNothing(Me.FindControl("rdpVerifiedDate")) Then
-            Dim dp As RadDatePicker = CType(Me.FindControl("rdpVerifiedDate"), RadDatePicker)
-            If Not IsNothing(dp.DbSelectedDate) Then
-                ds.UpdateDataField(Month(dp.DbSelectedDate).ToString, Now, Context.User.Identity.Name, hfFormId.Value, "txttodaysDated1_mmmm")
-                ds.UpdateDataField(Day(dp.DbSelectedDate).ToString, Now, Context.User.Identity.Name, hfFormId.Value, "txttodaysDated1_d")
-                ds.UpdateDataField(Year(dp.DbSelectedDate).ToString, Now, Context.User.Identity.Name, hfFormId.Value, "txttodaysDated1_yyyy")
-            End If
+        'If Not IsNothing(Me.FindControl("rdpVerifiedDate")) Then
+        '    Dim dp As RadDatePicker = CType(Me.FindControl("rdpVerifiedDate"), RadDatePicker)
+        '    If Not IsNothing(dp.DbSelectedDate) Then
+        '        ds.UpdateDataField(Month(dp.DbSelectedDate).ToString, Now, Context.User.Identity.Name, hfFormId.Value, "txttodaysDated1_mmmm")
+        '        ds.UpdateDataField(Day(dp.DbSelectedDate).ToString, Now, Context.User.Identity.Name, hfFormId.Value, "txttodaysDated1_d")
+        '        ds.UpdateDataField(Year(dp.DbSelectedDate).ToString, Now, Context.User.Identity.Name, hfFormId.Value, "txttodaysDated1_yyyy")
+        '    End If
 
-        End If
+        'End If
 
-        If Not IsNothing(Me.FindControl("rdpascertainIdentityDate")) Then
-            Dim dp As RadDatePicker = CType(Me.FindControl("rdpascertainIdentityDate"), RadDatePicker)
-            If Not IsNothing(dp.DbSelectedDate) Then
-                ds.UpdateDataField(Month(dp.DbSelectedDate).ToString, Now, Context.User.Identity.Name, hfFormId.Value, "txtascertainIdentityDated1_mmmm")
-                ds.UpdateDataField(Day(dp.DbSelectedDate).ToString, Now, Context.User.Identity.Name, hfFormId.Value, "txtascertainIdentityDated1_d")
-                ds.UpdateDataField(Year(dp.DbSelectedDate).ToString, Now, Context.User.Identity.Name, hfFormId.Value, "txtascertainIdentityDated1_yyyy")
-            End If
+        'If Not IsNothing(Me.FindControl("rdpascertainIdentityDate")) Then
+        '    Dim dp As RadDatePicker = CType(Me.FindControl("rdpascertainIdentityDate"), RadDatePicker)
+        '    If Not IsNothing(dp.DbSelectedDate) Then
+        '        ds.UpdateDataField(Month(dp.DbSelectedDate).ToString, Now, Context.User.Identity.Name, hfFormId.Value, "txtascertainIdentityDated1_mmmm")
+        '        ds.UpdateDataField(Day(dp.DbSelectedDate).ToString, Now, Context.User.Identity.Name, hfFormId.Value, "txtascertainIdentityDated1_d")
+        '        ds.UpdateDataField(Year(dp.DbSelectedDate).ToString, Now, Context.User.Identity.Name, hfFormId.Value, "txtascertainIdentityDated1_yyyy")
+        '    End If
 
-        End If
+        'End If
 
 
 
     End Sub
 
     Protected Sub butDisplayForm_Click(sender As Object, e As EventArgs) Handles butDisplayForm.Click
-        SaveForm(sender)
+        'SaveForm(sender)
 
         Dim TypeOutput As String = Nothing
 
@@ -134,16 +159,33 @@ Public Class uc_885326974
         Dim rd As PdfReader = New PdfReader(Server.MapPath("~/forms/FINTRAC/" & orighash & ".pdf"))
         rd.SetUnethicalReading(True)
 
+        pdftools.Empty_FintracCatalog(hfFormHash.Value)
+
         Dim writer = New PdfWriter(OutputFilepath)
         Dim template As PdfDocument = New PdfDocument(rd, writer)
 
         Dim Form As PdfAcroForm = PdfAcroForm.GetAcroForm(template, False)
-        Dim dsfields As New smartDataTableAdapters.data_FormFieldsTA
-        Dim dt As DataTable = dsfields.GetPdfKeyValues(origid)
+        'Dim dsfields As New smartDataTableAdapters.data_FormFieldsTA
+        'Dim dt As DataTable = dsfields.GetPdfKeyValues(origid)
 
-        For Each row As DataRow In dt.Rows
-            Form.GetField(row.Item("KeyName")).SetValue(row.Item("KeyValue"))
+        Dim dslocals As New smartDataTableAdapters.LocalTA
+
+        Dim fields As IDictionary(Of String, PdfFormField) = Form.GetFormFields
+        For Each iKey As String In fields.Keys
+            Dim field As PdfFormField = Form.GetField(iKey)
+            Dim keyName As String = iKey.ToString
+            Dim keyType As String = field.[GetType]().Name
+
+            field.SetValue(IIf(IsNothing(dslocals.usp_SearchValue(origid, keyName)), String.Empty, dslocals.usp_SearchValue(origid, keyName)))
+
+
         Next
+
+        'For Each row As DataRow In dt.Rows
+        '    If Not IsNothing(Form.GetField(row.Item("KeyName"))) Then
+        '        Form.GetField(row.Item("KeyName")).SetValue(row.Item("KeyValue"))
+        '    End If
+        'Next
         Dim document = New Document(template)
         document.Close()
         rd.Close()

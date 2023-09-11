@@ -11,41 +11,59 @@ Option Strict On
 Option Explicit On
 
 
-Partial Public Class FillableForms
+Partial Public Class TestPDFViewer
 
     '''<summary>
-    '''RadAsyncUpload1 control.
+    '''RadAjaxLoadingPanel1 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents RadAsyncUpload1 As Global.Telerik.Web.UI.RadAsyncUpload
+    Protected WithEvents RadAjaxLoadingPanel1 As Global.Telerik.Web.UI.RadAjaxLoadingPanel
 
     '''<summary>
-    '''rbSave control.
+    '''RadAjaxPanel1 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents rbSave As Global.Telerik.Web.UI.RadButton
+    Protected WithEvents RadAjaxPanel1 As Global.Telerik.Web.UI.RadAjaxPanel
 
     '''<summary>
-    '''rlSourceForm control.
+    '''RadButton1 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents rlSourceForm As Global.Telerik.Web.UI.RadLabel
+    Protected WithEvents RadButton1 As Global.Telerik.Web.UI.RadButton
 
     '''<summary>
-    '''pdfViewer control.
+    '''rlWarning control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents pdfViewer As Global.Telerik.Web.UI.RadPdfViewer
+    Protected WithEvents rlWarning As Global.Telerik.Web.UI.RadLabel
+
+    '''<summary>
+    '''asyncNewDocument control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents asyncNewDocument As Global.Telerik.Web.UI.RadAsyncUpload
+
+    '''<summary>
+    '''RadPdfViewer1 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents RadPdfViewer1 As Global.Telerik.Web.UI.RadPdfViewer
 End Class
