@@ -61,9 +61,9 @@
 
     <telerik:RadTabStrip ID="RadTabStrip1" runat="server" MultiPageID="mpForms" SelectedIndex="0">
         <Tabs>
-            <telerik:RadTab runat="server" Text="WEB FORMS" PageViewID="Webforms" Selected="True" SelectedIndex="0">
+            <telerik:RadTab runat="server" Text="AGENT DESKTOP" PageViewID="Webforms" Selected="True" SelectedIndex="0">
             </telerik:RadTab>
-            <telerik:RadTab runat="server" Text="FINTRAC" PageViewID="Fintrac" SelectedIndex="1">
+            <telerik:RadTab runat="server" Text="BROKER DESKTOP" PageViewID="Fintrac" SelectedIndex="1">
             </telerik:RadTab>
         </Tabs>
     </telerik:RadTabStrip>
@@ -76,8 +76,8 @@
                     <div class="w3-card w3-container">
                         <telerik:RadAjaxPanel ID="apanel_Left" runat="server" LoadingPanelID="ajaxNotice">
                             <div class="w3-row">
-                                <div class="w3-col w3-padding-small" style="width: 180px">
-                                    <asp:Image ID="Image1" runat="server" ImageUrl="~/Images/SmartForms_Logo.png" />
+                                <div class="w3-col w3-padding-small w3-image" style="width: 180px">
+                                    <asp:Image ID="Image1" runat="server" ImageUrl="~/Images/SmartForms_Fintrac Banner.png" Width="100%" />
                                 </div>
                                 <div class="w3-rest w3-padding-small">
                                 </div>
@@ -96,11 +96,12 @@
                                 By &#39;dragging&#39; a &#39;fillable&#39; PDF from Web Forms&copy; onto the approriate item here you have, in effect, re-created what we hope to do automatically.
                             </p>
                             <p>
-                                &nbsp;
+                                <strong>BROKERS -</strong> &nbsp; An oportunity in this process is Identity validating. An Agent should pull title before this form is begun. The Name on Title, The Name on the Listing Contract or CPS and the Name on whatever form of iditfiction is used MUST align or you already have a problem!</p>
+                            <p>
+                                <strong>NOTES -</strong>&nbsp; The only FINTRAC Smart Form fully working is the &#39;Individual Identification Information Record&#39;. This will expand as the Proof of Concept moves forward.
                             </p>
                             <p>
-                                <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Web/SearchEngine.aspx" Target="_blank">HyperLink</asp:HyperLink>
-                            </p>
+                                &nbsp;</p>
                         </telerik:RadAjaxPanel>
                     </div>
                 </div>

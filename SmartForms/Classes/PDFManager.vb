@@ -11,8 +11,11 @@ Imports iText.Layout
 Imports iText.IO.Source
 Imports iText.Kernel.Pdf.Canvas.Parser.Listener
 Imports iText.Kernel.Pdf.Canvas.Parser
+Imports iText.StyledXmlParser.Jsoup.Helper
 
 Public Class PDFManager
+
+    Private Shared username As String = HttpContext.Current.User.Identity.Name
 
     Public Sub NewCatalogForm(pdfDoc As PdfDocument, filestream As FileStream)
         _NewCatalogForm(pdfDoc, filestream)
@@ -20,6 +23,10 @@ Public Class PDFManager
 
     Public Sub PDFReadFormData(filestream As FileStream, pdfname As String, Optional removepaging As Boolean = True)
         _PDFReadFormData(filestream, pdfname)
+    End Sub
+
+    Public Sub PDFSaveFormData(filestream As FileStream, fileid As Integer)
+        _PDFSaveFormData(filestream, fileid)
     End Sub
 
     Public Sub Empty_FintracCatalog(hashcode As String)
@@ -93,6 +100,57 @@ Public Class PDFManager
 
 
     End Function
+
+
+    Private Sub _PDFSaveFormData(filestream As FileStream, fileid As Integer)
+        Dim provider As PdfFormatProvider = New PdfFormatProvider()
+        Dim document As RadFixedDocument = Nothing
+
+        Dim formdata As New smartDataTableAdapters.data_FormFieldsTA
+        formdata.Delete(fileid)
+
+        Dim ds As New smartDataTableAdapters.LocalTA
+        Dim pdfname As String = ds.usp_getpdffilename(fileid, 0)
+
+        'Dim smartdata As New DataTable
+        'smartdata.Columns.Add("DocType", GetType(String))
+        'smartdata.Columns.Add("keyName", GetType(String))
+        'smartdata.Columns.Add("keyType", GetType(String))
+        'smartdata.Columns.Add("keyValue", GetType(String))
+        Dim tempFileName As String = String.Empty
+        Try
+            tempFileName = filestream.Name
+
+            Dim reader As PdfReader = New PdfReader(tempFileName)
+            Dim pdfDoc As PdfDocument = New PdfDocument(reader)
+            Dim documentinfo As iText.Kernel.Pdf.PdfDocumentInfo = pdfDoc.GetDocumentInfo
+            reader.SetUnethicalReading(True)
+            Dim form As PdfAcroForm = PdfAcroForm.GetAcroForm(pdfDoc, True)
+            Dim fields As IDictionary(Of String, PdfFormField) = form.GetFormFields
+
+            For Each iKey As String In fields.Keys
+                Dim field As PdfFormField = form.GetField(iKey)
+                Dim keyName As String = Nothing
+                Dim keyType As String = Nothing
+                Dim keyValue As String = Nothing
+
+                If field.GetValueAsString <> "" Then
+                    keyName = iKey.ToString
+                    keyType = field.[GetType]().Name
+                    keyValue = field.GetValueAsString
+                    formdata.Insert(fileid, keyName, keyType, keyValue, Now, username, Nothing, Nothing)
+                End If
+
+            Next
+            document = Nothing
+
+        Catch ex As System.IO.FileNotFoundException
+
+        End Try
+
+
+
+    End Sub
 
     Private Sub _Save_FintracData(hashcode As String, formid As Integer, dt As DataTable)
 

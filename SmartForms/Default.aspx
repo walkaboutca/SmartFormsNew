@@ -21,7 +21,7 @@
    
     <div class="row">
         <div class="col-md-4">
-            <h2>Getting Started</h2>
+            <h2>Introducing pbsTools Smart Forms! </h2>
             <p>
                 ASP.NET Web Forms lets you build dynamic websites using a familiar drag-and-drop, event-driven model.
             A design surface and hundreds of controls and components let you rapidly build sophisticated, powerful UI-driven sites with data access.
@@ -31,7 +31,7 @@
             </p>
         </div>
         <div class="col-md-4">
-            <h2>General Forms and Contracts</h2>
+            <h2>Our Roadmap</h2>
             <p>
                 NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.
             </p>
@@ -40,11 +40,13 @@
             </p>
         </div>
         <div class="col-md-4">
-            <h2>Fintrac</h2>
+            <asp:Image ID="Image2" runat="server" Height="35px" ImageUrl="~/Images/SmartForms_Fintrac Banner.png" Width="147px" />
+            <h2>Fintrac As A Service</h2>
             <p>
-                New rules and processes around Fintrac make it more than a Smart Form but a full DMS (Document Managment System) that brokerages and agents are required to maintain.. </p>
+                New rules and processes around Fintrac make it more than a Smart Form but a full DMS (Document Managment System) that brokerages and agents are required to maintain. </p>
             <p>
-                <asp:LinkButton ID="lbFintracDashboard" runat="server" PostBackUrl="~/Web/FintracDashboard.aspx">Fintrac Dashboard</asp:LinkButton>
+                <a class="btn btn-default" href="Web/FintracDashboard.aspx">Fintrac Dashboard &raquo;</a>
+
             </p>
         </div>
     </div>

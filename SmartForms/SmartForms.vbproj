@@ -367,8 +367,12 @@
     <Content Include="Images\2023-08-16_6-29-12.png" />
     <Content Include="Images\2023-08-19_14-01-52.png" />
     <Content Include="Images\2023-08-19_14-02-30.png" />
+    <Content Include="Images\FaaSLogo.png" />
     <Content Include="Images\giphy.gif" />
     <Content Include="Images\Green.png" />
+    <Content Include="Images\Help - Save Editable PDF Image 1.png" />
+    <Content Include="Images\Help - Save Editable PDF Image 2.png" />
+    <Content Include="Images\Help - Save Editable PDF Image 3.png" />
     <Content Include="Images\IMG_0765.PNG" />
     <Content Include="Images\Open.png" />
     <Content Include="Images\pdf_Green_Icon.png" />
@@ -377,7 +381,9 @@
     <Content Include="Images\QuestionMark.png" />
     <Content Include="Images\Red.png" />
     <Content Include="Images\SmartForms_Bar_Trans.png" />
+    <Content Include="Images\SmartForms_Fintrac Banner.png" />
     <Content Include="Images\SmartForms_Logo.png" />
+    <Content Include="Images\Yellow.png" />
     <Content Include="Search.html" />
     <Content Include="Web\Controls\uc_236589754.ascx" />
     <Content Include="Web\Controls\uc_885326974.ascx" />
@@ -395,6 +401,7 @@
     <Content Include="Classes\smartData.xsc">
       <DependentUpon>smartData.xsd</DependentUpon>
     </Content>
+    <Content Include="Web\HelpAndFAQ.aspx" />
     <Content Include="Web\PDFDataFieldMapper.aspx" />
     <Content Include="Web\pdfFintracViewer.aspx" />
     <Content Include="Web\SearchEngine.aspx" />
@@ -702,6 +709,13 @@
       <DependentUpon>forms.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="Web\HelpAndFAQ.aspx.designer.vb">
+      <DependentUpon>HelpAndFAQ.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web\HelpAndFAQ.aspx.vb">
+      <DependentUpon>HelpAndFAQ.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
     <Compile Include="Web\PDFDataFieldMapper.aspx.designer.vb">
       <DependentUpon>PDFDataFieldMapper.aspx</DependentUpon>
     </Compile>
@@ -801,7 +815,7 @@
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
-      <UserProperties UseAjaxifiedTemplates="True" UseJQuerySupport="True" />
+      <UserProperties UseJQuerySupport="True" UseAjaxifiedTemplates="True" />
     </VisualStudio>
   </ProjectExtensions>
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

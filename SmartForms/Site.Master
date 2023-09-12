@@ -8,13 +8,16 @@
 <head runat="server">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+
     <title><%: Page.Title %> - pbs Smart Forms</title>
 
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
     </asp:PlaceHolder>
 
-    <webopt:bundlereference runat="server" path="~/Content/css" />
+    <webopt:BundleReference runat="server" Path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 
 </head>
@@ -78,10 +81,13 @@
         <div class="container body-content">
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
-            <hr />
-            <footer>
-                <p>&copy; <%: DateTime.Now.Year %> - pbs Tools</p>
-            </footer>
+
+
+            <div class="container body-content w3-bottom">
+                <div class="w3-bar w3-black w3-padding-small">
+                    <p>&copy; <%: DateTime.Now.Year %> - pbs Tools</p>
+                </div>
+            </div>
         </div>
     </form>
 </body>

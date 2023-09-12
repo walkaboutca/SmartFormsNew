@@ -50,12 +50,14 @@ Public Class web_NewWebKit
                     Dim form As PdfAcroForm = PdfAcroForm.GetAcroForm(pdfDoc, True)
                     Dim fields As IDictionary(Of String, PdfFormField) = form.GetFormFields
 
+                    Dim documentid As Integer = Nothing
                     Dim localds As New smartDataTableAdapters.LocalTA
-                    If localds.ret_SearchFormCatalog(documentinfo.GetTitle.ToString, documentinfo.GetMoreInfo("ModDate").ToString, documentinfo.GetAuthor.ToString) = 0 Then
-                        mngpdf.NewCatalogForm(pdfDoc, filestream)
-                    End If
 
-                    Dim documentid As Integer = localds.ret_DocumentSearchId(documentinfo.GetTitle.ToString, documentinfo.GetMoreInfo("ModDate").ToString, documentinfo.GetAuthor.ToString)
+                    If IsNothing(localds.ret_SearchFormCatalog(documentinfo.GetTitle.ToString, documentinfo.GetAuthor.ToString)) Then
+                        mngpdf.NewCatalogForm(pdfDoc, filestream)
+                    Else
+                        documentid = localds.ret_SearchFormCatalog(documentinfo.GetTitle.ToString, documentinfo.GetAuthor.ToString)
+                    End If
                     Dim newwebkit As Integer = localds.ret_WebKitMaxId
 
                     Dim keyfields As New smartDataTableAdapters.forms_DocumentFieldsTA

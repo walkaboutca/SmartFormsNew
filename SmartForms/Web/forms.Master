@@ -14,12 +14,12 @@
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
     <title><%: Page.Title %> - pbs Smart Forms</title>
-   
+
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
     </asp:PlaceHolder>
 
-    <webopt:bundlereference runat="server" path="~/Content/css" />
+    <webopt:BundleReference runat="server" Path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 
 </head>
@@ -44,8 +44,9 @@
                 <%--Site Scripts--%>
             </Scripts>
         </asp:ScriptManager>
+        <uc1:ClientSizeDetector runat="server" ID="ClientSizeDetector1" />
 
-        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="navbar navbar-inverse navbar-fixed-top">
             <div class="container">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -57,12 +58,18 @@
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li><a runat="server" href="~/">Home</a></li>
-                        <li><a runat="server" href="~/Web/FintracDashboard.aspx">Agent Inteface</a></li>
-                        <li><a runat="server" href="~/Web/FintracWizard.aspx">Broker Inteface</a></li>
-                        <li><a runat="server" href="~/Web/FillableForms.aspx">Catalog Interface</a></li>
-                        <li><a runat="server" href="~/Web/PDFDataFieldMapper.aspx">Testing Classes</a></li>
+                        <li><a runat="server" href="~/?showhome=yes">Home</a></li>
+                        <li><a runat="server" href="~/About">Fintrac Dashboard</a></li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Help and FAQ</a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <a class="dropdown-item" href="#">Action</a>
+                                <a class="dropdown-item" href="#">Another action</a>
+                                <a class="dropdown-item" href="#">Something else here</a>
+                            </div>
+                        </li>
                     </ul>
+
                     <asp:LoginView runat="server" ViewStateMode="Disabled">
                         <AnonymousTemplate>
                             <ul class="nav navbar-nav navbar-right">
@@ -82,8 +89,41 @@
                 </div>
             </div>
         </div>
+
+
+
+
+ <%--       <div class="w3-container w3-top">
+            <div class="w3-bar w3-black">
+                    <a href="../Default.aspx?showhome=yes" class="w3-bar-item w3-button w3-mobile">Home</a>
+                    <a href="FintracDashboard.aspx" class="w3-bar-item w3-button w3-mobile">Fintrac Dashboard</a>
+                    <div class="w3-dropdown-hover w3-mobile">
+                        <button class="w3-button w3-teal">FAQ and Help<i class="fa fa-caret-down"></i></button>
+                        <div class="w3-dropdown-content w3-bar-block w3-dark-grey">
+                            <a href="HelpAndFAQ.aspx" class="w3-bar-item w3-button w3-mobile">Statement Dashboard</a>
+                            <div class="w3-panel w3-topbar w3-border-blue">
+                                <a href="#" class="w3-bar-item w3-button w3-mobile">CREA Fintrac</a>
+                                <a href="#" class="w3-bar-item w3-button w3-mobile">Federal Fintrac</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="w3-dropdown-hover w3-mobile">
+                        <button class="w3-button">Utilities<i class="fa fa-caret-down"></i></button>
+                        <div class="w3-dropdown-content w3-bar-block w3-dark-grey">
+                            <a href="#" class="w3-bar-item w3-button w3-mobile">Holder</a>
+                            <a href="#" class="w3-bar-item w3-button w3-mobile">Holder</a>
+                            <div class="w3-panel w3-topbar w3-border-blue">
+                                <a href="#" class="w3-bar-item w3-button w3-mobile">Holder</a>
+                            </div>
+                        </div>
+                    </div>
+                <a href="../Account/Manage.aspx" class="w3-bar-item w3-button w3-mobile w3-right">Hello, <%: Context.User.Identity.GetUserName()  %>!</a>
+
+                </div>
+        </div>--%>
+
         <div class="container body-content">
-            <uc1:ClientSizeDetector runat="server" id="ClientSizeDetector" />
+            <uc1:ClientSizeDetector runat="server" ID="ClientSizeDetector" />
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
             <div class="w3-bottom">

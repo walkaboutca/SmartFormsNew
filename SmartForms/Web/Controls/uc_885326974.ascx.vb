@@ -41,6 +41,10 @@ Public Class uc_885326974
 
     Protected Sub FillForm()
 
+        For Each gb In allControls(Page).OfType(Of RadTextBox)
+            gb.Text = Nothing
+        Next
+
         Dim ds As New smartDataTableAdapters.data_FormFieldsTA
         Dim dt As DataTable = ds.GetPdfKeyValues(hfFormId.Value)
         For Each row As DataRow In dt.Rows
@@ -85,63 +89,11 @@ Public Class uc_885326974
 
         pdftools.Save_FintracData(hashcode, formid, savedt)
 
-
-        'Dim ds As New smartDataTableAdapters.data_FormFieldsTA
-
-        'For Each c In sender.parent.Controls
-        '    If TypeName(c) = "RadTextBox" Then
-        '        Dim label As String = CType(c, RadTextBox).ID
-        '        If CType(c, RadTextBox).Text <> "" Then
-        '            Dim textval As String = CType(c, RadTextBox).Text
-        '            ds.UpdateDataField(textval, Now, Context.User.Identity.Name, hfFormId.Value, label)
-        '        End If
-        '    End If
-        '    If TypeName(c) = "RadDateInput" Then
-        '        Dim label As String = CType(c, RadDateInput).ID
-        '        If CType(c, RadDateInput).Text <> "" Then
-        '            Dim textval As String = CType(c, RadDateInput).Text.Substring(0, 10)
-        '            ds.UpdateDataField(textval, Now, Context.User.Identity.Name, hfFormId.Value, label)
-        '        End If
-        '    End If
-        '    'If TypeName(c) = "RadCheckBox" Then
-        '    '    Dim label As String = CType(c, RadCheckBox).ID
-        '    '    If CType(c, RadCheckBox).Checked <> "" Then
-        '    '        Dim textval As String = CType(c, RadCheckBox).Checked
-        '    '        ds.UpdateDataField(textval, Now, Context.User.Identity.Name, hfFormId.Value, label)
-        '    '    End If
-        '    'End If
-
-
-        'Next
-
-        'Date PICKERS
-
-        'If Not IsNothing(Me.FindControl("rdpVerifiedDate")) Then
-        '    Dim dp As RadDatePicker = CType(Me.FindControl("rdpVerifiedDate"), RadDatePicker)
-        '    If Not IsNothing(dp.DbSelectedDate) Then
-        '        ds.UpdateDataField(Month(dp.DbSelectedDate).ToString, Now, Context.User.Identity.Name, hfFormId.Value, "txttodaysDated1_mmmm")
-        '        ds.UpdateDataField(Day(dp.DbSelectedDate).ToString, Now, Context.User.Identity.Name, hfFormId.Value, "txttodaysDated1_d")
-        '        ds.UpdateDataField(Year(dp.DbSelectedDate).ToString, Now, Context.User.Identity.Name, hfFormId.Value, "txttodaysDated1_yyyy")
-        '    End If
-
-        'End If
-
-        'If Not IsNothing(Me.FindControl("rdpascertainIdentityDate")) Then
-        '    Dim dp As RadDatePicker = CType(Me.FindControl("rdpascertainIdentityDate"), RadDatePicker)
-        '    If Not IsNothing(dp.DbSelectedDate) Then
-        '        ds.UpdateDataField(Month(dp.DbSelectedDate).ToString, Now, Context.User.Identity.Name, hfFormId.Value, "txtascertainIdentityDated1_mmmm")
-        '        ds.UpdateDataField(Day(dp.DbSelectedDate).ToString, Now, Context.User.Identity.Name, hfFormId.Value, "txtascertainIdentityDated1_d")
-        '        ds.UpdateDataField(Year(dp.DbSelectedDate).ToString, Now, Context.User.Identity.Name, hfFormId.Value, "txtascertainIdentityDated1_yyyy")
-        '    End If
-
-        'End If
-
-
-
     End Sub
 
     Protected Sub butDisplayForm_Click(sender As Object, e As EventArgs) Handles butDisplayForm.Click
-        'SaveForm(sender)
+
+        SaveForm(sender)
 
         Dim TypeOutput As String = Nothing
 
@@ -201,6 +153,25 @@ Public Class uc_885326974
 
     Protected Sub butSave_Click(sender As Object, e As EventArgs) Handles butSave.Click
         SaveForm(sender)
+
+    End Sub
+    Iterator Function allControls(c As Control) As IEnumerable(Of Control)
+        Yield c
+        For Each cc As Control In c.Controls
+            For Each ccc In allControls(cc)
+                Yield ccc
+            Next
+        Next
+    End Function
+    Private Sub asyncNewDocument_FileUploaded(sender As Object, e As FileUploadedEventArgs) Handles asyncNewDocument.FileUploaded
+
+        Dim TypeOutput As String = Nothing
+        Dim formid As Integer = hfFormId.Value
+
+        pdftools.PDFSaveFormData(e.File.InputStream, formid)
+
+        FillForm()
+
 
 
     End Sub

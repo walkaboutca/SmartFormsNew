@@ -51,18 +51,35 @@
 
 <div>
     <div class="w3-top">
-        <div class="w3-bar w3-border w3-light-grey">
+        <div class="w3-bar w3-border w3-light-grey w3-padding-small">
             <asp:Button ID="butSubmit" runat="server" class="w3-bar-item w3-button" Text="Submit for Assessment" />
             <asp:Button ID="butSendOffice" runat="server" class="w3-bar-item w3-button w3-right" Text="Send to Office" />
             <asp:Button ID="butDisplayForm" runat="server" class="w3-bar-item w3-button w3-right" Text="Display Form" />
              <asp:Button ID="butSave" runat="server" class="w3-bar-item w3-button w3-right" Text="Save Form" />
         </div>
     </div>
-    <br>
-    <br>
-
     <div class="w3-container">
-        <p style="font-weight: bold">Individual Identification Information Record</p>
+        <table style="width: 100%; font-size: x-small;">
+            <tr>
+                <td style="vertical-align: top">
+                    <p style="font-weight: bold">Individual Identification Information Record</p>
+                </td>
+                <td style="text-align: right; vertical-align: top">
+                    <telerik:RadAsyncUpload ID="asyncNewDocument" runat="server"
+                        UploadedFilesRendering="BelowFileInput"
+                        HideFileInput="True"
+                        Localization-Select="Select or Drop PDF Here">
+                    </telerik:RadAsyncUpload>
+                    <div style="padding: 3px 0px 3px 0px">
+                        <telerik:RadButton ID="RadButton1" runat="server" Text="Import" Font-Size="x-Small" Skin="Black"></telerik:RadButton><br />
+                        <div style="color: #CC0000">This will overwrite the currently saved data!</div>
+                    </div>
+                    
+                  
+                </td>
+            </tr>
+        </table>
+         
         <hr />
         <p>
             NOTE: An Individual Identification Information Record is required by the Proceeds of Crime (Money Laundering) and Terrorist Financing Act. This Record must be completed by the REALTOR® member whenever they act in respect to the purchase or sale of real estate. It is recommended that the Individual Identification Information Record be completed:
