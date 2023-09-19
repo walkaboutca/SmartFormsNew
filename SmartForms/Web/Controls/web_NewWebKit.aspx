@@ -3,26 +3,27 @@
 <script type="text/javascript">
     function closeWin() {
         GetRadWindow().close();
+
     }
     function GetRadWindow() {
         var oWindow = null; if (window.radWindow)
             oWindow = window.radWindow; else if (window.frameElement.radWindow)
             oWindow = window.frameElement.radWindow; return oWindow;
     }
-    function getRadParent() {
-        var oWindow = null;
-        if (window.radWindow)
-            oWindow = window.radWindow;
-        else if (window.frameElement.radWindow)
-            oWindow = window.frameElement.radWindow;
-        return oWindow;
-    }
+    //function getRadParent() {
+    //    var oWindow = null;
+    //    if (window.radWindow)
+    //        oWindow = window.radWindow;
+    //    else if (window.frameElement.radWindow)
+    //        oWindow = window.frameElement.radWindow;
+    //    return oWindow;
+    //}
 
-    // Reload parent page
-    function refreshParentPage() {
-        getRadParent().BrowserWindow.location.reload();
-        getRadParent().close();
-    }
+    //// Reload parent page
+    //function refreshParentPage() {
+    //    getRadParent().BrowserWindow.location.reload();
+    //    getRadParent().close();
+    //}
 </script>
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -60,7 +61,17 @@
 </head>
 <body>
     <form id="form1" runat="server" style="font-size: small">
-    <telerik:RadScriptManager ID="RadScriptManager1" runat="server"></telerik:RadScriptManager>
+
+        <telerik:RadScriptManager ID="RadScriptManager1" runat="server">
+            <Scripts>
+                <asp:ScriptReference Assembly="Telerik.Web.UI" Name="Telerik.Web.UI.Common.Core.js">
+                </asp:ScriptReference>
+                <asp:ScriptReference Assembly="Telerik.Web.UI" Name="Telerik.Web.UI.Common.jQuery.js">
+                </asp:ScriptReference>
+                <asp:ScriptReference Assembly="Telerik.Web.UI" Name="Telerik.Web.UI.Common.jQueryInclude.js">
+                </asp:ScriptReference>
+            </Scripts>
+        </telerik:RadScriptManager>
 
         <asp:HiddenField ID="hfIdent1" runat="server" />
         <asp:HiddenField ID="hfIdent2" runat="server" />

@@ -22,7 +22,7 @@ Public Class PDFDataFieldMapper
     End Sub
     Private Sub rgvLeftSide_PreRender(sender As Object, e As EventArgs) Handles rgvLeftSide.PreRender
         If Request.QueryString("clientHeight") > 150 Then
-            rgvLeftSide.Height = (Request.QueryString("clientHeight") - 235)
+            rgvLeftSide.Height = ((Request.QueryString("clientHeight") - 235) * 0.75)
             rgvRightSide.Height = (Request.QueryString("clientHeight") - 235)
         End If
 
@@ -84,26 +84,10 @@ Public Class PDFDataFieldMapper
 
     Private Sub rgvLeftSide_SelectedIndexChanged(sender As Object, e As EventArgs) Handles rgvLeftSide.SelectedIndexChanged
 
-        Dim fieldmap As String = Nothing
-        For Each row As GridDataItem In rgvRightSide.Items
-            Dim cell As TableCell = row.Item("tmpSelect")
-            Dim cb As RadCheckBox = CType(cell.FindControl("rcbSelectItem"), RadCheckBox)
-            If cb.Checked Then
-                fieldmap = fieldmap & row.GetDataKeyValue("KeyName") & "+"
-            End If
-        Next
-        If Not IsNothing(fieldmap) Then
-            fieldmap = fieldmap.Substring(0, Len(fieldmap) - 1)
-            fieldmap = "|" & fieldmap & "|"
-            Dim dslocal As New smartDataTableAdapters.LocalTA
-            dslocal.upd_SearchStringbyHashCode(fieldmap, rcbFintracForm.SelectedValue, rgvLeftSide.SelectedValue)
-        End If
+        Dim ds As New smartDataTableAdapters.forms_CatalogFieldsTA
+        Dim catid As Integer = ds.ScalarGetCatalogId(rcbFintracForm.SelectedValue)
 
-        For Each row As GridDataItem In rgvRightSide.Items
-            Dim cell As TableCell = row.Item("tmpSelect")
-            Dim cb As RadCheckBox = CType(cell.FindControl("rcbSelectItem"), RadCheckBox)
-            cb.Checked = False
-        Next
+        rtbSearchString.Text = ds.ScalarGetSearchString(catid, rgvLeftSide.SelectedValue)
 
 
     End Sub
@@ -124,6 +108,55 @@ Public Class PDFDataFieldMapper
 
 
 
+
+    End Sub
+
+    Protected Sub rcbResetFields_Click(sender As Object, e As EventArgs) Handles rcbResetFields.Click
+        If rcbResetFields.Checked Then
+
+            Dim ds As New smartDataTableAdapters.forms_CatalogFieldsTA
+            ds.DeleteFieldsByHashcode(rcbFintracForm.SelectedValue)
+            Dim catid As Integer = ds.ScalarGetCatalogId(rcbFintracForm.SelectedValue)
+
+            For Each item As GridDataItem In rgvLeftSide.MasterTableView.Items
+                ds.InsertCatalogFields(catid, item.GetDataKeyValue("KeyName"), item.GetDataKeyValue("KeyType"), "|" & item.GetDataKeyValue("KeyName") & "|")
+
+            Next
+
+            rcbResetFields.Checked = False
+        End If
+
+
+
+    End Sub
+
+    Protected Sub rcbSelectItem_Click(sender As Object, e As EventArgs)
+        If sender.checked Then
+            Dim ds As New smartDataTableAdapters.forms_CatalogFieldsTA
+            Dim catid As Integer = ds.ScalarGetCatalogId(rcbFintracForm.SelectedValue)
+
+            Dim keyname As String = rgvLeftSide.SelectedValue
+
+            Dim row As GridDataItem = sender.parent.parent
+            Dim cell As TableCell = row.Item("tmpSelect")
+            Dim cb As RadCheckBox = CType(cell.FindControl("rcbSelectItem"), RadCheckBox)
+            If cb.Checked Then
+                ds.UpdateSearchString(row.Item("KeyName").Text, catid, keyname)
+                rtbSearchString.Text = ds.ScalarGetSearchString(catid, keyname)
+            End If
+
+            sender.checked = False
+
+        End If
+
+    End Sub
+
+    Protected Sub lbForceSave_Click(sender As Object, e As EventArgs) Handles lbForceSave.Click
+        Dim ds As New smartDataTableAdapters.forms_CatalogFieldsTA
+        Dim catid As Integer = ds.ScalarGetCatalogId(rcbFintracForm.SelectedValue)
+        Dim keyname As String = rgvLeftSide.SelectedValue
+        ds.UpdateSearchForceSave(rtbSearchString.Text, catid, keyname)
+        rtbSearchString.Text = ds.ScalarGetSearchString(catid, keyname)
 
     End Sub
 End Class

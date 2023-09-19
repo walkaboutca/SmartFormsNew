@@ -12,6 +12,7 @@ Public Class uc_885326974
     Inherits System.Web.UI.UserControl
 
     Dim pdftools As New PDFManager
+    Dim send As New SendUtilities
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         If Not Page.IsPostBack Then
             hfFormHash.Value = Request.QueryString("hashcode")
@@ -38,6 +39,22 @@ Public Class uc_885326974
 
 
     End Sub
+    Protected Sub butMobile_Click(sender As Object, e As EventArgs) Handles butMobile.Click
+        SaveForm(sender)
+
+        window_form.Title = "FAAS _ Mobile"
+        window_form.AutoSize = False
+        window_form.Behaviors = WindowBehaviors.Move Or WindowBehaviors.Resize Or WindowBehaviors.Close
+        window_form.Height = 300
+        window_form.Width = 700
+        window_form.VisibleStatusbar = False
+        Dim urlargs As String = "?formid=" & hfFormId.Value
+        window_form.NavigateUrl = "~/Web/MobileIdentify.aspx" & urlargs
+
+        Dim script As String = "function f(){$find(""" + window_form.ClientID + """).show(); Sys.Application.remove_load(f);}Sys.Application.add_load(f);"
+        ScriptManager.RegisterStartupScript(Page, Page.GetType(), "key", script, True)
+    End Sub
+
 
     Protected Sub FillForm()
 
@@ -48,7 +65,7 @@ Public Class uc_885326974
         Dim ds As New smartDataTableAdapters.data_FormFieldsTA
         Dim dt As DataTable = ds.GetPdfKeyValues(hfFormId.Value)
         For Each row As DataRow In dt.Rows
-            If row.Item("KeyType") = "PdfTextFormField" And Not row.Item("KeyValue") = "" Then
+            If row.Item("KeyType") = "PdfTextFormField" And Not row.Item("KeyValue").ToString = "" Then
                 Dim ctrl As Control = Me.FindControl(row.Item("KeyName"))
                 If Not IsNothing(ctrl) Then
                     If ctrl.GetType.UnderlyingSystemType.Name = "RadTextBox" Then
@@ -174,5 +191,20 @@ Public Class uc_885326974
 
 
 
+    End Sub
+
+    Protected Sub lbSendText_Click(sender As Object, e As EventArgs) Handles lbSendText.Click
+        send.SendText(Nothing)
+
+
+    End Sub
+
+    Protected Sub rcbShowMobile_Click(sender As Object, e As EventArgs) Handles rcbShowMobile.Click
+        If rcbShowMobile.Checked Then
+            panelMobileIdentity.Visible = True
+        Else
+            panelMobileIdentity.Visible = False
+
+        End If
     End Sub
 End Class

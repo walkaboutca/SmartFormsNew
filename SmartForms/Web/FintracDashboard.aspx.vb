@@ -23,16 +23,26 @@ Public Class FintracDashboard
             wheight = ((Request.QueryString("clientHeight") * 0.7))
             wwidth = ((Request.QueryString("clientWidth") * 0.6))
         End If
+
+        Dim ds As New smartDataTableAdapters.LocalTA
+
         If Not Page.IsPostBack Then
             RadTabStrip1.SelectedIndex = 0
+            Dim recid As Integer = IIf(IsNothing(ds.ret_WebkitLastSelected(User.Identity.Name)), 0, ds.ret_WebkitLastSelected(User.Identity.Name))
+
+
         Else
             If rgvWebKit.SelectedValue = -1 Then
-
             End If
         End If
 
     End Sub
     Private Sub FintracDashboard_PreRender(sender As Object, e As EventArgs) Handles Me.PreRender
+
+        reRiskMessage.Height = (wheight * 0.4)
+
+        reRiskMessage.Content = "Tracy Redies is a public servant and the current President & CEO of Science World British Columbia 1. She has over 25 years of experience as a high-growth organization builder with a strong commitment to serving the province and its communities. Prior to joining Science World, she was the CEO of Coast Capital Savings Credit Union 1."
+
 
         If hfWebKitId.Value = "" Then
             hfWebKitId.Value = rgvWebKit.SelectedValue
@@ -42,16 +52,16 @@ Public Class FintracDashboard
 
 
     End Sub
-    Private Sub apanel_Left_PreRender(sender As Object, e As EventArgs) Handles apanel_Left.PreRender
-        apanel_Left.Height = wheight
+    'Private Sub apanel_Left_PreRender(sender As Object, e As EventArgs) Handles apanel_Left.PreRender
+    '    apanel_Left.Height = wheight
 
-    End Sub
+    'End Sub
 
-    Private Sub apanel_Right_PreRender(sender As Object, e As EventArgs) Handles apanel_Right.PreRender
-        apanel_Right.Height = wheight
+    'Private Sub apanel_Right_PreRender(sender As Object, e As EventArgs) Handles apanel_Right.PreRender
+    '    apanel_Right.Height = wheight
 
 
-    End Sub
+    'End Sub
 
     Private Sub rgvWebKit_PreRender(sender As Object, e As EventArgs) Handles rgvWebKit.PreRender
         rgvWebKit.MasterTableView.Font.Size = FontUnit.Small
@@ -62,6 +72,16 @@ Public Class FintracDashboard
     Private Sub rgvForms_PreRender(sender As Object, e As EventArgs) Handles rgvForms.PreRender
         rgvForms.MasterTableView.Font.Size = FontUnit.Small
         rgvForms.Height = (wheight * 0.4)
+
+    End Sub
+    Private Sub rgvBrokerKits_PreRender(sender As Object, e As EventArgs) Handles rgvBrokerCurrent.PreRender
+        rgvBrokerCurrent.MasterTableView.Font.Size = FontUnit.Small
+        rgvBrokerCurrent.Height = (wheight * 0.4)
+
+    End Sub
+    Private Sub rgvBrokerForms_PreRender(sender As Object, e As EventArgs) Handles rgvBrokerHistorical.PreRender
+        rgvBrokerHistorical.MasterTableView.Font.Size = FontUnit.Small
+        rgvBrokerHistorical.Height = (wheight * 0.4)
 
     End Sub
 
@@ -297,5 +317,40 @@ Public Class FintracDashboard
 
     End Sub
 
+    Private Sub rgvBrokerCurrent_ItemDataBound(sender As Object, e As GridItemEventArgs) Handles rgvBrokerCurrent.ItemDataBound
+        If TypeOf e.Item Is GridDataItem Then
+            Dim dataItem As GridDataItem = TryCast(e.Item, GridDataItem)
 
+            e.Item.Attributes("FormType") = dataItem("FormType").Text
+            Dim locals As New smartDataTableAdapters.LocalTA
+            Dim isdata As Integer = IIf(IsNothing(locals.ret_DataFieldsIsStarted(dataItem.GetDataKeyValue("Id"))), 0, 1)
+            Dim ib As ImageButton = CType(dataItem.FindControl("ibDocuments"), ImageButton)
+            ib.Height = 15
+            If dataItem.GetDataKeyValue("RiskValue").ToString = "" Then
+                ib.ImageUrl = "~/Images/QuestionMark.png"
+            Else
+                ib.ImageUrl = "~/Images/" & dataItem.GetDataKeyValue("RiskValue").ToString & ".png"
+            End If
+
+        End If
+    End Sub
+
+    Private Sub rgvBrokerHistorical_ItemDataBound(sender As Object, e As GridItemEventArgs) Handles rgvBrokerHistorical.ItemDataBound
+        If TypeOf e.Item Is GridDataItem Then
+            Dim dataItem As GridDataItem = TryCast(e.Item, GridDataItem)
+
+            e.Item.Attributes("FormType") = dataItem("FormType").Text
+            Dim locals As New smartDataTableAdapters.LocalTA
+            Dim isdata As Integer = IIf(IsNothing(locals.ret_DataFieldsIsStarted(dataItem.GetDataKeyValue("Id"))), 0, 1)
+            Dim ib As ImageButton = CType(dataItem.FindControl("ibDocuments"), ImageButton)
+            ib.Height = 15
+            If dataItem.GetDataKeyValue("RiskValue").ToString = "" Then
+                ib.ImageUrl = "~/Images/QuestionMark.png"
+            Else
+                ib.ImageUrl = "~/Images/" & dataItem.GetDataKeyValue("RiskValue").ToString & ".png"
+            End If
+
+        End If
+    End Sub
 End Class
+

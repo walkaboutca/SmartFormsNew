@@ -32,6 +32,7 @@ Public Class PDFManager
     Public Sub Empty_FintracCatalog(hashcode As String)
         _Empty_FintracCatalog(hashcode)
 
+
     End Sub
     Public Sub View_FintracCatalog(hashcode As String)
         _View_FintracCatalog(hashcode)
@@ -290,7 +291,7 @@ Public Class PDFManager
 
         Dim docs As New smartDataTableAdapters.forms_DocumentsTA
         Try
-            docs.Insert(newkitid, "Upload", documentinfo.GetTitle, documentinfo.GetTitle, "application/pdf", ".pdf", contents, "Author", documentinfo.GetAuthor, Now, documentinfo.GetMoreInfo("ModDate"))
+            docs.Insert(newkitid, "Upload", documentinfo.GetTitle, documentinfo.GetTitle, "application/pdf", ".pdf", contents, "Author", documentinfo.GetAuthor, Now, documentinfo.GetMoreInfo("ModDate"), username, Nothing)
         Catch ex As Exception
 
         End Try

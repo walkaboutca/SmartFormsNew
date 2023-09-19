@@ -86,6 +86,15 @@ Partial Public Class PDFDataFieldMapper
     Protected WithEvents lbViewFintrac As Global.System.Web.UI.WebControls.LinkButton
 
     '''<summary>
+    '''rcbResetFields control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents rcbResetFields As Global.Telerik.Web.UI.RadCheckBox
+
+    '''<summary>
     '''panelUpload control.
     '''</summary>
     '''<remarks>
@@ -147,6 +156,24 @@ Partial Public Class PDFDataFieldMapper
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents rgvLeftSide As Global.Telerik.Web.UI.RadGrid
+
+    '''<summary>
+    '''rtbSearchString control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents rtbSearchString As Global.Telerik.Web.UI.RadTextBox
+
+    '''<summary>
+    '''lbForceSave control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lbForceSave As Global.System.Web.UI.WebControls.LinkButton
 
     '''<summary>
     '''rgvRightSide control.

@@ -30,9 +30,28 @@
     <div class="w3-container">
         <div class="w3-half w3-container w3-padding-small">
             <div class="w3-container w3-padding-small">
-                <telerik:RadComboBox ID="rcbFintracForm" runat="server" DataSourceID="sqlFintracForms" DataTextField="DisplayName" DataValueField="HashCode" Width="75%" AutoPostBack="True" EmptyMessage="FINTRAC to Map"></telerik:RadComboBox>
+                <telerik:RadComboBox ID="rcbFintracForm" runat="server" 
+                    DataSourceID="sqlFintracForms" 
+                    DataTextField="DisplayName" 
+                    DataValueField="HashCode" 
+                    Width="75%" 
+                    AutoPostBack="True" 
+                    EmptyMessage="FINTRAC to Map">
+                </telerik:RadComboBox>
                 <div class="w3-container w3-padding-small">
-                    <asp:LinkButton ID="lbViewFintrac" runat="server">View PDF for reference</asp:LinkButton>
+                    <table style="width: 100%;">
+                        <tr>
+                            <td>
+                                <asp:LinkButton ID="lbViewFintrac" runat="server">View PDF for reference</asp:LinkButton>
+                            </td>
+                            <td>
+                                <telerik:RadCheckBox ID="rcbResetFields" runat="server" Text="Reset Fields"></telerik:RadCheckBox><br />
+                                <span style="color: #CC0000; font-family: Arial; font-size: x-small">(! You loose all your maps doing this !)</span>
+                            </td>
+                        </tr>
+                    </table>
+
+                   
                 </div>
             </div>
         </div>
@@ -66,21 +85,21 @@
 
         </div>
 
-
-
-
-
     </div>
 
     <div class="w3-half w3-container w3-padding-small">
         <div class="w3-container w3-padding-small">
-            <telerik:RadGrid ID="rgvLeftSide" runat="server" AllowSorting="True" CellSpacing="-1" GridLines="Both">
+            <telerik:RadGrid ID="rgvLeftSide" runat="server" 
+                AllowSorting="True" 
+                CellSpacing="-1" 
+                GridLines="Both">
                 <GroupingSettings CollapseAllTooltip="Collapse all groups"></GroupingSettings>
                 <ClientSettings EnablePostBackOnRowClick="true">
-                    <Selecting AllowRowSelect="True" />
-                    <Scrolling AllowScroll="True" UseStaticHeaders="True" />
+                    <Selecting  AllowRowSelect="True" />
+                    <Scrolling  AllowScroll="True" 
+                                UseStaticHeaders="True" />
                 </ClientSettings>
-                <MasterTableView DataKeyNames="KeyName">
+                <MasterTableView DataKeyNames="KeyName,KeyType">
                     <RowIndicatorColumn ShowNoSortIcon="False"></RowIndicatorColumn>
                     <ExpandCollapseColumn ShowNoSortIcon="False"></ExpandCollapseColumn>
                     <EditFormSettings>
@@ -88,6 +107,17 @@
                     </EditFormSettings>
                 </MasterTableView>
             </telerik:RadGrid>
+            <hr />
+            <div class="w3-row">
+                <div class="w3-container w3-third w3-padding-small">
+                    <p>Search String to cross reference other forms.</p>
+                </div>
+                <div class="w3-container w3-twothird w3-padding-small">
+                    <telerik:RadTextBox ID="rtbSearchString" runat="server" Width="100%" TextMode="MultiLine" RenderMode="Lightweight"></telerik:RadTextBox>
+                    <asp:LinkButton ID="lbForceSave" runat="server">Force Save</asp:LinkButton>
+                </div>
+            </div>
+
         </div>
     </div>
     <div class="w3-half w3-container w3-padding-small">
@@ -96,17 +126,19 @@
                 AutoGenerateColumns="False" CellSpacing="-1" GridLines="Both">
                 <GroupingSettings CollapseAllTooltip="Collapse all groups"></GroupingSettings>
                 <ClientSettings>
-                    <Scrolling AllowScroll="True" UseStaticHeaders="True" />
+                    <Selecting AllowRowSelect="True" />
+                    <Scrolling AllowScroll="True" 
+                        UseStaticHeaders="True" />
                 </ClientSettings>
                 <MasterTableView 
-                     DataKeyNames="KeyName"
+                    DataKeyNames="KeyName"
                     AutoGenerateColumns="False">
                     <RowIndicatorColumn ShowNoSortIcon="False"></RowIndicatorColumn>
                     <ExpandCollapseColumn ShowNoSortIcon="False"></ExpandCollapseColumn>
                     <Columns>
                         <telerik:GridTemplateColumn FilterControlAltText="Filter tmpSelect column" ShowNoSortIcon="False" UniqueName="tmpSelect">
                             <ItemTemplate>
-                                <telerik:RadCheckBox ID="rcbSelectItem" runat="server">
+                                <telerik:RadCheckBox ID="rcbSelectItem" runat="server" OnClick="rcbSelectItem_Click">
                                 </telerik:RadCheckBox>
                             </ItemTemplate>
                         </telerik:GridTemplateColumn>

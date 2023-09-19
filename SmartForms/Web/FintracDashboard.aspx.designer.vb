@@ -140,6 +140,60 @@ Partial Public Class FintracDashboard
     Protected WithEvents Fintrac As Global.Telerik.Web.UI.RadPageView
 
     '''<summary>
+    '''Image2 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents Image2 As Global.System.Web.UI.WebControls.Image
+
+    '''<summary>
+    '''rcbBrokerShowAll control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents rcbBrokerShowAll As Global.Telerik.Web.UI.RadCheckBox
+
+    '''<summary>
+    '''rgvBrokerCurrent control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents rgvBrokerCurrent As Global.Telerik.Web.UI.RadGrid
+
+    '''<summary>
+    '''RadCheckBox1 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents RadCheckBox1 As Global.Telerik.Web.UI.RadCheckBox
+
+    '''<summary>
+    '''rgvBrokerHistorical control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents rgvBrokerHistorical As Global.Telerik.Web.UI.RadGrid
+
+    '''<summary>
+    '''reRiskMessage control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents reRiskMessage As Global.Telerik.Web.UI.RadEditor
+
+    '''<summary>
     '''hfWebKitId control.
     '''</summary>
     '''<remarks>
@@ -147,6 +201,24 @@ Partial Public Class FintracDashboard
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents hfWebKitId As Global.System.Web.UI.WebControls.HiddenField
+
+    '''<summary>
+    '''sqlBrokerForms control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents sqlBrokerForms As Global.System.Web.UI.WebControls.SqlDataSource
+
+    '''<summary>
+    '''SqlBrokerHistory control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents SqlBrokerHistory As Global.System.Web.UI.WebControls.SqlDataSource
 
     '''<summary>
     '''odsWebKit control.

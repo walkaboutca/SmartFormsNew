@@ -52,6 +52,7 @@
 <div>
     <div class="w3-top">
         <div class="w3-bar w3-border w3-light-grey w3-padding-small">
+            <asp:Button ID="butMobile" runat="server" class="w3-bar-item w3-button" Text="Mobile Identity" />
             <asp:Button ID="butSubmit" runat="server" class="w3-bar-item w3-button" Text="Submit for Assessment" />
             <asp:Button ID="butSendOffice" runat="server" class="w3-bar-item w3-button w3-right" Text="Send to Office" />
             <asp:Button ID="butDisplayForm" runat="server" class="w3-bar-item w3-button w3-right" Text="Display Form" />
@@ -59,10 +60,35 @@
         </div>
     </div>
     <div class="w3-container">
-        <table style="width: 100%; font-size: x-small;">
+        <table style="width: 100%; font-size: small;">
             <tr>
                 <td style="vertical-align: top">
-                    <p style="font-weight: bold">Individual Identification Information Record</p>
+                    <telerik:RadComboBox ID="rcbWhatForm" runat="server" Font-Size="Small" Width="90%">
+                        <Items>
+                            <telerik:RadComboBoxItem runat="server" Selected="True" Text="Indivdual IIR" Value="IndivdualIIR" />
+                            <telerik:RadComboBoxItem runat="server" Text="Coperate IIR" Value="CoperateIIR" />
+                        </Items>
+                    </telerik:RadComboBox>                   
+                    <br />
+                    <telerik:RadCheckBox ID="rcbShowMobile" runat="server" Text="Send Mobile Identity Invitation"></telerik:RadCheckBox>
+                    <br />
+                    <asp:Panel ID="panelMobileIdentity" runat="server" BorderStyle="Solid" BorderWidth="1" BorderColor="Silver" Visible="False" Width="90%">
+                    <table class="w3-table" style="font-size: small">
+                        <tr>
+                            <td style="width: 100px">Send EMail:</td>
+                            <td>
+                                <telerik:RadTextBox ID="rtbEmail" runat="server" Font-Size="Small"></telerik:RadTextBox></td>
+                             <td>Send</td>
+                        </tr>
+                        <tr>
+                            <td style="width: 100px">Send Text:</td>
+                            <td style="width: 100px">
+                                <telerik:RadTextBox ID="rtbPhone" runat="server" Font-Size="Small" EmptyMessage="Only Test No"></telerik:RadTextBox></td>
+                             <td> <asp:LinkButton ID="lbSendText" runat="server">Send Text </asp:LinkButton></td>
+                        </tr>
+                    </table>
+                    </asp:Panel>
+                  
                 </td>
                 <td style="text-align: right; vertical-align: top">
                     <telerik:RadAsyncUpload ID="asyncNewDocument" runat="server"
@@ -718,14 +744,14 @@
     </div>
 </div>
 <telerik:RadWindowManager ID="window_alert" runat="server"
-    KeepInScreenBounds="True"
+    KeepInScreenBounds="False"
     RenderMode="Lightweight"
     DestroyOnClose="True">
     <Windows>
         <telerik:RadWindow ID="window_form" runat="server"
             Modal="True"
             RenderMode="Lightweight"
-            Overlay="True"
+            Overlay="False"
             VisibleStatusbar="False"
             ShowContentDuringLoad="False">
         </telerik:RadWindow>
