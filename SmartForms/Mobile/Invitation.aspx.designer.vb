@@ -11,59 +11,59 @@ Option Strict On
 Option Explicit On
 
 
-Partial Public Class TestPDFViewer
+Partial Public Class Invitation
 
     '''<summary>
-    '''RadAjaxLoadingPanel1 control.
+    '''form1 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents RadAjaxLoadingPanel1 As Global.Telerik.Web.UI.RadAjaxLoadingPanel
+    Protected WithEvents form1 As Global.System.Web.UI.HtmlControls.HtmlForm
 
     '''<summary>
-    '''RadAjaxPanel1 control.
+    '''RadScriptManager1 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents RadAjaxPanel1 As Global.Telerik.Web.UI.RadAjaxPanel
+    Protected WithEvents RadScriptManager1 As Global.Telerik.Web.UI.RadScriptManager
 
     '''<summary>
-    '''RadButton1 control.
+    '''rtbName control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents RadButton1 As Global.Telerik.Web.UI.RadButton
+    Protected WithEvents rtbName As Global.Telerik.Web.UI.RadTextBox
 
     '''<summary>
-    '''rlWarning control.
+    '''rtbKit control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents rlWarning As Global.Telerik.Web.UI.RadLabel
+    Protected WithEvents rtbKit As Global.Telerik.Web.UI.RadTextBox
 
     '''<summary>
-    '''asyncNewDocument control.
+    '''rcbIdType control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents asyncNewDocument As Global.Telerik.Web.UI.RadAsyncUpload
+    Protected WithEvents rcbIdType As Global.Telerik.Web.UI.RadComboBox
 
     '''<summary>
-    '''RadPdfViewer1 control.
+    '''hfReference control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents RadPdfViewer1 As Global.Telerik.Web.UI.RadPdfViewer
+    Protected WithEvents hfReference As Global.System.Web.UI.WebControls.HiddenField
 End Class

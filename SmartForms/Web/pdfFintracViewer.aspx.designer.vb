@@ -68,13 +68,13 @@ Partial Public Class pdfFintracViewer
     Protected WithEvents ajax_Main As Global.Telerik.Web.UI.RadAjaxPanel
 
     '''<summary>
-    '''uc_885326974 control.
+    '''wz_885326974 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents uc_885326974 As Global.SmartForms.uc_885326974
+    Protected WithEvents wz_885326974 As Global.SmartForms.wz_885326974
 
     '''<summary>
     '''hfFormId control.

@@ -201,4 +201,22 @@ Partial Public Class web_NewWebKit
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents rbClose As Global.Telerik.Web.UI.RadButton
+
+    '''<summary>
+    '''window_alert control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents window_alert As Global.Telerik.Web.UI.RadWindowManager
+
+    '''<summary>
+    '''window_form control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents window_form As Global.Telerik.Web.UI.RadWindow
 End Class

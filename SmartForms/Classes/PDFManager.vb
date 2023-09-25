@@ -84,6 +84,7 @@ Public Class PDFManager
             Next
 
             Dim document = New Document(template)
+
             document.Close()
             rd.Close()
             writer.Close()
@@ -375,7 +376,104 @@ Public Class PDFManager
         Return safe
 
     End Function
-    Private Function GetStreamAsByteArray(ByVal stream As MemoryStream) As Byte()
+
+    Public Function CreatePdf(hashcode As String, formid As Integer) As Stream
+
+        Dim stream = New MemoryStream()
+        'Dim writer = New PdfWriter(stream)
+        'Dim pdf = New PdfDocument(writer)
+        'Dim document = New Document(pdf)
+
+        Dim TypeOutput As String = Nothing
+
+        Dim orighash As Integer = hashcode
+        Dim origid As Integer = formid
+
+        Dim ds As New smartDataTableAdapters.LocalTA
+        Dim targetname As String = ds.usp_getpdffilename(formid, 0)
+        'Dim targetname As String = ds.ret_PDFFileLabel(formid) & " " & Now.ToShortDateString & " " & Now.ToShortTimeString
+
+        targetname = Regex.Replace(targetname, "[^\w ]", "-")
+
+        'Dim FilePath = HttpContext.Current.Server.MapPath("~/forms/FINTRAC/" & orighash & ".pdf")
+        'Dim OutputFilepath As String = System.Environment.ExpandEnvironmentVariables("%userprofile%/downloads/" & targetname & ".pdf")
+
+        Dim rd As PdfReader = New PdfReader(HttpContext.Current.Server.MapPath("~/Forms/FINTRAC/" & orighash & ".pdf"))
+        rd.SetUnethicalReading(True)
+
+
+        Dim writer = New PdfWriter(stream)
+        Dim template As PdfDocument = New PdfDocument(rd, writer)
+
+        Dim Form As PdfAcroForm = PdfAcroForm.GetAcroForm(template, False)
+        Dim dslocals As New smartDataTableAdapters.LocalTA
+        Dim fields As IDictionary(Of String, PdfFormField) = Form.GetFormFields
+        For Each iKey As String In fields.Keys
+            Dim field As PdfFormField = Form.GetField(iKey)
+            Dim keyName As String = iKey.ToString
+            Dim keyType As String = field.[GetType]().Name
+
+            field.SetValue(IIf(IsNothing(dslocals.usp_SearchValue(origid, keyName)), String.Empty, dslocals.usp_SearchValue(origid, keyName)))
+        Next
+        template.Close()
+        Return stream
+
+
+
+    End Function
+    Public Function CreatePdfByte(hashcode As String, formid As Integer) As Byte()
+
+        Dim stream = New MemoryStream()
+        'Dim writer = New PdfWriter(stream)
+        'Dim pdf = New PdfDocument(writer)
+        'Dim document = New Document(pdf)
+
+        Dim TypeOutput As String = Nothing
+
+        Dim orighash As Integer = hashcode
+        Dim origid As Integer = formid
+
+        Dim ds As New smartDataTableAdapters.LocalTA
+        Dim targetname As String = ds.usp_getpdffilename(formid, 0)
+        'Dim targetname As String = ds.ret_PDFFileLabel(formid) & " " & Now.ToShortDateString & " " & Now.ToShortTimeString
+
+        targetname = Regex.Replace(targetname, "[^\w ]", "-")
+
+        'Dim FilePath = HttpContext.Current.Server.MapPath("~/forms/FINTRAC/" & orighash & ".pdf")
+        'Dim OutputFilepath As String = System.Environment.ExpandEnvironmentVariables("%userprofile%/downloads/" & targetname & ".pdf")
+
+        Dim rd As PdfReader = New PdfReader(HttpContext.Current.Server.MapPath("~/Forms/FINTRAC/" & orighash & ".pdf"))
+        rd.SetUnethicalReading(True)
+
+
+        Dim ms As MemoryStream = New MemoryStream()
+        Dim writer = New PdfWriter(ms)
+        Dim template As PdfDocument = New PdfDocument(rd, writer)
+
+        Dim Form As PdfAcroForm = PdfAcroForm.GetAcroForm(template, False)
+        'Dim dsfields As New smartDataTableAdapters.data_FormFieldsTA
+        'Dim dt As DataTable = dsfields.GetPdfKeyValues(origid)
+
+        Dim dslocals As New smartDataTableAdapters.LocalTA
+
+        Dim fields As IDictionary(Of String, PdfFormField) = Form.GetFormFields
+        For Each iKey As String In fields.Keys
+            Dim field As PdfFormField = Form.GetField(iKey)
+            Dim keyName As String = iKey.ToString
+            Dim keyType As String = field.[GetType]().Name
+            field.SetValue(IIf(IsNothing(dslocals.usp_SearchValue(origid, keyName)), String.Empty, dslocals.usp_SearchValue(origid, keyName)))
+        Next
+
+        writer.SetCloseStream(False)
+        template.Close()
+        Dim byteinfo As Byte() = ms.ToArray()
+        Return byteinfo
+
+    End Function
+
+
+
+    Public Function GetStreamAsByteArray(ByVal stream As MemoryStream) As Byte()
 
         Dim streamLength As Integer = Convert.ToInt32(stream.Length)
         Dim fileData As Byte() = New Byte(streamLength) {}

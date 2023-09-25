@@ -8,12 +8,12 @@ Imports iText.IO.Source
 Imports iText.Layout
 Imports iText.Layout.Element
 
-Public Class uc_885326974
+Public Class wz_885326974
     Inherits System.Web.UI.UserControl
-
     Dim pdftools As New PDFManager
     Dim send As New SendUtilities
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+
         If Not Page.IsPostBack Then
             hfFormHash.Value = Request.QueryString("hashcode")
             hfFormId.Value = Request.QueryString("FormId")
@@ -22,7 +22,13 @@ Public Class uc_885326974
 
         End If
     End Sub
-    Protected Sub butSubmit_Click(sender As Object, e As EventArgs) Handles butSubmit.click
+    Private Sub rwIdentification_PreRender(sender As Object, e As EventArgs) Handles rwIdentification.PreRender
+
+        rwIdentification.Height = (Request.QueryString("wheight") * 0.66)
+
+
+    End Sub
+    Protected Sub butSubmit_Click(sender As Object, e As EventArgs) Handles butSubmit.Click
 
         SaveForm(sender)
 
@@ -40,22 +46,6 @@ Public Class uc_885326974
 
 
     End Sub
-    Protected Sub butMobile_Click(sender As Object, e As EventArgs) Handles butMobile.Click
-        SaveForm(sender)
-
-        window_form.Title = "FAAS _ Mobile"
-        window_form.AutoSize = False
-        window_form.Behaviors = WindowBehaviors.Move Or WindowBehaviors.Resize Or WindowBehaviors.Close
-        window_form.Height = 300
-        window_form.Width = 700
-        window_form.VisibleStatusbar = False
-        Dim urlargs As String = "?formid=" & hfFormId.Value
-        window_form.NavigateUrl = "~/Web/MobileIdentify.aspx" & urlargs
-
-        Dim script As String = "function f(){$find(""" + window_form.ClientID + """).show(); Sys.Application.remove_load(f);}Sys.Application.add_load(f);"
-        ScriptManager.RegisterStartupScript(Page, Page.GetType(), "key", script, True)
-    End Sub
-
 
     Protected Sub FillForm()
 
@@ -109,65 +99,35 @@ Public Class uc_885326974
 
     End Sub
 
-    Protected Sub butDisplayForm_Click(sender As Object, e As EventArgs) Handles butDisplayForm.Click
+    'Protected Sub butDisplayForm_Click(sender As Object, e As EventArgs) Handles butDisplayForm.Click
 
-        SaveForm(sender)
+    '    SaveForm(sender)
 
-        Dim TypeOutput As String = Nothing
+    '    Dim hashcode As String = hfFormHash.Value
+    '    Dim fileid As Integer = hfFormId.Value
+    '    Dim webkitid As Integer = 0
 
-        Dim orighash As Integer = hfFormHash.Value
-        Dim origid As Integer = hfFormId.Value
+    '    'Dim pdfstream As String = pdftools.Fill_FintracData(hashcode, fileid)
+    '    Dim targetname As String = "TestingTargetName"
 
-        Dim ds As New smartDataTableAdapters.LocalTA
+    '    window_form.Title = "PDF Viewer"
+    '    window_form.AutoSize = False
+    '    window_form.KeepInScreenBounds = True
 
-        Dim targetname As String = ds.ret_PDFFileLabel(hfFormId.Value) & " " & Now.ToShortDateString & " " & Now.ToShortTimeString
-        targetname = Regex.Replace(targetname, "[^\w ]", "-")
+    '    window_form.Behaviors = WindowBehaviors.Move Or WindowBehaviors.Resize Or WindowBehaviors.Close
+    '    window_form.Height = Request.QueryString("wheight") - 50
+    '    window_form.Width = 500
+    '    window_form.VisibleStatusbar = False
 
-        Dim FilePath = Server.MapPath("~/forms/FINTRAC/" & orighash & ".pdf")
-        Dim OutputFilepath As String = System.Environment.ExpandEnvironmentVariables("%userprofile%/downloads/" & targetname & ".pdf")
+    '    Dim urlargs As String = "?hashcode=" & hashcode & "&fileid=" & fileid & "&webkitid=" & webkitid
+    '    window_form.NavigateUrl = "~/Viewer/pdfViewer.aspx" & urlargs
 
-        Dim rd As PdfReader = New PdfReader(Server.MapPath("~/forms/FINTRAC/" & orighash & ".pdf"))
-        rd.SetUnethicalReading(True)
-
-        pdftools.Empty_FintracCatalog(hfFormHash.Value)
-
-        Dim writer = New PdfWriter(OutputFilepath)
-        Dim template As PdfDocument = New PdfDocument(rd, writer)
-
-        Dim Form As PdfAcroForm = PdfAcroForm.GetAcroForm(template, False)
-        'Dim dsfields As New smartDataTableAdapters.data_FormFieldsTA
-        'Dim dt As DataTable = dsfields.GetPdfKeyValues(origid)
-
-        Dim dslocals As New smartDataTableAdapters.LocalTA
-
-        Dim fields As IDictionary(Of String, PdfFormField) = Form.GetFormFields
-        For Each iKey As String In fields.Keys
-            Dim field As PdfFormField = Form.GetField(iKey)
-            Dim keyName As String = iKey.ToString
-            Dim keyType As String = field.[GetType]().Name
-
-            field.SetValue(IIf(IsNothing(dslocals.usp_SearchValue(origid, keyName)), String.Empty, dslocals.usp_SearchValue(origid, keyName)))
+    '    Dim script As String = "function f(){$find(""" + window_form.ClientID + """).show(); Sys.Application.remove_load(f);}Sys.Application.add_load(f);"
+    '    ScriptManager.RegisterStartupScript(Page, Page.GetType(), "key", script, True)
 
 
-        Next
 
-        'For Each row As DataRow In dt.Rows
-        '    If Not IsNothing(Form.GetField(row.Item("KeyName"))) Then
-        '        Form.GetField(row.Item("KeyName")).SetValue(row.Item("KeyValue"))
-        '    End If
-        'Next
-        Dim document = New Document(template)
-        document.Close()
-        rd.Close()
-        writer.Close()
-        template.Close()
-
-        Dim Process As New Process
-        Process.StartInfo.FileName = OutputFilepath
-        Process.Start()
-
-
-    End Sub
+    'End Sub
 
     Protected Sub butSave_Click(sender As Object, e As EventArgs) Handles butSave.Click
         SaveForm(sender)
@@ -195,16 +155,14 @@ Public Class uc_885326974
     End Sub
 
     Protected Sub lbSendText_Click(sender As Object, e As EventArgs) Handles lbSendText.Click
-
         send.SendText(Nothing)
-
         SaveForm(sender)
 
         window_form.Title = "FAAS _ Mobile"
         window_form.AutoSize = False
         window_form.Behaviors = WindowBehaviors.Move Or WindowBehaviors.Resize Or WindowBehaviors.Close
-        window_form.Height = 750
-        window_form.Width = 350
+        window_form.Height = 800
+        window_form.Width = 500
         window_form.VisibleStatusbar = False
         Dim urlargs As String = "?formid=" & hfFormId.Value
         window_form.NavigateUrl = "~/Web/MobileIdentify.aspx" & urlargs
@@ -224,4 +182,6 @@ Public Class uc_885326974
 
         End If
     End Sub
+
+
 End Class

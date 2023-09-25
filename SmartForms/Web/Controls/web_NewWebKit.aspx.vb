@@ -238,7 +238,7 @@ Public Class web_NewWebKit
     Protected Sub rbSave_Click(sender As Object, e As EventArgs) Handles rbSave.Click
 
         Dim dskit As New smartDataTableAdapters.file_WebKitTA
-        dskit.Insert(rtbFileName.Text.Trim, rtbAddress.Text.Trim, rtbAddAddress.Text.Trim, rtbCity.Text.Trim, rtbProvince.Text.Trim, rtbPCode.Text.Trim, IIf(rtbContractDate.Text = "", Nothing, rtbContractDate.Text), rtbMLSNo.Text, Now, Context.User.Identity.Name, Nothing, Nothing, Nothing)
+        dskit.Insert(rtbFileName.Text.Trim, rtbAddress.Text.Trim, rtbAddAddress.Text.Trim, rtbCity.Text.Trim, rtbProvince.Text.Trim, rtbPCode.Text.Trim, IIf(rtbContractDate.Text = "", Nothing, CDate(rtbContractDate.Text)), rtbMLSNo.Text, Now, Context.User.Identity.Name, Nothing, Nothing, Nothing)
         Dim newkitid As Integer = dskit.ret_MaxIdent
 
         Dim locals As New smartDataTableAdapters.LocalTA

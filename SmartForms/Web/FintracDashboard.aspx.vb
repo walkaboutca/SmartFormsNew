@@ -52,17 +52,6 @@ Public Class FintracDashboard
 
 
     End Sub
-    'Private Sub apanel_Left_PreRender(sender As Object, e As EventArgs) Handles apanel_Left.PreRender
-    '    apanel_Left.Height = wheight
-
-    'End Sub
-
-    'Private Sub apanel_Right_PreRender(sender As Object, e As EventArgs) Handles apanel_Right.PreRender
-    '    apanel_Right.Height = wheight
-
-
-    'End Sub
-
     Private Sub rgvWebKit_PreRender(sender As Object, e As EventArgs) Handles rgvWebKit.PreRender
         rgvWebKit.MasterTableView.Font.Size = FontUnit.Small
         rgvWebKit.Height = (wheight * 0.4)
@@ -227,9 +216,9 @@ Public Class FintracDashboard
         window_form.Behaviors = WindowBehaviors.Move Or WindowBehaviors.Resize Or WindowBehaviors.Close
         window_form.Height = ((Request.QueryString("clientHeight") * 0.98))
         window_form.Width = ((Request.QueryString("clientWidth") * 0.6))
-        window_form.VisibleStatusbar = False
+        window_form.VisibleStatusbar = True
 
-        Dim urlargs As String = "?hashcode=" & formid & "&formid=" & origid & "&webkitid=" & webkitid
+        Dim urlargs As String = "?hashcode=" & formid & "&formid=" & origid & "&webkitid=" & webkitid & "&wheight=" & ((Request.QueryString("clientHeight") * 0.98))
         window_form.NavigateUrl = "~/Web/pdfFintracViewer.aspx" & urlargs
 
         Dim script As String = "function f(){$find(""" + window_form.ClientID + """).show(); Sys.Application.remove_load(f);}Sys.Application.add_load(f);"
@@ -243,28 +232,34 @@ Public Class FintracDashboard
         Dim fileid As Integer = item.GetDataKeyValue("Id")
         Dim webkitid As Integer = rgvWebKit.SelectedValue
 
-        Dim pdfstream As String = pdftools.Fill_FintracData(hashcode, fileid)
-        If pdfstream.ToString = "57" Then
-            rlWarning.Visible = True
-            rlWarning.Text = "You have a copy of this PDF open somewhere. </br> Close it and try again."
-        Else
-            rlWarning.Visible = False
-        End If
+        'Dim pdfstream As String = pdftools.Fill_FintracData(hashcode, fileid)
+        Dim targetname As String = "TestingTargetName"
 
+        window_form.Title = "PDF Viewer"
+        window_form.AutoSize = False
+        window_form.KeepInScreenBounds = True
 
+        window_form.Behaviors = WindowBehaviors.Move Or WindowBehaviors.Resize Or WindowBehaviors.Close
+        window_form.Height = ((Request.QueryString("clientHeight")))
+        window_form.Width = ((Request.QueryString("clientWidth") * 0.8))
+        window_form.VisibleStatusbar = False
 
-        'window_form.Title = "FINTRAC - Form"
-        'window_form.AutoSize = False
-        'window_form.Behaviors = WindowBehaviors.Move Or WindowBehaviors.Resize Or WindowBehaviors.Close
-        'window_form.Height = ((Request.QueryString("clientHeight") * 0.98))
-        'window_form.Width = ((Request.QueryString("clientWidth") * 0.6))
-        'window_form.VisibleStatusbar = False
+        Dim urlargs As String = "?hashcode=" & hashcode & "&fileid=" & fileid & "&webkitid=" & webkitid
+        window_form.NavigateUrl = "~/Viewer/pdfViewer.aspx" & urlargs
 
-        'Dim urlargs As String = "?hashcode=" & formid & "&formid=" & origid & "&webkitid=" & webkitid
-        'window_form.NavigateUrl = "~/Web/pdfFintracViewer.aspx" & urlargs
+        Dim script As String = "function f(){$find(""" + window_form.ClientID + """).show(); Sys.Application.remove_load(f);}Sys.Application.add_load(f);"
+        ScriptManager.RegisterStartupScript(Page, Page.GetType(), "key", script, True)
 
-        'Dim script As String = "function f(){$find(""" + window_form.ClientID + """).show(); Sys.Application.remove_load(f);}Sys.Application.add_load(f);"
-        'ScriptManager.RegisterStartupScript(Page, Page.GetType(), "key", script, True)
+        'Dim byteinfo As Byte() = pdftools.CreatePdfByte(hashcode, fileid)
+
+        'If byteinfo IsNot Nothing Then
+        '    Response.ContentType = "application/pdf"
+        '    Response.AddHeader("Content-Disposition", "attachment; filename=" + targetname + ".pdf")
+        '    Response.AddHeader("content-length", byteinfo.Length.ToString())
+        '    Response.BinaryWrite(byteinfo)
+
+        'End If
+
 
     End Sub
 
@@ -351,6 +346,25 @@ Public Class FintracDashboard
             End If
 
         End If
+    End Sub
+
+    Private Sub LinkButton1_Click(sender As Object, e As EventArgs) Handles LinkButton1.Click
+
+        window_form.Title = "PDF Viewer"
+        window_form.AutoSize = False
+        window_form.KeepInScreenBounds = True
+
+        window_form.Behaviors = WindowBehaviors.Move Or WindowBehaviors.Resize Or WindowBehaviors.Close
+        window_form.Height = ((Request.QueryString("clientHeight")))
+        window_form.Width = ((Request.QueryString("clientWidth") * 0.8))
+        window_form.VisibleStatusbar = False
+
+        Dim urlargs As String = Nothing
+        window_form.NavigateUrl = "~/Viewer/pdfViewer.aspx" & urlargs
+
+        Dim script As String = "function f(){$find(""" + window_form.ClientID + """).show(); Sys.Application.remove_load(f);}Sys.Application.add_load(f);"
+        ScriptManager.RegisterStartupScript(Page, Page.GetType(), "key", script, True)
+
     End Sub
 End Class
 

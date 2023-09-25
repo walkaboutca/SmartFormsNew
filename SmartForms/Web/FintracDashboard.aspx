@@ -19,7 +19,11 @@
             getRadWindow().BrowserWindow.location.reload();
             getRadWindow().close();
         }
+        function SetTarget() {
+            document.forms[0].target = "_blank";
+        }
     </script>
+ 
     <style>
         html, body, h1, h2, h3, h4, h5, h6 {
             font-family: "Roboto", sans-serif
@@ -284,6 +288,9 @@
                                 </MasterTableView>
                             </telerik:RadGrid>
 
+                            <asp:LinkButton ID="LinkButton1" runat="server">LinkButton</asp:LinkButton>
+                        <br />
+
                             <telerik:RadWindowManager ID="window_mgr" runat="server"
                                 KeepInScreenBounds="True"
                                 RenderMode="Lightweight"
@@ -298,9 +305,6 @@
                                     </telerik:RadWindow>
                                 </Windows>
                             </telerik:RadWindowManager>
-
-
-
                         </telerik:RadAjaxPanel>
                     </div>
                 </div>

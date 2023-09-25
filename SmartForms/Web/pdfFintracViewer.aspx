@@ -1,6 +1,7 @@
 ﻿<%@ Page Language="vb" AutoEventWireup="false" CodeBehind="pdfFintracViewer.aspx.vb" Inherits="SmartForms.pdfFintracViewer" %>
 
-<%@ Register Src="~/Web/Controls/uc_885326974.ascx" TagPrefix="uc1" TagName="uc_885326974" %>
+<%@ Register Src="~/Web/Controls/wz_885326974.ascx" TagPrefix="uc1" TagName="wz_885326974" %>
+
 
 
 <!DOCTYPE html>
@@ -75,10 +76,9 @@
         </asp:Panel>
 
         <telerik:RadAjaxPanel ID="ajax_Main" runat="server" LoadingPanelID="loading_Main">
+         
+            <uc1:wz_885326974 runat="server" ID="wz_885326974" />
             
-            <uc1:uc_885326974 runat="server" id="uc_885326974" Visible="True" />
-
-   
         </telerik:RadAjaxPanel>
          <asp:HiddenField ID="hfFormId" runat="server" />
          <asp:HiddenField ID="hfWebKitId" runat="server" />

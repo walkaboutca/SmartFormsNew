@@ -113,6 +113,15 @@ Partial Public Class FintracDashboard
     Protected WithEvents rgvForms As Global.Telerik.Web.UI.RadGrid
 
     '''<summary>
+    '''LinkButton1 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents LinkButton1 As Global.System.Web.UI.WebControls.LinkButton
+
+    '''<summary>
     '''window_mgr control.
     '''</summary>
     '''<remarks>

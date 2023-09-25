@@ -32,22 +32,58 @@ Partial Public Class MobileIdentify
     Protected WithEvents RadScriptManager1 As Global.Telerik.Web.UI.RadScriptManager
 
     '''<summary>
-    '''RadioButtonList1 control.
+    '''panel_Page1 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents RadioButtonList1 As Global.System.Web.UI.WebControls.RadioButtonList
+    Protected WithEvents panel_Page1 As Global.System.Web.UI.WebControls.Panel
 
     '''<summary>
-    '''RadCheckBoxList1 control.
+    '''lbNext control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents RadCheckBoxList1 As Global.Telerik.Web.UI.RadCheckBoxList
+    Protected WithEvents lbNext As Global.System.Web.UI.WebControls.LinkButton
+
+    '''<summary>
+    '''Image1 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents Image1 As Global.System.Web.UI.WebControls.Image
+
+    '''<summary>
+    '''panel_Page2 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents panel_Page2 As Global.System.Web.UI.WebControls.Panel
+
+    '''<summary>
+    '''Image2 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents Image2 As Global.System.Web.UI.WebControls.Image
+
+    '''<summary>
+    '''Image3 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents Image3 As Global.System.Web.UI.WebControls.Image
 
     '''<summary>
     '''rbSend control.
@@ -57,22 +93,4 @@ Partial Public Class MobileIdentify
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents rbSend As Global.Telerik.Web.UI.RadButton
-
-    '''<summary>
-    '''window_mobile control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents window_mobile As Global.Telerik.Web.UI.RadWindowManager
-
-    '''<summary>
-    '''window_iphone control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents window_iphone As Global.Telerik.Web.UI.RadWindow
 End Class
