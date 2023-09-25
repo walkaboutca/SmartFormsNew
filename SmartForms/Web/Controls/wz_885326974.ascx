@@ -4,19 +4,23 @@
     html, body, h1, h2, h3, h4, h5, h6 {
         font-family: "Roboto", sans-serif
     }
+
     p {
         font-size: small;
         margin: 2px;
         padding: 2px;
     }
+
     html .RadSearchBox .rsbInput {
         height: 20px;
     }
+
     .table-style {
         width: 100%;
         font-size: small;
         vertical-align: top;
     }
+
     .td-style {
         vertical-align: top;
     }
@@ -108,7 +112,7 @@
     <telerik:RadWizard ID="rwIdentification" runat="server" Skin="Material" Font-Size="Small">
         <WizardSteps>
             <telerik:RadWizardStep ID="step_Verification" runat="server" Title=" ">
-            <p><strong>Individual Identification Information Record</strong></p>
+                <p><strong>Individual Identification Information Record</strong></p>
                 <p>
                     NOTE: An Individual Identification Information Record is required by the Proceeds of Crime (Money Laundering) and Terrorist Financing Act. This Record must be completed by the REALTOR® member whenever they act in respect to the purchase or sale of real estate. It is recommended that the Individual Identification Information Record be completed:
                 <br />
@@ -130,7 +134,7 @@
                     <div class="w3-col m4 w3-padding-small">
                         <telerik:RadTextBox ID="txtp_city" runat="server" EmptyMessage="City" Width="100%"></telerik:RadTextBox>
                     </div>
-                 </div>
+                </div>
                 <div class="w3-row">
                     <div class="w3-col m2 w3-padding-small">
                         <telerik:RadTextBox ID="txtProvince" runat="server" EmptyMessage="Province" Width="100%"></telerik:RadTextBox>
@@ -171,11 +175,12 @@
                     </div>
                 </div>
             </telerik:RadWizardStep>
-            <telerik:RadWizardStep ID="RadWizardStep2" runat="server" Title=" ">
-                <p><strong> A. Verification of Individual</strong></p>
+            <telerik:RadWizardStep ID="step_HeaderInfo" runat="server" Title=" ">
+                <p><strong>A. Verification of Individual</strong></p>
                 <p>
                     NOTE: One of Section A.1, A.2. or A.3 must be completed for your individual clients or unrepresented individuals that are not clients, but are parties to the transaction
-                    (e.g. unrepresented buyer or seller) . 
+                    (e.g. unrepresented buyer or seller). Where you are unable to identify an unrepresented individual, complete section A.4. Note this might trigger sending a Suspicious Transaction Report to FINTRAC.
+                    ALL efforts shoud be made to Identify you client properly.
                 </p>
                 <p>Transaction Property Address:</p>
                 <div class="w3-row">
@@ -196,152 +201,232 @@
                         <telerik:RadTextBox ID="txtindividualAddress2" runat="server" EmptyMessage="Addional Address" Width="100%"></telerik:RadTextBox>
                     </div>
                 </div>
-                <div class="classDiv">
-                    <telerik:RadButton RenderMode="Lightweight" ID="rbGovernmentId" runat="server" ToggleType="Radio" ButtonType="StandardButton"
-                        GroupName="StandardButton" AutoPostBack="false">
-                        <ToggleStates>
-                            <telerik:RadButtonToggleState Text="A.1 Federal/Provincial/Territorial Government-Issued Photo ID" PrimaryIconCssClass="p-i-radio-checked"></telerik:RadButtonToggleState>
-                            <telerik:RadButtonToggleState Text="A.1 Federal/Provincial/Territorial Government-Issued Photo ID" PrimaryIconCssClass="p-i-radio"></telerik:RadButtonToggleState>
-                        </ToggleStates>
-                    </telerik:RadButton>
-                    <br />
-                    <br />
-                    <telerik:RadButton RenderMode="Lightweight" ID="rbCreditMethod" runat="server" ToggleType="Radio" Checked="true"
-                        GroupName="StandardButton" ButtonType="StandardButton" AutoPostBack="false">
-                        <ToggleStates>
-                            <telerik:RadButtonToggleState Text="A.2 Credit File Method" PrimaryIconCssClass="p-i-radio-checked"></telerik:RadButtonToggleState>
-                            <telerik:RadButtonToggleState Text="A.2 Credit File Method" PrimaryIconCssClass="p-i-radio"></telerik:RadButtonToggleState>
-                        </ToggleStates>
-                    </telerik:RadButton>
-                    <br />
-                    <br />
-                    <telerik:RadButton RenderMode="Lightweight" ID="rbDualIdMethod" runat="server" ToggleType="Radio" GroupName="StandardButton"
-                        ButtonType="StandardButton" AutoPostBack="false">
-                        <ToggleStates>
-                            <telerik:RadButtonToggleState Text="A.3 Dual ID Process Method" PrimaryIconCssClass="p-i-radio-checked"></telerik:RadButtonToggleState>
-                            <telerik:RadButtonToggleState Text="A.3 Dual ID Process Method" PrimaryIconCssClass="p-i-radio"></telerik:RadButtonToggleState>
-                        </ToggleStates>
-                    </telerik:RadButton>
-                     <br />
-                    <br />
-                    <telerik:RadButton RenderMode="Lightweight" ID="rbUnidentified" runat="server" ToggleType="Radio" GroupName="StandardButton"
-                        ButtonType="StandardButton" AutoPostBack="false">
-                        <ToggleStates>
-                            <telerik:RadButtonToggleState Text="A.4 Unrepresented Individual Reasonable Measures Record (if applicable)" PrimaryIconCssClass="p-i-radio-checked"></telerik:RadButtonToggleState>
-                            <telerik:RadButtonToggleState Text="A.4 Unrepresented Individual Reasonable Measures Record (if applicable)" PrimaryIconCssClass="p-i-radio"></telerik:RadButtonToggleState>
-                        </ToggleStates>
-                    </telerik:RadButton>
+                <div class="w3-row">
+                    <div class="w3-col m6 w3-padding-small">
+                        <telerik:RadButton RenderMode="Lightweight" ID="rbGovernmentId" runat="server" ToggleType="Radio" ButtonType="StandardButton" Checked="true" GroupName="StandardButton">
+                            <ToggleStates>
+                                <telerik:RadButtonToggleState Text="A.1 Federal/Provincial/Territorial Government-Issued Photo ID" PrimaryIconCssClass="p-i-radio-checked"></telerik:RadButtonToggleState>
+                                <telerik:RadButtonToggleState Text="A.1 Federal/Provincial/Territorial Government-Issued Photo ID" PrimaryIconCssClass="p-i-radio"></telerik:RadButtonToggleState>
+                            </ToggleStates>
+                        </telerik:RadButton>
+                    </div>
+                    <div class="w3-col m6 w3-padding-small">
+                        <telerik:RadCheckBox ID="rcbShowAllSteps" runat="server" Text="Show All Wizard Steps" RenderMode="Lightweight" AutoPostBack="False"></telerik:RadCheckBox>
+                    </div>
                 </div>
-                
+                <div class="w3-row">
+                    <div class="w3-col m6 w3-padding-small">
+                        <telerik:RadButton RenderMode="Lightweight" ID="rbCreditMethod" runat="server" ToggleType="Radio" ButtonType="StandardButton" GroupName="StandardButton">
+                            <ToggleStates>
+                                <telerik:RadButtonToggleState Text="A.2 Credit File Method" PrimaryIconCssClass="p-i-radio-checked"></telerik:RadButtonToggleState>
+                                <telerik:RadButtonToggleState Text="A.2 Credit File Method" PrimaryIconCssClass="p-i-radio"></telerik:RadButtonToggleState>
+                            </ToggleStates>
+                        </telerik:RadButton>
+                    </div>
+                </div>
+                <div class="w3-row">
+                    <div class="w3-col m6 w3-padding-small">
+                        <telerik:RadButton RenderMode="Lightweight" ID="rbDualIdMethod" runat="server" ToggleType="Radio" GroupName="StandardButton" ButtonType="StandardButton">
+                            <ToggleStates>
+                                <telerik:RadButtonToggleState Text="A.3 Dual ID Process Method" PrimaryIconCssClass="p-i-radio-checked"></telerik:RadButtonToggleState>
+                                <telerik:RadButtonToggleState Text="A.3 Dual ID Process Method" PrimaryIconCssClass="p-i-radio"></telerik:RadButtonToggleState>
+                            </ToggleStates>
+                        </telerik:RadButton>
+                    </div>
+                </div>
+                <div class="w3-row">
+                    <div class="w3-col m6 w3-padding-small">
+                        <telerik:RadButton RenderMode="Lightweight" ID="rbUnidentified" runat="server" ToggleType="Radio" GroupName="StandardButton" ButtonType="StandardButton">
+                            <ToggleStates>
+                                <telerik:RadButtonToggleState Text="A.4 Unrepresented Individual Reasonable Measures Record (if applicable)" PrimaryIconCssClass="p-i-radio-checked"></telerik:RadButtonToggleState>
+                                <telerik:RadButtonToggleState Text="A.4 Unrepresented Individual Reasonable Measures Record (if applicable)" PrimaryIconCssClass="p-i-radio"></telerik:RadButtonToggleState>
+                            </ToggleStates>
+                        </telerik:RadButton>
+                    </div>
+                </div>
             </telerik:RadWizardStep>
-            <telerik:RadWizardStep ID="RadWizardStep3" runat="server" Title=" ">
+            <telerik:RadWizardStep ID="step_GovernmentId" runat="server" Title=" ">
+                <p><strong>A.1 Federal/Provincial/Territorial Government-Issued Photo ID</strong></p>
+                <p>
+                    Ascertain the individual’s identity by comparing the individual to their photo ID. The individual must be physically present unless using technology capable of
+                    assessing a government-issued photo identification document’s authenticity.
+                </p>
+                <p>Transaction Property Address:</p>
+                <div class="w3-row">
+                    <div class="w3-col m6 w3-padding-small">
+                        <telerik:RadTextBox ID="txtidDocument" runat="server" EmptyMessage="Type of ID Document" Width="100%"></telerik:RadTextBox>
+                    </div>
+                    <div class="w3-col m6 w3-padding-small">
+                        <telerik:RadTextBox ID="txtdocIdentifierNumber" runat="server" EmptyMessage="Doc ID Number" Width="100%"></telerik:RadTextBox>
+                    </div>
+                </div>
+                <div class="w3-row">
+                    <div class="w3-col m6 w3-padding-small">
+                        <telerik:RadTextBox ID="txtissuingJurisdiction" runat="server" EmptyMessage="Issuing Jurisdiction" Width="100%"></telerik:RadTextBox>
+                    </div>
+                    <div class="w3-col m6 w3-padding-small">
+                        <telerik:RadTextBox ID="txtissuingCountry" runat="server" EmptyMessage="Issuing Jurisdiction" Width="100%"></telerik:RadTextBox>
+                    </div>
+                </div>
+                <div class="w3-row">
+                    <div class="w3-col m6 w3-padding-small">
+                        <telerik:RadDateInput ID="txtDocExpDate" runat="server" EmptyMessage="Doc Expiry (yyyy-mm-dd)" DisplayDateFormat="yyyy-MM-dd" Culture="en-CA" MinDate="1900-01-01"></telerik:RadDateInput>
+                    </div>
+                    <div class="w3-col m6 w3-padding-small">
+                        <div style="width: 35%; font-size: x-small;">(must be valid and not expired)</div>
+                    </div>
+                </div>
+                <hr />
+                <p>Electronic / Remote Identification - Only Remote Identifaction applications approved by the brokerage can be used!</p>
+                <div class="w3-row">
+                    <div class="w3-col m6 w3-padding-small">
+                        <telerik:RadComboBox ID="rcbRemoteIdentification" runat="server" EmptyMessage="Select Remote ID App" Font-Size="Small" Width="75%" RenderMode="Lightweight">
+                            <Items>
+                                <telerik:RadComboBoxItem runat="server" Text="Fintracker" Value="Fintracker" />
+                                <telerik:RadComboBoxItem runat="server" Text="Really Trusted" Value="ReallyTrusted" />
+                            </Items>
+                        </telerik:RadComboBox>
+                    </div>
+                    <div class="w3-col m6 w3-padding-small">
+                        <div class="w3-row">
+                            <div class="w3-col m6 w3-padding-small">
+                                What Risk is returned?
+                            </div>
+                            <div class="w3-col m6 w3-padding-small">
+                                <telerik:RadRadioButtonList ID="rbList" runat="server" RenderMode="Lightweight">
+                                    <Items>
+                                        <telerik:ButtonListItem Text="Low" Value="Low" />
+                                        <telerik:ButtonListItem Text="Medium" Value="Medium" />
+                                        <telerik:ButtonListItem Text="High" Value="High" />
+                                    </Items>
+                                </telerik:RadRadioButtonList>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="w3-row">
+                    <div class="w3-col m6 w3-padding-small">
+                        UPLOAD Remote Identification Report 
+                    </div>
+                    <div class="w3-col m6 w3-padding-small">
+                        <telerik:RadAsyncUpload ID="asyncRemoteId" runat="server"
+                            UploadedFilesRendering="BelowFileInput"
+                            HideFileInput="True"
+                            Localization-Select="Select or Drop PDF Here">
+                        </telerik:RadAsyncUpload>
+                    </div>
+                </div>
             </telerik:RadWizardStep>
-            <telerik:RadWizardStep ID="RadWizardStep4" runat="server" Title=" ">
+
+            <telerik:RadWizardStep ID="step_CreditFile" runat="server" Title=" ">
+                <p><strong>A.2 Credit File Method</strong></p>
+                <p>
+                   Ascertain the individual’s identity by comparing the individual’s name, date of birth and address information above to information in a Canadian credit file that has
+                    been in existence for at least three years and is derived from more than one source. If any of the information does not match, you will need to use another method
+                    to ascertain client identity. Consult the credit file at the time you ascertain the individual’s identity. The individual does not need to be physically present.
+                </p>
+            </telerik:RadWizardStep>
+            <telerik:RadWizardStep ID="step_DualId" runat="server" Title=" ">
+                <p><strong>A.3 Dual ID Process Method</strong></p>
+                <p>
+                     Complete two of the following three checkboxes by ascertaining the individual’s identity by referring to information in two independent, reliable, sources. Each
+                    source must be well known and reputable (e.g., federal, provincial, territorial and municipal levels of government, crown corporations, financial entities or utility
+                    providers). The individual does not need to be physically present.
+                </p>
+            </telerik:RadWizardStep>
+
+            <telerik:RadWizardStep ID="step_UnrepresentedParty" runat="server" Title=" ">
+                <p><strong>A.4 Unrepresented Individual Reasonable Measures Record</strong></p>
+                <p>
+                     (if applicable)&nbsp;&nbsp; Only complete this section when you are unable to ascertain the identity of an unrepresented individual.
+                </p>
+            </telerik:RadWizardStep>
+
+            <telerik:RadWizardStep ID="step_ThirdParty" runat="server" Title=" ">
+                <p><strong>B. Verification of Third Parties</strong></p>
+                <p>
+                    NOTE: Only complete Section B for your clients. Take reasonable measures to determine whether your clients are acting on behalf of third parties by
+                    completing this section of the form. If you are not able to determine whether your clients are acting on behalf of a third party but there are reasonable
+                    grounds to suspect there are, complete Section B.1. If there is a third party, complete Section B.2.
+                </p>
+                <p style="font-weight: bold">B.1 Third Party Reasonable Measures</p>
+                 <div class="w3-row">
+                    <div class="w3-col w3-padding-small">
+                        <telerik:RadRadioButtonList ID="rrbTransConductedBehalfClient" runat="server">
+                            <Items>
+                                <telerik:ButtonListItem Text="YES the transaction IS being conducted on behalf of a third party according to the client." Value="Yes" />
+                                <telerik:ButtonListItem Text="NO the transaction is NOT being conducted on behalf of a third party according to the client." Value="No" />
+                            </Items>
+                        </telerik:RadRadioButtonList>
+                    </div>
+                </div>
+                 <div class="w3-row">
+                     <div class="w3-col w3-padding-small">
+                         <p>Describe why you think  your client may be acting on behalf of a third party</p>
+                        <telerik:RadTextBox ID="txtReasonActingOn" runat="server" Width="100%"></telerik:RadTextBox>
+                     </div>
+                </div>          
+            </telerik:RadWizardStep>
+            
+            <telerik:RadWizardStep ID="step_ThirdPartIdent" runat="server" Title=" ">
+                <p style="font-weight: bold">B.2 Third Party Record</p>
+                <p>Where there is a third party, complete this section.</p>
+                <div class="w3-row">
+                    <div class="w3-col m6 w3-padding-small">
+                        <telerik:RadTextBox ID="txtthirdPartyName" runat="server" EmptyMessage="Name of other entity" Width="100%"></telerik:RadTextBox>
+                    </div>
+                    <div class="w3-col m6 w3-padding-small">
+                        <telerik:RadTextBox ID="txtthirdPartyAddress2" runat="server" EmptyMessage="Telephone Number" Width="100%"></telerik:RadTextBox>
+                    </div>
+                </div>
+                <div class="w3-row">
+                   <div class="w3-col m6 w3-padding-small">
+                        <telerik:RadTextBox ID="txtthirdPartyAddress1" runat="server" EmptyMessage="Address" Width="100%"></telerik:RadTextBox>
+                    </div>
+                     <div class="w3-col m6 w3-padding-small">
+                         <telerik:RadDateInput ID="txtthirdPartyDOB" runat="server" EmptyMessage="DOB (when app. (yyyy-mm-dd))" DisplayDateFormat="yyyy-MM-dd" Culture="en-CA" MinDate="1900-01-01" Width="75%"></telerik:RadDateInput>
+                     </div>
+                </div>
+                <div class="w3-row">
+                    <p>Nature of Principle Business or Occupation</p>
+                    <div class="w3-col m6 w3-padding-small">
+                        <telerik:RadTextBox ID="txtthirdPartyBusinessOccupation1" runat="server" EmptyMessage="Principal Business or Occupation" Width="100%"></telerik:RadTextBox><br />
+                    </div>
+                    <div class="w3-col m6 w3-padding-small">
+                        <telerik:RadTextBox ID="txtthirdPartyBusinessOccupation2" runat="server" EmptyMessage="Additional" Width="100%"></telerik:RadTextBox>
+                    </div>
+                </div>
+                <div class="w3-row">
+                        <p>Registration or incorporation number, and jurisdiction and country that issued that number (if applicable)</p>
+                    <div class="w3-col m6 w3-padding-small">
+                        <telerik:RadTextBox ID="txtthirdPartyIncorporationNumber1" runat="server" EmptyMessage="Registration or Incorporation No" Width="100%"></telerik:RadTextBox><br />
+                    </div>
+                    <div class="w3-col m6 w3-padding-small">
+                        <telerik:RadTextBox ID="txtthirdPartyIncorporationNumber2" runat="server" EmptyMessage="Issuing Jurisdiction" Width="100%"></telerik:RadTextBox>
+                    </div>
+                </div>
+                <div class="w3-row">
+                    <p>Relationship between third party and client</p>
+                    <div class="w3-col m6 w3-padding-small">
+                        <telerik:RadTextBox ID="RadTextBox5" runat="server" EmptyMessage="Third Party relationship" Width="100%"></telerik:RadTextBox><br />
+                    </div>
+                    <div class="w3-col m6 w3-padding-small">
+                        <telerik:RadTextBox ID="RadTextBox6" runat="server" EmptyMessage="Additional" Width="100%"></telerik:RadTextBox>
+                    </div>
+                </div>
+            </telerik:RadWizardStep>
+            <telerik:RadWizardStep ID="step_WrapUp" runat="server" Title=" ">
+                <p><strong>Review and Submit the Individual Identifcation Form</strong></p>
+                <p>
+                    Notes
+                </p>
+                <telerik:RadButton ID="rbReviewDoc" runat="server" Text="RadButton"></telerik:RadButton>
             </telerik:RadWizardStep>
         </WizardSteps>
     </telerik:RadWizard>
 
-
-    <div>
-        <p style="font-weight: bold">A. Verification of Individual</p>
-        <hr />
-        <p>
-            NOTE: One of Section A.1, A.2. or A.3 must be completed for your individual clients or unrepresented individuals that are not clients, but are parties to the transaction
-                        (e.g. unrepresented buyer or seller) . Where you are unable to identify an unrepresented individual, complete section A.4 and consider sending a Suspicious
-                        Transaction Report to FINTRAC if there are reasonable grounds to suspect that the transaction involves the proceeds of crime or terrorist activity. Where you are
-                        using an agent or mandatary to verify the identity of an individual, see procedure described in CREA’s materials on REALTOR Link®.
-        </p>
-        <table style="width: 100%; font-size: small;" class="table">
-            <tr>
-                <td style="width: 30%">Full legal name of individual:
-                </td>
-                <td style="width: 35%">
-                    
-                </td>
-                <td style="width: 35%">
-                    <div class="w3-half w3-container">
-                        Date of Birth:
-                    </div>
-                    <div class="w3-half w3-container">
-                        
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td style="width: 30%">Address:
-                </td>
-                <td style="width: 35%">
-                   
-                </td>
-                <td style="width: 35%"></td>
-            </tr>
-            <tr>
-                <td style="width: 30%"></td>
-                <td style="width: 35%">
-                    
-                </td>
-                <td style="width: 35%"></td>
-            </tr>
-            <tr>
-                <td style="width: 30%">Nature of Principal Business or Occupation::
-                </td>
-                <td style="width: 35%">
-                    <telerik:RadTextBox ID="txtnatureOfBusinessOccupation" runat="server" EmptyMessage="Address" Width="100%"></telerik:RadTextBox>
-                </td>
-                <td style="width: 35%"></td>
-            </tr>
-        </table>
-        <p style="font-weight: bold">A.1 Federal/Provincial/Territorial Government-Issued Photo ID</p>
-
-        <p>
-            Ascertain the individual’s identity by comparing the individual to their photo ID. The individual must be physically present unless using technology capable of
-                    assessing a government-issued photo identification document’s authenticity.
-        </p>
-        <table style="width: 100%; font-size: small;">
-            <tr>
-                <td style="width: 30%">Type of Identification Document:
-                </td>
-                <td style="width: 35%">
-                    <telerik:RadTextBox ID="txtidDocument" runat="server" EmptyMessage="Document Type" Width="100%"></telerik:RadTextBox>
-                </td>
-                <td style="width: 35%">&nbsp;</td>
-
-            </tr>
-            <tr>
-                <td style="width: 30%">Document Identifier Number:
-                </td>
-                <td style="width: 35%">
-                    <telerik:RadTextBox ID="txtdocIdentifierNumber" runat="server" EmptyMessage="Ident. Number" Width="100%"></telerik:RadTextBox>
-                </td>
-                <td style="width: 35%"></td>
-            </tr>
-            <tr>
-                <td style="width: 30%">Issuing Jurisdiction:
-                </td>
-                <td style="width: 35%">
-                    <telerik:RadTextBox ID="txtissuingJurisdiction" runat="server" EmptyMessage="Issuing Jurisdiction" Width="100%"></telerik:RadTextBox>
-                </td>
-                <td style="width: 35%">
-                    <div class="w3-half w3-container">
-                        Country:
-                    </div>
-                    <div class="w3-half w3-container">
-                        <telerik:RadTextBox ID="txtissuingCountry" runat="server" EmptyMessage="Country" Width="100%"></telerik:RadTextBox>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td style="width: 30%">Document Expiry Date:
-                </td>
-                <td style="width: 35%">
-                    <div class="w3-half w3-container">
-                        <telerik:RadDateInput ID="txtDocExpDate" runat="server" EmptyMessage="yyyy-mm-dd" DisplayDateFormat="yyyy-MM-dd" Culture="en-CA" MinDate="1900-01-01" Width="160px"></telerik:RadDateInput>
-                    </div>
-
-                </td>
-                <td style="width: 35%; font-size: x-small;">(must be valid and not expired)</td>
-            </tr>
-        </table>
+<%--EXTRA CODE--%>
+<%--    <div>
         <p style="font-weight: bold">A.2 Credit File Method</p>
 
         <p>
@@ -605,64 +690,6 @@
         <p style="font-weight: bold">B.2 Third Party Record</p>
         <p>Where there is a third party, complete this section.</p>
         <table class="table-style">
-            <tr>
-                <td class="td-style" style="width: 30%">Name of other entity::
-                </td>
-                <td class="td-style" style="width: 35%">
-                    <telerik:RadTextBox ID="txtthirdPartyName" runat="server" EmptyMessage="Individual Name" Width="100%"></telerik:RadTextBox>
-                </td>
-                <td class="td-style" style="width: 35%"></td>
-
-            </tr>
-            <tr>
-                <td class="td-style" style="width: 30%">Address:
-                </td>
-                <td class="td-style" style="width: 35%">
-                    <telerik:RadTextBox ID="txtthirdPartyAddress1" runat="server" EmptyMessage="Address" Width="100%"></telerik:RadTextBox>
-                </td>
-                <td class="td-style" style="width: 35%"></td>
-            </tr>
-            <tr>
-                <td class="td-style" style="width: 30%">Telephone number:
-                </td>
-                <td class="td-style" style="width: 35%">
-                    <telerik:RadTextBox ID="txtthirdPartyAddress2" runat="server" EmptyMessage="Add. Address" Width="100%"></telerik:RadTextBox>
-                </td>
-                <td class="td-style" style="width: 35%"></td>
-            </tr>
-            <tr>
-                <td class="td-style" style="width: 30%">Date of Birth (if applicable):
-                </td>
-                <td class="td-style" style="width: 35%">
-                    <telerik:RadDateInput ID="txtthirdPartyDOB" runat="server" EmptyMessage="yyyy-mm-dd" DisplayDateFormat="yyyy-MM-dd" Culture="en-CA" MinDate="1900-01-01" Width="160px"></telerik:RadDateInput>
-                </td>
-                <td class="td-style" style="width: 35%"></td>
-            </tr>
-            <tr>
-                <td class="td-style" style="width: 30%">Nature of Principal Business or Occupation: 
-                </td>
-                <td class="td-style" style="width: 35%">
-                    <telerik:RadTextBox ID="txtthirdPartyBusinessOccupation1" runat="server" EmptyMessage="Add. Address" Width="100%"></telerik:RadTextBox><br />
-                    <telerik:RadTextBox ID="txtthirdPartyBusinessOccupation2" runat="server" EmptyMessage="Add. Address" Width="100%"></telerik:RadTextBox>
-                </td>
-                <td class="td-style" style="width: 35%"></td>
-            </tr>
-            <tr>
-                <td class="td-style" style="width: 30%">Registration or incorporation number, and jurisdiction and country that issued that number (if applicable): 
-                </td>
-                <td class="td-style" style="width: 35%">
-                    <telerik:RadTextBox ID="txtthirdPartyIncorporationNumber1" runat="server" Width="100%" TextMode="MultiLine"></telerik:RadTextBox>
-                </td>
-                <td class="td-style" style="width: 35%"></td>
-            </tr>
-            <tr>
-                <td class="td-style" style="width: 30%">Relationship between third party and client:.
-                </td>
-                <td class="td-style" style="width: 35%">
-                    <telerik:RadTextBox ID="txtthirdPartyIncorporationNumber2" runat="server" Width="100%"></telerik:RadTextBox>
-                </td>
-                <td class="td-style" style="width: 35%"></td>
-            </tr>
         </table>
         <p>C. <strong>C. Client Risk</strong> (ask your Compliance Officer if this section is applicable)</p>
 
@@ -814,7 +841,9 @@
             Don’t forget to follow your brokerage’s procedures with respect to terrorist property reports. Consult your policies and procedures
                     manual for more information.
         </p>
-    </div>
+    </div>--%>
+
+
 </div>
 <telerik:RadWindowManager ID="window_alert" runat="server"
     KeepInScreenBounds="False"

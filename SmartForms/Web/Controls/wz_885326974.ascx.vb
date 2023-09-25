@@ -7,6 +7,8 @@ Imports iText.Kernel.Utils
 Imports iText.IO.Source
 Imports iText.Layout
 Imports iText.Layout.Element
+Imports iText.IO.Util
+Imports Org.BouncyCastle.Math
 
 Public Class wz_885326974
     Inherits System.Web.UI.UserControl
@@ -28,6 +30,7 @@ Public Class wz_885326974
 
 
     End Sub
+
     Protected Sub butSubmit_Click(sender As Object, e As EventArgs) Handles butSubmit.Click
 
         SaveForm(sender)
@@ -158,7 +161,7 @@ Public Class wz_885326974
         send.SendText(Nothing)
         SaveForm(sender)
 
-        window_form.Title = "FAAS _ Mobile"
+        window_form.Title = "Smart Trak _ Mobile"
         window_form.AutoSize = False
         window_form.Behaviors = WindowBehaviors.Move Or WindowBehaviors.Resize Or WindowBehaviors.Close
         window_form.Height = 800
@@ -183,5 +186,81 @@ Public Class wz_885326974
         End If
     End Sub
 
+    Private Sub rwIdentification_NextButtonClick(sender As Object, e As WizardEventArgs) Handles rwIdentification.NextButtonClick
 
+        If Not rcbShowAllSteps.Checked Then
+            Dim ps As String = rwIdentification.WizardSteps.Item(rwIdentification.GetPreviousStepIndex).ID
+
+            If ps = "step_HeaderInfo" Then
+                If rbGovernmentId.Checked Then rwIdentification.ActiveStepIndex = 2
+                If rbCreditMethod.Checked Then rwIdentification.ActiveStepIndex = 3
+                If rbDualIdMethod.Checked Then rwIdentification.ActiveStepIndex = 4
+                If rbUnidentified.Checked Then rwIdentification.ActiveStepIndex = 5
+            End If
+            If ps = "step_GovernmentId" Then
+                If rbGovernmentId.Checked Then rwIdentification.ActiveStepIndex = 6
+            End If
+            If ps = "step_CreditFile" Then
+                If rbCreditMethod.Checked Then rwIdentification.ActiveStepIndex = 6
+            End If
+            If ps = "step_DualId" Then
+                If rbDualIdMethod.Checked Then rwIdentification.ActiveStepIndex = 6
+            End If
+            If ps = "step_ThirdParty" Then
+                If rrbTransConductedBehalfClient.SelectedValue = "Yes" Then
+                    rwIdentification.ActiveStepIndex = 7
+                Else
+                    If txtReasonActingOn.Text.ToString <> "" Then
+                        rwIdentification.ActiveStepIndex = 7
+                    Else
+                        rwIdentification.ActiveStepIndex = 8
+                    End If
+                End If
+            End If
+        End If
+
+        '0 step_Verification
+        '1 step_HeaderInfo
+        '2 step_GovernmentId
+        '3 step_CreditFile
+        '4 step_DualId
+        '5 step_UnrepresentedParty
+        '6 step_ThirdParty
+        '  step_ThirdPartIdent
+        '7 step_WrapUp
+
+        'rbGovernmentId
+        'rbCreditMethod
+        'rbDualIdMethod
+        'rbUnidentified
+
+    End Sub
+
+    Private Sub rwIdentification_PreviousButtonClick(sender As Object, e As WizardEventArgs) Handles rwIdentification.PreviousButtonClick
+
+        Dim ps As String = rwIdentification.ActiveStep.ID
+
+        If ps = "step_CreditFile" Or ps = "step_DualId" Or ps = "step_UnrepresentedParty" Then
+            rwIdentification.ActiveStepIndex = 1
+        End If
+
+    End Sub
+
+    Protected Sub rbReviewDoc_Click(sender As Object, e As EventArgs) Handles rbReviewDoc.Click
+
+        window_form.Title = "PDF Viewer"
+        window_form.AutoSize = False
+        window_form.KeepInScreenBounds = True
+
+        window_form.Behaviors = WindowBehaviors.Move Or WindowBehaviors.Resize Or WindowBehaviors.Close
+        window_form.Height = ((Request.QueryString("wheight") * 0.9))
+        window_form.Width = ((Request.QueryString("wheight") * 0.8))
+        window_form.VisibleStatusbar = False
+        Dim urlargs As String = "?hashcode=" & hfFormHash.Value & "&fileid=" & hfFormId.Value & "&webkitid=" & Nothing
+        window_form.NavigateUrl = "~/Viewer/pdfViewer.aspx" & urlargs
+
+        Dim script As String = "function f(){$find(""" + window_form.ClientID + """).show(); Sys.Application.remove_load(f);}Sys.Application.add_load(f);"
+        ScriptManager.RegisterStartupScript(Page, Page.GetType(), "key", script, True)
+
+    End Sub
 End Class

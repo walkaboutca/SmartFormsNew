@@ -431,6 +431,12 @@
                                         <HeaderStyle Width="60px" HorizontalAlign="Center" />
                                         <ItemStyle Width="60px" HorizontalAlign="Center" />
                                     </telerik:GridTemplateColumn>
+                                    <telerik:GridTemplateColumn FilterControlAltText="Filter tmpLow column" ShowNoSortIcon="False" UniqueName="tmpLow">
+                                    </telerik:GridTemplateColumn>
+                                    <telerik:GridTemplateColumn FilterControlAltText="Filter tmpMedium column" ShowNoSortIcon="False" UniqueName="tmpMedium">
+                                    </telerik:GridTemplateColumn>
+                                    <telerik:GridTemplateColumn FilterControlAltText="Filter tmpHigh column" ShowNoSortIcon="False" UniqueName="tmpHigh">
+                                    </telerik:GridTemplateColumn>
                                 </Columns>
                                 <EditFormSettings>
                                     <EditColumn ShowNoSortIcon="False">
