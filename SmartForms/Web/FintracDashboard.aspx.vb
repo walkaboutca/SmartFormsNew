@@ -216,7 +216,7 @@ Public Class FintracDashboard
         window_form.Behaviors = WindowBehaviors.Move Or WindowBehaviors.Resize Or WindowBehaviors.Close
         window_form.Height = ((Request.QueryString("clientHeight") * 0.98))
         window_form.Width = ((Request.QueryString("clientWidth") * 0.6))
-        window_form.VisibleStatusbar = True
+        window_form.VisibleStatusbar = False
 
         Dim urlargs As String = "?hashcode=" & formid & "&formid=" & origid & "&webkitid=" & webkitid & "&wheight=" & ((Request.QueryString("clientHeight") * 0.98))
         window_form.NavigateUrl = "~/Web/pdfFintracViewer.aspx" & urlargs
@@ -364,6 +364,12 @@ Public Class FintracDashboard
 
         Dim script As String = "function f(){$find(""" + window_form.ClientID + """).show(); Sys.Application.remove_load(f);}Sys.Application.add_load(f);"
         ScriptManager.RegisterStartupScript(Page, Page.GetType(), "key", script, True)
+
+    End Sub
+
+    Protected Sub rbRisk_Click(sender As Object, e As EventArgs)
+
+
 
     End Sub
 End Class

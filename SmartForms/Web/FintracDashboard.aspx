@@ -23,7 +23,7 @@
             document.forms[0].target = "_blank";
         }
     </script>
- 
+
     <style>
         html, body, h1, h2, h3, h4, h5, h6 {
             font-family: "Roboto", sans-serif
@@ -47,46 +47,35 @@
             vertical-align: top;
         }
 
-    .reLeftVerticalSide, 
-    .reRightVerticalSide, 
-    .reToolZone,
-    .reToolCell
-    {
-        background: white !important;
-    }
-    
-    .reToolCell
-    {
-        display: none\9 !important; /* for all versions of IE in order to prevent border bottom disappearing */
-    }
-    
-    .reContentCell
-    {
-        border-width: 0 !important;
-    }
-    
-    .formInput
-    {
-       border: solid 1px black;
-    }
-    
-    .RadEditor
-    {
-        filter: chroma(color=c2dcf0);
-    }
-    
-    .reWrapper_corner,
-    .reWrapper_center 
-    {
-        display: none !important; /* for FF */            
-    }
-    
-    td.reWrapper_corner,
-    td.reWrapper_center 
-    {
-        display: block\9 !important; /* for all versions of IE */            
-    }
-</style>
+        .reLeftVerticalSide,
+        .reRightVerticalSide,
+        .reToolZone,
+        .reToolCell {
+            background: white !important;
+        }
+
+        .reToolCell {
+            display: none\9 !important; /* for all versions of IE in order to prevent border bottom disappearing */
+        }
+
+        .reContentCell {
+            border-width: 0 !important;
+        }
+
+        .formInput {
+            border: solid 1px black;
+        }
+
+        .reWrapper_corner,
+        .reWrapper_center {
+            display: none !important; /* for FF */
+        }
+
+        td.reWrapper_corner,
+        td.reWrapper_center {
+            display: block\9 !important; /* for all versions of IE */
+        }
+    </style>
 
 
     <telerik:RadCodeBlock ID="RadCodeBlock1" runat="server">
@@ -107,7 +96,9 @@
         <Tabs>
             <telerik:RadTab runat="server" Text="AGENT DESKTOP" PageViewID="Webforms" Selected="True" SelectedIndex="0">
             </telerik:RadTab>
-            <telerik:RadTab runat="server" Text="BROKER DESKTOP" PageViewID="Fintrac" SelectedIndex="1">
+            <telerik:RadTab runat="server" Text="BROKER DESK ONE" PageViewID="BrokerOne" SelectedIndex="1">
+            </telerik:RadTab>
+            <telerik:RadTab runat="server" Text="BROKER DESK TWO" PageViewID="BrokerTwo" SelectedIndex="2">
             </telerik:RadTab>
         </Tabs>
     </telerik:RadTabStrip>
@@ -289,7 +280,7 @@
                             </telerik:RadGrid>
 
                             <asp:LinkButton ID="LinkButton1" runat="server">LinkButton</asp:LinkButton>
-                        <br />
+                            <br />
 
                             <telerik:RadWindowManager ID="window_mgr" runat="server"
                                 KeepInScreenBounds="True"
@@ -311,7 +302,7 @@
             </div>
 
         </telerik:RadPageView>
-        <telerik:RadPageView ID="Fintrac" runat="server">
+        <telerik:RadPageView ID="BrokerOne" runat="server">
             <div class="w3-row-padding w3-margin-top">
                 <div class="w3-card w3-container">
                     <div class="w3-row">
@@ -368,12 +359,12 @@
                                     <telerik:GridBoundColumn DataField="RiskValue" FilterControlAltText="Filter RiskValue column" HeaderText="RiskValue" ShowNoSortIcon="False" SortExpression="RiskValue" UniqueName="RiskValue" Visible="False">
                                     </telerik:GridBoundColumn>
                                     <telerik:GridTemplateColumn FilterControlAltText="Filter tmpSelect column" ShowNoSortIcon="False" UniqueName="tmpSelect" HeaderText="Risk">
-                                            <ItemTemplate>
-                                                <asp:ImageButton ID="ibDocuments" runat="server" ImageAlign="Middle" OnClick="ibDocuments_Click" />
-                                            </ItemTemplate>
-                                            <HeaderStyle Width="60px" HorizontalAlign="Center" />
-                                            <ItemStyle Width="60px" HorizontalAlign="Center" />
-                                        </telerik:GridTemplateColumn>
+                                        <ItemTemplate>
+                                            <asp:ImageButton ID="ibDocuments" runat="server" ImageAlign="Middle" OnClick="ibDocuments_Click" />
+                                        </ItemTemplate>
+                                        <HeaderStyle Width="60px" HorizontalAlign="Center" />
+                                        <ItemStyle Width="60px" HorizontalAlign="Center" />
+                                    </telerik:GridTemplateColumn>
                                 </Columns>
                                 <EditFormSettings>
                                     <EditColumn ShowNoSortIcon="False">
@@ -431,12 +422,6 @@
                                         <HeaderStyle Width="60px" HorizontalAlign="Center" />
                                         <ItemStyle Width="60px" HorizontalAlign="Center" />
                                     </telerik:GridTemplateColumn>
-                                    <telerik:GridTemplateColumn FilterControlAltText="Filter tmpLow column" ShowNoSortIcon="False" UniqueName="tmpLow">
-                                    </telerik:GridTemplateColumn>
-                                    <telerik:GridTemplateColumn FilterControlAltText="Filter tmpMedium column" ShowNoSortIcon="False" UniqueName="tmpMedium">
-                                    </telerik:GridTemplateColumn>
-                                    <telerik:GridTemplateColumn FilterControlAltText="Filter tmpHigh column" ShowNoSortIcon="False" UniqueName="tmpHigh">
-                                    </telerik:GridTemplateColumn>
                                 </Columns>
                                 <EditFormSettings>
                                     <EditColumn ShowNoSortIcon="False">
@@ -453,31 +438,111 @@
                                 <p class="w3-wide">Risk Analysis</p>
                             </div>
                             <div class="w3-half w3-container w3-padding-small">
-                               
                             </div>
                         </div>
-                     <telerik:RadEditor ID="reRiskMessage" runat="server" RenderMode="Lightweight" 
-                         EditModes="Design" 
-                         EmptyMessage="Click in the content area to show the toolbar"
-                         ToolbarMode="ShowOnFocus"
-                         Width="100%" NewLineMode="Br" Enabled="False">
-                         
-                     </telerik:RadEditor>
+                        <telerik:RadEditor ID="reRiskMessage" runat="server" RenderMode="Lightweight"
+                            EditModes="Design"
+                            EmptyMessage="Click in the content area to show the toolbar"
+                            ToolbarMode="ShowOnFocus"
+                            Width="100%" NewLineMode="Br" Enabled="False">
+                        </telerik:RadEditor>
                     </div>
                 </div>
-                
+
             </div>
 
         </telerik:RadPageView>
+        <telerik:RadPageView ID="BrokerTwo" runat="server">
+            <div class="w3-row-padding w3-margin-top">
+                <div class="w3-card w3-container">
+                    <div class="w3-row">
+                        <div class="w3-col w3-padding-small w3-image" style="width: 180px">
+                            <asp:Image ID="Image3" runat="server" ImageUrl="~/Images/SmartForms_Fintrac Banner.png" Width="100%" />
+                        </div>
+                        <div class="w3-rest w3-padding-small">
+                        </div>
+                    </div>
+                </div>
+                <hr />
+                <div class="w3-row-padding w3-margin-top">
+                    <div class="w3-half">
+                        <div class="w3-card w3-container">
+                            <telerik:RadAjaxPanel ID="RadAjaxPanel1" runat="server" LoadingPanelID="ajaxNotice">
+                                <telerik:RadGrid ID="rgvAgentItems" runat="server"
+                                    AutoGenerateColumns="False"
+                                    CellSpacing="-1"
+                                    GridLines="Both"
+                                    DataSourceID="SqlBrokerHistory">
+                                    <GroupingSettings CollapseAllTooltip="Collapse all groups" />
+                                    <ClientSettings>
+                                        <Selecting AllowRowSelect="True" />
+                                        <Scrolling
+                                            AllowScroll="True"
+                                            UseStaticHeaders="True" />
+                                    </ClientSettings>
+                                    <MasterTableView
+                                        DataKeyNames="Id,RiskValue,HashCode"
+                                        DataSourceID="SqlBrokerHistory">
+                                        <CommandItemSettings ShowAddNewRecordButton="False" />
+                                        <RowIndicatorColumn ShowNoSortIcon="False">
+                                        </RowIndicatorColumn>
+                                        <ExpandCollapseColumn ShowNoSortIcon="False">
+                                        </ExpandCollapseColumn>
+                                        <Columns>
+                                            <telerik:GridBoundColumn DataField="Id" DataType="System.Int32" FilterControlAltText="Filter Id column" HeaderText="Id" ReadOnly="True" ShowNoSortIcon="False" SortExpression="Id" UniqueName="Id" Visible="False">
+                                            </telerik:GridBoundColumn>
+                                            <telerik:GridBoundColumn DataField="Title" FilterControlAltText="Filter Title column" HeaderText="Title" ShowNoSortIcon="False" SortExpression="Title" UniqueName="Title">
+                                            </telerik:GridBoundColumn>
+                                            <telerik:GridBoundColumn DataField="FormType" FilterControlAltText="Filter FormType column" HeaderText="FormType" ShowNoSortIcon="False" SortExpression="FormType" UniqueName="FormType">
+                                            </telerik:GridBoundColumn>
+                                            <telerik:GridBoundColumn DataField="UserName" FilterControlAltText="Filter UserName column" HeaderText="UserName" ShowNoSortIcon="False" SortExpression="UserName" UniqueName="UserName" Visible="False">
+                                            </telerik:GridBoundColumn>
+                                            <telerik:GridBoundColumn DataField="LastRiskAnalysis" DataType="System.DateTime" FilterControlAltText="Filter LastRiskAnalysis column" HeaderText="LastRiskAnalysis" ShowNoSortIcon="False" SortExpression="LastRiskAnalysis" UniqueName="LastRiskAnalysis" Visible="False">
+                                            </telerik:GridBoundColumn>
+                                            <telerik:GridBoundColumn DataField="RiskValue" FilterControlAltText="Filter RiskValue column" HeaderText="RiskValue" ShowNoSortIcon="False" SortExpression="RiskValue" UniqueName="RiskValue" Visible="False">
+                                            </telerik:GridBoundColumn>
+                                            <telerik:GridTemplateColumn FilterControlAltText="Filter tmpLow column" ShowNoSortIcon="False" UniqueName="tmpLow" HeaderText="Low">
+                                                <ItemTemplate>
+                                                    <asp:Button ID="rbLowCount" runat="server" class="w3-button w3-green w3-center" Text="1" Font-Size="Small" Width="30" Height="30" OnClick="rbRisk_Click" />
+                                                </ItemTemplate>
+                                                <HeaderStyle HorizontalAlign="Center" />
+                                                <ItemStyle Font-Size="Small" Height="50px" HorizontalAlign="Center" VerticalAlign="Middle" Width="50px" />
+                                            </telerik:GridTemplateColumn>
+                                            <telerik:GridTemplateColumn FilterControlAltText="Filter tmpMedium column" ShowNoSortIcon="False" UniqueName="tmpMedium" HeaderText="Med">
+                                                <ItemTemplate>
+                                                    <asp:Button ID="rbMediumCount" runat="server" class="w3-button w3-yellow w3-center" Text="1" Font-Size="Small" Width="30" Height="30" OnClick="rbRisk_Click" />
+                                                </ItemTemplate>
+                                                <HeaderStyle HorizontalAlign="Center" />
+                                                <ItemStyle Font-Size="Small" Height="50px" HorizontalAlign="Center" VerticalAlign="Middle" Width="50px" />
+                                            </telerik:GridTemplateColumn>
+                                            <telerik:GridTemplateColumn FilterControlAltText="Filter tmpHigh column" ShowNoSortIcon="False" UniqueName="tmpHigh" HeaderText="High">
+                                                <ItemTemplate>
+                                                    <asp:Button ID="rbHighCount" runat="server" class="w3-button w3-red w3-center" Text="1" Font-Size="Small" Width="30" Height="30" OnClick="rbRisk_Click" />
+                                                </ItemTemplate>
+                                                <HeaderStyle HorizontalAlign="Center" />
+                                                <ItemStyle Font-Size="Small" Height="50px" HorizontalAlign="Center" VerticalAlign="Middle" Width="50px" />
+                                            </telerik:GridTemplateColumn>
+                                        </Columns>
+                                        <EditFormSettings>
+                                            <EditColumn ShowNoSortIcon="False">
+                                            </EditColumn>
+                                        </EditFormSettings>
+                                    </MasterTableView>
+                                </telerik:RadGrid>
+                            </telerik:RadAjaxPanel>
+                        </div>
+                    </div>
+                </div>
+        </telerik:RadPageView>
     </telerik:RadMultiPage>
 
- 
+
 
     <asp:HiddenField ID="hfWebKitId" runat="server" />
 
     <asp:SqlDataSource ID="sqlBrokerForms" runat="server" ConnectionString="<%$ ConnectionStrings:smartData %>" SelectCommand="SELECT Id, HashCode, Title, FormType, UserName, LastRiskAnalysis, RiskValue FROM data_FormList ORDER BY LastRiskAnalysis, CreatedOn"></asp:SqlDataSource>
     <asp:SqlDataSource ID="SqlBrokerHistory" runat="server" ConnectionString="<%$ ConnectionStrings:smartData %>" SelectCommand="SELECT Id, HashCode, Title, FormType, UserName, LastRiskAnalysis, RiskValue FROM data_FormList ORDER BY LastRiskAnalysis, CreatedOn"></asp:SqlDataSource>
- 
+
     <asp:ObjectDataSource ID="odsWebKit" runat="server" DeleteMethod="Delete" InsertMethod="Insert" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="SmartForms.smartDataTableAdapters.file_WebKitTA" UpdateMethod="Update">
         <DeleteParameters>
             <asp:Parameter Name="Original_Id" Type="Int32" />

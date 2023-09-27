@@ -161,7 +161,7 @@ Public Class wz_885326974
         send.SendText(Nothing)
         SaveForm(sender)
 
-        window_form.Title = "Smart Trak _ Mobile"
+        window_form.Title = "Smart-Fintrac _ Mobile"
         window_form.AutoSize = False
         window_form.Behaviors = WindowBehaviors.Move Or WindowBehaviors.Resize Or WindowBehaviors.Close
         window_form.Height = 800
@@ -175,15 +175,6 @@ Public Class wz_885326974
 
 
 
-    End Sub
-
-    Protected Sub rcbShowMobile_Click(sender As Object, e As EventArgs) Handles rcbShowMobile.Click
-        If rcbShowMobile.Checked Then
-            panelMobileIdentity.Visible = True
-        Else
-            panelMobileIdentity.Visible = False
-
-        End If
     End Sub
 
     Private Sub rwIdentification_NextButtonClick(sender As Object, e As WizardEventArgs) Handles rwIdentification.NextButtonClick

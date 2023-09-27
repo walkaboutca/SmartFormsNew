@@ -140,13 +140,13 @@ Partial Public Class FintracDashboard
     Protected WithEvents window_form As Global.Telerik.Web.UI.RadWindow
 
     '''<summary>
-    '''Fintrac control.
+    '''BrokerOne control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents Fintrac As Global.Telerik.Web.UI.RadPageView
+    Protected WithEvents BrokerOne As Global.Telerik.Web.UI.RadPageView
 
     '''<summary>
     '''Image2 control.
@@ -201,6 +201,42 @@ Partial Public Class FintracDashboard
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents reRiskMessage As Global.Telerik.Web.UI.RadEditor
+
+    '''<summary>
+    '''BrokerTwo control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents BrokerTwo As Global.Telerik.Web.UI.RadPageView
+
+    '''<summary>
+    '''Image3 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents Image3 As Global.System.Web.UI.WebControls.Image
+
+    '''<summary>
+    '''RadAjaxPanel1 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents RadAjaxPanel1 As Global.Telerik.Web.UI.RadAjaxPanel
+
+    '''<summary>
+    '''rgvAgentItems control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents rgvAgentItems As Global.Telerik.Web.UI.RadGrid
 
     '''<summary>
     '''hfWebKitId control.

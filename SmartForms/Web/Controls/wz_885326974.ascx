@@ -68,27 +68,6 @@
                                 <telerik:RadComboBoxItem runat="server" Text="Coperate IIR" Value="CoperateIIR" />
                             </Items>
                         </telerik:RadComboBox>
-                        <br />
-                        <telerik:RadCheckBox ID="rcbShowMobile" runat="server" Text="Send Mobile Identity Invitation"></telerik:RadCheckBox>
-                        <br />
-                        <asp:Panel ID="panelMobileIdentity" runat="server" BorderStyle="Solid" BorderWidth="1" BorderColor="Silver" Visible="False" Width="90%">
-                            <table class="w3-table" style="font-size: small">
-                                <tr>
-                                    <td style="width: 100px">Send EMail:</td>
-                                    <td>
-                                        <telerik:RadTextBox ID="rtbEmail" runat="server" Font-Size="Small"></telerik:RadTextBox></td>
-                                    <td>Send</td>
-                                </tr>
-                                <tr>
-                                    <td style="width: 100px">Send Text:</td>
-                                    <td style="width: 100px">
-                                        <telerik:RadTextBox ID="rtbPhone" runat="server" Font-Size="Small" EmptyMessage="Only Test No"></telerik:RadTextBox></td>
-                                    <td>
-                                        <asp:LinkButton ID="lbSendText" runat="server">Send Text </asp:LinkButton></td>
-                                </tr>
-                            </table>
-                        </asp:Panel>
-
                     </td>
                     <td style="text-align: right; vertical-align: top">
                         <telerik:RadAsyncUpload ID="asyncNewDocument" runat="server"
@@ -97,18 +76,14 @@
                             Localization-Select="Select or Drop PDF Here">
                         </telerik:RadAsyncUpload>
                         <div style="padding: 3px 0px 3px 0px">
-                            <telerik:RadButton ID="RadButton1" runat="server" Text="Import" Font-Size="x-Small" Skin="Black"></telerik:RadButton>
-                            <br />
                             <div style="color: #CC0000">This will overwrite the currently saved data!</div>
+                            <telerik:RadButton ID="RadButton1" runat="server" Text="Import" Font-Size="Small" Skin="Black"></telerik:RadButton>
                         </div>
-
-
                     </td>
                 </tr>
             </table>
         </div>
     </div>
-    <br />
     <telerik:RadWizard ID="rwIdentification" runat="server" Skin="Material" Font-Size="Small">
         <WizardSteps>
             <telerik:RadWizardStep ID="step_Verification" runat="server" Title=" ">
@@ -174,6 +149,10 @@
                     <div class="w3-col m2 w3-padding-small">
                     </div>
                 </div>
+
+
+
+
             </telerik:RadWizardStep>
             <telerik:RadWizardStep ID="step_HeaderInfo" runat="server" Title=" ">
                 <p><strong>A. Verification of Individual</strong></p>
@@ -321,7 +300,7 @@
             <telerik:RadWizardStep ID="step_CreditFile" runat="server" Title=" ">
                 <p><strong>A.2 Credit File Method</strong></p>
                 <p>
-                   Ascertain the individual’s identity by comparing the individual’s name, date of birth and address information above to information in a Canadian credit file that has
+                    Ascertain the individual’s identity by comparing the individual’s name, date of birth and address information above to information in a Canadian credit file that has
                     been in existence for at least three years and is derived from more than one source. If any of the information does not match, you will need to use another method
                     to ascertain client identity. Consult the credit file at the time you ascertain the individual’s identity. The individual does not need to be physically present.
                 </p>
@@ -329,7 +308,7 @@
             <telerik:RadWizardStep ID="step_DualId" runat="server" Title=" ">
                 <p><strong>A.3 Dual ID Process Method</strong></p>
                 <p>
-                     Complete two of the following three checkboxes by ascertaining the individual’s identity by referring to information in two independent, reliable, sources. Each
+                    Complete two of the following three checkboxes by ascertaining the individual’s identity by referring to information in two independent, reliable, sources. Each
                     source must be well known and reputable (e.g., federal, provincial, territorial and municipal levels of government, crown corporations, financial entities or utility
                     providers). The individual does not need to be physically present.
                 </p>
@@ -338,7 +317,7 @@
             <telerik:RadWizardStep ID="step_UnrepresentedParty" runat="server" Title=" ">
                 <p><strong>A.4 Unrepresented Individual Reasonable Measures Record</strong></p>
                 <p>
-                     (if applicable)&nbsp;&nbsp; Only complete this section when you are unable to ascertain the identity of an unrepresented individual.
+                    (if applicable)&nbsp;&nbsp; Only complete this section when you are unable to ascertain the identity of an unrepresented individual.
                 </p>
             </telerik:RadWizardStep>
 
@@ -350,7 +329,7 @@
                     grounds to suspect there are, complete Section B.1. If there is a third party, complete Section B.2.
                 </p>
                 <p style="font-weight: bold">B.1 Third Party Reasonable Measures</p>
-                 <div class="w3-row">
+                <div class="w3-row">
                     <div class="w3-col w3-padding-small">
                         <telerik:RadRadioButtonList ID="rrbTransConductedBehalfClient" runat="server">
                             <Items>
@@ -360,14 +339,14 @@
                         </telerik:RadRadioButtonList>
                     </div>
                 </div>
-                 <div class="w3-row">
-                     <div class="w3-col w3-padding-small">
-                         <p>Describe why you think  your client may be acting on behalf of a third party</p>
+                <div class="w3-row">
+                    <div class="w3-col w3-padding-small">
+                        <p>Describe why you think  your client may be acting on behalf of a third party</p>
                         <telerik:RadTextBox ID="txtReasonActingOn" runat="server" Width="100%"></telerik:RadTextBox>
-                     </div>
-                </div>          
+                    </div>
+                </div>
             </telerik:RadWizardStep>
-            
+
             <telerik:RadWizardStep ID="step_ThirdPartIdent" runat="server" Title=" ">
                 <p style="font-weight: bold">B.2 Third Party Record</p>
                 <p>Where there is a third party, complete this section.</p>
@@ -380,12 +359,12 @@
                     </div>
                 </div>
                 <div class="w3-row">
-                   <div class="w3-col m6 w3-padding-small">
+                    <div class="w3-col m6 w3-padding-small">
                         <telerik:RadTextBox ID="txtthirdPartyAddress1" runat="server" EmptyMessage="Address" Width="100%"></telerik:RadTextBox>
                     </div>
-                     <div class="w3-col m6 w3-padding-small">
-                         <telerik:RadDateInput ID="txtthirdPartyDOB" runat="server" EmptyMessage="DOB (when app. (yyyy-mm-dd))" DisplayDateFormat="yyyy-MM-dd" Culture="en-CA" MinDate="1900-01-01" Width="75%"></telerik:RadDateInput>
-                     </div>
+                    <div class="w3-col m6 w3-padding-small">
+                        <telerik:RadDateInput ID="txtthirdPartyDOB" runat="server" EmptyMessage="DOB (when app. (yyyy-mm-dd))" DisplayDateFormat="yyyy-MM-dd" Culture="en-CA" MinDate="1900-01-01" Width="75%"></telerik:RadDateInput>
+                    </div>
                 </div>
                 <div class="w3-row">
                     <p>Nature of Principle Business or Occupation</p>
@@ -397,7 +376,7 @@
                     </div>
                 </div>
                 <div class="w3-row">
-                        <p>Registration or incorporation number, and jurisdiction and country that issued that number (if applicable)</p>
+                    <p>Registration or incorporation number, and jurisdiction and country that issued that number (if applicable)</p>
                     <div class="w3-col m6 w3-padding-small">
                         <telerik:RadTextBox ID="txtthirdPartyIncorporationNumber1" runat="server" EmptyMessage="Registration or Incorporation No" Width="100%"></telerik:RadTextBox><br />
                     </div>
@@ -424,6 +403,35 @@
             </telerik:RadWizardStep>
         </WizardSteps>
     </telerik:RadWizard>
+    <div class="w3-panel w3-topbar w3-border-teal">
+        <div class="w3-twothird w3-container w3-padding-small">
+            <div class="w3-row" style="font-size: small; text-align: center; vertical-align: middle;">
+                <div class="w3-half w3-container w3-padding-small">
+                    <div class="w3-quarter w3-padding-small">
+                        Send SMS / Text:
+                    </div>
+                    <div class="w3-half  w3-padding-small">
+                        <telerik:RadTextBox ID="rtbText" runat="server" Font-Size="Small" Width="100%"></telerik:RadTextBox>
+                    </div>
+                    <asp:LinkButton ID="lbSendText" runat="server">Send</asp:LinkButton>
+                </div>
+                <div class="w3-half w3-container w3-padding-small">
+                    <div class="w3-quarter w3-padding-small">
+                        Send E Mail To:
+                    </div>
+                    <div class="w3-half  w3-padding-small">
+                        <telerik:RadTextBox ID="RadTextBox1" runat="server" Font-Size="Small" Width="100%"></telerik:RadTextBox>
+                    </div>
+                    <asp:LinkButton ID="lbSendEmail" runat="server">Send</asp:LinkButton>
+                </div>
+            </div>
+        </div>
+        <div class="w3-third w3-container w3-padding-small">
+              <p>You can send this form any time to you mobile for completion!</p>
+        </div>
+    </div>
+</div>
+
 
 <%--EXTRA CODE--%>
 <%--    <div>
@@ -844,7 +852,7 @@
     </div>--%>
 
 
-</div>
+
 <telerik:RadWindowManager ID="window_alert" runat="server"
     KeepInScreenBounds="False"
     RenderMode="Lightweight"

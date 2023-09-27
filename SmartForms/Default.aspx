@@ -23,20 +23,25 @@
         <div class="col-md-4">
             <h2>Introducing pbsTools Smart Forms! </h2>
             <p>
-                ASP.NET Web Forms lets you build dynamic websites using a familiar drag-and-drop, event-driven model.
-            A design surface and hundreds of controls and components let you rapidly build sophisticated, powerful UI-driven sites with data access.
+                Love them or hate them we belief that CREA's Web Forms&copy; are here to stay in Canadian Real Estate! 
+            </p>
+             <p>
+                Explore the reasons why this is a good thing and how Smart Forms will leverage this powerful tool. 
             </p>
             <p>
-                <a class="btn btn-default" href="Web/FillableForms.aspx">Forms &raquo;</a>
+                <a class="btn btn-default" href="About_SmartForms.aspx">Forms &raquo;</a>
             </p>
         </div>
         <div class="col-md-4">
-            <h2>Our Roadmap</h2>
+            <h2>Why Smart-Fintrac for your Brokerage?</h2>
             <p>
-                NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.
+                Why is Smart-Fintrac different than other applications and offering?
             </p>
             <p>
-                <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301949">Learn more &raquo;</a>
+                Explore how Smart-Fintrac is designed to not just support your brokerage FINTRAC requirements, but be a whole framework for compliance right out of the box!
+            </p>
+            <p>
+                <a class="btn btn-default" href="#">Learn more &raquo;</a>
             </p>
         </div>
         <div class="col-md-4">

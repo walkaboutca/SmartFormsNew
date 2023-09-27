@@ -77,58 +77,64 @@
                             </div>
                         </li>
                     </ul>
-
                     <asp:LoginView runat="server" ViewStateMode="Disabled">
                         <AnonymousTemplate>
                             <ul class="nav navbar-nav navbar-right">
-                                <li><a runat="server" href="~/Account/Register">Register</a></li>
+                                 <li><a runat="server" href="~/Account/Register">Register</a></li>
                                 <li><a runat="server" href="~/Account/Login">Log in</a></li>
                             </ul>
                         </AnonymousTemplate>
                         <LoggedInTemplate>
                             <ul class="nav navbar-nav navbar-right">
                                 <li><a runat="server" href="~/Account/Manage" title="Manage your account">Hello, <%: Context.User.Identity.GetUserName()  %>!</a></li>
-                                <li>
-                                    <asp:LoginStatus runat="server" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut" />
+                                <li><asp:LoginStatus runat="server" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut" />
                                 </li>
                             </ul>
                         </LoggedInTemplate>
                     </asp:LoginView>
+
+                   
+
+
+
                 </div>
             </div>
         </div>
-
-
-
-
- <%--       <div class="w3-container w3-top">
-            <div class="w3-bar w3-black">
-                    <a href="../Default.aspx?showhome=yes" class="w3-bar-item w3-button w3-mobile">Home</a>
-                    <a href="FintracDashboard.aspx" class="w3-bar-item w3-button w3-mobile">Fintrac Dashboard</a>
-                    <div class="w3-dropdown-hover w3-mobile">
-                        <button class="w3-button w3-teal">FAQ and Help<i class="fa fa-caret-down"></i></button>
-                        <div class="w3-dropdown-content w3-bar-block w3-dark-grey">
-                            <a href="HelpAndFAQ.aspx" class="w3-bar-item w3-button w3-mobile">Statement Dashboard</a>
-                            <div class="w3-panel w3-topbar w3-border-blue">
-                                <a href="#" class="w3-bar-item w3-button w3-mobile">CREA Fintrac</a>
-                                <a href="#" class="w3-bar-item w3-button w3-mobile">Federal Fintrac</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="w3-dropdown-hover w3-mobile">
-                        <button class="w3-button">Utilities<i class="fa fa-caret-down"></i></button>
-                        <div class="w3-dropdown-content w3-bar-block w3-dark-grey">
-                            <a href="#" class="w3-bar-item w3-button w3-mobile">Holder</a>
-                            <a href="#" class="w3-bar-item w3-button w3-mobile">Holder</a>
-                            <div class="w3-panel w3-topbar w3-border-blue">
-                                <a href="#" class="w3-bar-item w3-button w3-mobile">Holder</a>
-                            </div>
-                        </div>
-                    </div>
-                <a href="../Account/Manage.aspx" class="w3-bar-item w3-button w3-mobile w3-right">Hello, <%: Context.User.Identity.GetUserName()  %>!</a>
-
+        <asp:Panel ID="panel_admin" runat="server">
+            <div class="container w3-row">
+                <div class="w3-half w3-container">
+                    
                 </div>
-        </div>--%>
+                <div class="w3-half w3-container w3-right">
+
+                    <div class="w3-row">
+                        <div class="w3-col w3-right w3-padding-small" style="width: 50px">
+                            <asp:HyperLink ID="HyperLink1" runat="server" ImageUrl="~/Images/Timesheet.png" NavigateUrl="https://online.actitime.com/pbstoolsbilling/timetrack/enter.do" Target="_blank">HyperLink</asp:HyperLink>
+
+                        </div>
+                        <div class="w3-col w3-right w3-padding-small" style="width: 50px">
+                            <asp:ImageButton ID="ibSettings" runat="server" ImageUrl="~/Images/Settings.png" Height="30" Width="30" ToolTip="Manage Admin Settings" PostBackUrl="~/Admin/AdminSettings.aspx" />
+
+                        </div>
+                        <div class="w3-rest  w3-right w3-padding-small">
+                            <asp:Label ID="Label1" runat="server" ForeColor="White" Visible="False"></asp:Label>
+                            <asp:DropDownList ID="DropDownList1" runat="server"
+                                DataTextField="CompanyName"
+                                DataValueField="CompanyId"
+                                AutoPostBack="True"
+                                Height="25px"
+                                Width="200"
+                                Font-Size="XSmall">
+                            </asp:DropDownList>
+                        </div>
+                    </div>
+
+
+                
+                </div>
+            </div>
+
+        </asp:Panel>
 
         <div class="container body-content">
             <uc1:ClientSizeDetector runat="server" ID="ClientSizeDetector" />
@@ -141,6 +147,18 @@
                 </footer>
             </div>
         </div>
+
+        <asp:HiddenField ID="hfUserName" runat="server" />
+        <asp:HiddenField ID="hfCompanyId" runat="server" />
+
+
+        <asp:SqlDataSource ID="sqlCompanyCodes" runat="server" ConnectionString="<%$ ConnectionStrings:smartData %>"
+            SelectCommand="dbo.usp_GetCompanyListForUserName" SelectCommandType="StoredProcedure">
+            <SelectParameters>
+                <asp:ControlParameter ControlID="hfUserName" DefaultValue="" Name="username" PropertyName="Value" Type="String" />
+            </SelectParameters>
+        </asp:SqlDataSource>
+
     </form>
 </body>
 </html>

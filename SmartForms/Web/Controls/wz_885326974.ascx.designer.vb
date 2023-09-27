@@ -68,51 +68,6 @@ Partial Public Class wz_885326974
     Protected WithEvents rcbWhatForm As Global.Telerik.Web.UI.RadComboBox
 
     '''<summary>
-    '''rcbShowMobile control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents rcbShowMobile As Global.Telerik.Web.UI.RadCheckBox
-
-    '''<summary>
-    '''panelMobileIdentity control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents panelMobileIdentity As Global.System.Web.UI.WebControls.Panel
-
-    '''<summary>
-    '''rtbEmail control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents rtbEmail As Global.Telerik.Web.UI.RadTextBox
-
-    '''<summary>
-    '''rtbPhone control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents rtbPhone As Global.Telerik.Web.UI.RadTextBox
-
-    '''<summary>
-    '''lbSendText control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents lbSendText As Global.System.Web.UI.WebControls.LinkButton
-
-    '''<summary>
     '''asyncNewDocument control.
     '''</summary>
     '''<remarks>
@@ -606,6 +561,42 @@ Partial Public Class wz_885326974
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents rbReviewDoc As Global.Telerik.Web.UI.RadButton
+
+    '''<summary>
+    '''rtbText control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents rtbText As Global.Telerik.Web.UI.RadTextBox
+
+    '''<summary>
+    '''lbSendText control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lbSendText As Global.System.Web.UI.WebControls.LinkButton
+
+    '''<summary>
+    '''RadTextBox1 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents RadTextBox1 As Global.Telerik.Web.UI.RadTextBox
+
+    '''<summary>
+    '''lbSendEmail control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lbSendEmail As Global.System.Web.UI.WebControls.LinkButton
 
     '''<summary>
     '''window_alert control.

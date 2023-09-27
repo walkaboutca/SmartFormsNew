@@ -179,6 +179,12 @@
     <Reference Include="PdfViewer">
       <HintPath>..\..\..\..\..\OneDrive\VSProjects\_Controls\Beansoft\Control\PdfViewer\bin\Release\PdfViewer.dll</HintPath>
     </Reference>
+    <Reference Include="SendGrid, Version=9.28.1.0, Culture=neutral, PublicKeyToken=4f047e93159395ca, processorArchitecture=MSIL">
+      <HintPath>..\packages\SendGrid.9.28.1\lib\net452\SendGrid.dll</HintPath>
+    </Reference>
+    <Reference Include="StarkbankEcdsa, Version=1.0.0.0, Culture=neutral, PublicKeyToken=b2e6337a5d77bfbc, processorArchitecture=MSIL">
+      <HintPath>..\packages\starkbank-ecdsa.1.3.3\lib\net452\StarkbankEcdsa.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Buffers.4.5.0\lib\netstandard2.0\System.Buffers.dll</HintPath>
@@ -214,6 +220,7 @@
       <Private>True</Private>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Text.Encodings.Web, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Text.Encodings.Web.4.5.0\lib\netstandard2.0\System.Text.Encodings.Web.dll</HintPath>
     </Reference>
@@ -413,7 +420,7 @@
     <Import Include="System.Web.UI.HtmlControls" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="About.aspx" />
+    <Content Include="About_SmartForms.aspx" />
     <Content Include="Account\AddPhoneNumber.aspx" />
     <Content Include="Account\Confirm.aspx" />
     <Content Include="Account\Forgot.aspx" />
@@ -497,27 +504,116 @@
     <Content Include="Forms\Politically Exposed Person_Head of International Organization Checklist_Record.pdf" />
     <Content Include="Forms\Receipt Of Funds Record.pdf" />
     <Content Include="Forms\Risk Assessment Form.pdf" />
+    <Content Include="Images\04-07-28-574_512.webp" />
+    <Content Include="Images\1-open-with.png" />
+    <Content Include="Images\14-40-53-72_512.webp" />
+    <Content Include="Images\17-17-42-929_512.webp" />
     <Content Include="Images\2023-08-16_6-29-12.png" />
     <Content Include="Images\2023-08-19_14-01-52.png" />
     <Content Include="Images\2023-08-19_14-02-30.png" />
+    <Content Include="Images\5059_Fintrac 300 x 70.png" />
+    <Content Include="Images\5059_Fintrac.jpg" />
+    <Content Include="Images\Add.png" />
+    <Content Include="Images\AgentOffice.png" />
+    <Content Include="Images\arrow_back.png" />
+    <Content Include="Images\arrow_Down.png" />
+    <Content Include="Images\arrow_Left.png" />
+    <Content Include="Images\arrow_Right.png" />
+    <Content Include="Images\arrow_Up.png" />
+    <Content Include="Images\avatar.jpg" />
+    <Content Include="Images\BCGovernmentLogo.png" />
+    <Content Include="Images\button_Enter.png" />
+    <Content Include="Images\Cancel.jpg" />
+    <Content Include="Images\Cancel_16.jpg" />
+    <Content Include="Images\Cancel_32.jpg" />
+    <Content Include="Images\CBC Marquise Realty Logo.jpg" />
+    <Content Include="Images\Checkmark.png" />
+    <Content Include="Images\contactOffice.png" />
+    <Content Include="Images\cross.png" />
+    <Content Include="Images\DatzLogo-dark.png" />
+    <Content Include="Images\Datz_LogoDkBlu.png" />
+    <Content Include="Images\Datz_LogoWhite.png" />
+    <Content Include="Images\Datz_Logo_Banner.png" />
+    <Content Include="Images\DocumentIcon_On.png" />
+    <Content Include="Images\Document_Icon_Green.jpg" />
+    <Content Include="Images\Document_Icon_On.jpg" />
+    <Content Include="Images\Document_Icon_Red.jpg" />
+    <Content Include="Images\DownArrowBlack.png" />
+    <Content Include="Images\download.png" />
+    <Content Include="Images\DuckSmashingPC.png" />
+    <Content Include="Images\Edit.png" />
+    <Content Include="Images\Excel.png" />
     <Content Include="Images\FaaSLogo.png" />
+    <Content Include="Images\f_icon.png" />
     <Content Include="Images\giphy.gif" />
     <Content Include="Images\Green.png" />
+    <Content Include="Images\GreySingleHouse.png" />
     <Content Include="Images\Help - Save Editable PDF Image 1.png" />
     <Content Include="Images\Help - Save Editable PDF Image 2.png" />
     <Content Include="Images\Help - Save Editable PDF Image 3.png" />
+    <Content Include="Images\HouseManIcon.ico" />
     <Content Include="Images\IMG_0765.PNG" />
+    <Content Include="Images\Indicator.png" />
     <Content Include="Images\iPhoneCamera.png" />
     <Content Include="Images\iPhoneTextMessage.png" />
+    <Content Include="Images\Keys.png" />
+    <Content Include="Images\Letter_O.png" />
+    <Content Include="Images\Letter_U.png" />
+    <Content Include="Images\Load.png" />
+    <Content Include="Images\Logo_Large.png" />
+    <Content Include="Images\Logo_Small.png" />
+    <Content Include="Images\LoneWolfArchiveGuide.png" />
+    <Content Include="Images\LoneWolfArchives.png" />
+    <Content Include="Images\LoneWolfArchiveWorkFlow.png" />
+    <Content Include="Images\MobilePhoneIcon.png" />
+    <Content Include="Images\mountains.jpg" />
+    <Content Include="Images\officeLocation.png" />
     <Content Include="Images\Open.png" />
+    <Content Include="Images\pbsarchive_1810925191.png" />
+    <Content Include="Images\pbsarchive_Icon_White.png" />
+    <Content Include="Images\pbsarchive_Panel.png" />
+    <Content Include="Images\pbsarchive_Reverse.png" />
+    <Content Include="Images\pbsarchive_Transparent.png" />
+    <Content Include="Images\pbsLogo_50X50.jpg" />
+    <Content Include="Images\pbsTools_Transparent.png" />
+    <Content Include="Images\Pdf.png" />
+    <Content Include="Images\PdfBigger.png" />
+    <Content Include="Images\pdf_Blue.png" />
+    <Content Include="Images\pdf_Green.png" />
+    <Content Include="Images\pdf_Green_icon.jpg" />
     <Content Include="Images\pdf_Green_Icon.png" />
     <Content Include="Images\pdf_Red.png" />
+    <Content Include="Images\pdf_Red_icon.jpg" />
+    <Content Include="Images\pdf_Red_icon.png" />
     <Content Include="Images\pdf_Yellow.png" />
     <Content Include="Images\QuestionMark.png" />
+    <Content Include="Images\QuestionMark_Small.png" />
     <Content Include="Images\Red.png" />
+    <Content Include="Images\Remove.png" />
+    <Content Include="Images\RequestButton.png" />
+    <Content Include="Images\Save.png" />
+    <Content Include="Images\save16.png" />
+    <Content Include="Images\save32.png" />
+    <Content Include="Images\Seperator_Blue.png" />
+    <Content Include="Images\Settings.png" />
+    <Content Include="Images\SettingsDark.png" />
+    <Content Include="Images\SettingsIcon.png" />
+    <Content Include="Images\SmartForms_Bar.png" />
     <Content Include="Images\SmartForms_Bar_Trans.png" />
     <Content Include="Images\SmartForms_Fintrac Banner.png" />
     <Content Include="Images\SmartForms_Logo.png" />
+    <Content Include="Images\smFolder.png" />
+    <Content Include="Images\smImage.png" />
+    <Content Include="Images\Spin-1s-200px.gif" />
+    <Content Include="Images\Table.png" />
+    <Content Include="Images\Timesheet.png" />
+    <Content Include="Images\tiny_arrow_Up.png" />
+    <Content Include="Images\Transparent PNG CBC Logo 150px.png" />
+    <Content Include="Images\Transparent PNG CBC Logo 400px.png" />
+    <Content Include="Images\web-C.PNG" />
+    <Content Include="Images\WebSiteIcon.jpg" />
+    <Content Include="Images\WebTools.jpg" />
+    <Content Include="Images\worldwideweb.png" />
     <Content Include="Images\Yellow.png" />
     <Content Include="Mobile\Invitation.aspx" />
     <Content Include="Search.html" />
@@ -557,14 +653,10 @@
     </Content>
     <Content Include="Forms\MLSLink - Attached Data Input Form.pdf" />
     <Content Include="Forms\MLSLink - Detached Data Input Form.pdf" />
-    <Content Include="Images\04-07-28-574_512.webp" />
-    <Content Include="Images\14-40-53-72_512.webp" />
-    <Content Include="Images\17-17-42-929_512.webp" />
+    <Content Include="Images\shutterstock_1758373358.eps" />
+    <Content Include="Images\shutterstock_1810925191.eps" />
     <None Include="My Project\PublishProfiles\FTP Publish.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
-    <Content Include="Images\SmartForms_Bar.png" />
-    <Content Include="Images\Transparent PNG CBC Logo 150px.png" />
-    <Content Include="Images\Transparent PNG CBC Logo 400px.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -708,14 +800,15 @@
     <Compile Include="App_Start\BundleConfig.vb" />
     <Compile Include="App_Start\IdentityConfig.vb" />
     <Compile Include="App_Start\RouteConfig.vb" />
-    <Compile Include="About.aspx.designer.vb">
-      <DependentUpon>About.aspx</DependentUpon>
+    <Compile Include="About_SmartForms.aspx.designer.vb">
+      <DependentUpon>About_SmartForms.aspx</DependentUpon>
     </Compile>
-    <Compile Include="About.aspx.vb">
-      <DependentUpon>About.aspx</DependentUpon>
+    <Compile Include="About_SmartForms.aspx.vb">
+      <DependentUpon>About_SmartForms.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="App_Start\Startup.Auth.vb" />
+    <Compile Include="Classes\EmailUtilities.vb" />
     <Compile Include="Classes\PDFManager.vb" />
     <Compile Include="Classes\ResponseHelper.vb" />
     <Compile Include="Classes\SendUtilities.vb" />
@@ -724,6 +817,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>smartData.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Classes\SQLdata.vb" />
     <Compile Include="ClientSizeDetector.ascx.designer.vb">
       <DependentUpon>ClientSizeDetector.ascx</DependentUpon>
     </Compile>
