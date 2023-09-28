@@ -616,11 +616,13 @@
     <Content Include="Images\worldwideweb.png" />
     <Content Include="Images\Yellow.png" />
     <Content Include="Mobile\Invitation.aspx" />
+    <Content Include="Scripts\BasicTools.xml" />
     <Content Include="Search.html" />
     <Content Include="TestViewer.aspx" />
     <Content Include="Viewer\pdfViewer.aspx" />
     <Content Include="Web\Controls\uc_236589754.ascx" />
     <Content Include="Web\Controls\uc_885326974.ascx" />
+    <Content Include="Web\Controls\uc_ComplianceNotes.ascx" />
     <Content Include="Web\Controls\uc_FormBuilder.ascx" />
     <Content Include="Web\Controls\web_Document.aspx" />
     <Content Include="Web\Controls\web_NewWebKit.aspx" />
@@ -924,6 +926,13 @@
     </Compile>
     <Compile Include="Web\Controls\uc_885326974.ascx.vb">
       <DependentUpon>uc_885326974.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\Controls\uc_ComplianceNotes.ascx.designer.vb">
+      <DependentUpon>uc_ComplianceNotes.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Web\Controls\uc_ComplianceNotes.ascx.vb">
+      <DependentUpon>uc_ComplianceNotes.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Web\Controls\uc_FormBuilder.ascx.designer.vb">

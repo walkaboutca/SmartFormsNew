@@ -5,6 +5,9 @@
 		<tool name="Underline" />
 		<tool separator="true"/>
 		<tool name="ForeColor" />
+		<tool name="BackColor"/>
+		<tool separator="true"/>
+		<tool name="FontName"/>
 	</tools>
 
 </root>

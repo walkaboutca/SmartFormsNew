@@ -20,6 +20,8 @@ Public Class wz_885326974
             hfFormHash.Value = Request.QueryString("hashcode")
             hfFormId.Value = Request.QueryString("FormId")
             FillForm()
+
+
         Else
 
         End If
@@ -28,6 +30,36 @@ Public Class wz_885326974
 
         rwIdentification.Height = (Request.QueryString("wheight") * 0.66)
 
+        uc_step_Verification.NoteHeight = (Request.QueryString("wheight") * 0.66)
+        Uc_step_CreditFile.NoteHeight = (Request.QueryString("wheight") * 0.66)
+        Uc_step_DualId.NoteHeight = (Request.QueryString("wheight") * 0.66)
+        Uc_step_GovernmentId.NoteHeight = (Request.QueryString("wheight") * 0.66)
+        Uc_step_HeaderInfo.NoteHeight = (Request.QueryString("wheight") * 0.66)
+        Uc_step_ThirdPartIdent.NoteHeight = (Request.QueryString("wheight") * 0.66)
+        Uc_step_ThirdParty.NoteHeight = (Request.QueryString("wheight") * 0.66)
+        Uc_step_UnrepresentedParty.NoteHeight = (Request.QueryString("wheight") * 0.66)
+        Uc_step_WrapUp.NoteHeight = (Request.QueryString("wheight") * 0.66)
+
+
+
+        uc_step_Verification.WhatForm = sender.id
+        uc_step_Verification.WhatControl = "step_Verification"
+        Uc_step_CreditFile.WhatForm = sender.id
+        Uc_step_CreditFile.WhatControl = "step_CreditFile"
+        Uc_step_DualId.WhatForm = sender.id
+        Uc_step_DualId.WhatControl = "step_DualId"
+        Uc_step_GovernmentId.WhatForm = sender.id
+        Uc_step_GovernmentId.WhatControl = "step_GovernmentId"
+        Uc_step_HeaderInfo.WhatForm = sender.id
+        Uc_step_HeaderInfo.WhatControl = "step_HeaderInfo"
+        Uc_step_ThirdPartIdent.WhatForm = sender.id
+        Uc_step_ThirdPartIdent.WhatControl = "step_ThirdPartIdent"
+        Uc_step_ThirdParty.WhatForm = sender.id
+        Uc_step_ThirdParty.WhatControl = "step_ThirdParty"
+        Uc_step_UnrepresentedParty.WhatForm = sender.id
+        Uc_step_UnrepresentedParty.WhatControl = "step_UnrepresentedParty"
+        Uc_step_WrapUp.WhatForm = sender.id
+        Uc_step_WrapUp.WhatControl = "step_WrapUp"
 
     End Sub
 
@@ -254,4 +286,16 @@ Public Class wz_885326974
         ScriptManager.RegisterStartupScript(Page, Page.GetType(), "key", script, True)
 
     End Sub
+
+    'Protected Sub lbEdit_Click(sender As Object, e As EventArgs) Handles lbEdit.Click
+    '    If lbEdit.Text = "Save" Then
+
+    '        Dim dsNotes As New smartDataTableAdapters.notes_ControlsTA
+    '        dsNotes.UpdControlNote(reIndividualIIF_Step1.ID, reIndividualIIF_Step1.Content)
+
+    '        lbEdit.Text = "Edit"
+    '    Else
+    '        lbEdit.Text = "Save"
+    '    End If
+    'End Sub
 End Class
