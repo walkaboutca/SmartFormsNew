@@ -221,22 +221,13 @@ Partial Public Class FintracDashboard
     Protected WithEvents Image3 As Global.System.Web.UI.WebControls.Image
 
     '''<summary>
-    '''RadAjaxPanel1 control.
+    '''uc_BrokerRiskCounter control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents RadAjaxPanel1 As Global.Telerik.Web.UI.RadAjaxPanel
-
-    '''<summary>
-    '''rgvAgentItems control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents rgvAgentItems As Global.Telerik.Web.UI.RadGrid
+    Protected WithEvents uc_BrokerRiskCounter As Global.SmartForms.uc_BrokerRiskCounter
 
     '''<summary>
     '''hfWebKitId control.

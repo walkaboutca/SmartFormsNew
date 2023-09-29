@@ -1,5 +1,8 @@
 ﻿<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/Web/forms.Master" CodeBehind="FintracDashboard.aspx.vb" Inherits="SmartForms.FintracDashboard" %>
 
+<%@ Register Src="~/Web/Controls/uc_BrokerRiskCounter.ascx" TagPrefix="uc1" TagName="uc_BrokerRiskCounter" %>
+
+
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
     <script>         
@@ -463,76 +466,11 @@
                         </div>
                     </div>
                 </div>
-                <hr />
-                <div class="w3-row-padding w3-margin-top">
-                    <div class="w3-half">
-                        <div class="w3-card w3-container">
-                            <telerik:RadAjaxPanel ID="RadAjaxPanel1" runat="server" LoadingPanelID="ajaxNotice">
-                                <telerik:RadGrid ID="rgvAgentItems" runat="server"
-                                    AutoGenerateColumns="False"
-                                    CellSpacing="-1"
-                                    GridLines="Both"
-                                    DataSourceID="SqlBrokerHistory">
-                                    <GroupingSettings CollapseAllTooltip="Collapse all groups" />
-                                    <ClientSettings>
-                                        <Selecting AllowRowSelect="True" />
-                                        <Scrolling
-                                            AllowScroll="True"
-                                            UseStaticHeaders="True" />
-                                    </ClientSettings>
-                                    <MasterTableView
-                                        DataKeyNames="Id,RiskValue,HashCode"
-                                        DataSourceID="SqlBrokerHistory">
-                                        <CommandItemSettings ShowAddNewRecordButton="False" />
-                                        <RowIndicatorColumn ShowNoSortIcon="False">
-                                        </RowIndicatorColumn>
-                                        <ExpandCollapseColumn ShowNoSortIcon="False">
-                                        </ExpandCollapseColumn>
-                                        <Columns>
-                                            <telerik:GridBoundColumn DataField="Id" DataType="System.Int32" FilterControlAltText="Filter Id column" HeaderText="Id" ReadOnly="True" ShowNoSortIcon="False" SortExpression="Id" UniqueName="Id" Visible="False">
-                                            </telerik:GridBoundColumn>
-                                            <telerik:GridBoundColumn DataField="Title" FilterControlAltText="Filter Title column" HeaderText="Title" ShowNoSortIcon="False" SortExpression="Title" UniqueName="Title">
-                                            </telerik:GridBoundColumn>
-                                            <telerik:GridBoundColumn DataField="FormType" FilterControlAltText="Filter FormType column" HeaderText="FormType" ShowNoSortIcon="False" SortExpression="FormType" UniqueName="FormType">
-                                            </telerik:GridBoundColumn>
-                                            <telerik:GridBoundColumn DataField="UserName" FilterControlAltText="Filter UserName column" HeaderText="UserName" ShowNoSortIcon="False" SortExpression="UserName" UniqueName="UserName" Visible="False">
-                                            </telerik:GridBoundColumn>
-                                            <telerik:GridBoundColumn DataField="LastRiskAnalysis" DataType="System.DateTime" FilterControlAltText="Filter LastRiskAnalysis column" HeaderText="LastRiskAnalysis" ShowNoSortIcon="False" SortExpression="LastRiskAnalysis" UniqueName="LastRiskAnalysis" Visible="False">
-                                            </telerik:GridBoundColumn>
-                                            <telerik:GridBoundColumn DataField="RiskValue" FilterControlAltText="Filter RiskValue column" HeaderText="RiskValue" ShowNoSortIcon="False" SortExpression="RiskValue" UniqueName="RiskValue" Visible="False">
-                                            </telerik:GridBoundColumn>
-                                            <telerik:GridTemplateColumn FilterControlAltText="Filter tmpLow column" ShowNoSortIcon="False" UniqueName="tmpLow" HeaderText="Low">
-                                                <ItemTemplate>
-                                                    <asp:Button ID="rbLowCount" runat="server" class="w3-button w3-green w3-center" Text="1" Font-Size="Small" Width="30" Height="30" OnClick="rbRisk_Click" />
-                                                </ItemTemplate>
-                                                <HeaderStyle HorizontalAlign="Center" />
-                                                <ItemStyle Font-Size="Small" Height="50px" HorizontalAlign="Center" VerticalAlign="Middle" Width="50px" />
-                                            </telerik:GridTemplateColumn>
-                                            <telerik:GridTemplateColumn FilterControlAltText="Filter tmpMedium column" ShowNoSortIcon="False" UniqueName="tmpMedium" HeaderText="Med">
-                                                <ItemTemplate>
-                                                    <asp:Button ID="rbMediumCount" runat="server" class="w3-button w3-yellow w3-center" Text="1" Font-Size="Small" Width="30" Height="30" OnClick="rbRisk_Click" />
-                                                </ItemTemplate>
-                                                <HeaderStyle HorizontalAlign="Center" />
-                                                <ItemStyle Font-Size="Small" Height="50px" HorizontalAlign="Center" VerticalAlign="Middle" Width="50px" />
-                                            </telerik:GridTemplateColumn>
-                                            <telerik:GridTemplateColumn FilterControlAltText="Filter tmpHigh column" ShowNoSortIcon="False" UniqueName="tmpHigh" HeaderText="High">
-                                                <ItemTemplate>
-                                                    <asp:Button ID="rbHighCount" runat="server" class="w3-button w3-red w3-center" Text="1" Font-Size="Small" Width="30" Height="30" OnClick="rbRisk_Click" />
-                                                </ItemTemplate>
-                                                <HeaderStyle HorizontalAlign="Center" />
-                                                <ItemStyle Font-Size="Small" Height="50px" HorizontalAlign="Center" VerticalAlign="Middle" Width="50px" />
-                                            </telerik:GridTemplateColumn>
-                                        </Columns>
-                                        <EditFormSettings>
-                                            <EditColumn ShowNoSortIcon="False">
-                                            </EditColumn>
-                                        </EditFormSettings>
-                                    </MasterTableView>
-                                </telerik:RadGrid>
-                            </telerik:RadAjaxPanel>
-                        </div>
-                    </div>
+
+                <uc1:uc_BrokerRiskCounter runat="server" id="uc_BrokerRiskCounter" />
+
                 </div>
+
         </telerik:RadPageView>
     </telerik:RadMultiPage>
 
