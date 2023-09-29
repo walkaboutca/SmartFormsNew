@@ -33,12 +33,13 @@ Public Class uc_ComplianceNotes
     End Sub
 
     Private Sub uc_ComplianceNotes_PreRender(sender As Object, e As EventArgs) Handles Me.PreRender
+        If hfWhatForm.Value <> "" Then
+            Dim whatform As String = hfWhatForm.Value
+            Dim whatcontrol As String = hfWhatControl.Value
+            Dim noteheight As Integer = hfNoteHeight.Value
 
-        Dim whatform As String = hfWhatForm.Value
-        Dim whatcontrol As String = hfWhatControl.Value
-        Dim noteheight As Integer = hfNoteHeight.Value
-
-        reEditor.Height = noteheight - 230
+            reEditor.Height = noteheight - 230
+        End If
 
         If Context.User.Identity.IsAuthenticated Then
             lbEditor.Visible = True

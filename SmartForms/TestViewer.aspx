@@ -1,6 +1,6 @@
 ﻿<%@ Page Language="vb" AutoEventWireup="false" CodeBehind="TestViewer.aspx.vb" Inherits="SmartForms.TestViewer" %>
+<%@ Register Src="~/Web/Controls/uc_236589754.ascx" TagPrefix="uc1" TagName="uc_236589754" %>
 
-<%@ Register Assembly="PdfViewer" Namespace="PdfViewer" TagPrefix="cc1" %>
 
 <!DOCTYPE html>
 
@@ -10,9 +10,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <div>
-            <cc1:ShowPdf ID="ShowPdf1" runat="server" FilePath="Forms/FINTRAC/885326974.pdf" Height="1000px" Width="800px"  />
-        </div>
+        <uc1:uc_236589754 runat="server" ID="uc_236589754" />
     </form>
 </body>
 </html>

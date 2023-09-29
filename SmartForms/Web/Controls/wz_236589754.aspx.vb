@@ -1,5 +1,5 @@
-﻿Public Class uc_236589754
-    Inherits System.Web.UI.UserControl
+﻿Public Class wz_236589754
+    Inherits System.Web.UI.Page
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
 

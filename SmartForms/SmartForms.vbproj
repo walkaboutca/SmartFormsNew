@@ -622,11 +622,13 @@
     <Content Include="Viewer\pdfViewer.aspx" />
     <Content Include="Web\Controls\uc_236589754.ascx" />
     <Content Include="Web\Controls\uc_885326974.ascx" />
+    <Content Include="Web\Controls\uc_BrokerRiskCounter.ascx" />
     <Content Include="Web\Controls\uc_ComplianceNotes.ascx" />
     <Content Include="Web\Controls\uc_FormBuilder.ascx" />
     <Content Include="Web\Controls\web_Document.aspx" />
     <Content Include="Web\Controls\web_NewWebKit.aspx" />
     <Content Include="Mobile\FakePhone.aspx" />
+    <Content Include="Web\Controls\wz_236589754.aspx" />
     <Content Include="Web\Controls\wz_885326974.ascx" />
     <Content Include="Web\FintracWizard.aspx" />
     <Content Include="Forms\FINTRAC\542536589.pdf" />
@@ -928,6 +930,13 @@
       <DependentUpon>uc_885326974.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="Web\Controls\uc_BrokerRiskCounter.ascx.designer.vb">
+      <DependentUpon>uc_BrokerRiskCounter.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Web\Controls\uc_BrokerRiskCounter.ascx.vb">
+      <DependentUpon>uc_BrokerRiskCounter.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="Web\Controls\uc_ComplianceNotes.ascx.designer.vb">
       <DependentUpon>uc_ComplianceNotes.ascx</DependentUpon>
     </Compile>
@@ -961,6 +970,13 @@
     </Compile>
     <Compile Include="Mobile\FakePhone.aspx.vb">
       <DependentUpon>FakePhone.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Web\Controls\wz_236589754.aspx.designer.vb">
+      <DependentUpon>wz_236589754.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web\Controls\wz_236589754.aspx.vb">
+      <DependentUpon>wz_236589754.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="Web\Controls\wz_885326974.ascx.designer.vb">
@@ -1111,7 +1127,7 @@
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
-      <UserProperties UseJQuerySupport="True" UseAjaxifiedTemplates="True" />
+      <UserProperties UseAjaxifiedTemplates="True" UseJQuerySupport="True" />
     </VisualStudio>
   </ProjectExtensions>
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

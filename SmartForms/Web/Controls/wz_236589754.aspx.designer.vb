@@ -11,7 +11,7 @@ Option Strict On
 Option Explicit On
 
 
-Partial Public Class TestViewer
+Partial Public Class wz_236589754
 
     '''<summary>
     '''form1 control.
@@ -23,11 +23,20 @@ Partial Public Class TestViewer
     Protected WithEvents form1 As Global.System.Web.UI.HtmlControls.HtmlForm
 
     '''<summary>
-    '''uc_236589754 control.
+    '''RadScriptManager1 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents uc_236589754 As Global.SmartForms.uc_236589754
+    Protected WithEvents RadScriptManager1 As Global.Telerik.Web.UI.RadScriptManager
+
+    '''<summary>
+    '''uc_ComplianceNotes control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents uc_ComplianceNotes As Global.SmartForms.uc_ComplianceNotes
 End Class

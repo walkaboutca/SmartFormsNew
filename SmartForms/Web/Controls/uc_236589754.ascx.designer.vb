@@ -30,40 +30,4 @@ Partial Public Class uc_236589754
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents hfFormId As Global.System.Web.UI.WebControls.HiddenField
-
-    '''<summary>
-    '''butSubmit control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents butSubmit As Global.System.Web.UI.WebControls.Button
-
-    '''<summary>
-    '''butSendOffice control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents butSendOffice As Global.System.Web.UI.WebControls.Button
-
-    '''<summary>
-    '''butDisplayForm control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents butDisplayForm As Global.System.Web.UI.WebControls.Button
-
-    '''<summary>
-    '''butSave control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents butSave As Global.System.Web.UI.WebControls.Button
 End Class
