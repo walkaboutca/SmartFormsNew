@@ -4,6 +4,10 @@ Public Class uc_BrokerRiskCounter
     Inherits System.Web.UI.UserControl
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+
+        Dim wwidth As Integer = Session("globalClientWidth")
+        Dim wheight As Integer = Session("globalClientHeight")
+
         If Not Page.IsPostBack Then
             Dim ds As New smartDataTableAdapters.searchAuditReviewTA
             Dim dt As DataTable = ds.GetAuditSummary
@@ -20,6 +24,11 @@ Public Class uc_BrokerRiskCounter
 
             rbSummary_High.BackColor = System.Drawing.Color.Silver
             odsFiles.FilterExpression = "[RiskAssessment]='High'"
+
+            reEditor.Height = wheight * 0.25
+            RadEditor1.Height = wheight * 0.25
+
+
         End If
 
 

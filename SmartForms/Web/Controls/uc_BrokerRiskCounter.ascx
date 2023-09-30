@@ -1,5 +1,38 @@
 ﻿<%@ Control Language="vb" AutoEventWireup="false" CodeBehind="uc_BrokerRiskCounter.ascx.vb" Inherits="SmartForms.uc_BrokerRiskCounter" %>
+<style type="text/css">
+    .reLeftVerticalSide,
+    .reRightVerticalSide,
+    .reToolZone,
+    .reToolCell {
+        background: white !important;
+    }
 
+    .reToolCell {
+        display: none\9 !important; /* for all versions of IE in order to prevent border bottom disappearing */
+    }
+
+    .reContentCell {
+        border-width: 0 !important;
+    }
+
+    .formInput {
+        border: solid 1px black;
+    }
+
+    .RadEditor {
+        filter: grayscale();
+    }
+
+    .reWrapper_corner,
+    .reWrapper_center {
+        display: none !important; /* for FF */
+    }
+
+    td.reWrapper_corner,
+    td.reWrapper_center {
+        display: block\9 !important; /* for all versions of IE */
+    }
+</style>
 <div class="w3-row">
     <div class="w3-container w3-twothird">
         <div class="w3-panel w3-border w3-border-teal w3-padding-small" style="vertical-align: middle">
@@ -47,8 +80,12 @@
 
     <div class="w3-row">
         <div class="w3-container w3-twothird">
-            <telerik:RadGrid ID="rgvCurrentFiles" runat="server" DataSourceID="odsFiles">
+            <telerik:RadGrid ID="rgvCurrentFiles" runat="server" DataSourceID="odsFiles" AllowSorting="True">
                 <GroupingSettings CollapseAllTooltip="Collapse all groups"></GroupingSettings>
+
+                <ClientSettings EnablePostBackOnRowClick="true">
+                    <Selecting AllowRowSelect="True" />
+                </ClientSettings>
 
                 <MasterTableView AutoGenerateColumns="False" DataKeyNames="Id" DataSourceID="odsFiles">
                     <RowIndicatorColumn ShowNoSortIcon="False"></RowIndicatorColumn>
@@ -102,6 +139,33 @@
 
         </div>
         <div class="w3-container w3-third">
+
+            <div style="font-size: small">
+
+                <telerik:RadEditor ID="reEditor" runat="server"
+                    RenderMode="Lightweight"
+                    ToolbarMode="ShowOnFocus"
+                    ToolsFile="~/Classes/BasicTools.xml"
+                    Width="100%" 
+                    EmptyMessage="No Notes currently on file." 
+                    EditModes="Preview">
+                </telerik:RadEditor>
+              
+            </div>
+            <hr />
+            <div style="font-size: small">
+
+                <telerik:RadEditor ID="RadEditor1" runat="server"
+                    RenderMode="Lightweight"
+                    ToolbarMode="ShowOnFocus"
+                    ToolsFile="~/Classes/BasicTools.xml"
+                    Width="100%"
+                    EmptyMessage="No Notes currently on file." 
+                    EditModes="Design">
+                </telerik:RadEditor>
+              
+
+            </div>
         </div>
     </div>
 </div>

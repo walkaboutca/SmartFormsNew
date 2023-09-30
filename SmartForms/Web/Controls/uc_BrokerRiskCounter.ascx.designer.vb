@@ -77,6 +77,24 @@ Partial Public Class uc_BrokerRiskCounter
     Protected WithEvents rgvCurrentFiles As Global.Telerik.Web.UI.RadGrid
 
     '''<summary>
+    '''reEditor control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents reEditor As Global.Telerik.Web.UI.RadEditor
+
+    '''<summary>
+    '''RadEditor1 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents RadEditor1 As Global.Telerik.Web.UI.RadEditor
+
+    '''<summary>
     '''odsFiles control.
     '''</summary>
     '''<remarks>
