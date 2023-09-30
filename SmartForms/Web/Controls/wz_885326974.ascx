@@ -54,6 +54,8 @@
 
 <asp:HiddenField ID="hfFormHash" runat="server" />
 <asp:HiddenField ID="hfFormId" runat="server" />
+<asp:HiddenField ID="hfIsValidated" runat="server" />
+<asp:HiddenField ID="hfInvalidList" runat="server" />
 
 <div>
 
@@ -520,6 +522,9 @@
                 <telerik:RadSplitter RenderMode="Lightweight" ID="RadSplitter9" runat="server" Width="100%">
                     <telerik:RadPane ID="RadPane8" runat="server" RenderMode="Lightweight">
                         <p><strong>Review and Submit the Individual Identifcation Form</strong></p>
+                        <telerik:RadLabel ID="rlWrapUpMessage" runat="server" Font-Size="Small" ForeColor="#CC0000" RenderMode="Lightweight" Visible="False"></telerik:RadLabel>
+
+
                         <telerik:RadButton ID="rbReviewDoc" runat="server" Text="RadButton"></telerik:RadButton>
                     </telerik:RadPane>
                     <telerik:RadSplitBar ID="RadSplitbar15" runat="server">

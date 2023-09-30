@@ -32,6 +32,24 @@ Partial Public Class wz_885326974
     Protected WithEvents hfFormId As Global.System.Web.UI.WebControls.HiddenField
 
     '''<summary>
+    '''hfIsValidated control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents hfIsValidated As Global.System.Web.UI.WebControls.HiddenField
+
+    '''<summary>
+    '''hfInvalidList control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents hfInvalidList As Global.System.Web.UI.WebControls.HiddenField
+
+    '''<summary>
     '''butSubmit control.
     '''</summary>
     '''<remarks>
@@ -1146,6 +1164,15 @@ Partial Public Class wz_885326974
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents RadPane8 As Global.Telerik.Web.UI.RadPane
+
+    '''<summary>
+    '''rlWrapUpMessage control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents rlWrapUpMessage As Global.Telerik.Web.UI.RadLabel
 
     '''<summary>
     '''rbReviewDoc control.

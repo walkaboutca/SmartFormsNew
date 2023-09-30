@@ -14,11 +14,14 @@ Public Class wz_885326974
     Inherits System.Web.UI.UserControl
     Dim pdftools As New PDFManager
     Dim send As New SendUtilities
+
+
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
 
         If Not Page.IsPostBack Then
             hfFormHash.Value = Request.QueryString("hashcode")
             hfFormId.Value = Request.QueryString("FormId")
+            hfIsValidated.Value = "False"
             FillForm()
 
 
@@ -211,8 +214,8 @@ Public Class wz_885326974
 
     Private Sub rwIdentification_NextButtonClick(sender As Object, e As WizardEventArgs) Handles rwIdentification.NextButtonClick
 
+        Dim ps As String = rwIdentification.WizardSteps.Item(rwIdentification.GetPreviousStepIndex).ID
         If Not rcbShowAllSteps.Checked Then
-            Dim ps As String = rwIdentification.WizardSteps.Item(rwIdentification.GetPreviousStepIndex).ID
 
             If ps = "step_HeaderInfo" Then
                 If rbGovernmentId.Checked Then rwIdentification.ActiveStepIndex = 2
@@ -242,6 +245,7 @@ Public Class wz_885326974
             End If
         End If
 
+
         '0 step_Verification
         '1 step_HeaderInfo
         '2 step_GovernmentId
@@ -256,6 +260,31 @@ Public Class wz_885326974
         'rbCreditMethod
         'rbDualIdMethod
         'rbUnidentified
+
+    End Sub
+
+    Private Sub rwIdentification_ActiveStepChanged(sender As Object, e As EventArgs) Handles rwIdentification.ActiveStepChanged
+        If rwIdentification.ActiveStep.ID = "step_WrapUp" Then
+            hfIsValidated.Value = "True"
+
+            If String.IsNullOrEmpty(rrbTransConductedBehalfClient.SelectedValue.ToString) Then
+                hfInvalidList.Value = "- You must [Check] a 3rd Party option. (Step 7)"
+                hfIsValidated.Value = "False"
+            End If
+
+
+
+        End If
+    End Sub
+
+    Private Sub rwIdentification_FinishButtonClick(sender As Object, e As WizardEventArgs) Handles rwIdentification.FinishButtonClick
+        If hfIsValidated.Value = "False" Then
+            rlWrapUpMessage.Visible = True
+            rlWrapUpMessage.Text = hfInvalidList.Value
+            rwIdentification.ActiveStepIndex = 8
+        Else
+            rlWrapUpMessage.Visible = False
+        End If
 
     End Sub
 
