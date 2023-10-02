@@ -14,11 +14,29 @@ Option Explicit On
 Partial Public Class About_Fintrac
 
     '''<summary>
-    '''Image2 control.
+    '''panel_left control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents Image2 As Global.System.Web.UI.WebControls.Image
+    Protected WithEvents panel_left As Global.System.Web.UI.WebControls.Panel
+
+    '''<summary>
+    '''panel_middle control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents panel_middle As Global.System.Web.UI.WebControls.Panel
+
+    '''<summary>
+    '''panel_right control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents panel_right As Global.System.Web.UI.WebControls.Panel
 End Class

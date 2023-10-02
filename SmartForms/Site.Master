@@ -2,6 +2,8 @@
 
 <%@ Import Namespace="SmartForms" %>
 <%@ Import Namespace="Microsoft.AspNet.Identity" %>
+<%@ Register Src="~/ClientSizeDetector.ascx" TagPrefix="uc1" TagName="ClientSizeDetector" %>
+
 <!DOCTYPE html>
 
 <html lang="en">
@@ -43,6 +45,7 @@
 
 </head>
 <body>
+    <uc1:ClientSizeDetector runat="server" ID="ClientSizeDetector" />
     <form runat="server">
         <asp:ScriptManager runat="server">
             <Scripts>
@@ -76,8 +79,8 @@
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li><a runat="server" href="~/">Home</a></li>
-                        <li><a runat="server" href="~/About">About</a></li>
+                        <li><a runat="server" href="~/?showhome=yes">Home</a></li>
+                        <li><a runat="server" href="~/About_pbsTools.aspx">About</a></li>
                         <li><a runat="server" href="~/Contact">Contact</a></li>
                     </ul>
                     <asp:LoginView runat="server" ViewStateMode="Disabled">

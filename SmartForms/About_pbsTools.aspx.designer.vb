@@ -11,23 +11,32 @@ Option Strict On
 Option Explicit On
 
 
-Partial Public Class SiteMaster
+Partial Public Class About_pbsTools
 
     '''<summary>
-    '''ClientSizeDetector control.
+    '''panel_left control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents ClientSizeDetector As Global.SmartForms.ClientSizeDetector
+    Protected WithEvents panel_left As Global.System.Web.UI.WebControls.Panel
 
     '''<summary>
-    '''MainContent control.
+    '''panel_middle control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents MainContent As Global.System.Web.UI.WebControls.ContentPlaceHolder
+    Protected WithEvents panel_middle As Global.System.Web.UI.WebControls.Panel
+
+    '''<summary>
+    '''panel_right control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents panel_right As Global.System.Web.UI.WebControls.Panel
 End Class

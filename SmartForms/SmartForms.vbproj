@@ -435,6 +435,8 @@
     <Import Include="System.Web.UI.HtmlControls" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="About_Fintrac.aspx" />
+    <Content Include="About_pbsTools.aspx" />
     <Content Include="About_SmartForms.aspx" />
     <Content Include="Account\AddPhoneNumber.aspx" />
     <Content Include="Account\Confirm.aspx" />
@@ -662,6 +664,28 @@
     <Content Include="Web\pdfFintracViewer.aspx" />
     <Content Include="Web\pdfViewer.aspx" />
     <Content Include="Web\SearchEngine.aspx" />
+    <Content Include="Account\SecureData\dsSecure.xsc">
+      <DependentUpon>dsSecure.xsd</DependentUpon>
+    </Content>
+    <None Include="Account\SecureData\dsSecure.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsSecure.Designer.vb</LastGenOutput>
+    </None>
+    <Content Include="Account\SecureData\dsSecure.xss">
+      <DependentUpon>dsSecure.xsd</DependentUpon>
+    </Content>
+    <Content Include="Classes\dsSecurity.xsc">
+      <DependentUpon>dsSecurity.xsd</DependentUpon>
+    </Content>
+    <None Include="Classes\dsSecurity.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsSecurity.Designer.vb</LastGenOutput>
+    </None>
+    <Content Include="Classes\dsSecurity.xss">
+      <DependentUpon>dsSecurity.xsd</DependentUpon>
+    </Content>
     <None Include="Classes\smartData.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
@@ -711,6 +735,20 @@
     <Content Include="Web\forms.Master" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="About_Fintrac.aspx.designer.vb">
+      <DependentUpon>About_Fintrac.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="About_Fintrac.aspx.vb">
+      <DependentUpon>About_Fintrac.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="About_pbsTools.aspx.designer.vb">
+      <DependentUpon>About_pbsTools.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="About_pbsTools.aspx.vb">
+      <DependentUpon>About_pbsTools.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
     <Compile Include="Account\AddPhoneNumber.aspx.designer.vb">
       <DependentUpon>AddPhoneNumber.aspx</DependentUpon>
     </Compile>
@@ -802,6 +840,11 @@
       <DependentUpon>ResetPasswordConfirmation.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="Account\SecureData\dsSecure.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsSecure.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Account\TwoFactorAuthenticationSignIn.aspx.designer.vb">
       <DependentUpon>TwoFactorAuthenticationSignIn.aspx</DependentUpon>
     </Compile>
@@ -827,6 +870,11 @@
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="App_Start\Startup.Auth.vb" />
+    <Compile Include="Classes\dsSecurity.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsSecurity.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Classes\EmailUtilities.vb" />
     <Compile Include="Classes\PDFManager.vb" />
     <Compile Include="Classes\ResponseHelper.vb" />
@@ -1142,7 +1190,7 @@
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
-      <UserProperties UseAjaxifiedTemplates="True" UseJQuerySupport="True" />
+      <UserProperties UseJQuerySupport="True" UseAjaxifiedTemplates="True" />
     </VisualStudio>
   </ProjectExtensions>
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

@@ -12,4 +12,31 @@ Option Explicit On
 
 
 Partial Public Class About
+
+    '''<summary>
+    '''panel_left control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents panel_left As Global.System.Web.UI.WebControls.Panel
+
+    '''<summary>
+    '''panel_middle control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents panel_middle As Global.System.Web.UI.WebControls.Panel
+
+    '''<summary>
+    '''panel_right control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents panel_right As Global.System.Web.UI.WebControls.Panel
 End Class

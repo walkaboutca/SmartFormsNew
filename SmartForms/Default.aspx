@@ -29,7 +29,7 @@
                 Explore the reasons why this is a good thing and how Smart Forms will leverage this powerful tool. 
             </p>
             <p>
-                <a class="btn btn-default" href="About_SmartForms.aspx">Forms &raquo;</a>
+                <a class="btn btn-default" href="About_SmartForms.aspx">Learn More about Smart-Forms! &raquo;</a>
             </p>
         </div>
         <div class="col-md-4">
@@ -41,7 +41,7 @@
                 Explore how Smart-Fintrac is designed to not just support your brokerage FINTRAC requirements, but be a whole framework for compliance right out of the box!
             </p>
             <p>
-                <a class="btn btn-default" href="#">Learn more &raquo;</a>
+                <a class="btn btn-default" href="About_Fintrac.aspx">Learn more about Smart-Fintrac &raquo;</a>
             </p>
         </div>
         <div class="col-md-4">
