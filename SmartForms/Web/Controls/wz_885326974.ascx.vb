@@ -22,6 +22,9 @@ Public Class wz_885326974
             hfFormHash.Value = Request.QueryString("hashcode")
             hfFormId.Value = Request.QueryString("FormId")
             hfIsValidated.Value = "False"
+
+            rdpVerifiedDate.DbSelectedDate = Now
+
             FillForm()
 
 
@@ -31,19 +34,23 @@ Public Class wz_885326974
     End Sub
     Private Sub rwIdentification_PreRender(sender As Object, e As EventArgs) Handles rwIdentification.PreRender
 
-        rwIdentification.Height = (Request.QueryString("wheight") * 0.66)
+        rwIdentification.Height = (Request.QueryString("wheight") * 0.75)
 
-        uc_step_Verification.NoteHeight = (Request.QueryString("wheight") * 0.66)
-        Uc_step_CreditFile.NoteHeight = (Request.QueryString("wheight") * 0.66)
-        Uc_step_DualId.NoteHeight = (Request.QueryString("wheight") * 0.66)
-        Uc_step_GovernmentId.NoteHeight = (Request.QueryString("wheight") * 0.66)
-        Uc_step_HeaderInfo.NoteHeight = (Request.QueryString("wheight") * 0.66)
-        Uc_step_ThirdPartIdent.NoteHeight = (Request.QueryString("wheight") * 0.66)
-        Uc_step_ThirdParty.NoteHeight = (Request.QueryString("wheight") * 0.66)
-        Uc_step_UnrepresentedParty.NoteHeight = (Request.QueryString("wheight") * 0.66)
-        Uc_step_WrapUp.NoteHeight = (Request.QueryString("wheight") * 0.66)
+        GetAll(Me, GetType(RadSplitter)).ToList.ForEach(
+            Sub(c)
+                Dim ctrl As RadSplitter = c
+                ctrl.Height = (Request.QueryString("wheight") * 0.55)
+            End Sub)
 
-
+        uc_step_Verification.NoteHeight = (Request.QueryString("wheight") * 0.74)
+        Uc_step_CreditFile.NoteHeight = (Request.QueryString("wheight") * 0.74)
+        Uc_step_DualId.NoteHeight = (Request.QueryString("wheight") * 0.74)
+        Uc_step_GovernmentId.NoteHeight = (Request.QueryString("wheight") * 0.74)
+        Uc_step_HeaderInfo.NoteHeight = (Request.QueryString("wheight") * 0.74)
+        Uc_step_ThirdPartIdent.NoteHeight = (Request.QueryString("wheight") * 0.74)
+        Uc_step_ThirdParty.NoteHeight = (Request.QueryString("wheight") * 0.74)
+        Uc_step_UnrepresentedParty.NoteHeight = (Request.QueryString("wheight") * 0.74)
+        Uc_step_WrapUp.NoteHeight = (Request.QueryString("wheight") * 0.74)
 
         uc_step_Verification.WhatForm = sender.id
         uc_step_Verification.WhatControl = "step_Verification"
@@ -63,25 +70,6 @@ Public Class wz_885326974
         Uc_step_UnrepresentedParty.WhatControl = "step_UnrepresentedParty"
         Uc_step_WrapUp.WhatForm = sender.id
         Uc_step_WrapUp.WhatControl = "step_WrapUp"
-
-    End Sub
-
-    Protected Sub butSubmit_Click(sender As Object, e As EventArgs) Handles butSubmit.Click
-
-        SaveForm(sender)
-
-        window_form.Title = "FINTRAC - Risk AI"
-        window_form.AutoSize = False
-        window_form.Behaviors = WindowBehaviors.Move Or WindowBehaviors.Resize Or WindowBehaviors.Close
-        window_form.Height = 400
-        window_form.Width = 800
-        window_form.VisibleStatusbar = False
-        Dim urlargs As String = "?formid=" & hfFormId.Value
-        window_form.NavigateUrl = "~/Web/SearchEngine.aspx" & urlargs
-
-        Dim script As String = "function f(){$find(""" + window_form.ClientID + """).show(); Sys.Application.remove_load(f);}Sys.Application.add_load(f);"
-        ScriptManager.RegisterStartupScript(Page, Page.GetType(), "key", script, True)
-
 
     End Sub
 
@@ -110,6 +98,10 @@ Public Class wz_885326974
     End Sub
     Protected Sub SaveForm(sender)
 
+        Dim formid As Integer = CType(hfFormId.Value, Integer)
+        Dim hashcode As String = hfFormHash.Value
+        Dim username As String = Context.User.Identity.Name
+
         Dim savedt As New DataTable
         savedt.Columns.Add()
         savedt.Columns.Add("KeyName", GetType(String))
@@ -117,60 +109,35 @@ Public Class wz_885326974
         savedt.Columns.Add("KeyValue", GetType(String))
         savedt.Columns.Add("UserName", GetType(String))
 
-        Dim formid As Integer = CType(hfFormId.Value, Integer)
-        Dim hashcode As String = hfFormHash.Value
-        Dim username As String = Context.User.Identity.Name
 
-        For Each c In sender.parent.Controls
+        txttodaysDated1_yyyy.Text = rdpVerifiedDate.DbSelectedDate.Year.ToString
+        txttodaysDated1_mmmm.Text = rdpVerifiedDate.DbSelectedDate.Month.ToString
+        txttodaysDated1_d.Text = rdpVerifiedDate.DbSelectedDate.Day.ToString
 
-            If TypeName(c) = "RadTextBox" Then
-                savedt.Rows.Add(formid, c.id.ToString, TypeName(c).ToString, c.text, username)
-            End If
+        GetAll(Me, GetType(RadTextBox)).ToList.ForEach(
+            Sub(c)
+                Dim ctrl As RadTextBox = c
+                savedt.Rows.Add(formid, ctrl.ID.ToString, "PdfTextFormField", ctrl.Text, username)
+            End Sub)
 
-            If TypeName(c) = "RadDatePicker" Then savedt.Rows.Add(formid, c.id, TypeName(c), IIf(IsNothing(c.dbSelectedDate), Nothing, c.dbSelectedDate), username)
-            If TypeName(c) = "RadDateInput" Then savedt.Rows.Add(formid, c.id, TypeName(c), IIf(IsNothing(c.dbSelectedDate), Nothing, c.dbSelectedDate), username)
-            If TypeName(c) = "RadCheckBox" Then savedt.Rows.Add(formid, c.id, TypeName(c), IIf(IsNothing(c.Checked), Nothing, c.Checked), username)
+        GetAll(Me, GetType(RadRadioButtonList)).ToList.ForEach(
+            Sub(c)
+                Dim ctrl As RadRadioButtonList = c
+                savedt.Rows.Add(formid, ctrl.ID.ToString, "PdfTextFormField", Nothing, username)
+            End Sub)
 
-        Next
 
         pdftools.Save_FintracData(hashcode, formid, savedt)
 
-    End Sub
-
-    'Protected Sub butDisplayForm_Click(sender As Object, e As EventArgs) Handles butDisplayForm.Click
-
-    '    SaveForm(sender)
-
-    '    Dim hashcode As String = hfFormHash.Value
-    '    Dim fileid As Integer = hfFormId.Value
-    '    Dim webkitid As Integer = 0
-
-    '    'Dim pdfstream As String = pdftools.Fill_FintracData(hashcode, fileid)
-    '    Dim targetname As String = "TestingTargetName"
-
-    '    window_form.Title = "PDF Viewer"
-    '    window_form.AutoSize = False
-    '    window_form.KeepInScreenBounds = True
-
-    '    window_form.Behaviors = WindowBehaviors.Move Or WindowBehaviors.Resize Or WindowBehaviors.Close
-    '    window_form.Height = Request.QueryString("wheight") - 50
-    '    window_form.Width = 500
-    '    window_form.VisibleStatusbar = False
-
-    '    Dim urlargs As String = "?hashcode=" & hashcode & "&fileid=" & fileid & "&webkitid=" & webkitid
-    '    window_form.NavigateUrl = "~/Viewer/pdfViewer.aspx" & urlargs
-
-    '    Dim script As String = "function f(){$find(""" + window_form.ClientID + """).show(); Sys.Application.remove_load(f);}Sys.Application.add_load(f);"
-    '    ScriptManager.RegisterStartupScript(Page, Page.GetType(), "key", script, True)
-
-
-
-    'End Sub
-
-    Protected Sub butSave_Click(sender As Object, e As EventArgs) Handles butSave.Click
-        SaveForm(sender)
 
     End Sub
+    Public Function GetAll(ByVal sender As Control, ByVal T As Type) As IEnumerable(Of Control)
+        Dim controls = sender.Controls.Cast(Of Control)()
+        Return controls.SelectMany(
+            Function(ctrl) GetAll(ctrl, T)).Concat(controls).Where(
+            Function(c) c.GetType() Is T)
+    End Function
+
     Iterator Function allControls(c As Control) As IEnumerable(Of Control)
         Yield c
         For Each cc As Control In c.Controls
@@ -192,25 +159,6 @@ Public Class wz_885326974
 
     End Sub
 
-    Protected Sub lbSendText_Click(sender As Object, e As EventArgs) Handles lbSendText.Click
-        send.SendText(Nothing)
-        SaveForm(sender)
-
-        window_form.Title = "Smart-Fintrac _ Mobile"
-        window_form.AutoSize = False
-        window_form.Behaviors = WindowBehaviors.Move Or WindowBehaviors.Resize Or WindowBehaviors.Close
-        window_form.Height = 800
-        window_form.Width = 500
-        window_form.VisibleStatusbar = False
-        Dim urlargs As String = "?formid=" & hfFormId.Value
-        window_form.NavigateUrl = "~/Web/MobileIdentify.aspx" & urlargs
-
-        Dim script As String = "function f(){$find(""" + window_form.ClientID + """).show(); Sys.Application.remove_load(f);}Sys.Application.add_load(f);"
-        ScriptManager.RegisterStartupScript(Page, Page.GetType(), "key", script, True)
-
-
-
-    End Sub
 
     Private Sub rwIdentification_NextButtonClick(sender As Object, e As WizardEventArgs) Handles rwIdentification.NextButtonClick
 
@@ -265,12 +213,22 @@ Public Class wz_885326974
 
     Private Sub rwIdentification_ActiveStepChanged(sender As Object, e As EventArgs) Handles rwIdentification.ActiveStepChanged
         If rwIdentification.ActiveStep.ID = "step_WrapUp" Then
+
+            Dim ds As New smartDataTableAdapters.LocalTA
+            rtbFileName.Text = ds.ret_PDFFileLabel(hfFormId.Value, 1)
+
             hfIsValidated.Value = "True"
 
             If String.IsNullOrEmpty(rrbTransConductedBehalfClient.SelectedValue.ToString) Then
                 hfInvalidList.Value = "- You must [Check] a 3rd Party option. (Step 7)"
                 hfIsValidated.Value = "False"
             End If
+
+            'If hfIsValidated.Value = False Then
+            '    rlWrapUpMessage.Visible = True
+            '    rlWrapUpMessage.Text = hfInvalidList.Value
+
+            'End If
 
 
 
@@ -300,13 +258,14 @@ Public Class wz_885326974
 
     Protected Sub rbReviewDoc_Click(sender As Object, e As EventArgs) Handles rbReviewDoc.Click
 
+
         window_form.Title = "PDF Viewer"
         window_form.AutoSize = False
         window_form.KeepInScreenBounds = True
 
         window_form.Behaviors = WindowBehaviors.Move Or WindowBehaviors.Resize Or WindowBehaviors.Close
         window_form.Height = ((Request.QueryString("wheight") * 0.9))
-        window_form.Width = ((Request.QueryString("wheight") * 0.8))
+        window_form.Width = ((Request.QueryString("wheight") * 0.9))
         window_form.VisibleStatusbar = False
         Dim urlargs As String = "?hashcode=" & hfFormHash.Value & "&fileid=" & hfFormId.Value & "&webkitid=" & Nothing
         window_form.NavigateUrl = "~/Viewer/pdfViewer.aspx" & urlargs
@@ -315,6 +274,45 @@ Public Class wz_885326974
         ScriptManager.RegisterStartupScript(Page, Page.GetType(), "key", script, True)
 
     End Sub
+
+    Protected Sub rbSubmitToOffice_Click(sender As Object, e As EventArgs) Handles rbSubmitToOffice.Click
+        If hfIsValidated.Value = "False" Then
+            rlWrapUpMessage.Visible = True
+            rlWrapUpMessage.Text = hfInvalidList.Value
+            rwIdentification.ActiveStepIndex = 8
+        Else
+            rlWrapUpMessage.Visible = False
+        End If
+    End Sub
+
+    Protected Sub rbSaveForm_Click(sender As Object, e As EventArgs) Handles rbSaveForm.Click
+        SaveForm(sender)
+    End Sub
+
+    Protected Sub lbSendText_Click(sender As Object, e As ImageClickEventArgs)
+        send.SendText(Nothing)
+        SaveForm(sender)
+
+        window_form.Title = "Smart-Fintrac _ Mobile"
+        window_form.AutoSize = False
+        window_form.Behaviors = WindowBehaviors.Move Or WindowBehaviors.Resize Or WindowBehaviors.Close
+        window_form.Height = 800
+        window_form.Width = 500
+        window_form.VisibleStatusbar = False
+        Dim urlargs As String = "?formid=" & hfFormId.Value
+        window_form.NavigateUrl = "~/Web/MobileIdentify.aspx" & urlargs
+
+        Dim script As String = "function f(){$find(""" + window_form.ClientID + """).show(); Sys.Application.remove_load(f);}Sys.Application.add_load(f);"
+        ScriptManager.RegisterStartupScript(Page, Page.GetType(), "key", script, True)
+
+    End Sub
+
+    Protected Sub lbSendEmail_Click(sender As Object, e As ImageClickEventArgs) Handles lbSendEmail.Click
+
+    End Sub
+
+
+
 
     'Protected Sub lbEdit_Click(sender As Object, e As EventArgs) Handles lbEdit.Click
     '    If lbEdit.Text = "Save" Then

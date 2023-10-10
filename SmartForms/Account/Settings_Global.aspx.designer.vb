@@ -11,77 +11,68 @@ Option Strict On
 Option Explicit On
 
 
-Partial Public Class pdfFintracViewer
+Partial Public Class Settings_Global
 
     '''<summary>
-    '''form1 control.
+    '''hfUserName control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents form1 As Global.System.Web.UI.HtmlControls.HtmlForm
+    Protected WithEvents hfUserName As Global.System.Web.UI.WebControls.HiddenField
 
     '''<summary>
-    '''RadScriptManager1 control.
+    '''hfAppName control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents RadScriptManager1 As Global.Telerik.Web.UI.RadScriptManager
+    Protected WithEvents hfAppName As Global.System.Web.UI.WebControls.HiddenField
 
     '''<summary>
-    '''loading_Main control.
+    '''hfCompanyId control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents loading_Main As Global.Telerik.Web.UI.RadAjaxLoadingPanel
+    Protected WithEvents hfCompanyId As Global.System.Web.UI.WebControls.HiddenField
 
     '''<summary>
-    '''ajax_Main control.
+    '''rgvCompanyList control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents ajax_Main As Global.Telerik.Web.UI.RadAjaxPanel
+    Protected WithEvents rgvCompanyList As Global.Telerik.Web.UI.RadGrid
 
     '''<summary>
-    '''wz_885326974 control.
+    '''rgvUserList control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents wz_885326974 As Global.SmartForms.wz_885326974
+    Protected WithEvents rgvUserList As Global.Telerik.Web.UI.RadGrid
 
     '''<summary>
-    '''hfFormId control.
+    '''sqlUsers control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents hfFormId As Global.System.Web.UI.WebControls.HiddenField
+    Protected WithEvents sqlUsers As Global.System.Web.UI.WebControls.SqlDataSource
 
     '''<summary>
-    '''hfWebKitId control.
+    '''sqlCompanies control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents hfWebKitId As Global.System.Web.UI.WebControls.HiddenField
-
-    '''<summary>
-    '''sqlForms control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents sqlForms As Global.System.Web.UI.WebControls.SqlDataSource
+    Protected WithEvents sqlCompanies As Global.System.Web.UI.WebControls.SqlDataSource
 End Class

@@ -19,7 +19,7 @@ Public Class SQLdata
         storedProcedureName = setSchema(storedProcedureName)
 
         ' Open the connection
-        Using cnn As SqlConnection = New SqlConnection(ConfigurationManager.ConnectionStrings("prodData").ConnectionString)
+        Using cnn As SqlConnection = New SqlConnection(ConfigurationManager.ConnectionStrings("smartData").ConnectionString)
             cnn.Open()
             ' Define the command
             Using cmd As New SqlCommand
@@ -49,7 +49,7 @@ Public Class SQLdata
         CommandName = setSchema(CommandName)
 
         ' Open the connection
-        Using cnn As SqlConnection = New SqlConnection(ConfigurationManager.ConnectionStrings("prodData").ConnectionString)
+        Using cnn As SqlConnection = New SqlConnection(ConfigurationManager.ConnectionStrings("smartData").ConnectionString)
             cnn.Open()
             ' Define the command
             Using cmd As New SqlCommand
@@ -86,7 +86,7 @@ Public Class SQLdata
         CommandName = setSchema(CommandName)
 
         ' Open the connection
-        Using cnn As SqlConnection = New SqlConnection(ConfigurationManager.ConnectionStrings("prodData").ConnectionString)
+        Using cnn As SqlConnection = New SqlConnection(ConfigurationManager.ConnectionStrings("smartData").ConnectionString)
             cnn.Open()
             ' Define the command
             Using cmd As New SqlCommand
@@ -116,7 +116,7 @@ Public Class SQLdata
         CommandName = setSchema(CommandName)
 
         ' Open the connection
-        Using cnn As SqlConnection = New SqlConnection(ConfigurationManager.ConnectionStrings("prodData").ConnectionString)
+        Using cnn As SqlConnection = New SqlConnection(ConfigurationManager.ConnectionStrings("smartData").ConnectionString)
             cnn.Open()
             ' Define the command
             Using cmd As New SqlCommand
@@ -142,7 +142,7 @@ Public Class SQLdata
     End Function
 
     Public Function ReturnCurentUserCompanyId(UserName As String) As String
-        Using cnn As SqlConnection = New SqlConnection(ConfigurationManager.ConnectionStrings("prodData").ConnectionString)
+        Using cnn As SqlConnection = New SqlConnection(ConfigurationManager.ConnectionStrings("smartData").ConnectionString)
             cnn.Open()
             ' Define the command
             Using cmd As New SqlCommand
@@ -213,7 +213,7 @@ Public Class SQLdata
             str.Read(buffer, 0, buffer.Length)
         End Using
 
-        Using cnn As SqlConnection = New SqlConnection(ConfigurationManager.ConnectionStrings("prodData").ConnectionString)
+        Using cnn As SqlConnection = New SqlConnection(ConfigurationManager.ConnectionStrings("smartData").ConnectionString)
             cnn.Open()
             ' Define the command
             Using cmd As New SqlCommand

@@ -1,11 +1,10 @@
-﻿<%@ Master Language="VB" AutoEventWireup="false" CodeBehind="forms.master.vb" Inherits="SmartForms.forms" %>
+﻿<%@ Master Language="VB" AutoEventWireup="false" CodeBehind="Admin.master.vb" Inherits="SmartForms.Admin" %>
 
 <%@ Import Namespace="SmartForms" %>
 <%@ Import Namespace="Microsoft.AspNet.Identity" %>
 <%@ Register Src="~/ClientSizeDetector.ascx" TagPrefix="uc1" TagName="ClientSizeDetector" %>
 
 <!DOCTYPE html>
-
 
 <html lang="en">
 <head runat="server">
@@ -120,7 +119,8 @@
                                         AutoPostBack="True" 
                                         Font-Size="Small" 
                                         RenderMode="Lightweight" 
-                                        Width="250px" DataSourceID="odsManagedUsers">
+                                        Width="250px" 
+                                        DataSourceID="odsManagedUsers">
                                     </telerik:RadComboBox>
                                 </div>
                             </div>
@@ -179,4 +179,5 @@
 
     </form>
 </body>
+
 </html>

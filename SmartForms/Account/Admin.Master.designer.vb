@@ -11,7 +11,7 @@ Option Strict On
 Option Explicit On
 
 
-Partial Public Class forms
+Partial Public Class Admin
 
     '''<summary>
     '''ClientSizeDetector1 control.

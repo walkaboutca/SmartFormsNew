@@ -6,6 +6,8 @@ Public Class SiteMaster
     Private Const AntiXsrfUserNameKey As String = "__AntiXsrfUserName"
     Private _antiXsrfTokenValue As String
 
+    Private userinfo As New userInfo
+
     Protected Sub Page_Init(sender As Object, e As EventArgs)
         ' The code below helps to protect against XSRF attacks
         Dim requestCookie = Request.Cookies(AntiXsrfTokenKey)

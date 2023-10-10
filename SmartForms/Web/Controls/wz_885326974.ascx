@@ -58,206 +58,308 @@
 <asp:HiddenField ID="hfInvalidList" runat="server" />
 
 <div>
-
-    <div class="w3-bar w3-border w3-light-grey w3-padding-small">
-        <asp:Button ID="butSubmit" runat="server" class="w3-bar-item w3-button" Text="Submit for Assessment" />
-        <asp:Button ID="butSave" runat="server" class="w3-bar-item w3-button w3-right" Text="Save" />
-        <asp:Button ID="butSendOffice" runat="server" class="w3-bar-item w3-button w3-right" Text="Send to Office" />
-    </div>
-    <div class="w3-top w3-bottombar w3-border-grey w3-light-grey">
-        <div class="w3-container">
-            <table style="width: 100%; font-size: small;">
-                <tr>
-                    <td style="vertical-align: top">
-                        <telerik:RadComboBox ID="rcbWhatForm" runat="server" Font-Size="Small" Width="90%">
-                            <Items>
-                                <telerik:RadComboBoxItem runat="server" Selected="True" Text="Indivdual IIR" Value="IndivdualIIR" />
-                                <telerik:RadComboBoxItem runat="server" Text="Coperate IIR" Value="CoperateIIR" />
-                            </Items>
-                        </telerik:RadComboBox>
-                    </td>
-                    <td style="text-align: right; vertical-align: top">
-                        <telerik:RadAsyncUpload ID="asyncNewDocument" runat="server"
-                            UploadedFilesRendering="BelowFileInput"
-                            HideFileInput="True"
-                            Localization-Select="Select or Drop PDF Here">
-                        </telerik:RadAsyncUpload>
-                        <div style="padding: 3px 0px 3px 0px">
-                            <div style="color: #CC0000">This will overwrite the currently saved data!</div>
-                            <telerik:RadButton ID="RadButton1" runat="server" Text="Import" Font-Size="Small" Skin="Black"></telerik:RadButton>
-                        </div>
-                    </td>
-                </tr>
-            </table>
-        </div>
-    </div>
     <telerik:RadWizard ID="rwIdentification" runat="server" Skin="Material" Font-Size="Small">
         <WizardSteps>
-            <telerik:RadWizardStep ID="step_Verification" runat="server" Title=" ">
+            <telerik:RadWizardStep ID="step_Verification" runat="server" Title=" " ToolTip="Individual Identification Information Record">
                 <telerik:RadSplitter RenderMode="Lightweight" ID="RadSplitter1" runat="server" Width="100%">
-                     <telerik:RadPane ID="navigationPane" runat="server" RenderMode="Lightweight">
+                    <telerik:RadPane ID="navigationPane" runat="server" RenderMode="Lightweight">
+                        <div class="w3-bottombar w3-border-grey w3-light-grey">
+                            <div class="w3-container">
+                                <div class="w3-row">
+                                    <div class="w3-col s8">
+                                        <div class="w3-padding-small">
+                                            <p>You can drag or select a Web Forms IIIR to import at any point.</p>
+                                        </div>
+                                    </div>
+                                    <div class="w3-col s4">
+                                        <div class="w3-padding-small w3-right" style="font-size: small;">
+                                            <telerik:RadAsyncUpload ID="asyncNewDocument" runat="server"
+                                                UploadedFilesRendering="BelowFileInput"
+                                                HideFileInput="True"
+                                                Localization-Select="Select or Drop PDF Here">
+                                            </telerik:RadAsyncUpload>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="w3-row">
+                                    <div class="w3-col s8">
+                                        <div class="w3-padding-small  w3-right">
+                                            <div style="color: #CC0000">This will overwrite the currently saved data!</div>
+                                        </div>
+                                    </div>
+                                    <div class="w3-col s4">
+                                        <div class="w3-padding-small w3-right" style="font-size: small;">
+                                            <telerik:RadButton ID="RadButton1" runat="server" Text="Import" Font-Size="Small" Skin="Black"></telerik:RadButton>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         <div class="w3-container">
                             <p><strong>Individual Identification Information Record</strong></p>
                             <p>Transaction Property Address:</p>
+                        </div>
+                        <div class="w3-container">
                             <div class="w3-row">
-                                <div class="w3-col m2 w3-padding-small">
-                                    <telerik:RadTextBox ID="txtp_streetnum" runat="server" EmptyMessage="Street Num" Width="100%"></telerik:RadTextBox>
+                                <div class="w3-col s3">
+                                    <div class="w3-padding-small">
+                                        <telerik:RadTextBox ID="txtp_streetnum" runat="server" EmptyMessage="Street Num" Width="100%"></telerik:RadTextBox>
+                                    </div>
                                 </div>
-                                <div class="w3-col m4 w3-padding-small">
-                                    <telerik:RadTextBox ID="txtp_street" runat="server" EmptyMessage="Street" Width="100%"></telerik:RadTextBox>
+                                <div class="w3-col s6">
+                                    <div class="w3-padding-small">
+                                        <telerik:RadTextBox ID="txtp_street" runat="server" EmptyMessage="Street" Width="100%"></telerik:RadTextBox>
+                                    </div>
                                 </div>
-                                <div class="w3-col m2 w3-padding-small">
-                                    <telerik:RadTextBox ID="txtp_unitNumber" runat="server" EmptyMessage="Unit Num" Width="100%"></telerik:RadTextBox>
-                                </div>
-                                <div class="w3-col m4 w3-padding-small">
-                                    <telerik:RadTextBox ID="txtp_city" runat="server" EmptyMessage="City" Width="100%"></telerik:RadTextBox>
+                                <div class="w3-col s3">
+                                    <div class="w3-padding-small">
+                                        <telerik:RadTextBox ID="txtp_unitNumber" runat="server" EmptyMessage="Unit Num" Width="100%"></telerik:RadTextBox>
+                                    </div>
                                 </div>
                             </div>
                             <div class="w3-row">
-                                <div class="w3-col m2 w3-padding-small">
-                                    <telerik:RadTextBox ID="txtProvince" runat="server" EmptyMessage="Province" Width="100%"></telerik:RadTextBox>
+                                <div class="w3-col s3">
+                                    <div class="w3-padding-small">
+                                        <telerik:RadTextBox ID="txtp_city" runat="server" EmptyMessage="City" Width="100%"></telerik:RadTextBox>
+                                    </div>
                                 </div>
-                                <div class="w3-col m2 w3-padding-small">
-                                    <telerik:RadTextBox ID="txtp_zipcode" runat="server" EmptyMessage="P Code" Width="100%"></telerik:RadTextBox>
+                                <div class="w3-col s3">
+                                    <div class="w3-padding-small">
+                                        <telerik:RadTextBox ID="txtProvince" runat="server" EmptyMessage="Province" Width="100%"></telerik:RadTextBox>
+                                    </div>
                                 </div>
-                                <div class="w3-col m8 w3-padding-small">
-                                    <telerik:RadTextBox ID="txtpropAddrLine2" runat="server" EmptyMessage="Add Address" Width="100%"></telerik:RadTextBox>
+                                <div class="w3-col s3">
+                                    <div class="w3-padding-small">
+                                        <telerik:RadTextBox ID="txtp_zipcode" runat="server" EmptyMessage="P Code" Width="100%"></telerik:RadTextBox>
+                                    </div>
+                                </div>
+                                <div class="w3-col s3">
+                                    <div class="w3-padding-small">
+                                    </div>
                                 </div>
                             </div>
+                            <div class="w3-row">
+                                <div class="w3-col s6">
+                                    <div class="w3-padding-small">
+                                        <telerik:RadTextBox ID="txtpropAddrLine2" runat="server" EmptyMessage="Add Address" Width="100%"></telerik:RadTextBox>
+                                    </div>
+                                </div>
+                                <div class="w3-col s6">
+                                    <div class="w3-padding-small">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="w3-row">
+                                <div class="w3-col s3">
+                                    <div class="w3-padding-small" style="font-size: small">
+                                        <telerik:RadDropDownList ID="rddClientSource" runat="server" Font-Size="Small" Width="100%" DefaultMessage="[Source of Client]">
+                                            <Items>
+                                                <telerik:DropDownListItem runat="server" Text="New Client" Value="New Client" />
+                                                <telerik:DropDownListItem runat="server" Text="Past Client" Value="Past Client" />
+                                                <telerik:DropDownListItem runat="server" Text="Referal" Value="Referal" />
+                                                <telerik:DropDownListItem runat="server" Text="Friend" Value="Friend" />
+                                                <telerik:DropDownListItem runat="server" Text="Other" Value="Other" />
+                                            </Items>
+                                        </telerik:RadDropDownList>
+                                    </div>
+                                </div>
+                                <div class="w3-col s6">
+                                    <div class="w3-padding-small">
+                                        <telerik:RadTextBox ID="txtClientSource" runat="server" EmptyMessage="Detail your client relationship" Width="100%"></telerik:RadTextBox>
+                                    </div>
+                                </div>
+                                <div class="w3-col s3">
+                                    <div class="w3-padding-small">
+                                        <p style="font-size: small; color: #CC0000">Only for your Managing Broker</p>
+                                    </div>
+                                </div>
+                            </div>
+
                             <p>Brokerage Details:</p>
                             <div class="w3-row">
-                                <div class="w3-col m6 w3-padding-small">
-                                    <telerik:RadTextBox ID="txtAgent" runat="server" EmptyMessage="Brokerage Agent Name(s) (seperate with ,)" Width="100%"></telerik:RadTextBox>
+                                <div class="w3-col s6">
+                                    <div class="w3-padding-small">
+                                        <telerik:RadTextBox ID="txtAgent" runat="server" Width="100%"></telerik:RadTextBox><br />
+                                        <p style="font-size: x-small; color: #CC0000">Brokerage Agent Name(s) (seperate with ,)</p>
+                                    </div>
                                 </div>
-                                <div class="w3-col m6 w3-padding-small">
-                                    <telerik:RadTextBox ID="txtBroker" runat="server" EmptyMessage="Brokerage Name" Width="100%"></telerik:RadTextBox>
+                                <div class="w3-col s6">
+                                    <div class="w3-padding-small">
+                                        <telerik:RadTextBox ID="txtBroker" runat="server" Width="100%"></telerik:RadTextBox>
+                                        <%-- EmptyMessage="Brokerage Name"--%>
+                                    </div>
                                 </div>
                             </div>
                             <p>Date Verified:<small>(Information or Credit File)</small></p>
                             <div class="w3-row">
-                                <div class="w3-col m2 w3-padding-small">
-                                    <telerik:RadTextBox ID="txttodaysDated1_yyyy" runat="server" EmptyMessage="Year (yyyy)" Width="100%"></telerik:RadTextBox>
+                                <div class="w3-col s3">
+                                    <div class="w3-padding-small">
+                                        <telerik:RadDatePicker ID="rdpVerifiedDate" runat="server" DateInput-EmptyMessage="Select Date"></telerik:RadDatePicker>
+                                    </div>
                                 </div>
-                                <div class="w3-col m2 w3-padding-small">
-                                    <telerik:RadTextBox ID="txttodaysDated1_mmmm" runat="server" EmptyMessage="Month (mm)" Width="100%"></telerik:RadTextBox>
+                                <div class="w3-col s6">
+                                    <div class="w3-padding-small">
+                                        <telerik:RadTextBox ID="txttodaysDated1_yyyy" runat="server" EmptyMessage="Year (yyyy)" Visible="False"></telerik:RadTextBox>
+                                        <telerik:RadTextBox ID="txttodaysDated1_mmmm" runat="server" EmptyMessage="Month (mm)" Visible="False"></telerik:RadTextBox>
+                                        <telerik:RadTextBox ID="txttodaysDated1_d" runat="server" EmptyMessage="Day (dd)" Visible="False"></telerik:RadTextBox>
+                                    </div>
                                 </div>
-                                <div class="w3-col m2 w3-padding-small">
-                                    <telerik:RadTextBox ID="txttodaysDated1_d" runat="server" EmptyMessage="Day (dd)" Width="100%"></telerik:RadTextBox>
-                                </div>
-                                <div class="w3-col m2 w3-padding-small">
-                                    <telerik:RadDatePicker ID="rdpVerifiedDate" runat="server" DateInput-EmptyMessage="Select Date"></telerik:RadDatePicker>
-                                </div>
-                                <div class="w3-col m2 w3-padding-small">
-                                </div>
-                                <div class="w3-col m2 w3-padding-small">
+                                <div class="w3-col s3">
+                                    <div class="w3-padding-small">
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </telerik:RadPane>
+                    <telerik:RadSplitBar ID="RadSplitbar1" runat="server">
+                    </telerik:RadSplitBar>
                     <telerik:RadPane ID="EndPane" runat="server" Width="22" Scrolling="None">
-                        <div class="w3-container">
-                            <telerik:RadSlidingZone ID="RadSlidingZone1" runat="server" Width="50" ClickToOpen="True" SlideDirection="Left" RenderMode="Lightweight" ExpandedPaneId="RadSlidingPane1">
-                                <telerik:RadSlidingPane ID="RadSlidingPane1" Title="RULES" runat="server" Width="300" RenderMode="Lightweight" DockOnOpen="true" >
+                        <telerik:RadSlidingZone ID="RadSlidingZone1" runat="server" Width="25" ClickToOpen="True" SlideDirection="Left" RenderMode="Lightweight" ExpandedPaneId="RadSlidingPane1">
+                            <telerik:RadSlidingPane ID="RadSlidingPane1" Title="RULES" runat="server" Width="300" RenderMode="Lightweight" DockOnOpen="true">
 
-                                    <uc1:uc_ComplianceNotes runat="server" ID="uc_step_Verification" />
+                                <uc1:uc_ComplianceNotes runat="server" ID="uc_step_Verification" />
 
-                                </telerik:RadSlidingPane>
-                            </telerik:RadSlidingZone>
-                        </div>
-
+                            </telerik:RadSlidingPane>
+                        </telerik:RadSlidingZone>
                     </telerik:RadPane>
                 </telerik:RadSplitter>
             </telerik:RadWizardStep>
-            <telerik:RadWizardStep ID="step_HeaderInfo" runat="server" Title=" ">
+            <telerik:RadWizardStep ID="step_HeaderInfo" runat="server" Title=" " ToolTip="A. Verification of Individual">
                 <telerik:RadSplitter RenderMode="Lightweight" ID="RadSplitter2" runat="server" Width="100%">
                     <telerik:RadPane ID="RadPane1" runat="server" RenderMode="Lightweight">
                         <div class="w3-container">
-                        <p><strong>A. Verification of Individual</strong></p>
-                        <div class="w3-row">
-                            <div class="w3-third w3-padding-small">
-                                <telerik:RadTextBox ID="txtindividualName" runat="server" EmptyMessage="Individual Name" Width="50%"></telerik:RadTextBox>
-                            </div>
-                            <div class="w3-third w3-padding-small">
-                                <telerik:RadDateInput ID="txtindividualDOB" runat="server" EmptyMessage="DOB (yyyy-mm-dd)" DisplayDateFormat="yyyy-MM-dd" Culture="en-CA" MinDate="1900-01-01" Width="50%"></telerik:RadDateInput>
-                            </div>
+                            <p><strong>A. Verification of Individual</strong></p>
                         </div>
-                        <div class="w3-row">
-                            <div class="w3-padding-small">
-                                <telerik:RadTextBox ID="txtindividualAddress1" runat="server" EmptyMessage="Individual Address" Width="100%"></telerik:RadTextBox>
+                        <div class="w3-container">
+                            <div class="w3-row">
+                                <div class="w3-col s6">
+                                    <div class="w3-padding-small">
+                                        <telerik:RadTextBox ID="txtindividualName" runat="server" EmptyMessage="Individual Name" Width="100%"></telerik:RadTextBox>
+                                    </div>
+                                </div>
+                                <div class="w3-col s3">
+                                    <div class="w3-padding-small">
+                                        <telerik:RadDateInput ID="txtindividualDOB" runat="server" EmptyMessage="DOB (yyyy-mm-dd)" DisplayDateFormat="yyyy-MM-dd" Culture="en-CA" MinDate="1900-01-01" Width="100%"></telerik:RadDateInput>
+                                    </div>
+                                </div>
+                                <div class="w3-col s3">
+                                    <div class="w3-padding-small">
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="w3-row">
-                            <div class="w3-padding-small">
-                                <telerik:RadTextBox ID="txtindividualAddress2" runat="server" EmptyMessage="Addional Address" Width="100%"></telerik:RadTextBox>
+                            <div class="w3-row">
+                                <div class="w3-col s6">
+                                    <div class="w3-padding-small">
+                                        <telerik:RadTextBox ID="txtindividualAddress1" runat="server" EmptyMessage="Individual Address" Width="100%"></telerik:RadTextBox>
+                                    </div>
+                                </div>
+                                <div class="w3-col s6">
+                                    <div class="w3-padding-small">
+                                        <telerik:RadTextBox ID="txtindividualAddress2" runat="server" EmptyMessage="Addional Address" Width="100%"></telerik:RadTextBox>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="w3-row">
-                            <div class="w3-third w3-padding-small">
-                                <telerik:RadComboBox ID="rcbEmployment" runat="server" Width="75%">
-                                    <Items>
-                                        <telerik:RadComboBoxItem runat="server" Text="Employed" Value="Employed" />
-                                        <telerik:RadComboBoxItem runat="server" Text="Self Employed" Value="SelfEmployed" />
-                                        <telerik:RadComboBoxItem runat="server" Text="Unemployed" Value="Unemployed" />
-                                        <telerik:RadComboBoxItem runat="server" Text="Retired" Value="Retired" />
-                                        <telerik:RadComboBoxItem runat="server" Text="Student" Value="Student" />
-                                    </Items>
-                                </telerik:RadComboBox>
-                                <telerik:RadTextBox ID="txtnatureOfBusinessOccupation" runat="server" Visible="False"></telerik:RadTextBox>
+                            <div class="w3-row">
+                                <div class="w3-col s6">
+                                    <div class="w3-padding-small">
+                                        <telerik:RadComboBox ID="rcbEmployment" runat="server" Width="100%">
+                                            <Items>
+                                                <telerik:RadComboBoxItem runat="server" Text="Employed" Value="Employed" />
+                                                <telerik:RadComboBoxItem runat="server" Text="Self Employed" Value="SelfEmployed" />
+                                                <telerik:RadComboBoxItem runat="server" Text="Unemployed" Value="Unemployed" />
+                                                <telerik:RadComboBoxItem runat="server" Text="Retired" Value="Retired" />
+                                                <telerik:RadComboBoxItem runat="server" Text="Student" Value="Student" />
+                                            </Items>
+                                        </telerik:RadComboBox>
+                                    </div>
+                                </div>
+                                <div class="w3-col s6">
+                                    <div class="w3-padding-small">
+                                        <telerik:RadTextBox ID="txtnatureOfBusinessOccupation" runat="server" Width="100%"></telerik:RadTextBox>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="w3-third w3-padding-small">
-                                <telerik:RadTextBox ID="txtBusinessLocation" runat="server" EmptyMessage="Individual Name" Width="100%"></telerik:RadTextBox>
-                                <telerik:RadToolTip ID="rttBusinessLocation" runat="server" TargetControlID="txtBusinessLocation" Position="BottomCenter" Title="Business Location">
-                                    <contenttemplate>
-                                        Be specific when possible ... Principal physical address where doing business.
-                                    </contenttemplate>
-                                </telerik:RadToolTip>
+                            <div class="w3-row">
+                                <div class="w3-col s8">
+                                    <div class="w3-padding-small">
+                                        <telerik:RadTextBox ID="txtBusinessLocation" runat="server" EmptyMessage="Business Location" Width="100%"></telerik:RadTextBox>
+                                    </div>
+                                </div>
+                                <div class="w3-col s4">
+                                    <div class="w3-padding-small">
+                                        <p style="color: #CC0000; font-size: small">Address and Postal Code of the principle business location or head office.</p>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="w3-row" width="100%">
-                            <div class="w3-third w3-padding-small">
-                                <telerik:RadButton RenderMode="Lightweight" ID="rbGovernmentId" runat="server" ToggleType="Radio" ButtonType="StandardButton" Checked="true" GroupName="StandardButton">
-                                    <ToggleStates>
-                                        <telerik:RadButtonToggleState Text="A.1 Government-Issued Photo ID" PrimaryIconCssClass="p-i-radio-checked"></telerik:RadButtonToggleState>
-                                        <telerik:RadButtonToggleState Text="A.1 Government-Issued Photo ID" PrimaryIconCssClass="p-i-radio"></telerik:RadButtonToggleState>
-                                    </ToggleStates>
-                                </telerik:RadButton>
+                            <div class="w3-row">
+                                <div class="w3-col s8">
+                                    <div class="w3-padding-small">
+                                        <telerik:RadButton RenderMode="Lightweight" ID="rbGovernmentId" runat="server" ToggleType="Radio" ButtonType="StandardButton" Checked="true" GroupName="StandardButton">
+                                            <ToggleStates>
+                                                <telerik:RadButtonToggleState Text="A.1 Government-Issued Photo ID" PrimaryIconCssClass="p-i-radio-checked"></telerik:RadButtonToggleState>
+                                                <telerik:RadButtonToggleState Text="A.1 Government-Issued Photo ID" PrimaryIconCssClass="p-i-radio"></telerik:RadButtonToggleState>
+                                            </ToggleStates>
+                                        </telerik:RadButton>
+                                    </div>
+                                </div>
+                                <div class="w3-col s4">
+                                    <div class="w3-padding-small">
+                                        <telerik:RadCheckBox ID="rcbShowAllSteps" runat="server" Text="Show All Steps" AutoPostBack="False"></telerik:RadCheckBox>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="w3-third w3-padding-small">
-                                <telerik:RadCheckBox ID="rcbShowAllSteps" runat="server" Text="Show All Steps" RenderMode="Lightweight" AutoPostBack="False" Width="100%"></telerik:RadCheckBox>
+                            <div class="w3-row">
+                                <div class="w3-col s8">
+                                    <div class="w3-padding-small">
+                                        <telerik:RadButton RenderMode="Lightweight" ID="rbCreditMethod" runat="server" ToggleType="Radio" ButtonType="StandardButton" GroupName="StandardButton">
+                                            <ToggleStates>
+                                                <telerik:RadButtonToggleState Text="A.2 Credit File Method" PrimaryIconCssClass="p-i-radio-checked"></telerik:RadButtonToggleState>
+                                                <telerik:RadButtonToggleState Text="A.2 Credit File Method" PrimaryIconCssClass="p-i-radio"></telerik:RadButtonToggleState>
+                                            </ToggleStates>
+                                        </telerik:RadButton>
+                                    </div>
+                                </div>
+                                <div class="w3-col s4">
+                                    <div class="w3-padding-small">
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="w3-row">
-                            <div class="w3-twothird w3-padding-small">
-                                <telerik:RadButton RenderMode="Lightweight" ID="rbCreditMethod" runat="server" ToggleType="Radio" ButtonType="StandardButton" GroupName="StandardButton">
-                                    <ToggleStates>
-                                        <telerik:RadButtonToggleState Text="A.2 Credit File Method" PrimaryIconCssClass="p-i-radio-checked"></telerik:RadButtonToggleState>
-                                        <telerik:RadButtonToggleState Text="A.2 Credit File Method" PrimaryIconCssClass="p-i-radio"></telerik:RadButtonToggleState>
-                                    </ToggleStates>
-                                </telerik:RadButton>
+                            <div class="w3-row">
+                                <div class="w3-col s8">
+                                    <div class="w3-padding-small">
+                                        <telerik:RadButton RenderMode="Lightweight" ID="rbDualIdMethod" runat="server" ToggleType="Radio" GroupName="StandardButton" ButtonType="StandardButton">
+                                            <ToggleStates>
+                                                <telerik:RadButtonToggleState Text="A.3 Dual ID Process Method" PrimaryIconCssClass="p-i-radio-checked"></telerik:RadButtonToggleState>
+                                                <telerik:RadButtonToggleState Text="A.3 Dual ID Process Method" PrimaryIconCssClass="p-i-radio"></telerik:RadButtonToggleState>
+                                            </ToggleStates>
+                                        </telerik:RadButton>
+                                    </div>
+                                </div>
+                                <div class="w3-col s4">
+                                    <div class="w3-padding-small">
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="w3-row">
-                            <div class="w3-twothird w3-padding-small">
-                                <telerik:RadButton RenderMode="Lightweight" ID="rbDualIdMethod" runat="server" ToggleType="Radio" GroupName="StandardButton" ButtonType="StandardButton">
-                                    <ToggleStates>
-                                        <telerik:RadButtonToggleState Text="A.3 Dual ID Process Method" PrimaryIconCssClass="p-i-radio-checked"></telerik:RadButtonToggleState>
-                                        <telerik:RadButtonToggleState Text="A.3 Dual ID Process Method" PrimaryIconCssClass="p-i-radio"></telerik:RadButtonToggleState>
-                                    </ToggleStates>
-                                </telerik:RadButton>
+                            <div class="w3-row">
+                                <div class="w3-col s8">
+                                    <div class="w3-padding-small">
+                                        <telerik:RadButton RenderMode="Lightweight" ID="rbUnidentified" runat="server" ToggleType="Radio" GroupName="StandardButton" ButtonType="StandardButton">
+                                            <ToggleStates>
+                                                <telerik:RadButtonToggleState Text="A.4 Unrepresented Individual Reasonable Measures Record (if applicable)" PrimaryIconCssClass="p-i-radio-checked"></telerik:RadButtonToggleState>
+                                                <telerik:RadButtonToggleState Text="A.4 Unrepresented Individual Reasonable Measures Record (if applicable)" PrimaryIconCssClass="p-i-radio"></telerik:RadButtonToggleState>
+                                            </ToggleStates>
+                                        </telerik:RadButton>
+                                    </div>
+                                </div>
+                                <div class="w3-col s4">
+                                    <div class="w3-padding-small">
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="w3-row">
-                            <div class="w3-twothird w3-padding-small">
-                                <telerik:RadButton RenderMode="Lightweight" ID="rbUnidentified" runat="server" ToggleType="Radio" GroupName="StandardButton" ButtonType="StandardButton">
-                                    <ToggleStates>
-                                        <telerik:RadButtonToggleState Text="A.4 Unrepresented Individual Reasonable Measures Record (if applicable)" PrimaryIconCssClass="p-i-radio-checked"></telerik:RadButtonToggleState>
-                                        <telerik:RadButtonToggleState Text="A.4 Unrepresented Individual Reasonable Measures Record (if applicable)" PrimaryIconCssClass="p-i-radio"></telerik:RadButtonToggleState>
-                                    </ToggleStates>
-                                </telerik:RadButton>
-                            </div>
-                        </div>
                         </div>
                     </telerik:RadPane>
+                    <telerik:RadSplitBar ID="RadSplitbar2" runat="server">
+                    </telerik:RadSplitBar>
                     <telerik:RadPane ID="RadPane9" runat="server" Width="22" Scrolling="None">
                         <telerik:RadSlidingZone ID="RadSlidingZone2" runat="server" Width="25" ClickToOpen="True" SlideDirection="Left" RenderMode="Lightweight" ExpandedPaneId="RadSlidingPane2">
                             <telerik:RadSlidingPane ID="RadSlidingPane2" Title="NOTES" runat="server" Width="300" RenderMode="Lightweight" DockOnOpen="true">
@@ -269,7 +371,7 @@
                     </telerik:RadPane>
                 </telerik:RadSplitter>
             </telerik:RadWizardStep>
-            <telerik:RadWizardStep ID="step_GovernmentId" runat="server" Title=" ">
+            <telerik:RadWizardStep ID="step_GovernmentId" runat="server" Title=" " ToolTip="A.1 Federal/Provincial/Territorial Government-Issued Photo ID">
                 <telerik:RadSplitter RenderMode="Lightweight" ID="RadSplitter3" runat="server" Width="100%">
                     <telerik:RadPane ID="RadPane2" runat="server" RenderMode="Lightweight">
                         <p><strong>A.1 Federal/Provincial/Territorial Government-Issued Photo ID</strong></p>
@@ -341,8 +443,6 @@
                     </telerik:RadPane>
                     <telerik:RadSplitBar ID="RadSplitbar5" runat="server">
                     </telerik:RadSplitBar>
-                    <telerik:RadSplitBar ID="RadSplitBar6" runat="server">
-                    </telerik:RadSplitBar>
                     <telerik:RadPane ID="RadPane10" runat="server" Width="22" Scrolling="None">
                         <telerik:RadSlidingZone ID="RadSlidingZone3" runat="server" Width="22" ClickToOpen="True" SlideDirection="Left" RenderMode="Lightweight" ExpandedPaneId="RadSlidingPane3">
                             <telerik:RadSlidingPane ID="RadSlidingPane3" Title="NOTES" runat="server" Width="275" MinWidth="275" RenderMode="Lightweight" DockOnOpen="true">
@@ -354,15 +454,30 @@
                     </telerik:RadPane>
                 </telerik:RadSplitter>
             </telerik:RadWizardStep>
-
-            <telerik:RadWizardStep ID="step_CreditFile" runat="server" Title=" ">
+            <telerik:RadWizardStep ID="step_CreditFile" runat="server" Title=" " ToolTip="A.2 Credit File Method">
                 <telerik:RadSplitter RenderMode="Lightweight" ID="RadSplitter4" runat="server" Width="100%">
                     <telerik:RadPane ID="RadPane3" runat="server" RenderMode="Lightweight">
-                        <p><strong>A.2 Credit File Method</strong></p>
+                        <div class="w3-container">
+                            <p><strong>A.2 Credit File Method</strong></p>
+
+                        </div>
+                        <div class="w3-container">
+                            <div class="w3-row">
+                                <div class="w3-col s2 ">
+                                    <div class="w3-padding-small">
+                                    </div>
+                                </div>
+                                <div class="w3-col s10 ">
+                                    <div class="w3-padding-small">
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+
                     </telerik:RadPane>
                     <telerik:RadSplitBar ID="RadSplitbar7" runat="server">
-                    </telerik:RadSplitBar>
-                    <telerik:RadSplitBar ID="RadSplitBar8" runat="server">
                     </telerik:RadSplitBar>
                     <telerik:RadPane ID="RadPane11" runat="server" Width="22" Scrolling="None">
                         <telerik:RadSlidingZone ID="RadSlidingZone4" runat="server" Width="22" ClickToOpen="True" SlideDirection="Left" RenderMode="Lightweight" ExpandedPaneId="RadSlidingPane4">
@@ -375,13 +490,94 @@
                     </telerik:RadPane>
                 </telerik:RadSplitter>
             </telerik:RadWizardStep>
-            <telerik:RadWizardStep ID="step_DualId" runat="server" Title=" ">
+            <telerik:RadWizardStep ID="step_DualId" runat="server" Title=" " ToolTip="A.3 Dual ID Process Method">
                 <telerik:RadSplitter RenderMode="Lightweight" ID="RadSplitter5" runat="server" Width="100%">
                     <telerik:RadPane ID="RadPane4" runat="server" RenderMode="Lightweight">
-                        <p><strong>A.3 Dual ID Process Method</strong></p>
+                        <div class="w3-container">
+                            <p><strong>A.2 Credit File Method</strong></p>
+                            <p>Complete TWO of the following three checkboxes.</p>
+                        </div>
+                        <div class="w3-container">
+                            <div class="w3-row">
+                                <div class="w3-col s2">
+                                    <div class="w3-padding-small">
+                                        <telerik:RadCheckBox ID="chkOpt_dualID1" runat="server" Text=""></telerik:RadCheckBox>
+                                    </div>
+                                </div>
+                                <div class="w3-col s9">
+                                    <div class="w3-padding-small">
+                                        Confirm the individual’s name and date of birth by referring to a document or source containing the individual’s name and date of birth*
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="w3-row">
+                                <div class="w3-col s3">
+                                    <div class="w3-padding-small">
+                                    </div>
+                                </div>
+                                <div class="w3-col s9">
+                                    <div class="w3-padding-small">
+                                        <telerik:RadTextBox ID="txtsourceName1" runat="server" EmptyMessage="Name of Source" Width="100%"></telerik:RadTextBox>
+                                        <telerik:RadTextBox ID="txtBillNumber1" runat="server" EmptyMessage="Account Number**" Width="100%"></telerik:RadTextBox>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w3-container">
+                            <div class="w3-row">
+                                <div class="w3-col s2">
+                                    <div class="w3-padding-small">
+                                        <telerik:RadCheckBox ID="chkOpt_dualID2" runat="server" Text=""></telerik:RadCheckBox>
+                                    </div>
+                                </div>
+                                <div class="w3-col s9">
+                                    <div class="w3-padding-small">
+                                        Confirm the individual’s name and address by referring to a document or source containing the individual’s name and address*
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="w3-row">
+                                <div class="w3-col s3">
+                                    <div class="w3-padding-small">
+                                    </div>
+                                </div>
+                                <div class="w3-col s9">
+                                    <div class="w3-padding-small">
+                                        <telerik:RadTextBox ID="txtsourceName2" runat="server" EmptyMessage="Name of Source" Width="100%"></telerik:RadTextBox>
+                                        <telerik:RadTextBox ID="txtBillNumber2" runat="server" EmptyMessage="Account Number**" Width="100%"></telerik:RadTextBox>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w3-container">
+                            <div class="w3-row">
+                                <div class="w3-col s2">
+                                    <div class="w3-padding-small">
+                                        <telerik:RadCheckBox ID="chkOpt_dualID3" runat="server" Text=""></telerik:RadCheckBox>
+                                    </div>
+                                </div>
+                                <div class="w3-col s9">
+                                    <div class="w3-padding-small">
+                                        Confirm the individuals’ name and confirm a financial account*
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="w3-row">
+                                <div class="w3-col s3">
+                                    <div class="w3-padding-small">
+                                    </div>
+                                </div>
+                                <div class="w3-col s9">
+                                    <div class="w3-padding-small">
+                                        <telerik:RadTextBox ID="txtsourceName3" runat="server" EmptyMessage="Name of Source" Width="100%"></telerik:RadTextBox>
+                                        <telerik:RadTextBox ID="txtacctType" runat="server" EmptyMessage="Financial Account Type" Width="100%"></telerik:RadTextBox>
+                                        <telerik:RadTextBox ID="txtBillNumber3" runat="server" EmptyMessage="Account Number**" Width="100%"></telerik:RadTextBox>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </telerik:RadPane>
-                    <telerik:RadSplitBar ID="RadSplitbar9" runat="server">
-                    </telerik:RadSplitBar>
+
                     <telerik:RadSplitBar ID="RadSplitBar10" runat="server">
                     </telerik:RadSplitBar>
                     <telerik:RadPane ID="RadPane12" runat="server" Width="22" Scrolling="None">
@@ -395,14 +591,26 @@
                     </telerik:RadPane>
                 </telerik:RadSplitter>
             </telerik:RadWizardStep>
-
-            <telerik:RadWizardStep ID="step_UnrepresentedParty" runat="server" Title=" ">
+            <telerik:RadWizardStep ID="step_UnrepresentedParty" runat="server" Title=" " ToolTip="A.4 Unrepresented Individual Reasonable Measures Record">
                 <telerik:RadSplitter RenderMode="Lightweight" ID="RadSplitter6" runat="server" Width="100%">
                     <telerik:RadPane ID="RadPane5" runat="server" RenderMode="Lightweight">
-                        <p><strong>A.4 Unrepresented Individual Reasonable Measures Record</strong></p>
+                        <div class="w3-container">
+                            <p><strong>A.4 Unrepresented Individual Reasonable Measures Record </strong>(if applicable</p>
+                            <p>Only complete this section when you are unable to ascertain the identity of an unrepresented individual.</p>
+                        </div>
+                        <div class="w3-container">
+                            <div class="w3-row">
+                                <div class="w3-col s2">
+                                    <div class="w3-padding-small">
+                                    </div>
+                                </div>
+                                <div class="w3-col s9">
+                                    <div class="w3-padding-small">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </telerik:RadPane>
-                    <telerik:RadSplitBar ID="RadSplitbar11" runat="server">
-                    </telerik:RadSplitBar>
                     <telerik:RadSplitBar ID="RadSplitBar12" runat="server">
                     </telerik:RadSplitBar>
                     <telerik:RadPane ID="RadPane13" runat="server" Width="22" Scrolling="None">
@@ -417,30 +625,40 @@
                 </telerik:RadSplitter>
             </telerik:RadWizardStep>
 
-            <telerik:RadWizardStep ID="step_ThirdParty" runat="server" Title=" ">
+            <telerik:RadWizardStep ID="step_ThirdParty" runat="server" Title=" " ToolTip="Verification of Third Parties">
                 <telerik:RadSplitter RenderMode="Lightweight" ID="RadSplitter7" runat="server" Width="100%">
                     <telerik:RadPane ID="RadPane6" runat="server" RenderMode="Lightweight">
-                        <p><strong>B. Verification of Third Parties</strong></p>
-                        <p style="font-weight: bold">B.1 Third Party Reasonable Measures</p>
-                        <div class="w3-row">
-                            <div class="w3-col w3-padding-small">
-                                <telerik:RadRadioButtonList ID="rrbTransConductedBehalfClient" runat="server">
-                                    <Items>
-                                        <telerik:ButtonListItem Text="YES the transaction IS being conducted on behalf of a third party according to the client." Value="Yes" />
-                                        <telerik:ButtonListItem Text="NO the transaction is NOT being conducted on behalf of a third party according to the client." Value="No" />
-                                    </Items>
-                                </telerik:RadRadioButtonList>
-                            </div>
+                        <div class="w3-container">
+                            <p><strong>B. Verification of Third Parties</strong></p>
+                            <p><strong>B.1 Third Party Reasonable Measures</strong></p>
                         </div>
-                        <div class="w3-row">
-                            <div class="w3-col w3-padding-small">
-                                <p>Describe why you think  your client may be acting on behalf of a third party</p>
-                                <telerik:RadTextBox ID="txtReasonActingOn" runat="server" Width="100%"></telerik:RadTextBox>
+                        <div class="w3-container">
+                            <p><strong>Is the transaction being conducted on behalf of a third party according to the client? </strong>(check one)</p>
+                        </div>
+                        <div class="w3-container">
+                            <div class="w3-row">
+                                <div class="w3-col">
+                                    <div class="w3-padding-small">
+                                        <telerik:RadRadioButtonList ID="rrbTransConductedBehalfClient" runat="server">
+                                            <Items>
+                                                <telerik:ButtonListItem Text="YES the transaction IS being conducted on behalf of a third party according to the client." Value="Yes" />
+                                                <telerik:ButtonListItem Text="NO the transaction is NOT being conducted on behalf of a third party according to the client." Value="No" />
+                                            </Items>
+                                        </telerik:RadRadioButtonList>
+                                        <telerik:RadCheckBox ID="chkOpt_transConductedBehalfClient" runat="server" Visible="False"></telerik:RadCheckBox>
+                                    </div>
+                                </div>
+                                <div class="w3-row">
+                                    <div class="w3-col">
+                                        <div class="w3-padding-small">
+                                            <telerik:RadTextBox ID="txtReasonActingOn" runat="server" EmptyMessage="Why you think your client is working for a 3rd Party" Width="100%"></telerik:RadTextBox>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </telerik:RadPane>
-                    <telerik:RadSplitBar ID="RadSplitbar13" runat="server">
-                    </telerik:RadSplitBar>
+
                     <telerik:RadSplitBar ID="RadSplitBar14" runat="server">
                     </telerik:RadSplitBar>
                     <telerik:RadPane ID="RadPane14" runat="server" Width="22" Scrolling="None">
@@ -518,22 +736,81 @@
                     </telerik:RadPane>
                 </telerik:RadSplitter>
             </telerik:RadWizardStep>
+
             <telerik:RadWizardStep ID="step_WrapUp" runat="server" Title=" ">
                 <telerik:RadSplitter RenderMode="Lightweight" ID="RadSplitter9" runat="server" Width="100%">
                     <telerik:RadPane ID="RadPane8" runat="server" RenderMode="Lightweight">
-                        <p><strong>Review and Submit the Individual Identifcation Form</strong></p>
-                        <telerik:RadLabel ID="rlWrapUpMessage" runat="server" Font-Size="Small" ForeColor="#CC0000" RenderMode="Lightweight" Visible="False"></telerik:RadLabel>
-
-
-                        <telerik:RadButton ID="rbReviewDoc" runat="server" Text="RadButton"></telerik:RadButton>
+                        <div class="w3-container">
+                            <p><strong>Review and Submit</strong></p>
+                            <telerik:RadLabel ID="rlWrapUpMessage" runat="server" ForeColor="#CC0000" RenderMode="Lightweight" Visible="False"></telerik:RadLabel>
+                        </div>
+                        <div class="w3-container">
+                            <div class="w3-row">
+                                <div class="w3-col s3">
+                                    <div class="w3-padding-small">
+                                        <p>File Name</p>
+                                    </div>
+                                </div>
+                                <div class="w3-col s9">
+                                    <div class="w3-padding-small">
+                                        <telerik:RadTextBox ID="rtbFileName" runat="server" Width="100%"></telerik:RadTextBox>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="w3-row">
+                                <div class="w3-col s6">
+                                    <div class="w3-padding-small">
+                                        <p>Validate and Save the Current Document.</p>
+                                    </div>
+                                </div>
+                                <div class="w3-col s3">
+                                    <div class="w3-padding-small">
+                                        <telerik:RadButton ID="rbSaveForm" runat="server" Text="Validate and Save"></telerik:RadButton>
+                                    </div>
+                                </div>
+                                <div class="w3-col s3">
+                                    <div class="w3-padding-small">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="w3-row">
+                                <div class="w3-col s6">
+                                    <div class="w3-padding-small">
+                                        <p>Review the current document as a PDF.</p>
+                                    </div>
+                                </div>
+                                <div class="w3-col s3">
+                                    <div class="w3-padding-small">
+                                        <telerik:RadButton ID="rbReviewDoc" runat="server" Text="Submit to Office"></telerik:RadButton>
+                                    </div>
+                                </div>
+                                <div class="w3-col s3">
+                                    <div class="w3-padding-small">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="w3-row">
+                                <div class="w3-col s6">
+                                    <div class="w3-padding-small">
+                                        <p>Submit Document to Office.</p>
+                                    </div>
+                                </div>
+                                <div class="w3-col s3">
+                                    <div class="w3-padding-small">
+                                        <telerik:RadButton ID="rbSubmitToOffice" runat="server" Text="Submit To Office"></telerik:RadButton>
+                                    </div>
+                                </div>
+                                <div class="w3-col s3">
+                                    <div class="w3-padding-small">
+                                        <telerik:RadCheckBox ID="rcbSendSelf" runat="server" Text="Send a copy to yourself." Checked="true" RenderMode="Lightweight" AutoPostBack="False"></telerik:RadCheckBox>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </telerik:RadPane>
-                    <telerik:RadSplitBar ID="RadSplitbar15" runat="server">
-                    </telerik:RadSplitBar>
-                    <telerik:RadSplitBar ID="RadSplitBar16" runat="server">
-                    </telerik:RadSplitBar>
                     <telerik:RadPane ID="RadPane15" runat="server" Width="22" Scrolling="None">
-                        <telerik:RadSlidingZone ID="RadSlidingZone8" runat="server" Width="22" ClickToOpen="True" SlideDirection="Left" RenderMode="Lightweight" ExpandedPaneId="RadSlidingPane8">
-                            <telerik:RadSlidingPane ID="RadSlidingPane8" Title="NOTES" runat="server" Width="275" MinWidth="275" RenderMode="Lightweight" DockOnOpen="true">
+                        <telerik:RadSlidingZone ID="RadSlidingZone8" runat="server" Width="25" ClickToOpen="True" SlideDirection="Left" RenderMode="Lightweight" ExpandedPaneId="RadSlidingPane8">
+                            <telerik:RadSlidingPane ID="RadSlidingPane8" Title="NOTES" runat="server" Width="300" RenderMode="Lightweight" DockOnOpen="true">
 
                                 <uc1:uc_ComplianceNotes runat="server" ID="Uc_step_WrapUp" />
 
@@ -544,38 +821,57 @@
             </telerik:RadWizardStep>
         </WizardSteps>
     </telerik:RadWizard>
+
     <div class="w3-panel w3-topbar w3-border-teal">
-        <div class="w3-twothird w3-container w3-padding-small">
-            <div class="w3-row" style="font-size: small; text-align: center; vertical-align: middle;">
-                <div class="w3-half w3-container w3-padding-small">
-                    <div class="w3-quarter w3-padding-small">
-                        Send SMS / Text:
-                    </div>
-                    <div class="w3-half  w3-padding-small">
-                        <telerik:RadTextBox ID="rtbText" runat="server" Font-Size="Small" Width="100%"></telerik:RadTextBox>
-                    </div>
-                    <asp:LinkButton ID="lbSendText" runat="server">Send</asp:LinkButton>
+
+        <div class="w3-container">
+            <div class="w3-row">
+                <div class="w3-col s3">
+                    <p>You can send this form any time to you mobile for completion!</p>
                 </div>
-                <div class="w3-half w3-container w3-padding-small">
-                    <div class="w3-quarter w3-padding-small">
-                        Send E Mail To:
+                <div class="w3-col s9">
+                    <div class="w3-container">
+                        <div class="w3-row">
+                            <div class="w3-col s6">
+                                <div class="w3-row">
+                                    <div class="w3-col s3 w3-padding-small">
+                                        <p>SMS/Text</p>
+                                    </div>
+                                    <div class="w3-col s6 w3-padding-small">
+                                        <telerik:RadTextBox ID="rtbText" runat="server" Font-Size="Small" Width="100%"></telerik:RadTextBox>
+                                    </div>
+                                    <div class="w3-col s3 w3-padding-small">
+                                        <asp:ImageButton ID="lbSendText" runat="server" Height="35px" ImageUrl="~/Images/sms_icon.jpg" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="w3-col s6">
+                                <div class="w3-row">
+                                    <div class="w3-col s3 w3-padding-small">
+                                        <p>E Mail</p>
+                                    </div>
+                                    <div class="w3-col s6 w3-padding-small">
+                                        <telerik:RadTextBox ID="RadTextBox1" runat="server" Font-Size="Small" Width="100%"></telerik:RadTextBox>
+                                    </div>
+                                    <div class="w3-col s3 w3-padding-small">
+                                        <asp:ImageButton ID="lbSendEmail" runat="server" Height="35px" ImageUrl="~/Images/email_icon.png" />
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
                     </div>
-                    <div class="w3-half  w3-padding-small">
-                        <telerik:RadTextBox ID="RadTextBox1" runat="server" Font-Size="Small" Width="100%"></telerik:RadTextBox>
-                    </div>
-                    <asp:LinkButton ID="lbSendEmail" runat="server">Send</asp:LinkButton>
                 </div>
+
+
+
             </div>
-        </div>
-        <div class="w3-third w3-container w3-padding-small">
-            <p>You can send this form any time to you mobile for completion!</p>
+
         </div>
     </div>
-</div>
 
 
-<%--EXTRA CODE--%>
-<%--    <div>
+    <%--EXTRA CODE--%><%--    <div>
         <p style="font-weight: bold">A.2 Credit File Method</p>
 
         <p>
@@ -994,17 +1290,17 @@
 
 
 
-<telerik:RadWindowManager ID="window_alert" runat="server"
-    KeepInScreenBounds="False"
-    RenderMode="Lightweight"
-    DestroyOnClose="True">
-    <Windows>
-        <telerik:RadWindow ID="window_form" runat="server"
-            Modal="True"
-            RenderMode="Lightweight"
-            Overlay="False"
-            VisibleStatusbar="False"
-            ShowContentDuringLoad="False">
-        </telerik:RadWindow>
-    </Windows>
-</telerik:RadWindowManager>
+    <telerik:RadWindowManager ID="window_alert" runat="server"
+        KeepInScreenBounds="False"
+        RenderMode="Lightweight"
+        DestroyOnClose="True">
+        <Windows>
+            <telerik:RadWindow ID="window_form" runat="server"
+                Modal="True"
+                RenderMode="Lightweight"
+                Overlay="False"
+                VisibleStatusbar="False"
+                ShowContentDuringLoad="False">
+            </telerik:RadWindow>
+        </Windows>
+    </telerik:RadWindowManager>

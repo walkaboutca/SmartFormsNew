@@ -32,13 +32,13 @@ Partial Public Class FintracDashboard
     Protected WithEvents ajaxNotice As Global.Telerik.Web.UI.RadAjaxLoadingPanel
 
     '''<summary>
-    '''RadTabStrip1 control.
+    '''rtsDashboards control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents RadTabStrip1 As Global.Telerik.Web.UI.RadTabStrip
+    Protected WithEvents rtsDashboards As Global.Telerik.Web.UI.RadTabStrip
 
     '''<summary>
     '''mpForms control.

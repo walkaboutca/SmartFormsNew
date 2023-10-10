@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/Web/forms.Master" CodeBehind="FintracDashboard.aspx.vb" Inherits="SmartForms.FintracDashboard" %>
+﻿                                                             <%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/Web/forms.Master" CodeBehind="FintracDashboard.aspx.vb" Inherits="SmartForms.FintracDashboard" %>
 
 <%@ Register Src="~/Web/Controls/uc_BrokerRiskCounter.ascx" TagPrefix="uc1" TagName="uc_BrokerRiskCounter" %>
 
@@ -95,18 +95,18 @@
 
     <telerik:RadAjaxLoadingPanel ID="ajaxNotice" runat="server" Skin="Default"></telerik:RadAjaxLoadingPanel>
 
-    <telerik:RadTabStrip ID="RadTabStrip1" runat="server" MultiPageID="mpForms" SelectedIndex="0">
+    <telerik:RadTabStrip ID="rtsDashboards" runat="server" MultiPageID="mpForms">
         <Tabs>
-            <telerik:RadTab runat="server" Text="AGENT DESKTOP" PageViewID="Webforms" Selected="True" SelectedIndex="0">
+            <telerik:RadTab runat="server" Text="AGENT DESKTOP" PageViewID="Webforms" SelectedIndex="0">
             </telerik:RadTab>
-            <telerik:RadTab runat="server" Text="BROKER DESK ONE" PageViewID="BrokerOne" SelectedIndex="1">
+            <telerik:RadTab runat="server" Text="BROKER DESK ONE" PageViewID="BrokerOne" SelectedIndex="1" Visible="False">
             </telerik:RadTab>
-            <telerik:RadTab runat="server" Text="BROKER DESK TWO" PageViewID="BrokerTwo" SelectedIndex="2">
+            <telerik:RadTab runat="server" Text="BROKER DESK TWO" PageViewID="BrokerTwo" SelectedIndex="2" Visible="False">
             </telerik:RadTab>
         </Tabs>
     </telerik:RadTabStrip>
 
-    <telerik:RadMultiPage ID="mpForms" runat="server" MultiPageID="mpForms" SelectedIndex="0">
+    <telerik:RadMultiPage ID="mpForms" runat="server" MultiPageID="mpForms">
         <telerik:RadPageView ID="WebForms" runat="server">
             <div class="w3-row-padding w3-margin-top">
                 <div class="w3-half">

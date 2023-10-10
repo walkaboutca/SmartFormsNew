@@ -120,7 +120,8 @@ Public Class uc_885326974
 
         Dim ds As New smartDataTableAdapters.LocalTA
 
-        Dim targetname As String = ds.ret_PDFFileLabel(hfFormId.Value) & " " & Now.ToShortDateString & " " & Now.ToShortTimeString
+        Dim targetname As String = ds.ret_PDFFileLabel(hfFormId.Value, 0)
+        '& " " & Now.ToShortDateString & " " & Now.ToShortTimeString
         targetname = Regex.Replace(targetname, "[^\w ]", "-")
 
         Dim FilePath = Server.MapPath("~/forms/FINTRAC/" & orighash & ".pdf")

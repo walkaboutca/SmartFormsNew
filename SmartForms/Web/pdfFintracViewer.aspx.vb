@@ -15,19 +15,19 @@ Public Class pdfFintracViewer
                 Dim ctrlname As String = "Controls/uc_" & hashcode & ".ascx"
                 'LoadUserControl(ctrlname)
             Else
-                rcbWhichForm.SelectedIndex = -1
+                'rcbWhichForm.SelectedIndex = -1
             End If
         End If
 
     End Sub
 
-    Private Sub rcbWhichForm_SelectedIndexChanged(sender As Object, e As RadComboBoxSelectedIndexChangedEventArgs) Handles rcbWhichForm.SelectedIndexChanged
+    'Private Sub rcbWhichForm_SelectedIndexChanged(sender As Object, e As RadComboBoxSelectedIndexChangedEventArgs) Handles rcbWhichForm.SelectedIndexChanged
 
-        'Dim ctrlname As String = "Controls/uc_" & rcbWhichForm.SelectedValue & ".ascx"
-        'LoadUserControl(ctrlname)
+    '    'Dim ctrlname As String = "Controls/uc_" & rcbWhichForm.SelectedValue & ".ascx"
+    '    'LoadUserControl(ctrlname)
 
 
-    End Sub
+    'End Sub
 
     'Public Sub LoadUserControl(controlName As String)
     '    ajax_Main.Controls.Clear()

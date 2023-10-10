@@ -13,6 +13,10 @@ Imports System.Net
 
 Public Class FintracDashboard
     Inherits System.Web.UI.Page
+
+    Private userinfo As New userInfo
+    Private globalData As DataTable = userinfo.userdata
+
     Dim wheight As Integer
     Dim wwidth As Integer
 
@@ -26,11 +30,26 @@ Public Class FintracDashboard
 
         Dim ds As New smartDataTableAdapters.LocalTA
 
+        If userinfo.userrole = "GA" Then
+            rtsDashboards.Tabs(0).Visible = True
+            rtsDashboards.Tabs(1).Visible = True
+            rtsDashboards.Tabs(2).Visible = True
+            If Not Page.IsPostBack Then
+                rtsDashboards.SelectedIndex = 2
+                mpForms.PageViews(2).Selected = True
+            End If
+        Else
+            rtsDashboards.Tabs(0).Visible = True
+            rtsDashboards.Tabs(1).Visible = False
+            rtsDashboards.Tabs(2).Visible = False
+            If Not Page.IsPostBack Then
+                rtsDashboards.SelectedIndex = 0
+                mpForms.PageViews(0).Selected = True
+            End If
+        End If
+
         If Not Page.IsPostBack Then
-            RadTabStrip1.SelectedIndex = 0
             Dim recid As Integer = IIf(IsNothing(ds.ret_WebkitLastSelected(User.Identity.Name)), 0, ds.ret_WebkitLastSelected(User.Identity.Name))
-
-
         Else
             If rgvWebKit.SelectedValue = -1 Then
             End If
@@ -210,11 +229,10 @@ Public Class FintracDashboard
         Dim origid As Integer = item.GetDataKeyValue("Id")
         Dim webkitid As Integer = item.GetDataKeyValue("WebKitId")
 
-
-        window_form.Title = "FINTRAC - Form"
+        window_form.Title = "Document Wizard"
         window_form.AutoSize = False
-        window_form.Behaviors = WindowBehaviors.Move Or WindowBehaviors.Resize Or WindowBehaviors.Close
-        window_form.Height = ((Request.QueryString("clientHeight") * 0.98))
+        window_form.Behaviors = WindowBehaviors.Move Or WindowBehaviors.Resize Or WindowBehaviors.Close Or WindowBehaviors.Maximize
+        window_form.Height = ((Request.QueryString("clientHeight") * 0.9))
         window_form.Width = ((Request.QueryString("clientWidth") * 0.6))
         window_form.VisibleStatusbar = False
 
@@ -235,12 +253,12 @@ Public Class FintracDashboard
         'Dim pdfstream As String = pdftools.Fill_FintracData(hashcode, fileid)
         Dim targetname As String = "TestingTargetName"
 
-        window_form.Title = "PDF Viewer"
+        window_form.Title = "FINTRAC - Form"
         window_form.AutoSize = False
         window_form.KeepInScreenBounds = True
 
         window_form.Behaviors = WindowBehaviors.Move Or WindowBehaviors.Resize Or WindowBehaviors.Close
-        window_form.Height = ((Request.QueryString("clientHeight")))
+        window_form.Height = ((Request.QueryString("clientHeight") * 0.9))
         window_form.Width = ((Request.QueryString("clientWidth") * 0.8))
         window_form.VisibleStatusbar = False
 

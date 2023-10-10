@@ -64,7 +64,7 @@
             </Scripts>
         </telerik:RadScriptManager>
         <telerik:RadAjaxLoadingPanel ID="loading_Main" runat="server" Skin="Default"></telerik:RadAjaxLoadingPanel>
-        <asp:Panel ID="panelTop" runat="server">
+        <%--<asp:Panel ID="panelTop" runat="server">
             <div class="w3-row">
                 <div class="w3-container w3-third w3-padding-small">
                     <p>Select the Fintrac Form to complete.</p>
@@ -73,7 +73,7 @@
                     <telerik:RadComboBox ID="rcbWhichForm" runat="server" DataSourceID="sqlForms" DataTextField="DisplayName" EmptyMessage="Choose the proper form." DataValueField="HashCode" MarkFirstMatch="True" Width="100%" AutoPostBack="True"></telerik:RadComboBox>
                 </div>
             </div>
-        </asp:Panel>
+        </asp:Panel>--%>
 
         <telerik:RadAjaxPanel ID="ajax_Main" runat="server" LoadingPanelID="loading_Main">
          

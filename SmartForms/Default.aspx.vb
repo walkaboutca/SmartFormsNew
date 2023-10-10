@@ -8,7 +8,7 @@ Public Class _Default
             If Page.IsPostBack Then
 
             Else
-                Dim ds As New dsSecureTableAdapters.GlobalVarsTA
+                Dim ds As New smartSecurityTableAdapters.GlobalVarsTA
                 Dim userrole As String = ds.ret_User_GetRoleFromUserName(Context.User.Identity.Name)
 
                 If String.IsNullOrEmpty(userrole) Then
@@ -18,18 +18,16 @@ Public Class _Default
                     Select Case userrole
                         Case "GA"
                             Response.Redirect("~/Web/FintracDashboard.aspx", True)
-                        Case "LWA"
+                        Case "AGT"
                             Response.Redirect("~/Web/FintracDashboard.aspx", True)
-                        Case "LWU"
-                            Response.Redirect("~/Web/FintracDashboard.aspx", True)
-                        Case "LWD"
+                        Case "MGR"
                             Response.Redirect("~/Web/FintracDashboard.aspx", True)
                     End Select
                 End If
             End If
 
         Else
-            Context.GetOwinContext().Authentication.SignOut(DefaultAuthenticationTypes.ApplicationCookie)
+
         End If
 
     End Sub

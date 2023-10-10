@@ -49,8 +49,8 @@
     <Reference Include="Azure.Core, Version=1.25.0.0, Culture=neutral, PublicKeyToken=92742159e12e44c8, processorArchitecture=MSIL">
       <HintPath>..\packages\Azure.Core.1.25.0\lib\net461\Azure.Core.dll</HintPath>
     </Reference>
-    <Reference Include="Azure.Identity, Version=1.7.0.0, Culture=neutral, PublicKeyToken=92742159e12e44c8, processorArchitecture=MSIL">
-      <HintPath>..\packages\Azure.Identity.1.7.0\lib\netstandard2.0\Azure.Identity.dll</HintPath>
+    <Reference Include="Azure.Identity, Version=1.8.0.0, Culture=neutral, PublicKeyToken=92742159e12e44c8, processorArchitecture=MSIL">
+      <HintPath>..\packages\Azure.Identity.1.8.0\lib\netstandard2.0\Azure.Identity.dll</HintPath>
     </Reference>
     <Reference Include="BouncyCastle.Cryptography, Version=2.0.0.0, Culture=neutral, PublicKeyToken=072edcf4a5328938, processorArchitecture=MSIL">
       <HintPath>..\packages\BouncyCastle.Cryptography.2.2.1\lib\net461\BouncyCastle.Cryptography.dll</HintPath>
@@ -93,16 +93,16 @@
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.Data.SqlClient, Version=5.0.0.0, Culture=neutral, PublicKeyToken=23ec7fc2d6eaa4a5, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Data.SqlClient.5.1.1\lib\net462\Microsoft.Data.SqlClient.dll</HintPath>
+      <HintPath>..\packages\Microsoft.Data.SqlClient.5.2.0-preview3.23201.1\lib\net462\Microsoft.Data.SqlClient.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.DotNet.PlatformAbstractions, Version=2.1.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.DotNet.PlatformAbstractions.2.1.0\lib\net45\Microsoft.DotNet.PlatformAbstractions.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Identity.Client, Version=4.47.2.0, Culture=neutral, PublicKeyToken=0a613f4dd989e8ae, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Identity.Client.4.47.2\lib\net461\Microsoft.Identity.Client.dll</HintPath>
+    <Reference Include="Microsoft.Identity.Client, Version=4.53.0.0, Culture=neutral, PublicKeyToken=0a613f4dd989e8ae, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Identity.Client.4.53.0\lib\net461\Microsoft.Identity.Client.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Identity.Client.Extensions.Msal, Version=2.19.3.0, Culture=neutral, PublicKeyToken=0a613f4dd989e8ae, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Identity.Client.Extensions.Msal.2.19.3\lib\net45\Microsoft.Identity.Client.Extensions.Msal.dll</HintPath>
+    <Reference Include="Microsoft.Identity.Client.Extensions.Msal, Version=2.23.0.0, Culture=neutral, PublicKeyToken=0a613f4dd989e8ae, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Identity.Client.Extensions.Msal.2.23.0\lib\net45\Microsoft.Identity.Client.Extensions.Msal.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.IdentityModel.Abstractions, Version=6.24.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.IdentityModel.Abstractions.6.24.0\lib\net472\Microsoft.IdentityModel.Abstractions.dll</HintPath>
@@ -451,6 +451,8 @@
     <Content Include="Account\RegisterExternalLogin.aspx" />
     <Content Include="Account\ResetPassword.aspx" />
     <Content Include="Account\ResetPasswordConfirmation.aspx" />
+    <Content Include="Account\Settings_Global.aspx" />
+    <Content Include="Account\TroublePage.aspx" />
     <Content Include="Account\TwoFactorAuthenticationSignIn.aspx" />
     <Content Include="Account\VerifyPhoneNumber.aspx" />
     <Content Include="App_Data\RadCaptcha\0.wav" />
@@ -559,6 +561,7 @@
     <Content Include="Images\download.png" />
     <Content Include="Images\DuckSmashingPC.png" />
     <Content Include="Images\Edit.png" />
+    <Content Include="Images\email_icon.png" />
     <Content Include="Images\Excel.png" />
     <Content Include="Images\FaaSLogo.png" />
     <Content Include="Images\f_icon.png" />
@@ -621,6 +624,7 @@
     <Content Include="Images\SmartForms_Logo.png" />
     <Content Include="Images\smFolder.png" />
     <Content Include="Images\smImage.png" />
+    <Content Include="Images\sms_icon.jpg" />
     <Content Include="Images\Spin-1s-200px.gif" />
     <Content Include="Images\Table.png" />
     <Content Include="Images\Timesheet.png" />
@@ -664,28 +668,7 @@
     <Content Include="Web\pdfFintracViewer.aspx" />
     <Content Include="Web\pdfViewer.aspx" />
     <Content Include="Web\SearchEngine.aspx" />
-    <Content Include="Account\SecureData\dsSecure.xsc">
-      <DependentUpon>dsSecure.xsd</DependentUpon>
-    </Content>
-    <None Include="Account\SecureData\dsSecure.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>dsSecure.Designer.vb</LastGenOutput>
-    </None>
-    <Content Include="Account\SecureData\dsSecure.xss">
-      <DependentUpon>dsSecure.xsd</DependentUpon>
-    </Content>
-    <Content Include="Classes\dsSecurity.xsc">
-      <DependentUpon>dsSecurity.xsd</DependentUpon>
-    </Content>
-    <None Include="Classes\dsSecurity.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>dsSecurity.Designer.vb</LastGenOutput>
-    </None>
-    <Content Include="Classes\dsSecurity.xss">
-      <DependentUpon>dsSecurity.xsd</DependentUpon>
-    </Content>
+    <Content Include="Account\Admin.Master" />
     <None Include="Classes\smartData.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
@@ -698,6 +681,17 @@
     <Content Include="Forms\MLSLink - Detached Data Input Form.pdf" />
     <Content Include="Images\shutterstock_1758373358.eps" />
     <Content Include="Images\shutterstock_1810925191.eps" />
+    <Content Include="Classes\smartSecurity.xsc">
+      <DependentUpon>smartSecurity.xsd</DependentUpon>
+    </Content>
+    <None Include="Classes\smartSecurity.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>smartSecurity.Designer.vb</LastGenOutput>
+    </None>
+    <Content Include="Classes\smartSecurity.xss">
+      <DependentUpon>smartSecurity.xsd</DependentUpon>
+    </Content>
     <None Include="My Project\PublishProfiles\FTP Publish.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -754,6 +748,13 @@
     </Compile>
     <Compile Include="Account\AddPhoneNumber.aspx.vb">
       <DependentUpon>AddPhoneNumber.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\Admin.Master.designer.vb">
+      <DependentUpon>Admin.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Account\Admin.Master.vb">
+      <DependentUpon>Admin.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Account\Confirm.aspx.designer.vb">
@@ -840,10 +841,19 @@
       <DependentUpon>ResetPasswordConfirmation.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Account\SecureData\dsSecure.Designer.vb">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>dsSecure.xsd</DependentUpon>
+    <Compile Include="Account\Settings_Global.aspx.designer.vb">
+      <DependentUpon>Settings_Global.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\Settings_Global.aspx.vb">
+      <DependentUpon>Settings_Global.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Account\TroublePage.aspx.designer.vb">
+      <DependentUpon>TroublePage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\TroublePage.aspx.vb">
+      <DependentUpon>TroublePage.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="Account\TwoFactorAuthenticationSignIn.aspx.designer.vb">
       <DependentUpon>TwoFactorAuthenticationSignIn.aspx</DependentUpon>
@@ -870,11 +880,6 @@
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="App_Start\Startup.Auth.vb" />
-    <Compile Include="Classes\dsSecurity.Designer.vb">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>dsSecurity.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Classes\EmailUtilities.vb" />
     <Compile Include="Classes\PDFManager.vb" />
     <Compile Include="Classes\ResponseHelper.vb" />
@@ -884,7 +889,16 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>smartData.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Classes\smartData.vb">
+      <DependentUpon>smartData.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\smartSecurity.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>smartSecurity.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Classes\SQLdata.vb" />
+    <Compile Include="Classes\userInfo.vb" />
     <Compile Include="ClientSizeDetector.ascx.designer.vb">
       <DependentUpon>ClientSizeDetector.ascx</DependentUpon>
     </Compile>

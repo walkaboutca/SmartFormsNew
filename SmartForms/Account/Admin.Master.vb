@@ -1,17 +1,12 @@
 ﻿Imports Microsoft.AspNet.Identity
 Imports Telerik.Web.UI
 
-Public Class forms
+Public Class Admin
     Inherits System.Web.UI.MasterPage
     Dim sql As New SQLdata
 
-    Private userinfo As New userInfo
-    Private globalData As DataTable = userinfo.userdata
-
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-
-        hfUserName.Value = globalData.Rows.Item(0).Item("UserName")
-
+        hfUserName.Value = Context.User.Identity.Name
         If Page.IsPostBack Then
 
         Else
@@ -44,7 +39,6 @@ Public Class forms
             End If
         End If
 
-
     End Sub
     Private Sub forms_PreRender(sender As Object, e As EventArgs) Handles Me.PreRender
         If Page.IsPostBack Then
@@ -67,6 +61,8 @@ Public Class forms
             Dim defCompany As String = dsvars.ret_LastSelectedCompany(hfUserName.Value)
             rddCompany.SelectedText = defCompany
             rddCompany.Items(rddCompany.FindItemByText(defCompany).Index).Selected = True
+            hfCompanyId.Value = rddCompany.SelectedValue
+
             rcbUserName.DataBind()
 
         End If
