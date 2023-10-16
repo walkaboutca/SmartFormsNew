@@ -968,76 +968,13 @@ Partial Public Class wz_885326974
     Protected WithEvents txtReasonActingOn As Global.Telerik.Web.UI.RadTextBox
 
     '''<summary>
-    '''RadSplitBar14 control.
+    '''panel_ThirdParty control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents RadSplitBar14 As Global.Telerik.Web.UI.RadSplitBar
-
-    '''<summary>
-    '''RadPane14 control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents RadPane14 As Global.Telerik.Web.UI.RadPane
-
-    '''<summary>
-    '''RadSlidingZone7 control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents RadSlidingZone7 As Global.Telerik.Web.UI.RadSlidingZone
-
-    '''<summary>
-    '''RadSlidingPane7 control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents RadSlidingPane7 As Global.Telerik.Web.UI.RadSlidingPane
-
-    '''<summary>
-    '''Uc_step_ThirdParty control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents Uc_step_ThirdParty As Global.SmartForms.uc_ComplianceNotes
-
-    '''<summary>
-    '''step_ThirdPartIdent control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents step_ThirdPartIdent As Global.Telerik.Web.UI.RadWizardStep
-
-    '''<summary>
-    '''RadSplitter8 control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents RadSplitter8 As Global.Telerik.Web.UI.RadSplitter
-
-    '''<summary>
-    '''RadPane7 control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents RadPane7 As Global.Telerik.Web.UI.RadPane
+    Protected WithEvents panel_ThirdParty As Global.System.Web.UI.WebControls.Panel
 
     '''<summary>
     '''txtthirdPartyName control.
@@ -1130,58 +1067,157 @@ Partial Public Class wz_885326974
     Protected WithEvents RadTextBox6 As Global.Telerik.Web.UI.RadTextBox
 
     '''<summary>
-    '''RadSplitbar17 control.
+    '''RadSplitBar14 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents RadSplitbar17 As Global.Telerik.Web.UI.RadSplitBar
+    Protected WithEvents RadSplitBar14 As Global.Telerik.Web.UI.RadSplitBar
 
     '''<summary>
-    '''RadSplitBar18 control.
+    '''RadPane14 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents RadSplitBar18 As Global.Telerik.Web.UI.RadSplitBar
+    Protected WithEvents RadPane14 As Global.Telerik.Web.UI.RadPane
 
     '''<summary>
-    '''RadPane16 control.
+    '''RadSlidingZone7 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents RadPane16 As Global.Telerik.Web.UI.RadPane
+    Protected WithEvents RadSlidingZone7 As Global.Telerik.Web.UI.RadSlidingZone
 
     '''<summary>
-    '''RadSlidingZone9 control.
+    '''RadSlidingPane7 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents RadSlidingZone9 As Global.Telerik.Web.UI.RadSlidingZone
+    Protected WithEvents RadSlidingPane7 As Global.Telerik.Web.UI.RadSlidingPane
 
     '''<summary>
-    '''RadSlidingPane9 control.
+    '''Uc_step_ThirdParty control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents RadSlidingPane9 As Global.Telerik.Web.UI.RadSlidingPane
+    Protected WithEvents Uc_step_ThirdParty As Global.SmartForms.uc_ComplianceNotes
 
     '''<summary>
-    '''Uc_step_ThirdPartIdent control.
+    '''step_Relationship control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents Uc_step_ThirdPartIdent As Global.SmartForms.uc_ComplianceNotes
+    Protected WithEvents step_Relationship As Global.Telerik.Web.UI.RadWizardStep
+
+    '''<summary>
+    '''RadSplitter10 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents RadSplitter10 As Global.Telerik.Web.UI.RadSplitter
+
+    '''<summary>
+    '''RadPane17 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents RadPane17 As Global.Telerik.Web.UI.RadPane
+
+    '''<summary>
+    '''RadTextBox2 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents RadTextBox2 As Global.Telerik.Web.UI.RadTextBox
+
+    '''<summary>
+    '''RadTextBox3 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents RadTextBox3 As Global.Telerik.Web.UI.RadTextBox
+
+    '''<summary>
+    '''RadTextBox4 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents RadTextBox4 As Global.Telerik.Web.UI.RadTextBox
+
+    '''<summary>
+    '''RadTextBox7 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents RadTextBox7 As Global.Telerik.Web.UI.RadTextBox
+
+    '''<summary>
+    '''RadSplitBar4 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents RadSplitBar4 As Global.Telerik.Web.UI.RadSplitBar
+
+    '''<summary>
+    '''RadPane18 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents RadPane18 As Global.Telerik.Web.UI.RadPane
+
+    '''<summary>
+    '''RadSlidingZone10 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents RadSlidingZone10 As Global.Telerik.Web.UI.RadSlidingZone
+
+    '''<summary>
+    '''RadSlidingPane10 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents RadSlidingPane10 As Global.Telerik.Web.UI.RadSlidingPane
+
+    '''<summary>
+    '''Uc_step_Relationship control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents Uc_step_Relationship As Global.SmartForms.uc_ComplianceNotes
 
     '''<summary>
     '''step_WrapUp control.

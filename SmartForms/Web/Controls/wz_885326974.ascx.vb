@@ -32,6 +32,21 @@ Public Class wz_885326974
 
         End If
     End Sub
+    Private Sub wz_885326974_PreRender(sender As Object, e As EventArgs) Handles Me.PreRender
+        If rrbTransConductedBehalfClient.SelectedValue = "Yes" Or txtReasonActingOn.Text <> "" Then
+            panel_ThirdParty.Visible = True
+        Else
+            If txtReasonActingOn.Text <> "" Then
+                panel_ThirdParty.Visible = True
+            Else
+                panel_ThirdParty.Visible = False
+            End If
+        End If
+
+    End Sub
+
+
+
     Private Sub rwIdentification_PreRender(sender As Object, e As EventArgs) Handles rwIdentification.PreRender
 
         rwIdentification.Height = (Request.QueryString("wheight") * 0.75)
@@ -47,7 +62,7 @@ Public Class wz_885326974
         Uc_step_DualId.NoteHeight = (Request.QueryString("wheight") * 0.74)
         Uc_step_GovernmentId.NoteHeight = (Request.QueryString("wheight") * 0.74)
         Uc_step_HeaderInfo.NoteHeight = (Request.QueryString("wheight") * 0.74)
-        Uc_step_ThirdPartIdent.NoteHeight = (Request.QueryString("wheight") * 0.74)
+        'Uc_step_ThirdPartIdent.NoteHeight = (Request.QueryString("wheight") * 0.74)
         Uc_step_ThirdParty.NoteHeight = (Request.QueryString("wheight") * 0.74)
         Uc_step_UnrepresentedParty.NoteHeight = (Request.QueryString("wheight") * 0.74)
         Uc_step_WrapUp.NoteHeight = (Request.QueryString("wheight") * 0.74)
@@ -62,8 +77,8 @@ Public Class wz_885326974
         Uc_step_GovernmentId.WhatControl = "step_GovernmentId"
         Uc_step_HeaderInfo.WhatForm = sender.id
         Uc_step_HeaderInfo.WhatControl = "step_HeaderInfo"
-        Uc_step_ThirdPartIdent.WhatForm = sender.id
-        Uc_step_ThirdPartIdent.WhatControl = "step_ThirdPartIdent"
+        'Uc_step_ThirdPartIdent.WhatForm = sender.id
+        'Uc_step_ThirdPartIdent.WhatControl = "step_ThirdPartIdent"
         Uc_step_ThirdParty.WhatForm = sender.id
         Uc_step_ThirdParty.WhatControl = "step_ThirdParty"
         Uc_step_UnrepresentedParty.WhatForm = sender.id
@@ -125,7 +140,6 @@ Public Class wz_885326974
                 Dim ctrl As RadRadioButtonList = c
                 savedt.Rows.Add(formid, ctrl.ID.ToString, "PdfTextFormField", Nothing, username)
             End Sub)
-
 
         pdftools.Save_FintracData(hashcode, formid, savedt)
 
@@ -289,7 +303,7 @@ Public Class wz_885326974
         SaveForm(sender)
     End Sub
 
-    Protected Sub lbSendText_Click(sender As Object, e As ImageClickEventArgs)
+    Protected Sub lbSendText_Click(sender As Object, e As ImageClickEventArgs) Handles lbSendText.Click
         send.SendText(Nothing)
         SaveForm(sender)
 
@@ -308,6 +322,25 @@ Public Class wz_885326974
     End Sub
 
     Protected Sub lbSendEmail_Click(sender As Object, e As ImageClickEventArgs) Handles lbSendEmail.Click
+
+    End Sub
+
+    Private Sub chkOpt_transConductedBehalfClient_CheckedChanged(sender As Object, e As EventArgs) Handles chkOpt_transConductedBehalfClient.CheckedChanged
+        'If chkOpt_transConductedBehalfClient Then
+        '    panel_ThirdParty.Visible = True
+
+    End Sub
+
+    Protected Sub rrbTransConductedBehalfClient_SelectedIndexChanged(sender As Object, e As EventArgs) Handles rrbTransConductedBehalfClient.SelectedIndexChanged
+        If rrbTransConductedBehalfClient.SelectedValue = "Yes" Or txtReasonActingOn.Text <> "" Then
+            panel_ThirdParty.Visible = True
+        Else
+            If txtReasonActingOn.Text <> "" Then
+                panel_ThirdParty.Visible = True
+            Else
+                panel_ThirdParty.Visible = False
+            End If
+        End If
 
     End Sub
 

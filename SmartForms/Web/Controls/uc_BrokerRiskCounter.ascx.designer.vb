@@ -68,38 +68,92 @@ Partial Public Class uc_BrokerRiskCounter
     Protected WithEvents RadToolTip3 As Global.Telerik.Web.UI.RadToolTip
 
     '''<summary>
-    '''rgvCurrentFiles control.
+    '''rgvFiltered control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents rgvCurrentFiles As Global.Telerik.Web.UI.RadGrid
+    Protected WithEvents rgvFiltered As Global.Telerik.Web.UI.RadGrid
 
     '''<summary>
-    '''reEditor control.
+    '''panel_Options control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents reEditor As Global.Telerik.Web.UI.RadEditor
+    Protected WithEvents panel_Options As Global.System.Web.UI.WebControls.Panel
 
     '''<summary>
-    '''RadEditor1 control.
+    '''rlbAssignRisk control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents RadEditor1 As Global.Telerik.Web.UI.RadEditor
+    Protected WithEvents rlbAssignRisk As Global.Telerik.Web.UI.RadListBox
 
     '''<summary>
-    '''odsFiles control.
+    '''reSearchNotes control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents odsFiles As Global.System.Web.UI.WebControls.ObjectDataSource
+    Protected WithEvents reSearchNotes As Global.Telerik.Web.UI.RadEditor
+
+    '''<summary>
+    '''reOfficeNotes control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents reOfficeNotes As Global.Telerik.Web.UI.RadEditor
+
+    '''<summary>
+    '''hfRiskFilter control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents hfRiskFilter As Global.System.Web.UI.WebControls.HiddenField
+
+    '''<summary>
+    '''sqlRiskFiltered control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents sqlRiskFiltered As Global.System.Web.UI.WebControls.SqlDataSource
+
+    '''<summary>
+    '''notice_Popup control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents notice_Popup As Global.Telerik.Web.UI.RadNotification
+
+    '''<summary>
+    '''window_alert control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents window_alert As Global.Telerik.Web.UI.RadWindowManager
+
+    '''<summary>
+    '''window_form control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents window_form As Global.Telerik.Web.UI.RadWindow
 End Class

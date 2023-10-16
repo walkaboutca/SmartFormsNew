@@ -1,4 +1,4 @@
-﻿                                                             <%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/Web/forms.Master" CodeBehind="FintracDashboard.aspx.vb" Inherits="SmartForms.FintracDashboard" %>
+﻿<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/Web/forms.Master" CodeBehind="FintracDashboard.aspx.vb" Inherits="SmartForms.FintracDashboard" %>
 
 <%@ Register Src="~/Web/Controls/uc_BrokerRiskCounter.ascx" TagPrefix="uc1" TagName="uc_BrokerRiskCounter" %>
 
@@ -467,9 +467,9 @@
                     </div>
                 </div>
 
-                <uc1:uc_BrokerRiskCounter runat="server" id="uc_BrokerRiskCounter" />
+                <uc1:uc_BrokerRiskCounter runat="server" ID="uc_BrokerRiskCounter" />
 
-                </div>
+            </div>
 
         </telerik:RadPageView>
     </telerik:RadMultiPage>

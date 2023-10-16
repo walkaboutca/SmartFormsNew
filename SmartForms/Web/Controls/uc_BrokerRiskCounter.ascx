@@ -33,6 +33,24 @@
         display: block\9 !important; /* for all versions of IE */
     }
 </style>
+<script>         
+    function getRadWindow() {
+        var oWindow = null;
+        if (window.radWindow)
+            oWindow = window.radWindow;
+        else if (window.frameElement.radWindow)
+            oWindow = window.frameElement.radWindow;
+        return oWindow;
+    }
+
+    // Reload parent page
+    function refreshParentPage() {
+        getRadWindow().BrowserWindow.location.reload();
+    }
+</script>
+
+
+
 <div class="w3-row">
     <div class="w3-container w3-twothird">
         <div class="w3-panel w3-border w3-border-teal w3-padding-small" style="vertical-align: middle">
@@ -80,19 +98,16 @@
 
     <div class="w3-row">
         <div class="w3-container w3-twothird">
-            <telerik:RadGrid ID="rgvCurrentFiles" runat="server" DataSourceID="odsFiles" AllowSorting="True">
-                <GroupingSettings CollapseAllTooltip="Collapse all groups"></GroupingSettings>
-
-                <ClientSettings EnablePostBackOnRowClick="true">
-                    <Selecting AllowRowSelect="True" />
-                </ClientSettings>
-
-                <MasterTableView AutoGenerateColumns="False" DataKeyNames="Id" DataSourceID="odsFiles">
-                    <RowIndicatorColumn ShowNoSortIcon="False"></RowIndicatorColumn>
-
-                    <ExpandCollapseColumn ShowNoSortIcon="False"></ExpandCollapseColumn>
-
-                    <Columns>
+            <div>
+                <telerik:RadGrid ID="rgvFiltered" runat="server" AutoGenerateEditColumn="True" DataSourceID="sqlRiskFiltered">
+                    <GroupingSettings CollapseAllTooltip="Collapse all groups"></GroupingSettings>
+                    <ClientSettings EnablePostBackOnRowClick="true">
+                        <Selecting AllowRowSelect="True" />
+                    </ClientSettings>
+                    <MasterTableView AutoGenerateColumns="False" DataKeyNames="Id,FormId,RiskAssessment,NewRiskAssessment" DataSourceID="sqlRiskFiltered">
+                        <RowIndicatorColumn ShowNoSortIcon="False"></RowIndicatorColumn>
+                        <ExpandCollapseColumn ShowNoSortIcon="False"></ExpandCollapseColumn>
+                        <Columns>
                         <telerik:GridBoundColumn DataField="Id" DataType="System.Int32" FilterControlAltText="Filter Id column" HeaderText="Id" ReadOnly="True" ShowNoSortIcon="False" SortExpression="Id" UniqueName="Id" Visible="False">
                         </telerik:GridBoundColumn>
                         <telerik:GridBoundColumn DataField="AuditId" DataType="System.Int32" FilterControlAltText="Filter AuditId column" HeaderText="AuditId" ShowNoSortIcon="False" SortExpression="AuditId" UniqueName="AuditId" Visible="False">
@@ -129,39 +144,83 @@
                         </telerik:GridBoundColumn>
                         <telerik:GridBoundColumn DataField="LastModDate" DataType="System.DateTime" FilterControlAltText="Filter LastModDate column" HeaderText="LastModDate" ShowNoSortIcon="False" SortExpression="LastModDate" UniqueName="LastModDate" Visible="False">
                         </telerik:GridBoundColumn>
-                    </Columns>
+                        </Columns>
+                        <EditFormSettings EditFormType="Template">
+                            <EditColumn ShowNoSortIcon="False" UniqueName="EditCommandColumn1" FilterControlAltText="Filter EditCommandColumn1 column"></EditColumn>
+                            <FormTemplate>
+                                <table id="Table2" cellspacing="2" cellpadding="1" width="100%" border="0" rules="none"
+                                    style="border-collapse: collapse;">
+                                    <tr class="EditFormHeader">
+                                        <td colspan="2">
+                                            <b>Risk Form Details</b>
 
-                    <EditFormSettings>
-                        <EditColumn ShowNoSortIcon="False"></EditColumn>
-                    </EditFormSettings>
-                </MasterTableView>
-            </telerik:RadGrid>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+
+                                            <asp:LinkButton ID="lbEditEdit" CommandName="PerformInsert" runat="server">Save and Close</asp:LinkButton>&nbsp;&nbsp;
+                                    <asp:LinkButton ID="lbEditClose" CommandName="Cancel" runat="server" CausesValidation="False">Cancel</asp:LinkButton>
+
+                                        </td>
+                                    </tr>
+                                </table>
+                            </FormTemplate>
+                        </EditFormSettings>
+                    </MasterTableView>
+                </telerik:RadGrid>
+              
+
+
+            </div>
+            
+            <div class="w3-panel w3-topbar w3-border-teal">
+                <asp:Panel ID="panel_Options" runat="server">
+                    <div class="w3-container w3-padding-small">
+                        <telerik:RadListBox ID="rlbAssignRisk" runat="server" Font-Size="Small" AutoPostBack="True" RenderMode="Lightweight">
+                            <ButtonSettings TransferButtons="All" />
+                            <Items>
+                                <telerik:RadListBoxItem runat="server" ImageUrl="~/Images/Green_25X25.png" Text="Low" Value="Low" />
+                                <telerik:RadListBoxItem runat="server" ImageUrl="~/Images/Yellow_25X25.png" Text="Medium" Value="Medium" />
+                                <telerik:RadListBoxItem runat="server" ImageUrl="~/Images/Red_25X25.png" Text="High" Value="High" />
+
+                            </Items>
+                        </telerik:RadListBox>
+                    </div>
+
+                </asp:Panel>
+            </div>
+
 
         </div>
         <div class="w3-container w3-third">
 
             <div style="font-size: small">
 
-                <telerik:RadEditor ID="reEditor" runat="server"
+                <telerik:RadEditor ID="reSearchNotes" runat="server"
                     RenderMode="Lightweight"
                     ToolbarMode="ShowOnFocus"
                     ToolsFile="~/Classes/BasicTools.xml"
                     Width="100%" 
                     EmptyMessage="No Notes currently on file." 
-                    EditModes="Preview">
+                    EditModes="Preview" 
+                    NewLineMode="Br" 
+                    ContentAreaMode="Div">
                 </telerik:RadEditor>
               
             </div>
             <hr />
             <div style="font-size: small">
 
-                <telerik:RadEditor ID="RadEditor1" runat="server"
+                <telerik:RadEditor ID="reOfficeNotes" runat="server"
                     RenderMode="Lightweight"
                     ToolbarMode="ShowOnFocus"
                     ToolsFile="~/Classes/BasicTools.xml"
                     Width="100%"
                     EmptyMessage="No Notes currently on file." 
-                    EditModes="Design">
+                    EditModes="Design" 
+                    NewLineMode="Br" 
+                    ContentAreaMode="Div">
                 </telerik:RadEditor>
               
 
@@ -169,43 +228,38 @@
         </div>
     </div>
 </div>
-<asp:ObjectDataSource ID="odsFiles" runat="server" DeleteMethod="Delete" InsertMethod="Insert" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="SmartForms.smartDataTableAdapters.searchAuditFilesTA" UpdateMethod="Update">
-    <DeleteParameters>
-        <asp:Parameter Name="Original_Id" Type="Int32" />
-    </DeleteParameters>
-    <InsertParameters>
-        <asp:Parameter Name="AuditId" Type="Int32" />
-        <asp:Parameter Name="WebKitId" Type="Int32" />
-        <asp:Parameter Name="FormId" Type="Int32" />
-        <asp:Parameter Name="SearchDate" Type="DateTime" />
-        <asp:Parameter Name="SearchCriteria" Type="String" />
-        <asp:Parameter Name="BingResult" Type="String" />
-        <asp:Parameter Name="WikiResult" Type="String" />
-        <asp:Parameter Name="RiskAssessment" Type="String" />
-        <asp:Parameter Name="NewRiskAssessment" Type="String" />
-        <asp:Parameter Name="Active" Type="Int32" />
-        <asp:Parameter Name="AdminNotes" Type="String" />
-        <asp:Parameter Name="OfficerNotes" Type="String" />
-        <asp:Parameter Name="CreatedOn" Type="DateTime" />
-        <asp:Parameter Name="LastModBy" Type="String" />
-        <asp:Parameter Name="LastModDate" Type="DateTime" />
-    </InsertParameters>
-    <UpdateParameters>
-        <asp:Parameter Name="AuditId" Type="Int32" />
-        <asp:Parameter Name="WebKitId" Type="Int32" />
-        <asp:Parameter Name="FormId" Type="Int32" />
-        <asp:Parameter Name="SearchDate" Type="DateTime" />
-        <asp:Parameter Name="SearchCriteria" Type="String" />
-        <asp:Parameter Name="BingResult" Type="String" />
-        <asp:Parameter Name="WikiResult" Type="String" />
-        <asp:Parameter Name="RiskAssessment" Type="String" />
-        <asp:Parameter Name="NewRiskAssessment" Type="String" />
-        <asp:Parameter Name="Active" Type="Int32" />
-        <asp:Parameter Name="AdminNotes" Type="String" />
-        <asp:Parameter Name="OfficerNotes" Type="String" />
-        <asp:Parameter Name="CreatedOn" Type="DateTime" />
-        <asp:Parameter Name="LastModBy" Type="String" />
-        <asp:Parameter Name="LastModDate" Type="DateTime" />
-        <asp:Parameter Name="Original_Id" Type="Int32" />
-    </UpdateParameters>
-</asp:ObjectDataSource>
+
+<asp:HiddenField ID="hfRiskFilter" runat="server" />
+
+<asp:SqlDataSource ID="sqlRiskFiltered" runat="server" ConnectionString="<%$ ConnectionStrings:smartData %>" SelectCommand="usp_SearchAuditFiltered" SelectCommandType="StoredProcedure">
+    <SelectParameters>
+        <asp:ControlParameter ControlID="hfRiskFilter" DefaultValue="High" Name="filter" PropertyName="Value" Type="String" />
+    </SelectParameters>
+</asp:SqlDataSource>
+
+
+<telerik:RadNotification RenderMode="Lightweight" ID="notice_Popup" runat="server" 
+    Position="BottomRight"
+    AutoCloseDelay="2000" 
+    Width="400" 
+    Height="150" 
+    Title="Smart Messages" 
+    EnableRoundedCorners="true" 
+    Skin="Office2010Black">
+</telerik:RadNotification>
+
+
+    <telerik:RadWindowManager ID="window_alert" runat="server"
+        KeepInScreenBounds="False"
+        RenderMode="Lightweight"
+        DestroyOnClose="True">
+        <Windows>
+            <telerik:RadWindow ID="window_form" runat="server"
+                Modal="True"
+                RenderMode="Lightweight"
+                Overlay="False"
+                VisibleStatusbar="False"
+                ShowContentDuringLoad="False">
+            </telerik:RadWindow>
+        </Windows>
+    </telerik:RadWindowManager>

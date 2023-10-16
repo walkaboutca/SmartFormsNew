@@ -624,7 +624,6 @@
                     </telerik:RadPane>
                 </telerik:RadSplitter>
             </telerik:RadWizardStep>
-
             <telerik:RadWizardStep ID="step_ThirdParty" runat="server" Title=" " ToolTip="Verification of Third Parties">
                 <telerik:RadSplitter RenderMode="Lightweight" ID="RadSplitter7" runat="server" Width="100%">
                     <telerik:RadPane ID="RadPane6" runat="server" RenderMode="Lightweight">
@@ -639,7 +638,7 @@
                             <div class="w3-row">
                                 <div class="w3-col">
                                     <div class="w3-padding-small">
-                                        <telerik:RadRadioButtonList ID="rrbTransConductedBehalfClient" runat="server">
+                                        <telerik:RadRadioButtonList ID="rrbTransConductedBehalfClient" runat="server" RenderMode="Lightweight">
                                             <Items>
                                                 <telerik:ButtonListItem Text="YES the transaction IS being conducted on behalf of a third party according to the client." Value="Yes" />
                                                 <telerik:ButtonListItem Text="NO the transaction is NOT being conducted on behalf of a third party according to the client." Value="No" />
@@ -656,6 +655,53 @@
                                     </div>
                                 </div>
                             </div>
+                            <asp:Panel ID="panel_ThirdParty" runat="server" Visible="False">
+                                <p style="font-weight: bold">B.2 Third Party Record</p>
+                                <div class="w3-row">
+                                    <div class="w3-third w3-padding-small">
+                                        <telerik:RadTextBox ID="txtthirdPartyName" runat="server" EmptyMessage="Name of other entity" Width="100%"></telerik:RadTextBox>
+                                    </div>
+                                    <div class="w3-third w3-padding-small">
+                                        <telerik:RadTextBox ID="txtthirdPartyAddress2" runat="server" EmptyMessage="Telephone Number" Width="100%"></telerik:RadTextBox>
+                                    </div>
+                                </div>
+                                <div class="w3-row">
+                                    <div class="w3-third w3-padding-small">
+                                        <telerik:RadTextBox ID="txtthirdPartyAddress1" runat="server" EmptyMessage="Address" Width="100%"></telerik:RadTextBox>
+                                    </div>
+                                    <div class="w3-third w3-padding-small">
+                                        <telerik:RadDateInput ID="txtthirdPartyDOB" runat="server" EmptyMessage="DOB (when app. (yyyy-mm-dd))" DisplayDateFormat="yyyy-MM-dd" Culture="en-CA" MinDate="1900-01-01" Width="75%"></telerik:RadDateInput>
+                                    </div>
+                                </div>
+                                <div class="w3-row">
+                                    <p>Nature of Principle Business or Occupation</p>
+                                    <div class="w3-third w3-padding-small">
+                                        <telerik:RadTextBox ID="txtthirdPartyBusinessOccupation1" runat="server" EmptyMessage="Principal Business or Occupation" Width="100%"></telerik:RadTextBox><br />
+                                    </div>
+                                    <div class="w3-third w3-padding-small">
+                                        <telerik:RadTextBox ID="txtthirdPartyBusinessOccupation2" runat="server" EmptyMessage="Additional" Width="100%"></telerik:RadTextBox>
+                                    </div>
+                                </div>
+                                <div class="w3-row">
+                                    <p>Registration or incorporation number, and jurisdiction and country that issued that number (if applicable)</p>
+                                    <div class="w3-third w3-padding-small">
+                                        <telerik:RadTextBox ID="txtthirdPartyIncorporationNumber1" runat="server" EmptyMessage="Registration or Incorporation No" Width="100%"></telerik:RadTextBox><br />
+                                    </div>
+                                    <div class="w3-third w3-padding-small">
+                                        <telerik:RadTextBox ID="txtthirdPartyIncorporationNumber2" runat="server" EmptyMessage="Issuing Jurisdiction" Width="100%"></telerik:RadTextBox>
+                                    </div>
+                                </div>
+                                <div class="w3-row">
+                                    <p>Relationship between third party and client</p>
+                                    <div class="w3-third w3-padding-small">
+                                        <telerik:RadTextBox ID="RadTextBox5" runat="server" EmptyMessage="Third Party relationship" Width="100%"></telerik:RadTextBox><br />
+                                    </div>
+                                    <div class="w3-third w3-padding-small">
+                                        <telerik:RadTextBox ID="RadTextBox6" runat="server" EmptyMessage="Additional" Width="100%"></telerik:RadTextBox>
+                                    </div>
+                                </div>
+
+                            </asp:Panel>
                         </div>
                     </telerik:RadPane>
 
@@ -673,53 +719,9 @@
                 </telerik:RadSplitter>
             </telerik:RadWizardStep>
 
-            <telerik:RadWizardStep ID="step_ThirdPartIdent" runat="server" Title=" ">
+ <%--           <telerik:RadWizardStep ID="step_ThirdPartIdent" runat="server" Title=" ">
                 <telerik:RadSplitter RenderMode="Lightweight" ID="RadSplitter8" runat="server" Width="100%">
                     <telerik:RadPane ID="RadPane7" runat="server" RenderMode="Lightweight">
-                        <p style="font-weight: bold">B.2 Third Party Record</p>
-                        <div class="w3-row">
-                            <div class="w3-third w3-padding-small">
-                                <telerik:RadTextBox ID="txtthirdPartyName" runat="server" EmptyMessage="Name of other entity" Width="100%"></telerik:RadTextBox>
-                            </div>
-                            <div class="w3-third w3-padding-small">
-                                <telerik:RadTextBox ID="txtthirdPartyAddress2" runat="server" EmptyMessage="Telephone Number" Width="100%"></telerik:RadTextBox>
-                            </div>
-                        </div>
-                        <div class="w3-row">
-                            <div class="w3-third w3-padding-small">
-                                <telerik:RadTextBox ID="txtthirdPartyAddress1" runat="server" EmptyMessage="Address" Width="100%"></telerik:RadTextBox>
-                            </div>
-                            <div class="w3-third w3-padding-small">
-                                <telerik:RadDateInput ID="txtthirdPartyDOB" runat="server" EmptyMessage="DOB (when app. (yyyy-mm-dd))" DisplayDateFormat="yyyy-MM-dd" Culture="en-CA" MinDate="1900-01-01" Width="75%"></telerik:RadDateInput>
-                            </div>
-                        </div>
-                        <div class="w3-row">
-                            <p>Nature of Principle Business or Occupation</p>
-                            <div class="w3-third w3-padding-small">
-                                <telerik:RadTextBox ID="txtthirdPartyBusinessOccupation1" runat="server" EmptyMessage="Principal Business or Occupation" Width="100%"></telerik:RadTextBox><br />
-                            </div>
-                            <div class="w3-third w3-padding-small">
-                                <telerik:RadTextBox ID="txtthirdPartyBusinessOccupation2" runat="server" EmptyMessage="Additional" Width="100%"></telerik:RadTextBox>
-                            </div>
-                        </div>
-                        <div class="w3-row">
-                            <p>Registration or incorporation number, and jurisdiction and country that issued that number (if applicable)</p>
-                            <div class="w3-third w3-padding-small">
-                                <telerik:RadTextBox ID="txtthirdPartyIncorporationNumber1" runat="server" EmptyMessage="Registration or Incorporation No" Width="100%"></telerik:RadTextBox><br />
-                            </div>
-                            <div class="w3-third w3-padding-small">
-                                <telerik:RadTextBox ID="txtthirdPartyIncorporationNumber2" runat="server" EmptyMessage="Issuing Jurisdiction" Width="100%"></telerik:RadTextBox>
-                            </div>
-                        </div>
-                        <div class="w3-row">
-                            <p>Relationship between third party and client</p>
-                            <div class="w3-third w3-padding-small">
-                                <telerik:RadTextBox ID="RadTextBox5" runat="server" EmptyMessage="Third Party relationship" Width="100%"></telerik:RadTextBox><br />
-                            </div>
-                            <div class="w3-third w3-padding-small">
-                                <telerik:RadTextBox ID="RadTextBox6" runat="server" EmptyMessage="Additional" Width="100%"></telerik:RadTextBox>
-                            </div>
-                        </div>
                     </telerik:RadPane>
                     <telerik:RadSplitBar ID="RadSplitbar17" runat="server">
                     </telerik:RadSplitBar>
@@ -730,6 +732,43 @@
                             <telerik:RadSlidingPane ID="RadSlidingPane9" Title="NOTES" runat="server" Width="275" MinWidth="275" RenderMode="Lightweight" DockOnOpen="true">
 
                                 <uc1:uc_ComplianceNotes runat="server" ID="Uc_step_ThirdPartIdent" />
+
+                            </telerik:RadSlidingPane>
+                        </telerik:RadSlidingZone>
+                    </telerik:RadPane>
+                </telerik:RadSplitter>
+            </telerik:RadWizardStep>--%>
+
+            <telerik:RadWizardStep ID="step_Relationship" runat="server" Title=" ">
+                <telerik:RadSplitter RenderMode="Lightweight" ID="RadSplitter10" runat="server" Width="100%">
+                    <telerik:RadPane ID="RadPane17" runat="server" RenderMode="Lightweight">
+                        <p style="font-weight: bold">C / D Relationship</p>
+                        <p>Risk Assessment (this doesn't have to be here. Look for a better way)</p>
+                        <div class="w3-row">
+                            <div class="w3-third w3-padding-small">
+                                <telerik:RadTextBox ID="RadTextBox2" runat="server" EmptyMessage="Name of other entity" Width="100%"></telerik:RadTextBox>
+                            </div>
+                            <div class="w3-third w3-padding-small">
+                                <telerik:RadTextBox ID="RadTextBox3" runat="server" EmptyMessage="Telephone Number" Width="100%"></telerik:RadTextBox>
+                            </div>
+                        </div>
+                        <p>Purpose of Intended Nature of the Business Relationship</p>
+                        <div class="w3-row">
+                            <div class="w3-third w3-padding-small">
+                                <telerik:RadTextBox ID="RadTextBox4" runat="server" EmptyMessage="Name of other entity" Width="100%"></telerik:RadTextBox>
+                            </div>
+                            <div class="w3-third w3-padding-small">
+                                <telerik:RadTextBox ID="RadTextBox7" runat="server" EmptyMessage="Telephone Number" Width="100%"></telerik:RadTextBox>
+                            </div>
+                        </div>
+                    </telerik:RadPane>
+                    <telerik:RadSplitBar ID="RadSplitBar4" runat="server">
+                    </telerik:RadSplitBar>
+                    <telerik:RadPane ID="RadPane18" runat="server" Width="22" Scrolling="None">
+                        <telerik:RadSlidingZone ID="RadSlidingZone10" runat="server" Width="22" ClickToOpen="True" SlideDirection="Left" RenderMode="Lightweight" ExpandedPaneId="RadSlidingPane10">
+                            <telerik:RadSlidingPane ID="RadSlidingPane10" Title="NOTES" runat="server" Width="275" MinWidth="275" RenderMode="Lightweight" DockOnOpen="true">
+
+                                <uc1:uc_ComplianceNotes runat="server" ID="Uc_step_Relationship" />
 
                             </telerik:RadSlidingPane>
                         </telerik:RadSlidingZone>
@@ -781,7 +820,7 @@
                                 </div>
                                 <div class="w3-col s3">
                                     <div class="w3-padding-small">
-                                        <telerik:RadButton ID="rbReviewDoc" runat="server" Text="Submit to Office"></telerik:RadButton>
+                                        <telerik:RadButton ID="rbReviewDoc" runat="server" Text="View PDF"></telerik:RadButton>
                                     </div>
                                 </div>
                                 <div class="w3-col s3">

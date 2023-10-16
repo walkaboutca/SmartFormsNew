@@ -8,9 +8,9 @@
             wheight = ((Request.QueryString("clientHeight") * 0.7))
             wwidth = ((Request.QueryString("clientWidth") * 0.6))
 
-            panel_left.Height = Request.QueryString("clientHeight") * 0.5
-            panel_middle.Height = Request.QueryString("clientHeight") * 0.5
-            panel_right.Height = Request.QueryString("clientHeight") * 0.5
+            panel_left.Height = Request.QueryString("clientHeight") * 0.4
+            panel_middle.Height = Request.QueryString("clientHeight") * 0.4
+            panel_right.Height = Request.QueryString("clientHeight") * 0.4
 
         End If
 

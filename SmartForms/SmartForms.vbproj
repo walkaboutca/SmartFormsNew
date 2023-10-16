@@ -567,6 +567,7 @@
     <Content Include="Images\f_icon.png" />
     <Content Include="Images\giphy.gif" />
     <Content Include="Images\Green.png" />
+    <Content Include="Images\Green_25X25.png" />
     <Content Include="Images\GreySingleHouse.png" />
     <Content Include="Images\Help - Save Editable PDF Image 1.png" />
     <Content Include="Images\Help - Save Editable PDF Image 2.png" />
@@ -609,6 +610,7 @@
     <Content Include="Images\QuestionMark.png" />
     <Content Include="Images\QuestionMark_Small.png" />
     <Content Include="Images\Red.png" />
+    <Content Include="Images\Red_25X25.png" />
     <Content Include="Images\Remove.png" />
     <Content Include="Images\RequestButton.png" />
     <Content Include="Images\Save.png" />
@@ -636,6 +638,7 @@
     <Content Include="Images\WebTools.jpg" />
     <Content Include="Images\worldwideweb.png" />
     <Content Include="Images\Yellow.png" />
+    <Content Include="Images\Yellow_25X25.png" />
     <Content Include="Mobile\Invitation.aspx" />
     <Content Include="Scripts\BasicTools.xml" />
     <Content Include="Search.html" />
@@ -646,6 +649,7 @@
     <Content Include="Web\Controls\uc_BrokerRiskCounter.ascx" />
     <Content Include="Web\Controls\uc_ComplianceNotes.ascx" />
     <Content Include="Web\Controls\uc_FormBuilder.ascx" />
+    <Content Include="Web\Controls\uc_RiskReview.ascx" />
     <Content Include="Web\Controls\web_Document.aspx" />
     <Content Include="Web\Controls\web_NewWebKit.aspx" />
     <Content Include="Mobile\FakePhone.aspx" />
@@ -667,6 +671,7 @@
     <Content Include="Web\PDFDataFieldMapper.aspx" />
     <Content Include="Web\pdfFintracViewer.aspx" />
     <Content Include="Web\pdfViewer.aspx" />
+    <Content Include="Web\PopupViewer.aspx" />
     <Content Include="Web\SearchEngine.aspx" />
     <Content Include="Account\Admin.Master" />
     <None Include="Classes\smartData.xsd">
@@ -727,6 +732,7 @@
     <Content Include="Web\FillableForms.aspx" />
     <Content Include="Web\FintracDashboard.aspx" />
     <Content Include="Web\forms.Master" />
+    <Content Include="Web\popup.Master" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="About_Fintrac.aspx.designer.vb">
@@ -1028,6 +1034,13 @@
       <DependentUpon>uc_FormBuilder.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="Web\Controls\uc_RiskReview.ascx.designer.vb">
+      <DependentUpon>uc_RiskReview.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Web\Controls\uc_RiskReview.ascx.vb">
+      <DependentUpon>uc_RiskReview.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="Web\Controls\web_Document.aspx.designer.vb">
       <DependentUpon>web_Document.aspx</DependentUpon>
     </Compile>
@@ -1126,6 +1139,20 @@
       <DependentUpon>pdfViewer.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
+    <Compile Include="Web\popup.Master.designer.vb">
+      <DependentUpon>popup.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Web\popup.Master.vb">
+      <DependentUpon>popup.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\PopupViewer.aspx.designer.vb">
+      <DependentUpon>PopupViewer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web\PopupViewer.aspx.vb">
+      <DependentUpon>PopupViewer.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
     <Compile Include="Web\SearchEngine.aspx.designer.vb">
       <DependentUpon>SearchEngine.aspx</DependentUpon>
     </Compile>
@@ -1204,7 +1231,7 @@
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
-      <UserProperties UseJQuerySupport="True" UseAjaxifiedTemplates="True" />
+      <UserProperties UseAjaxifiedTemplates="True" UseJQuerySupport="True" />
     </VisualStudio>
   </ProjectExtensions>
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
