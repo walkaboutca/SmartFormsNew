@@ -1,0 +1,71 @@
+﻿<%@ Master Language="VB" AutoEventWireup="false" CodeBehind="Wizard.master.vb" Inherits="SmartForms.Wizard" %>
+
+<!DOCTYPE html>
+<style>
+    html, body, h1, h2, h3, h4, h5, h6 {
+        font-family: "Roboto", sans-serif
+    }
+
+    p {
+        font-size: small;
+        margin: 2px;
+        padding: 2px;
+    }
+
+    html .RadSearchBox .rsbInput {
+        height: 20px;
+    }
+
+    .table-style {
+        width: 100%;
+        font-size: small;
+        vertical-align: top;
+    }
+
+    .td-style {
+        vertical-align: top;
+    }
+</style>
+
+
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.2.2/pdf.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.2.2/pdf.worker.js"></script>
+<script>
+    window.pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.2.2/pdf.worker.js';
+</script>
+
+<script>         
+    function getRadWindow() {
+        var oWindow = null;
+        if (window.radWindow)
+            oWindow = window.radWindow;
+        else if (window.frameElement.radWindow)
+            oWindow = window.frameElement.radWindow;
+        return oWindow;
+    }
+
+    // Reload parent page
+    function refreshParentPage() {
+        getRadWindow().BrowserWindow.location.reload();
+    }
+</script>
+
+<html>
+
+
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+ 
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <asp:ContentPlaceHolder ID="mainHolder" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+</body>
+</html>

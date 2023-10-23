@@ -65,7 +65,7 @@
                             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                 <a class="dropdown-item w3-padding-small" href="PDFDataFieldMapper.aspx">Manage Catlalogs</a>
                                 <a class="dropdown-item w3-padding-small" href="#">Another action</a>
-                                <a class="dropdown-item w3-padding-small" href="#">Something else here</a>
+                                <a class="dropdown-item w3-padding-small" href="../Wizards/WizardDisplay.aspx">Wizard Test</a>
                             </div>
                         </li>
                         <li class="nav-item dropdown">

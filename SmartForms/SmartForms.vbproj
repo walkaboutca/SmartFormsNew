@@ -674,6 +674,9 @@
     <Content Include="Web\PopupViewer.aspx" />
     <Content Include="Web\SearchEngine.aspx" />
     <Content Include="Account\Admin.Master" />
+    <Content Include="Wizards\Controls\Scripts.js" />
+    <Content Include="Wizards\Controls\uc_PropertyHeader.ascx" />
+    <Content Include="Wizards\WizardDisplay.aspx" />
     <None Include="Classes\smartData.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
@@ -733,6 +736,7 @@
     <Content Include="Web\FintracDashboard.aspx" />
     <Content Include="Web\forms.Master" />
     <Content Include="Web\popup.Master" />
+    <Content Include="Wizards\Wizard.Master" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="About_Fintrac.aspx.designer.vb">
@@ -1160,6 +1164,27 @@
       <DependentUpon>SearchEngine.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
+    <Compile Include="Wizards\Controls\uc_PropertyHeader.ascx.designer.vb">
+      <DependentUpon>uc_PropertyHeader.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Wizards\Controls\uc_PropertyHeader.ascx.vb">
+      <DependentUpon>uc_PropertyHeader.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Wizards\Wizard.Master.designer.vb">
+      <DependentUpon>Wizard.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Wizards\Wizard.Master.vb">
+      <DependentUpon>Wizard.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Wizards\WizardDisplay.aspx.designer.vb">
+      <DependentUpon>WizardDisplay.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Wizards\WizardDisplay.aspx.vb">
+      <DependentUpon>WizardDisplay.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="My Project\licenses.licx" />
@@ -1231,7 +1256,7 @@
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
-      <UserProperties UseAjaxifiedTemplates="True" UseJQuerySupport="True" />
+      <UserProperties UseJQuerySupport="True" UseAjaxifiedTemplates="True" />
     </VisualStudio>
   </ProjectExtensions>
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
