@@ -61,12 +61,12 @@ Public Class WizardDisplay
 
     Private Sub rwFintrac_PreRender(sender As Object, e As EventArgs) Handles rwFintrac.PreRender
 
-        rwFintrac.Height = (Session("globalClientHeight") * 0.75)
+        rwFintrac.Height = Unit.Pixel((Session("globalClientHeight") * 0.75))
 
         GetAll(Me, GetType(RadSplitter)).ToList.ForEach(
             Sub(c)
                 Dim ctrl As RadSplitter = c
-                ctrl.Height = (Session("globalClientHeight") * 0.55)
+                ctrl.Height = Unit.Pixel((Session("globalClientHeight") * 0.55))
             End Sub)
 
 
