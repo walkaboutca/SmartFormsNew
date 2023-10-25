@@ -233,11 +233,12 @@ Public Class FintracDashboard
         window_form.AutoSize = False
         window_form.Behaviors = WindowBehaviors.Move Or WindowBehaviors.Resize Or WindowBehaviors.Close Or WindowBehaviors.Maximize
         window_form.Height = ((Request.QueryString("clientHeight") * 0.9))
-        window_form.Width = ((Request.QueryString("clientWidth") * 0.6))
+        window_form.Width = ((Request.QueryString("clientWidth") * 0.8))
         window_form.VisibleStatusbar = False
 
         Dim urlargs As String = "?hashcode=" & formid & "&formid=" & origid & "&webkitid=" & webkitid & "&wheight=" & ((Request.QueryString("clientHeight") * 0.98))
-        window_form.NavigateUrl = "~/Web/pdfFintracViewer.aspx" & urlargs
+        'window_form.NavigateUrl = "~/Web/pdfFintracViewer.aspx" & urlargs
+        window_form.NavigateUrl = "~/Web/Controls/Web_Document.aspx" & urlargs
 
         Dim script As String = "function f(){$find(""" + window_form.ClientID + """).show(); Sys.Application.remove_load(f);}Sys.Application.add_load(f);"
         ScriptManager.RegisterStartupScript(Page, Page.GetType(), "key", script, True)
@@ -302,7 +303,7 @@ Public Class FintracDashboard
             window_form.VisibleStatusbar = False
 
             Dim urlargs As String = Nothing
-            window_form.NavigateUrl = "~/Web/Controls/web_NewWebKit.aspx" & urlargs
+            window_form.NavigateUrl = "~/Web/Controls/web_Document.aspx" & urlargs
 
             Dim script As String = "function f(){$find(""" + window_form.ClientID + """).show(); Sys.Application.remove_load(f);}Sys.Application.add_load(f);"
             ScriptManager.RegisterStartupScript(Page, Page.GetType(), "key", script, True)

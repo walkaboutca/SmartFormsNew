@@ -653,6 +653,8 @@
     <Content Include="Web\Controls\web_Document.aspx" />
     <Content Include="Web\Controls\web_NewWebKit.aspx" />
     <Content Include="Mobile\FakePhone.aspx" />
+    <Content Include="Web\Controls\wizard_885326974\uc_885326974_Step1.ascx" />
+    <Content Include="Web\Controls\wizard_885326974\uc_IIF_StepVerification.ascx" />
     <Content Include="Web\Controls\wz_236589754.aspx" />
     <Content Include="Web\Controls\wz_885326974.ascx" />
     <Content Include="Web\FintracWizard.aspx" />
@@ -1066,6 +1068,20 @@
       <DependentUpon>FakePhone.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
+    <Compile Include="Web\Controls\wizard_885326974\uc_885326974_Step1.ascx.designer.vb">
+      <DependentUpon>uc_885326974_Step1.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Web\Controls\wizard_885326974\uc_885326974_Step1.ascx.vb">
+      <DependentUpon>uc_885326974_Step1.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\Controls\wizard_885326974\uc_IIF_StepVerification.ascx.designer.vb">
+      <DependentUpon>uc_IIF_StepVerification.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Web\Controls\wizard_885326974\uc_IIF_StepVerification.ascx.vb">
+      <DependentUpon>uc_IIF_StepVerification.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="Web\Controls\wz_236589754.aspx.designer.vb">
       <DependentUpon>wz_236589754.aspx</DependentUpon>
     </Compile>
@@ -1256,7 +1272,7 @@
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
-      <UserProperties UseJQuerySupport="True" UseAjaxifiedTemplates="True" />
+      <UserProperties UseAjaxifiedTemplates="True" UseJQuerySupport="True" />
     </VisualStudio>
   </ProjectExtensions>
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
